@@ -17,3 +17,10 @@ func _ready():
 func _physics_process(delta):
 	$".".look_at(get_viewport().get_mouse_position())
 	$".".rotation_degrees += 180
+	
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed:
+			$HookItem.shoot(event.position - get_viewport().size * 0.5)
+		else:
+			$HookItem.release()
