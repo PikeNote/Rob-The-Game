@@ -6,7 +6,7 @@ onready var links = $Link
 var direction := Vector2(0,0)
 var tip := Vector2(0,0)
 
-const SPEED = 50
+const SPEED = 2
 
 var flying = false
 var itemHooked = false
