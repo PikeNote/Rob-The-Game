@@ -1,12 +1,25 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/Main_Characters (1).png" type="Texture" id=1]
+[ext_resource path="res://Assets/Rob.PNG" type="Texture" id=1]
 [ext_resource path="res://Screens/Player.gd" type="Script" id=2]
+[ext_resource path="res://Assets/EasyTrack.PNG" type="Texture" id=4]
+[ext_resource path="res://Presets/Chain.tscn" type="PackedScene" id=5]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Rob" type="Sprite" parent="."]
-position = Vector2( 536, 290 )
-scale = Vector2( 0.238889, 0.225106 )
+position = Vector2( 514, 291 )
+scale = Vector2( 0.104045, 0.107734 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
+
+[node name="Chain" parent="Rob" instance=ExtResource( 5 )]
+position = Vector2( -9.61157, -0.000244141 )
+scale = Vector2( 7.08641, 8.60871 )
+z_index = -1
+
+[node name="EasyTrack" type="Sprite" parent="."]
+position = Vector2( 513.75, 304.25 )
+scale = Vector2( 0.532833, 0.567214 )
+z_index = -2
+texture = ExtResource( 4 )

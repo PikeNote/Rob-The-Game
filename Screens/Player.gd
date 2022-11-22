@@ -15,7 +15,13 @@ func _ready():
 #func _process(delta):
 #	pass
 func _physics_process(delta):
-	$".".look_at(get_viewport().get_mouse_position())
-	$".".rotation_degrees += 180
+	if(not $Chain.visible):
+		$".".look_at(get_viewport().get_mouse_position())
+		$".".rotation_degrees -= 90
 	
-#func _input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed:
+			$Chain.shoot(event.position - get_viewport().size * 0.5)
+		else:
+			$Chain.release()
