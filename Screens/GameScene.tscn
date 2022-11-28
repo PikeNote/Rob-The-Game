@@ -6,7 +6,8 @@
 [ext_resource path="res://Presets/Chain.tscn" type="PackedScene" id=5]
 
 [node name="Node2D" type="Node2D"]
-scale = Vector2( 1.87076, 1.77249 )
+position = Vector2( -3, 3 )
+scale = Vector2( 1.87746, 1.76706 )
 
 [node name="Rob" type="Sprite" parent="."]
 position = Vector2( 514, 291 )

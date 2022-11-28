@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Presets/Chain.gd" type="Script" id=1]
-[ext_resource path="res://Assets/rope.PNG" type="Texture" id=2]
+[ext_resource path="res://Assets/ropeSmaller (1).png" type="Texture" id=2]
 [ext_resource path="res://Assets/lasso.PNG" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -9,24 +9,27 @@ radius = 4.61143
 height = 8.80657
 
 [node name="Chain" type="Node2D"]
+scale = Vector2( 1, 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 
 [node name="Links" type="Sprite" parent="."]
+position = Vector2( -4, 3 )
+scale = Vector2( 0.717482, 0.688491 )
 texture = ExtResource( 2 )
 centered = false
 offset = Vector2( -8, 14 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 17, 360 )
+region_rect = Rect2( 0, 0, 28, 1000 )
 
 [node name="Tip" type="KinematicBody2D" parent="."]
 collision_layer = 4
 
 [node name="Hook" type="Sprite" parent="Tip"]
-position = Vector2( 0, -16 )
-scale = Vector2( 0.392123, 0.399473 )
+position = Vector2( 0, -22 )
+scale = Vector2( 0.472123, 0.479473 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, 8 )
 
