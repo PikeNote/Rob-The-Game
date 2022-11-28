@@ -22,6 +22,12 @@ func _physics_process(delta):
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
+<<<<<<< HEAD
 			$Chain.shoot(event.position - get_viewport().size * 0.5)
 		else:
 			$Chain.release()
+=======
+			$HookItem.shoot(event.position - get_viewport().size * 0.5)
+		else:
+			$HookItem.release()
+>>>>>>> 42d39375648265a7198018b6e6cde5a1a2c75acb
