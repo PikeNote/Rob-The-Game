@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Rob.PNG-7f4c16704fad3e167d941e4363cf51c3.stex"
+path="res://.import/Letter_V.png-c6c02b6a24a2a1a0eb8ef038cb2eaf01.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Rob.PNG"
-dest_files=[ "res://.import/Rob.PNG-7f4c16704fad3e167d941e4363cf51c3.stex" ]
+source_file="res://Assets/Letters/Letter_V.png"
+dest_files=[ "res://.import/Letter_V.png-c6c02b6a24a2a1a0eb8ef038cb2eaf01.stex" ]
 
 [params]
 
