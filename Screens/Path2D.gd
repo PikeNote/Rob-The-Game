@@ -1,23 +1,19 @@
-extends PathFollow2D
+extends Path2D
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var speed = 200;
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var letter = load("res://Presets/Letters.tscn").instance()
+	add_child(letter);
+	letter._changeLetter("z");
 	pass # Replace with function body.
 
-func _changeLetter(a):
-	$Letter.texture = load("res://Assets//Letters//Letter_"+a+".png")
 
-func _physics_process(delta):
-	#offset+=speed;
-	offset = offset + speed * delta
-	rotation = 0;
-	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

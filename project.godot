@@ -9,12 +9,30 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Line2D",
+"class": "AntialiasedLine2D",
+"language": "GDScript",
+"path": "res://addons/antialiased_line2d/antialiased_line2d.gd"
+}, {
+"base": "Polygon2D",
+"class": "AntialiasedPolygon2D",
+"language": "GDScript",
+"path": "res://addons/antialiased_line2d/antialiased_polygon2d.gd"
+}, {
+"base": "Polygon2D",
+"class": "AntialiasedRegularPolygon2D",
+"language": "GDScript",
+"path": "res://addons/antialiased_line2d/antialiased_regular_polygon2d.gd"
+}, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
 } ]
 _global_script_class_icons={
+"AntialiasedLine2D": "res://addons/antialiased_line2d/antialiased_line2d.svg",
+"AntialiasedPolygon2D": "res://addons/antialiased_line2d/antialiased_polygon2d.svg",
+"AntialiasedRegularPolygon2D": "res://addons/antialiased_line2d/antialiased_regular_polygon2d.svg",
 "GitAPI": ""
 }
 
@@ -23,6 +41,10 @@ _global_script_class_icons={
 config/name="Game Fbla"
 run/main_scene="res://Screens/MainScene.tscn"
 config/icon="res://Assets/icon.png"
+
+[autoload]
+
+AntialiasedLine2DTexture="*res://addons/antialiased_line2d/texture.gd"
 
 [display]
 
@@ -35,6 +57,10 @@ window/stretch/aspect="keep"
 
 version_control_autoload_on_startup=true
 version_control_plugin_name="GitAPI"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/antialiased_line2d/plugin.cfg" )
 
 [gui]
 
