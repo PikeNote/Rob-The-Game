@@ -17,7 +17,7 @@ font_data = ExtResource( 2 )
 texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 922, 1200 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="Control" type="Control" parent="."]
 margin_right = 1026.0

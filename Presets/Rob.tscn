@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Presets/Chain.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Rob.PNG" type="Texture" id=2]
+[ext_resource path="res://Screens/Player.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 33.2498
+
+[node name="RobCollider" type="KinematicBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 1, 1 )
+z_index = 1
+z_as_relative = false
+shape = SubResource( 1 )
+
+[node name="Rob" type="Sprite" parent="."]
+scale = Vector2( 0.104045, 0.107734 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Chain" parent="Rob" instance=ExtResource( 1 )]
+scale = Vector2( 6.73358, 7.09332 )
+z_index = -1
