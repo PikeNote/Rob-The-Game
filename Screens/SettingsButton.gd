@@ -1,5 +1,7 @@
 extends Button
 
+onready var _spm = $"../../SettingsPopupMenu"
+
 func _on_Button_pressed():
-	get_tree().change_scene("res://Screens/SettingsScene.tscn")
+	_spm.popup()
 	
