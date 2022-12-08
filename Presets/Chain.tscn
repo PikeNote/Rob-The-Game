@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Presets/Chain.gd" type="Script" id=1]
 [ext_resource path="res://Assets/ropeSmaller (1).png" type="Texture" id=2]
-[ext_resource path="res://Assets/lasso.PNG" type="Texture" id=3]
+[ext_resource path="res://Assets/newerLasso_50_1_50_3_60.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Letters/Letter_A.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -25,12 +26,18 @@ region_rect = Rect2( 0, 0, 28, 1000 )
 collision_layer = 4
 
 [node name="Hook" type="Sprite" parent="Tip"]
-position = Vector2( 0, -22 )
-scale = Vector2( 0.472123, 0.479473 )
+position = Vector2( 3, -35 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tip"]
-position = Vector2( -1, -24 )
-scale = Vector2( 3.52, 3.56 )
+position = Vector2( -1, -38 )
+scale = Vector2( 5.03955, 4.86518 )
 shape = SubResource( 1 )
+
+[node name="Letter" type="Sprite" parent="Tip"]
+visible = false
+position = Vector2( -1, -37 )
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 4 )

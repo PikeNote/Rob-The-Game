@@ -18,14 +18,17 @@ var hooked = false	# Whether the chain has connected to a wall
 
 # shoot() shoots the chain in a given direction
 func shoot(dir: Vector2) -> void:
-	direction = dir.normalized()	# Normalize the direction and save it
-	flying = true					# Keep track of our current scan
-	tip = self.global_position		# reset the tip position to the player's position
+	if(!hooked):
+		$"../../CollisionShape2D".disabled=true;
+		direction = dir.normalized()	# Normalize the direction and save it
+		flying = true					# Keep track of our current scan
+		tip = self.global_position		# reset the tip position to the player's position
 
 # release() the chain
 func release() -> void:
-	flying = false	# Not flying anymore	
-	hooked = false	# Not attached anymore
+	if(!hooked):
+		flying = false	# Not flying anymore	
+		hooked = false	# Not attached anymore
 
 # Every graphics frame we update the visuals
 func _process(_delta: float) -> void:
@@ -42,9 +45,25 @@ func _process(_delta: float) -> void:
 # Every physics frame we update the tip position
 func _physics_process(_delta: float) -> void:
 	$Tip.global_position = tip	# The player might have moved and thus updated the position of the tip -> reset it
-	if flying:
+	if flying || hooked:
 		# `if move__andcollide()` always moves, but returns true if we did collide
-		if $Tip.move_and_collide(direction * SPEED):
-			hooked = true	# Got something!
-			flying = false	# Not flying anymore
+		var collision;
+		if(hooked):
+			
+			collision = $Tip.move_and_collide(direction * SPEED * -1);
+		else:
+			collision = $Tip.move_and_collide(direction * SPEED);
+		if collision:
+			if(collision.collider.name=="LetterKin"):
+				hooked = true	# Got something!
+				flying = false	# Not flying anymore
+				$Tip/Letter.texture=collision.collider.getLetter();
+				$Tip/Letter.visible=true;
+				collision.collider.get_parent().queue_free();
+				$"../../CollisionShape2D".disabled=false;
+			elif (collision.collider.name=="RobCollider" && hooked):
+				hooked = false;
+				$Tip/Letter.visible=false;
+			else:
+				release()
 	tip = $Tip.global_position	# set `tip` as starting position for next frame
