@@ -17,7 +17,8 @@ func _physics_process(delta):
 	#offset+=speed;
 	offset = offset + speed * delta
 	rotation = 0;
-	if(offset >= 1):
+	
+	if(offset >= 1840):
 		queue_free();
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.

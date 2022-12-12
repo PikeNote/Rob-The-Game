@@ -11,7 +11,8 @@ func _ready():
 	var letter = load("res://Presets/Letters.tscn").instance()
 	add_child(letter);
 	letter._changeLetter("z");
-	pass # Replace with function body.
+	print("added");
+	 # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
