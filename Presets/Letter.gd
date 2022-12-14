@@ -5,6 +5,7 @@ extends PathFollow2D
 # var a = 2
 # var b = "text"
 var speed = 200;
+var letter;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,6 +13,10 @@ func _ready():
 
 func _changeLetter(a):
 	$LetterKin/Letter.texture = load("res://Assets//Letters//Letter_"+a+".png")
+	letter = a;
+
+func _getLetter():
+	return letter;
 
 func _physics_process(delta):
 	#offset+=speed;
@@ -21,6 +26,7 @@ func _physics_process(delta):
 	if(offset >= 1840):
 		queue_free();
 	pass
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

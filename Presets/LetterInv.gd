@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Label
 
 
 # Declare member variables here. Examples:
@@ -10,11 +10,10 @@ extends KinematicBody2D
 func _ready():
 	pass # Replace with function body.
 
-func getLetter():
-	return $Letter.texture
+func _changeLetter(a):
+	$LetterKin/Letter.texture = load("res://Assets//Letters//Letter_"+a+".png");
+	
 
-func getLetterText():
-	return $Letter._getLetter();
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

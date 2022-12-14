@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends GridContainer
 
 
 # Declare member variables here. Examples:
@@ -10,11 +10,7 @@ extends KinematicBody2D
 func _ready():
 	pass # Replace with function body.
 
-func getLetter():
-	return $Letter.texture
 
-func getLetterText():
-	return $Letter._getLetter();
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

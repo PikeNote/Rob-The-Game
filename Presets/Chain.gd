@@ -9,7 +9,8 @@ var tip := Vector2(0,0)			# The global position the tip should be in
 								# We use an extra var for this, because the chain is 
 								# connected to the player and thus all .position
 								# properties would get messed with when the player
-								# moves.
+								# moves
+var currentLetter;
 
 const SPEED = 20	# The speed with which the chain moves
 
@@ -57,6 +58,7 @@ func _physics_process(_delta: float) -> void:
 			if(collision.collider.name=="LetterKin"):
 				hooked = true	# Got something!
 				flying = false	# Not flying anymore
+				currentLetter = collision.collider.getLetterText();
 				$Tip/Letter.texture=collision.collider.getLetter();
 				$Tip/Letter.visible=true;
 				collision.collider.get_parent().queue_free();
