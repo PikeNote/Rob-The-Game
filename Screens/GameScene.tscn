@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Inventory_Slots.PNG" type="Texture" id=1]
 [ext_resource path="res://Assets/light.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Assets/Easy_Track_n.png" type="Texture" id=5]
 [ext_resource path="res://Screens/Path2D.gd" type="Script" id=6]
 [ext_resource path="res://Presets/Rob.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Fonts/Catcafe-v5yM.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Screens/GridContainer.gd" type="Script" id=9]
 
 [sub_resource type="Image" id=7]
@@ -33,10 +32,6 @@ extents = Vector2( 523.786, 10 )
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -42.6108, 608.355, 0, 0, 0, 0, 319.581, 367.277, 0, 0, 0, 0, 308.928, 301.631, 0, 0, 0, 0, 315.852, 253.528, 0, 0, 0, 0, 329.701, 215.612, 0, 0, 0, 0, 353.137, 174.867, 0, 0, 0, 0, 382.964, 144.873, 0, 0, 0, 0, 417.585, 120.539, 0, 0, 0, 0, 458.066, 105.26, 0, 0, 0, 0, 488.426, 96.7709, 0, 0, 0, 0, 524.645, 94.5073, 0, 0, 0, 0, 555.538, 100.166, 0, 0, 0, 0, 594.953, 109.221, 0, 0, 0, 0, 633.302, 129.594, 0, 0, 0, 0, 666.326, 157.889, 0, 0, 0, 0, 686.566, 183.921, 0, 0, 0, 0, 706.806, 221.271, 0, 0, 0, 0, 716.393, 255.226, 0, 0, 0, 0, 721.72, 297.104, 0, 0, 0, 0, 715.328, 348.036, 0, 0, 0, 0, 706.806, 380.859, 0, 0, 0, 0, 689.762, 412.55, 0, 0, 0, 0, 678.044, 426.132, 0, 0, 0, 0, 652.477, 452.163, 0, 0, 0, 0, 621.584, 473.668, 0, 0, 0, 0, 582.169, 488.382, 0, 0, 0, 0, 537.428, 499.7, 0, 0, 0, 0, 499.079, 497.436, 0, 0, 0, 0, 453.272, 494.041, 0, 0, 0, 0, 421.314, 479.327, 0, 0, 0, 0, 391.486, 463.482, 0, 0, 0, 0, 302.004, 681.358 )
 }
-
-[sub_resource type="DynamicFont" id=8]
-size = 36
-font_data = ExtResource( 8 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( -3, 3 )
@@ -136,62 +131,11 @@ __meta__ = {
 color = Color( 0.627451, 0.678431, 0.635294, 1 )
 
 [node name="GridContainer" type="GridContainer" parent="."]
-margin_left = 784.0
-margin_top = 164.0
-margin_right = 1001.0
-margin_bottom = 481.0
+margin_left = 784.532
+margin_top = 163.434
+margin_right = 995.532
+margin_bottom = 480.434
 custom_constants/vseparation = 6
-custom_constants/hseparation = 5
+custom_constants/hseparation = 6
 columns = 3
 script = ExtResource( 9 )
-
-[node name="CenterContainer" type="CenterContainer" parent="GridContainer"]
-margin_right = 69.0
-margin_bottom = 42.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 69, 42 )
-rect_clip_content = true
-
-[node name="Label" type="Label" parent="GridContainer/CenterContainer"]
-margin_left = 23.0
-margin_right = 45.0
-margin_bottom = 42.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 2
-size_flags_vertical = 2
-custom_fonts/font = SubResource( 8 )
-text = "A"
-align = 1
-valign = 1
-
-[node name="Label2" type="Label" parent="GridContainer"]
-margin_left = 74.0
-margin_right = 143.0
-margin_bottom = 42.0
-rect_min_size = Vector2( 69, 42 )
-custom_fonts/font = SubResource( 8 )
-text = "A"
-align = 1
-valign = 1
-
-[node name="Label3" type="Label" parent="GridContainer"]
-margin_left = 148.0
-margin_right = 217.0
-margin_bottom = 42.0
-rect_min_size = Vector2( 69, 42 )
-custom_fonts/font = SubResource( 8 )
-text = "A"
-align = 1
-valign = 1
-
-[node name="Label4" type="Label" parent="GridContainer"]
-margin_top = 48.0
-margin_right = 69.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 69, 42 )
-custom_fonts/font = SubResource( 8 )
-text = "A"
-align = 1
-valign = 1
