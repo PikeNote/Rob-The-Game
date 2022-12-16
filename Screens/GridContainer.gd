@@ -17,7 +17,9 @@ func _addLetter(l):
 	letter._changeLetter(l);
 	print("added");
 	inv.append(l);
-	
+
+func _invCount():
+	return inv.size();
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

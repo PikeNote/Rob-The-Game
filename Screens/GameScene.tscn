@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Easy_Track_n.png" type="Texture" id=5]
 [ext_resource path="res://Screens/Path2D.gd" type="Script" id=6]
 [ext_resource path="res://Presets/Rob.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Presets/LetterInv.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Leaf.PNG" type="Texture" id=8]
 [ext_resource path="res://Screens/GridContainer.gd" type="Script" id=9]
 
 [sub_resource type="Image" id=7]
@@ -86,25 +86,22 @@ texture = ExtResource( 1 )
 
 [node name="GridContainer" type="GridContainer" parent="InventorySlots"]
 margin_left = -207.935
-margin_top = -233.132
+margin_top = -234.264
 margin_right = 214.065
-margin_bottom = 405.868
-custom_constants/vseparation = 6
-custom_constants/hseparation = 6
+margin_bottom = 404.736
+custom_constants/vseparation = 14
+custom_constants/hseparation = 5
 columns = 4
 script = ExtResource( 9 )
-
-[node name="LetterInv2" parent="InventorySlots/GridContainer" instance=ExtResource( 8 )]
-rect_scale = Vector2( 1, 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 520.917, 289.747 )
 scale = Vector2( 3.53034, 2.1727 )
 z_index = 1
 texture = ExtResource( 2 )
-texture_scale = 0.7
+texture_scale = 1.61
 color = Color( 0.0862745, 0.0823529, 0.0823529, 1 )
-energy = 4.32
+energy = 5.29
 range_height = 206.8
 __meta__ = {
 "_edit_lock_": true
@@ -124,3 +121,13 @@ scale = Vector2( 1.87746, 1.76706 )
 z_index = 3
 curve = SubResource( 3 )
 script = ExtResource( 6 )
+
+[node name="Particles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 282.829, 121.105 )
+amount = 50
+texture = ExtResource( 8 )
+emission_shape = 2
+emission_rect_extents = Vector2( 450, 1080 )
+gravity = Vector2( 125, 98 )
+initial_velocity = 1000.0
+scale_amount = 0.05
