@@ -8,8 +8,8 @@ extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_scale(Vector2(0,0));
-	print("Scale set");
+	$".".rect_scale = Vector2(0,0)
+	
 	pass # Replace with function body.
 
 func _changeLetter(a):
@@ -19,6 +19,6 @@ func _on_Press():
 	pass;
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(get_scale().x);
+	
 	if(get_scale().x < 1):
-		set_scale(Vector2(get_scale().x+0.01,get_scale().x+0.01));
+		$".".rect_scale = Vector2(rect_scale.x + 0.0001, rect_scale.y+0.001);

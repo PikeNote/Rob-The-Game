@@ -63,10 +63,8 @@ func _physics_process(_delta: float) -> void:
 				$Tip/Letter.visible=true;
 				collision.collider.get_parent().queue_free();
 				$"../../CollisionShape2D".disabled=false;
-				print(get_tree().root.get_child(1).get_children());
-				print(get_tree().root.get_child(0).get_children())
-				get_tree().root.get_child(1).get_node("InventorySlots/GridContainer")._addLetter(currentLetter);
 			elif (collision.collider.name=="RobCollider" && hooked):
+				get_tree().root.get_child(1).get_node("InventorySlots/GridContainer")._addLetter(currentLetter);
 				hooked = false;
 				$Tip/Letter.visible=false;
 			else:

@@ -14,9 +14,8 @@ func _ready():
 func _addLetter(l):
 	var letter = load("res://Presets/LetterInv.tscn").instance()
 	add_child(letter);
-	letter._changeLetter("l");
+	letter._changeLetter(l);
 	print("added");
-	add_child(letter)
 	inv.append(l);
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
