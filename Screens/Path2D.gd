@@ -8,10 +8,7 @@ extends Path2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var letter = load("res://Presets/Letters.tscn").instance()
-	add_child(letter);
-	letter._changeLetter("z");
-	print("added");
+	pass
 	 # Replace with function body.
 
 

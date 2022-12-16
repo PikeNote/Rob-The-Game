@@ -23,7 +23,7 @@ func _physics_process(delta):
 	offset = offset + speed * delta
 	rotation = 0;
 	
-	if(offset >= 1840):
+	if(unit_offset >= 1):
 		queue_free();
 	pass
 
