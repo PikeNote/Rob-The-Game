@@ -10,11 +10,9 @@ extends KinematicBody2D
 func _ready():
 	pass # Replace with function body.
 
-func getLetter():
-	return $Letter.texture
+func _addLetter(letter):
+	$"../GridContainer"._addLetter(letter);
 
-func getLetterText():
-	return get_parent()._getLetter();
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
