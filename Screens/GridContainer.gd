@@ -12,10 +12,9 @@ func _ready():
 	pass # Replace with function body.
 
 func _addLetter(l):
-	var letter = load("res://Presets/LetterInv.tscn").instance()
+	var letter = load("res://Presets/Letter Stuff/LetterInv.tscn").instance()
 	add_child(letter);
 	letter._changeLetter(l);
-	print("added");
 	inv.append(l);
 
 func _invCount():

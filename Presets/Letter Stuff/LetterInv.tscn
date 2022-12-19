@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Presets/Letter Stuff/LetterInv.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Presets/Letter Stuff/LetterInv.gd" type="Script" id=2]
+
+[node name="LetterInv" type="Button"]
+margin_right = 102.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 102, 120 )
+rect_pivot_offset = Vector2( 54, 60 )
+custom_colors/font_color_hover = Color( 0.380392, 0.380392, 0.380392, 1 )
+flat = true
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 102.0
+margin_bottom = 123.0
+rect_min_size = Vector2( 102, 120 )
+rect_pivot_offset = Vector2( 54, 60 )
+custom_fonts/font = ExtResource( 1 )
+text = "A"
+align = 1
+valign = 1

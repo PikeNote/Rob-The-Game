@@ -14,7 +14,7 @@ func _ready():
 
 
 func _spawn_letter():
-	var letter = load("res://Presets/Letters.tscn").instance()
+	var letter = load("res://Presets/Letter Stuff/Letters.tscn").instance()
 	$Path2D.add_child(letter);
 	letter._changeLetter(letters[randi()% len(letters)]);
 
