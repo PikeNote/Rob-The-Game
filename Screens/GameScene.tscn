@@ -146,9 +146,14 @@ mouse_filter = 1
 script = ExtResource( 11 )
 rows = 10
 horizontal_fill_direction = 0
+horizontal_separation = 8.0
+update_time = 0.5
 update_ease = 1
 
 [node name="InventorySlotBox" parent="AnimatedGridContainer" instance=ExtResource( 10 )]
-margin_left = 650.0
+margin_left = 585.0
 margin_right = 662.0
-margin_bottom = 20.0
+
+[node name="InventorySlotBox3" parent="AnimatedGridContainer" instance=ExtResource( 10 )]
+margin_left = 500.0
+margin_right = 577.0
