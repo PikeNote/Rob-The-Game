@@ -20,6 +20,8 @@ func _on_Press():
 		pressed_before = true;
 		currentLetter = load("res://Presets/Letter Stuff/LetterSpell.tscn").instance()
 		$"../../../AnimatedGridContainer".add_child(currentLetter);
+		$"../../../AnimatedGridContainer".move_child(currentLetter, 0);
+		
 		currentLetter._changeLetter($"Label".text)
 		currentLetter._setLink($".");
 		
@@ -28,10 +30,13 @@ func _on_Press():
 			word+=invSlot._getLetter();
 		word = word.to_lower();
 		
+		"""
 		if(Words._checkWord(word)):
+			print('test')
 			# add points or smth
 			GarbageCollector._clearSpell($"../../../AnimatedGridContainer");
 			pass;
+		"""
 	else:
 		currentLetter.queue_free();
 		currentLetter = null;

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Presets/Chain.gd" type="Script" id=1]
 [ext_resource path="res://Assets/ropeSmaller (1).png" type="Texture" id=2]
-[ext_resource path="res://Assets/newerLasso_50_1_50_3_60.png" type="Texture" id=3]
+[ext_resource path="res://Assets/the_lasso.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Letters/Letter_A.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -27,7 +27,7 @@ collision_layer = 4
 
 [node name="Hook" type="Sprite" parent="Tip"]
 position = Vector2( 3, -35 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.07, 0.07 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, 8 )
 

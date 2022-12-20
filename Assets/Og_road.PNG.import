@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Rob.PNG-7f4c16704fad3e167d941e4363cf51c3.stex"
+path="res://.import/Og_road.PNG-eb6a71b84c2f8277dddb1f1be2efdf05.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Rob.PNG"
-dest_files=[ "res://.import/Rob.PNG-7f4c16704fad3e167d941e4363cf51c3.stex" ]
+source_file="res://Assets/Og_road.PNG"
+dest_files=[ "res://.import/Og_road.PNG-eb6a71b84c2f8277dddb1f1be2efdf05.stex" ]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Inventory_Slot.PNG" type="Texture" id=1]
 [ext_resource path="res://Assets/light.png" type="Texture" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Presets/Rob.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Leaf.PNG" type="Texture" id=8]
 [ext_resource path="res://addons/animated_grid_container_plugin/animated_grid_container.gd" type="Script" id=11]
-[ext_resource path="res://Presets/Letter Stuff/LetterInv.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Screens/InventorySlots.gd" type="Script" id=13]
 
 [sub_resource type="Image" id=7]
@@ -100,46 +99,6 @@ horizontal_separation = 4.5
 vertical_separation = 14.0
 update_time = 0.5
 update_ease = 1
-
-[node name="LetterInv" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
-
-[node name="LetterInv2" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
-margin_left = 106.5
-margin_right = 208.5
-
-[node name="LetterInv3" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
-margin_left = 213.0
-margin_right = 315.0
-
-[node name="LetterInv4" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
-margin_left = 319.5
-margin_right = 421.5
-
-[node name="LetterInv5" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
-margin_top = 134.0
-margin_bottom = 254.0
-
-[node name="LetterInv6" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
-margin_left = 106.5
-margin_top = 134.0
-margin_right = 208.5
-margin_bottom = 254.0
-
-[node name="LetterInv7" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
-margin_left = 213.0
-margin_top = 134.0
-margin_right = 315.0
-margin_bottom = 254.0
-
-[node name="LetterInv8" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
-margin_left = 319.5
-margin_top = 134.0
-margin_right = 421.5
-margin_bottom = 254.0
-
-[node name="LetterInv9" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
-margin_top = 268.0
-margin_bottom = 388.0
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 520.917, 289.747 )
