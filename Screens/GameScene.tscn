@@ -8,9 +8,9 @@
 [ext_resource path="res://Screens/Path2D.gd" type="Script" id=6]
 [ext_resource path="res://Presets/Rob.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Leaf.PNG" type="Texture" id=8]
-[ext_resource path="res://Screens/GridContainer.gd" type="Script" id=9]
-[ext_resource path="res://Presets/Letter Stuff/LetterSpell.tscn" type="PackedScene" id=10]
 [ext_resource path="res://addons/animated_grid_container_plugin/animated_grid_container.gd" type="Script" id=11]
+[ext_resource path="res://Presets/Letter Stuff/LetterInv.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Screens/InventorySlots.gd" type="Script" id=13]
 
 [sub_resource type="Image" id=7]
 data = {
@@ -86,16 +86,60 @@ position = Vector2( 888.434, 271.638 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 5
 texture = ExtResource( 1 )
+script = ExtResource( 13 )
 
-[node name="GridContainer" type="GridContainer" parent="InventorySlots"]
+[node name="AnimatedGridContainer" type="Container" parent="InventorySlots"]
 margin_left = -207.935
 margin_top = -234.264
 margin_right = 214.065
 margin_bottom = 404.736
-custom_constants/vseparation = 14
-custom_constants/hseparation = 5
-columns = 4
-script = ExtResource( 9 )
+mouse_filter = 1
+script = ExtResource( 11 )
+rows = 4
+horizontal_separation = 4.5
+vertical_separation = 14.0
+update_time = 0.5
+update_ease = 1
+
+[node name="LetterInv" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
+
+[node name="LetterInv2" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
+margin_left = 106.5
+margin_right = 208.5
+
+[node name="LetterInv3" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
+margin_left = 213.0
+margin_right = 315.0
+
+[node name="LetterInv4" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
+margin_left = 319.5
+margin_right = 421.5
+
+[node name="LetterInv5" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
+margin_top = 134.0
+margin_bottom = 254.0
+
+[node name="LetterInv6" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
+margin_left = 106.5
+margin_top = 134.0
+margin_right = 208.5
+margin_bottom = 254.0
+
+[node name="LetterInv7" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
+margin_left = 213.0
+margin_top = 134.0
+margin_right = 315.0
+margin_bottom = 254.0
+
+[node name="LetterInv8" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
+margin_left = 319.5
+margin_top = 134.0
+margin_right = 421.5
+margin_bottom = 254.0
+
+[node name="LetterInv9" parent="InventorySlots/AnimatedGridContainer" instance=ExtResource( 12 )]
+margin_top = 268.0
+margin_bottom = 388.0
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 520.917, 289.747 )
@@ -149,11 +193,3 @@ horizontal_fill_direction = 0
 horizontal_separation = 8.0
 update_time = 0.5
 update_ease = 1
-
-[node name="InventorySlotBox" parent="AnimatedGridContainer" instance=ExtResource( 10 )]
-margin_left = 585.0
-margin_right = 662.0
-
-[node name="InventorySlotBox3" parent="AnimatedGridContainer" instance=ExtResource( 10 )]
-margin_left = 500.0
-margin_right = 577.0

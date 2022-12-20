@@ -39,6 +39,8 @@ config/icon="res://Assets/icon.png"
 [autoload]
 
 AntialiasedLine2DTexture="*res://addons/antialiased_line2d/texture.gd"
+Words="*res://Global Stuff/words.gd"
+GarbageCollector="*res://Global Stuff/GarbageCollector.gd"
 
 [display]
 

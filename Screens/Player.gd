@@ -19,8 +19,8 @@ func _physics_process(delta):
 		$".".look_at(get_viewport().get_mouse_position())
 		$".".rotation_degrees -= 90
 	
-func _input(event: InputEvent) -> void:
-	if (event is InputEventMouseButton && get_tree().root.get_child(1).get_node("InventorySlots/GridContainer")._invCount()<16):
+func _unhandled_input(event: InputEvent) -> void:
+	if (event is InputEventMouseButton && get_tree().root.get_child(3).get_node("InventorySlots")._invCount()<16):
 		if event.pressed:
 			$Chain.shoot(event.position - get_viewport().size * 0.5)
 		else:
