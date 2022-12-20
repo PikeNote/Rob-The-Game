@@ -7,17 +7,14 @@
 [ext_resource path="res://Music/the-cradle-of-your-soul-15700.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Screens/AudioStreamPlayer.gd" type="Script" id=6]
 [ext_resource path="res://Screens/SettingsButton.gd" type="Script" id=7]
-[ext_resource path="res://Assets/DEiWpgGXgAQVP4j.jpg" type="Texture" id=8]
-[ext_resource path="res://Assets/x_icon.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Exit Button.png" type="Texture" id=8]
+[ext_resource path="res://Assets/settingsMenuStyleBoxTest.tres" type="StyleBox" id=10]
+
+[sub_resource type="Theme" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 250
 font_data = ExtResource( 2 )
-
-[sub_resource type="StyleBoxTexture" id=2]
-texture = ExtResource( 8 )
-region_rect = Rect2( 0, 0, 922, 1200 )
-expand_margin_top = 50.0
 
 [node name="Node2D2" type="Node2D"]
 
@@ -29,6 +26,8 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
+anchor_left = 0.00682261
+anchor_right = 0.00682261
 margin_right = 1940.0
 margin_bottom = 1098.0
 texture = ExtResource( 1 )
@@ -90,12 +89,14 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="PlayButton" type="Button" parent="Control/VBoxContainer"]
-light_mask = 513
+[node name="PlayButton2" type="Button" parent="Control/VBoxContainer"]
 margin_right = 394.0
 margin_bottom = 63.0
+rect_min_size = Vector2( 50, 50 )
+theme = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_constants/hseparation = 0
+custom_colors/font_color_hover = Color( 1, 0.819608, 0.545098, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.819608, 0.545098, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "Play"
 flat = true
@@ -107,6 +108,8 @@ margin_top = 179.0
 margin_right = 394.0
 margin_bottom = 242.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.819608, 0.545098, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.819608, 0.545098, 1 )
 custom_constants/hseparation = 0
 custom_fonts/font = ExtResource( 3 )
 text = "Settings"
@@ -119,6 +122,8 @@ margin_top = 358.0
 margin_right = 394.0
 margin_bottom = 421.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.819608, 0.545098, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.819608, 0.545098, 1 )
 custom_constants/hseparation = 0
 custom_fonts/font = ExtResource( 3 )
 text = "Tutorial"
@@ -131,6 +136,8 @@ margin_top = 537.0
 margin_right = 394.0
 margin_bottom = 600.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.819608, 0.545098, 1 )
+custom_colors/font_color_pressed = Color( 1, 0.819608, 0.545098, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "Leaderboard"
 flat = true
@@ -183,16 +190,40 @@ margin_bottom = 1033.0
 custom_colors/title_color = Color( 0, 0, 0, 1 )
 custom_constants/title_height = -100
 custom_fonts/title_font = ExtResource( 3 )
-custom_icons/close_highlight = ExtResource( 9 )
-custom_icons/close = ExtResource( 9 )
-custom_styles/panel = SubResource( 2 )
+custom_icons/close_highlight = ExtResource( 8 )
+custom_icons/close = ExtResource( 8 )
+custom_styles/panel = ExtResource( 10 )
 window_title = "THERE ARE NO SETTINGS"
 
-[node name="SettingsPanel" type="PopupPanel" parent="Control/SettingsPopupMenu"]
-margin_right = 8.0
-margin_bottom = 8.0
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/SettingsPopupMenu"]
+visible = false
+margin_top = -50.0
+margin_right = 1638.0
+margin_bottom = 1050.0
+rect_min_size = Vector2( 100, 100 )
+custom_constants/separation = 0
 
-[connection signal="pressed" from="Control/VBoxContainer/PlayButton" to="Control/VBoxContainer/PlayButton" method="_on_Button_pressed"]
+[node name="Panel" type="Panel" parent="Control/SettingsPopupMenu/VBoxContainer3"]
+margin_right = 1638.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 50, 100 )
+custom_styles/panel = ExtResource( 10 )
+
+[node name="Panel2" type="Panel" parent="Control/SettingsPopupMenu/VBoxContainer3"]
+margin_top = 100.0
+margin_right = 1638.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 50, 100 )
+custom_styles/panel = ExtResource( 10 )
+
+[node name="ColorRect2" type="ColorRect" parent="Control/SettingsPopupMenu/VBoxContainer3"]
+margin_top = 200.0
+margin_right = 1638.0
+margin_bottom = 1100.0
+rect_min_size = Vector2( 50, 900 )
+color = Color( 0.886275, 0.45098, 0.317647, 1 )
+
+[connection signal="pressed" from="Control/VBoxContainer/PlayButton2" to="Control/VBoxContainer/PlayButton2" method="_on_PlayButton2_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/SettingsButton" to="Control/VBoxContainer/SettingsButton" method="_on_Button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/TutorialButton" to="Control/VBoxContainer/TutorialButton" method="_on_Button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/LeaderboardButton" to="Control/VBoxContainer/LeaderboardButton" method="_on_Button_pressed"]
