@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/animated_grid_container_plugin/animated_grid_container.gd" type="Script" id=1]
+
+[node name="AnimatedGridContainer" type="Container"]
+margin_left = 345.147
+margin_top = 494.041
+margin_right = 1007.15
+margin_bottom = 596.041
+grow_horizontal = 0
+mouse_filter = 1
+script = ExtResource( 1 )
+rows = 10
+horizontal_fill_direction = 0
+horizontal_separation = 8.0
+update_time = 0.5
+update_ease = 1

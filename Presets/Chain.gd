@@ -19,9 +19,11 @@ var hooked = false	# Whether the chain has connected to a wall
 
 # shoot() shoots the chain in a given direction
 func shoot(dir: Vector2) -> void:
+	print("shoot");
 	if(!hooked):
 		$"../../CollisionShape2D".disabled=true;
-		direction = dir.normalized()	# Normalize the direction and save it
+		#direction = dir.normalized()	# Normalize the direction and save it
+		direction = (dir - self.global_position).normalized()
 		flying = true					# Keep track of our current scan
 		tip = self.global_position		# reset the tip position to the player's position
 
@@ -33,12 +35,13 @@ func release() -> void:
 
 # Every graphics frame we update the visuals
 func _process(_delta: float) -> void:
+	print(self.rotation_degrees)
 	self.visible = flying or hooked	# Only visible if flying or attached to something
 	if not self.visible:
 		return	# Not visible -> nothing to draw
 	var tip_loc = to_local(tip)	# Easier to work in local coordinates
 	# We rotate the links (= chain) and the tip to fit on the line between self.position (= origin = player.position) and the tip
-	links.rotation = self.position.angle_to_point(tip_loc) - deg2rad(90)
+	$Links.rotation = self.position.angle_to_point(tip_loc) - deg2rad(90)
 	$Tip.rotation = self.position.angle_to_point(tip_loc) - deg2rad(90)
 	links.position = tip_loc						# The links are moved to start at the tip
 	links.region_rect.size.y = tip_loc.length()*1.5		# and get extended for the distance between (0,0) and the tip
