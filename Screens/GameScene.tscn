@@ -141,3 +141,5 @@ initial_velocity = 10.0
 scale_amount = 0.05
 
 [node name="AnimatedGridContainer" parent="." instance=ExtResource( 9 )]
+
+[node name="Node2D" type="Node2D" parent="."]

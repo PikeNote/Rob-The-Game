@@ -1,6 +1,6 @@
 extends Timer
 
-
+export var pathSpawn = "./Path2D";
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -15,9 +15,10 @@ func _ready():
 
 func _spawn_letter():
 	var letter = load("res://Presets/Letter Stuff/Letters.tscn").instance()
-	$Path2D.add_child(letter);
+	get_node(pathSpawn).add_child(letter);
 	letter._changeLetter(letters[randi()% len(letters)]);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+

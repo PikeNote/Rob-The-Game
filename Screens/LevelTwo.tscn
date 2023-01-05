@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Presets/Car.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Screens/Timer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Track.PNG" type="Texture" id=2]
 [ext_resource path="res://Assets/Og_road.PNG" type="Texture" id=3]
 [ext_resource path="res://Screens/Car.gd" type="Script" id=4]
@@ -40,26 +40,23 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="OuterPath" type="Path2D" parent="."]
+self_modulate = Color( 0.501961, 0.6, 1, 0 )
 z_index = 7
 curve = SubResource( 3 )
 
 [node name="InnerPath" type="Path2D" parent="."]
+self_modulate = Color( 0.501961, 0.6, 1, 0 )
 z_index = 4
 curve = SubResource( 4 )
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Car1" type="Path2D" parent="Node2D"]
-self_modulate = Color( 1, 1, 1, 0.701961 )
+self_modulate = Color( 1, 1, 1, 0 )
 curve = SubResource( 1 )
 
-[node name="Car" parent="Node2D/Car1" instance=ExtResource( 1 )]
-position = Vector2( 1008.4, 390.211 )
-rotation = 2.66821
-z_index = 2
-offset = 638.559
-
 [node name="Car2" type="Path2D" parent="Node2D"]
+self_modulate = Color( 0.501961, 0.6, 1, 0 )
 curve = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
@@ -82,3 +79,12 @@ margin_left = 1133.0
 margin_top = 852.0
 margin_right = 1859.0
 margin_bottom = 970.0
+
+[node name="SpawnTimer" type="Timer" parent="."]
+script = ExtResource( 1 )
+pathSpawn = "../OuterPath"
+
+[node name="SpawnTimer2" type="Timer" parent="."]
+wait_time = 2.0
+script = ExtResource( 1 )
+pathSpawn = "../InnerPath"
