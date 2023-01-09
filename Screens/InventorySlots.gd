@@ -18,6 +18,12 @@ func _addLetter(l):
 
 func _invCount():
 	return inv.size();
+
+func _invRemove(word):
+	for i in inv:
+		if(word == i):
+			inv.remove(i);
+			break;
 	
 func _on_mouse_entered() -> void:
 	$"../AnimatedGridContainer"._changeOverUI(true);

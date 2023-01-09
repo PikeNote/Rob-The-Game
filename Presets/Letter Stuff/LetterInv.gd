@@ -29,14 +29,11 @@ func _on_Press():
 		for invSlot in $"../../../AnimatedGridContainer".get_children():
 			word+=invSlot._getLetter();
 		word = word.to_lower();
-		
-		"""
-		if(Words._checkWord(word)):
-			print('test')
-			# add points or smth
+		var checkWd = Words._checkWord(word);
+		if(checkWd[0]):
 			GarbageCollector._clearSpell($"../../../AnimatedGridContainer");
+			$"../../../Points"._addPoints(checkWd[1]);
 			pass;
-		"""
 	else:
 		currentLetter.queue_free();
 		currentLetter = null;

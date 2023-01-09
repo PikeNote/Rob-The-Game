@@ -19,7 +19,6 @@ var hooked = false	# Whether the chain has connected to a wall
 
 # shoot() shoots the chain in a given direction
 func shoot(dir: Vector2) -> void:
-	print("shoot");
 	if(!hooked):
 		$"../../CollisionShape2D".disabled=true;
 		#direction = dir.normalized()	# Normalize the direction and save it
@@ -35,7 +34,6 @@ func release() -> void:
 
 # Every graphics frame we update the visuals
 func _process(_delta: float) -> void:
-	print(self.rotation_degrees)
 	self.visible = flying or hooked	# Only visible if flying or attached to something
 	if not self.visible:
 		return	# Not visible -> nothing to draw
@@ -68,7 +66,6 @@ func _physics_process(_delta: float) -> void:
 				$"../../CollisionShape2D".disabled=false;
 			elif (collision.collider.name=="RobCollider" && hooked):
 				get_tree().root.get_child(3).get_node("InventorySlots")._addLetter(currentLetter);
-				print(currentLetter)
 				hooked = false;
 				$Tip/Letter.visible=false;
 			else:
