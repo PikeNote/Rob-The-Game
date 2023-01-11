@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/creeper-sound.mp3-e0f699f3363b7e60d374182fb6821818.mp3str"
+
+[deps]
+
+source_file="res://Music/creeper-sound.mp3"
+dest_files=[ "res://.import/creeper-sound.mp3-e0f699f3363b7e60d374182fb6821818.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

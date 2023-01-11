@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Main_Menu.PNG" type="Texture" id=1]
 [ext_resource path="res://Fonts/SunnyspellsRegular-MV9ze.otf" type="DynamicFontData" id=2]
@@ -8,17 +8,23 @@
 [ext_resource path="res://Screens/AudioStreamPlayer.gd" type="Script" id=6]
 [ext_resource path="res://Screens/SettingsButton.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Exit Button.png" type="Texture" id=8]
-[ext_resource path="res://Screens/VolumeSlider.gd" type="Script" id=9]
-[ext_resource path="res://Assets/settingsMenuStyleBoxTest.tres" type="StyleBox" id=10]
+[ext_resource path="res://Assets/Settings_Menu.png" type="Texture" id=10]
 [ext_resource path="res://Assets/MasterVolume.tres" type="StyleBox" id=11]
 [ext_resource path="res://Assets/Grabber.tres" type="StyleBox" id=12]
 [ext_resource path="res://Assets/Rob slider grabber.png" type="Texture" id=13]
+[ext_resource path="res://MusicSlider.gd" type="Script" id=14]
+[ext_resource path="res://Music/Minecraft Villager Sound Effect.mp3" type="AudioStream" id=15]
+[ext_resource path="res://Music/creeper-sound.mp3" type="AudioStream" id=16]
 
 [sub_resource type="Theme" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 250
 font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 1920, 1080 )
 
 [node name="Node2D2" type="Node2D"]
 
@@ -84,17 +90,21 @@ size_flags_vertical = 3
 color = Color( 0.980392, 0.65098, 0.552941, 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+anchor_left = -0.0282651
+anchor_top = 0.0083612
+anchor_right = 0.0341131
+anchor_bottom = 0.327759
 margin_left = 221.0
 margin_top = 264.0
 margin_right = 615.0
 margin_bottom = 880.0
-custom_constants/separation = 116
+custom_constants/separation = 130
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="PlayButton2" type="Button" parent="Control/VBoxContainer"]
-margin_right = 394.0
+margin_right = 458.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 theme = SubResource( 3 )
@@ -108,9 +118,9 @@ script = ExtResource( 4 )
 
 [node name="SettingsButton" type="Button" parent="Control/VBoxContainer"]
 light_mask = 513
-margin_top = 166.0
-margin_right = 394.0
-margin_bottom = 213.0
+margin_top = 180.0
+margin_right = 458.0
+margin_bottom = 227.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0.819608, 0.545098, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.819608, 0.545098, 1 )
@@ -122,9 +132,9 @@ script = ExtResource( 7 )
 
 [node name="TutorialButton" type="Button" parent="Control/VBoxContainer"]
 light_mask = 513
-margin_top = 329.0
-margin_right = 394.0
-margin_bottom = 376.0
+margin_top = 357.0
+margin_right = 458.0
+margin_bottom = 404.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0.819608, 0.545098, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.819608, 0.545098, 1 )
@@ -136,9 +146,9 @@ script = ExtResource( 4 )
 
 [node name="LeaderboardButton" type="Button" parent="Control/VBoxContainer"]
 light_mask = 513
-margin_top = 492.0
-margin_right = 394.0
-margin_bottom = 539.0
+margin_top = 534.0
+margin_right = 458.0
+margin_bottom = 581.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0.819608, 0.545098, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.819608, 0.545098, 1 )
@@ -179,18 +189,29 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource( 16 )
+autoplay = true
+bus = "Effects"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource( 15 )
+autoplay = true
+bus = "All"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource( 5 )
 volume_db = -17.479
 autoplay = true
+bus = "Music"
 script = ExtResource( 6 )
 
 [node name="SettingsPopupMenu" type="WindowDialog" parent="Control"]
 visible = true
-margin_left = 61.0
-margin_top = 107.0
-margin_right = 1705.0
-margin_bottom = 1034.0
+margin_left = 159.0
+margin_top = 83.0
+margin_right = 1803.0
+margin_bottom = 1010.0
 custom_colors/title_color = Color( 1, 1, 1, 1 )
 custom_constants/close_h_ofs = 60
 custom_constants/close_v_ofs = -15
@@ -198,40 +219,106 @@ custom_constants/title_height = -100
 custom_fonts/title_font = ExtResource( 3 )
 custom_icons/close_highlight = ExtResource( 8 )
 custom_icons/close = ExtResource( 8 )
-custom_styles/panel = ExtResource( 10 )
-window_title = "Settings"
+custom_styles/panel = SubResource( 4 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/SettingsPopupMenu"]
-margin_left = 65.0
-margin_top = 175.0
-margin_right = 694.0
-margin_bottom = 341.0
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/SettingsPopupMenu"]
+margin_left = 171.0
+margin_top = 269.0
+margin_right = 940.0
+margin_bottom = 791.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/SettingsPopupMenu/VBoxContainer"]
-margin_right = 629.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/SettingsPopupMenu/VBoxContainer3"]
+margin_right = 769.0
+margin_bottom = 166.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer"]
+margin_right = 769.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 custom_fonts/normal_font = ExtResource( 3 )
 text = "Master Volume"
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/SettingsPopupMenu/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer"]
 margin_top = 54.0
-margin_right = 629.0
+margin_right = 769.0
 margin_bottom = 166.0
 
-[node name="VolumeSlider" type="HSlider" parent="Control/SettingsPopupMenu/VBoxContainer/MarginContainer"]
-margin_right = 629.0
+[node name="VolumeSlider" type="HSlider" parent="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer/MarginContainer"]
+margin_right = 769.0
 margin_bottom = 112.0
 custom_icons/grabber_highlight = ExtResource( 13 )
 custom_icons/grabber = ExtResource( 13 )
 custom_styles/slider = ExtResource( 11 )
 custom_styles/grabber_area_highlight = ExtResource( 12 )
 custom_styles/grabber_area = ExtResource( 12 )
-max_value = 10.0
-script = ExtResource( 9 )
+max_value = 5.0
+step = 0.5
+script = ExtResource( 14 )
+audio_bus_name = "All"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/SettingsPopupMenu/VBoxContainer3"]
+margin_top = 170.0
+margin_right = 769.0
+margin_bottom = 336.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer2"]
+margin_right = 769.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/normal_font = ExtResource( 3 )
+text = "Music Volume"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer2"]
+margin_top = 54.0
+margin_right = 769.0
+margin_bottom = 166.0
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer2/MarginContainer"]
+margin_right = 769.0
+margin_bottom = 112.0
+custom_icons/grabber_highlight = ExtResource( 13 )
+custom_icons/grabber = ExtResource( 13 )
+custom_styles/slider = ExtResource( 11 )
+custom_styles/grabber_area_highlight = ExtResource( 12 )
+custom_styles/grabber_area = ExtResource( 12 )
+max_value = 5.0
+step = 0.5
+script = ExtResource( 14 )
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/SettingsPopupMenu/VBoxContainer3"]
+margin_top = 340.0
+margin_right = 769.0
+margin_bottom = 506.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer3"]
+margin_right = 769.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/normal_font = ExtResource( 3 )
+text = "Sound Effect Volume"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer3"]
+margin_top = 54.0
+margin_right = 769.0
+margin_bottom = 166.0
+
+[node name="EffectsVolumeSlider" type="HSlider" parent="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer3/MarginContainer"]
+margin_right = 769.0
+margin_bottom = 112.0
+custom_icons/grabber_highlight = ExtResource( 13 )
+custom_icons/grabber = ExtResource( 13 )
+custom_styles/slider = ExtResource( 11 )
+custom_styles/grabber_area_highlight = ExtResource( 12 )
+custom_styles/grabber_area = ExtResource( 12 )
+max_value = 5.0
+step = 0.5
+script = ExtResource( 14 )
+audio_bus_name = "Effects"
 
 [connection signal="pressed" from="Control/VBoxContainer/PlayButton2" to="Control/VBoxContainer/PlayButton2" method="_on_PlayButton2_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/SettingsButton" to="Control/VBoxContainer/SettingsButton" method="_on_Button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/TutorialButton" to="Control/VBoxContainer/TutorialButton" method="_on_Button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/LeaderboardButton" to="Control/VBoxContainer/LeaderboardButton" method="_on_Button_pressed"]
-[connection signal="value_changed" from="Control/SettingsPopupMenu/VBoxContainer/MarginContainer/VolumeSlider" to="Control/SettingsPopupMenu/VBoxContainer/MarginContainer/VolumeSlider" method="_on_VolumeSlider_value_changed"]
+[connection signal="value_changed" from="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer/MarginContainer/VolumeSlider" to="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer/MarginContainer/VolumeSlider" method="_on_VolumeSlider_value_changed"]
+[connection signal="value_changed" from="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer2/MarginContainer/MusicVolumeSlider" to="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer2/MarginContainer/MusicVolumeSlider" method="_on_VolumeSlider_value_changed"]
+[connection signal="value_changed" from="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer3/MarginContainer/EffectsVolumeSlider" to="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer3/MarginContainer/EffectsVolumeSlider" method="_on_VolumeSlider_value_changed"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Minecraft Villager Sound Effect.mp3-8a61d6911b32837e9056bf27f9b3d4bf.mp3str"
+
+[deps]
+
+source_file="res://Music/Minecraft Villager Sound Effect.mp3"
+dest_files=[ "res://.import/Minecraft Villager Sound Effect.mp3-8a61d6911b32837e9056bf27f9b3d4bf.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
