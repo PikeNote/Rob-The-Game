@@ -40,11 +40,13 @@ func _ready():
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.connect("request_completed", self, "_http_request_completed")
-	var error = http_request.request("https://raw.githubusercontent.com/dwyl/english-words/master/words_dictionary.json")
+	var error = http_request.request("http://www.mieliestronk.com/corncob_lowercase.txt")
+	print("List loaded!")
 	
 
 func _http_request_completed(result, response_code, headers, body):
-	words = parse_json(body.get_string_from_utf8())
+	words = body.get_string_from_utf8().split("\n");
+	print(words.size())
 	print("Loading done!")
 	#for key in words: # Remove all words that are less than 1 letter long
 	#	if(key.length() == 1):
@@ -52,15 +54,17 @@ func _http_request_completed(result, response_code, headers, body):
 
 func _checkWord(wd):
 	if(wd.length() != 1):
+		wd = wd.to_lower();
+		var pnt = 0;
 		var hasWord = words.has(wd);
+		print(wd)
 		if(hasWord):
-			var pnt = 0;
 			wd = wd.to_upper();
 			for i in wd.length():
 				pnt += wordValueTable[wd[i]];
 				print(pnt)
 				
-		return [hasWord,0];
+		return [hasWord,pnt];
 	else:
 		return [false,0];
 

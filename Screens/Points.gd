@@ -11,6 +11,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _addPoints(var p):
+	print(str(p) + " added")
 	points += p;
 	$".".text = "Points: " + str(points);
 

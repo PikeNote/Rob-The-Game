@@ -29,7 +29,10 @@ func _on_Press():
 		for invSlot in $"../../../AnimatedGridContainer".get_children():
 			word+=invSlot._getLetter();
 		word = word.to_lower();
+		word.invert();
 		var checkWd = Words._checkWord(word);
+		print(checkWd[0])
+		print(checkWd[1])
 		if(checkWd[0]):
 			GarbageCollector._clearSpell($"../../../AnimatedGridContainer");
 			$"../../../Points"._addPoints(checkWd[1]);
