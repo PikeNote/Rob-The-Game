@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Planet.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Planet-transformed.png" type="Texture" id=2]
+[ext_resource path="res://Screens/Planet.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Barn.PNG" type="Texture" id=4]
+[ext_resource path="res://Assets/Rob's_Side_Profile.PNG" type="Texture" id=5]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Planet" type="Sprite" parent="."]
+visible = false
+position = Vector2( 990, 1849 )
+scale = Vector2( 6.60938, 7.24512 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Planet-transformed" type="Sprite" parent="."]
+position = Vector2( 996, 1527 )
+rotation = -6.28319
+scale = Vector2( 1.47567, 1.52802 )
+texture = ExtResource( 2 )
+
+[node name="Barn" type="Sprite" parent="Planet-transformed"]
+position = Vector2( 9.48743, -827.871 )
+scale = Vector2( 1.20101, 1.30737 )
+texture = ExtResource( 4 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+[node name="Rob\'sSideProfile" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 1001, 368 )
+scale = Vector2( 0.321, 0.308824 )
+texture = ExtResource( 5 )
+
+[node name="Node2D" type="Node2D" parent="."]
