@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/The Cannery.mp3-3751be622494c6764c01fa52ac9191d6.mp3str"
+
+[deps]
+
+source_file="res://Music/The Cannery.mp3"
+dest_files=[ "res://.import/The Cannery.mp3-3751be622494c6764c01fa52ac9191d6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
