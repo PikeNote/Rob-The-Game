@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Inventory_Slot.PNG" type="Texture" id=1]
 [ext_resource path="res://Assets/light.png" type="Texture" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://Screens/InventorySlots.gd" type="Script" id=13]
 [ext_resource path="res://Screens/Points.gd" type="Script" id=14]
 [ext_resource path="res://Fonts/Catcafe-v5yM.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://Fonts/UwUFont.tres" type="DynamicFont" id=16]
+[ext_resource path="res://Screens/SettingsButton.gd" type="Script" id=17]
+[ext_resource path="res://Screens/Pause.gd" type="Script" id=18]
 
 [sub_resource type="Image" id=10]
 data = {
@@ -178,3 +181,67 @@ margin_bottom = 208.507
 custom_fonts/normal_font = SubResource( 9 )
 text = "Points: 0"
 script = ExtResource( 14 )
+
+[node name="PauseMenu" type="PopupDialog" parent="."]
+visible = true
+margin_left = -15.0
+margin_top = -23.0
+margin_right = 1050.0
+margin_bottom = 643.0
+rect_min_size = Vector2( 1029, 611 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PauseMenu"]
+margin_left = 153.0
+margin_top = 48.0
+margin_right = 883.0
+margin_bottom = 559.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PauseMenu/VBoxContainer2"]
+margin_right = 730.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 250, 60 )
+custom_colors/default_color = Color( 0.878431, 0.505882, 0.109804, 1 )
+custom_fonts/normal_font = ExtResource( 16 )
+text = "Pause Menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/VBoxContainer2"]
+margin_top = 110.0
+margin_right = 730.0
+margin_bottom = 510.0
+rect_min_size = Vector2( 730, 400 )
+custom_constants/separation = 100
+
+[node name="Resume" type="Button" parent="PauseMenu/VBoxContainer2/VBoxContainer"]
+margin_right = 730.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 730, 60 )
+text = "Resume"
+
+[node name="Settings" type="Button" parent="PauseMenu/VBoxContainer2/VBoxContainer"]
+margin_top = 160.0
+margin_right = 730.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 730, 60 )
+text = "Settings"
+script = ExtResource( 17 )
+
+[node name="Quit" type="Button" parent="PauseMenu/VBoxContainer2/VBoxContainer"]
+margin_top = 320.0
+margin_right = 730.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 730, 60 )
+text = "Quit"
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2( 14, 135 )
+scale = Vector2( 1, 1 )
+z_index = 7
+
+[node name="Pause" type="Button" parent="Node2D2"]
+margin_right = 36.0
+margin_bottom = 59.0
+script = ExtResource( 18 )
+
+[connection signal="pressed" from="Node2D2/Pause" to="Node2D2/Pause" method="_on_Pause_pressed"]

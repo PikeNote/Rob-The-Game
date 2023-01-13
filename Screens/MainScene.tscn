@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Main_Menu.PNG" type="Texture" id=1]
 [ext_resource path="res://Fonts/SunnyspellsRegular-MV9ze.otf" type="DynamicFontData" id=2]
@@ -8,13 +8,12 @@
 [ext_resource path="res://Screens/AudioStreamPlayer.gd" type="Script" id=6]
 [ext_resource path="res://Screens/SettingsButton.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Exit Button.png" type="Texture" id=8]
+[ext_resource path="res://Music/long-medium-swish-44324.mp3" type="AudioStream" id=9]
 [ext_resource path="res://Assets/Settings_Menu.png" type="Texture" id=10]
 [ext_resource path="res://Assets/MasterVolume.tres" type="StyleBox" id=11]
 [ext_resource path="res://Assets/Grabber.tres" type="StyleBox" id=12]
 [ext_resource path="res://Assets/Rob slider grabber.png" type="Texture" id=13]
 [ext_resource path="res://MusicSlider.gd" type="Script" id=14]
-[ext_resource path="res://Music/Minecraft Villager Sound Effect.mp3" type="AudioStream" id=15]
-[ext_resource path="res://Music/creeper-sound.mp3" type="AudioStream" id=16]
 
 [sub_resource type="Theme" id=3]
 
@@ -190,14 +189,8 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Control"]
-stream = ExtResource( 16 )
-autoplay = true
+stream = ExtResource( 9 )
 bus = "Effects"
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Control"]
-stream = ExtResource( 15 )
-autoplay = true
-bus = "All"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource( 5 )
