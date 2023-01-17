@@ -5,23 +5,17 @@ extends Button
 # var a = 2
 # var b = "text"
 
-var linkedInvItem;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	pass # Replace with function body.
 
-func _changeLetter(l):
-	$"Label".text=l;
 
-func _getLetter():
-	return $"Label".text;
-
-func _setLink(a):
-	linkedInvItem = a;
-	
-func _freeLinked():
-	linkedInvItem.queue_free();
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Button2_pressed():
+	$"../Planet"._moveNextLocation();
+	pass # Replace with function body.
