@@ -236,7 +236,6 @@ text = "Quit"
 
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2( 14, 135 )
-scale = Vector2( 1, 1 )
 z_index = 7
 
 [node name="Pause" type="Button" parent="Node2D2"]
