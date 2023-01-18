@@ -1,14 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Hard_Level.PNG" type="Texture" id=1]
 [ext_resource path="res://Assets/Ugly_Light.PNG" type="Texture" id=2]
 [ext_resource path="res://Screens/LightPathFollow.gd" type="Script" id=3]
 [ext_resource path="res://Screens/BlobPath.gd" type="Script" id=4]
-
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 284, 1077, -15.1036, 16.2778, 15.1036, -16.2778, 459, 789, -26.8669, 158.402, 26.8669, -158.402, 367, 583, 4.31716, -4.30188, -4.31716, 4.30188, 572, 417, -56.0411, -108.424, 56.0411, 108.424, 754, 517, 0, 0, 0, 0, 764, 699, 85.292, -15.7288, -85.292, 15.7288, 628, 814, 3.57165, -90.8787, -3.57165, 90.8787, 535, 880, 0, 0, 0, 0, 499, 1151 )
-}
+[ext_resource path="res://Screens/Timer.gd" type="Script" id=6]
 
 [sub_resource type="Curve2D" id=2]
 _data = {
@@ -17,12 +13,17 @@ _data = {
 
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 232, 809, -82.1171, 125.535, 82.1171, -125.535, 247, 503, 0, 0, 0, 0, 332, 373, 0, 0, 0, 0, 426, 304, 0, 0, 0, 0, 558, 269, 0, 0, 0, 0, 686, 280, 0, 0, 0, 0, 776, 321, 0, 0, 0, 0, 848, 383, 0, 0, 0, 0, 885, 435, 0, 0, 0, 0, 918, 510, 0, 0, 0, 0, 933, 597, 0, 0, 0, 0, 931, 683, 0, 0, 0, 0, 914, 756, 0, 0, 0, 0, 888, 809, 0, 0, 0, 0, 865, 853, 0, 0, 0, 0, 827, 901 )
+"points": PoolVector2Array( 0, 0, 0, 0, 229, 814, -75.7615, 131.853, 75.7615, -131.853, 243, 498, -56.9522, 58.4464, 56.9522, -58.4464, 336, 364, -39.5477, 4.39212, 39.5477, -4.39212, 560, 266, -92.5775, -14.9332, 92.5775, 14.9332, 686, 273, -29.1867, -39.465, 29.1867, 39.465, 895, 434, -3.59524, -46.3648, 3.59524, 46.3648, 933, 591, 2.65564, -21.0181, -2.65564, 21.0181, 933, 681, 71.4192, -60.2554, -71.4192, 60.2554, 830, 902, 0, 0, 0, 0, 743, 966 )
 }
 
 [sub_resource type="Curve2D" id=4]
 _data = {
-"points": PoolVector2Array( 30.1606, 140.485, -30.1606, -140.485, 95, 652, -13.4929, 31.748, 13.4929, -31.748, 170, 342, -61.9086, 39.685, 61.9086, -39.685, 335, 181, -64.2897, 7.1433, 64.2897, -7.1433, 551, 108, -94.4504, -42.0661, 94.4504, 42.0661, 786, 149, -32.5417, -26.1921, 32.5417, 26.1921, 932, 249, -13.4929, -32.5417, 13.4929, 32.5417, 1040, 402, 5.5559, -66.6708, -5.5559, 66.6708, 1084, 626, -0.7937, 3.1748, 0.7937, -3.1748, 1054, 805, 0, 0, 0, 0, 975, 936 )
+"points": PoolVector2Array( 19.0108, 138.914, -19.0108, -138.914, 87, 655, -40.9298, 75.7945, 40.9298, -75.7945, 165, 342, -56.0352, 34.8342, 56.0352, -34.8342, 326, 179, -64.2897, 7.1433, 64.2897, -7.1433, 540.063, 106.511, -90.9263, -38.5833, 90.9263, 38.5833, 788, 139, 0, 0, 0, 0, 935.651, 244.07, -9.96885, -32.5417, 9.96885, 32.5417, 1047, 399, 5.5559, -66.6708, -5.5559, 66.6708, 1089, 625, -0.7937, 3.1748, 0.7937, -3.1748, 1053, 802, 0, 0, 0, 0, 971, 953 )
+}
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 284, 1077, -15.1036, 16.2778, 15.1036, -16.2778, 459, 789, -26.8669, 158.402, 26.8669, -158.402, 367, 583, 4.31716, -4.30188, -4.31716, 4.30188, 572, 417, -56.0411, -108.424, 56.0411, 108.424, 754, 517, 0, 0, 0, 0, 764, 699, 85.292, -15.7288, -85.292, 15.7288, 628, 814, 3.57165, -90.8787, -3.57165, 90.8787, 535, 880, 0, 0, 0, 0, 499, 1151 )
 }
 
 [node name="Node2D" type="Node2D"]
@@ -33,9 +34,6 @@ texture = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 565, 624 )
@@ -144,3 +142,33 @@ numCountBlobs = 30
 curve = SubResource( 4 )
 script = ExtResource( 4 )
 numCountBlobs = 30
+
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="MiddlePath" type="Path2D" parent="Paths"]
+position = Vector2( 36.1169, 38.4921 )
+scale = Vector2( 0.935566, 0.957279 )
+curve = SubResource( 3 )
+
+[node name="OuterPath" type="Path2D" parent="Paths"]
+position = Vector2( 26.9475, 31.0183 )
+scale = Vector2( 0.955541, 0.966861 )
+curve = SubResource( 4 )
+
+[node name="InnerPath" type="Path2D" parent="Paths"]
+curve = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+script = ExtResource( 6 )
+pathSpawn = "../Paths/InnerPath"
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 2.0
+script = ExtResource( 6 )
+pathSpawn = "../Paths/MiddlePath"
+
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 0.8
+script = ExtResource( 6 )
+pathSpawn = "../Paths/OuterPath"
