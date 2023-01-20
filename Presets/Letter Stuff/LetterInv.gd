@@ -28,8 +28,7 @@ func _on_Press():
 		var word = "";
 		for invSlot in $"../../../AnimatedGridContainer".get_children():
 			word+=invSlot._getLetter();
-		word = word.to_lower();
-		word.invert();
+		word = reverse_string(word.to_lower());
 		var checkWd = Words._checkWord(word);
 		print(checkWd[0])
 		print(checkWd[1])
@@ -43,3 +42,9 @@ func _on_Press():
 		$"Label".add_color_override("font_color", Color(1,1,1,1));
 		pressed_before = false;
 	pass;
+	
+func reverse_string(s):
+	var reversedWord := "" 
+	for i in range(s.length()-1, -1, -1):
+		reversedWord += s[i]
+	return reversedWord

@@ -46,6 +46,8 @@ func _ready():
 
 func _http_request_completed(result, response_code, headers, body):
 	words = body.get_string_from_utf8().split("\n");
+	for i in words.size():
+		words[i] = words[i].strip_edges(true, true)
 	print(words.size())
 	print("Loading done!")
 	#for key in words: # Remove all words that are less than 1 letter long
@@ -57,6 +59,7 @@ func _checkWord(wd):
 		wd = wd.to_lower();
 		var pnt = 0;
 		var hasWord = words.has(wd);
+		print(words[0])
 		print(wd)
 		if(hasWord):
 			wd = wd.to_upper();
