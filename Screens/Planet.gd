@@ -24,7 +24,7 @@ func _physics_process(delta):
 	if(moving):
 		if($"../KinematicBody2D".position.y>=yValue):
 			velocity = Vector2.UP * 7.0;
-		$"../Planet-transformed".rotation_degrees += 0.4;
+		$"../Planet-transformed".rotation_degrees += 0.5;
 	$"../KinematicBody2D".move_and_collide(velocity);
 		
 

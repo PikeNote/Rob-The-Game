@@ -14,5 +14,6 @@ func _ready():
 	pass # Replace with function body.
 	
 func _on_Area2D_body_entered(body):
-	if(planet._getCurrentPlace() != index):
+	print(body)
+	if(planet._getCurrentPlace() != index && body.name == "KinematicBody2D"):
 		planet._doneMoving(index);
