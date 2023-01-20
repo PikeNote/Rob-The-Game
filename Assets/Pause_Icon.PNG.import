@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Hard_Level.PNG-bff1e0359e8000f5aee3f711f371abbd.stex"
+path="res://.import/Pause_Icon.PNG-58e304e1eca13ba4520611e222ac33b7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hard_Level.PNG"
-dest_files=[ "res://.import/Hard_Level.PNG-bff1e0359e8000f5aee3f711f371abbd.stex" ]
+source_file="res://Assets/Pause_Icon.PNG"
+dest_files=[ "res://.import/Pause_Icon.PNG-58e304e1eca13ba4520611e222ac33b7.stex" ]
 
 [params]
 
