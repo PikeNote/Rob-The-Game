@@ -35,6 +35,7 @@ func _moveNextLocation():
 	moving = true;
 
 func _doneMoving(index):
+	print(index)
 	moving = false;
 	currentPlace = index;
 	

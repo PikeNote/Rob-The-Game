@@ -15,10 +15,10 @@ func _init():
 
 func _physics_process(delta):
 	if($TheBlob.scale.y < nextScale && increasing):
-		$TheBlob.scale = Vector2($TheBlob.scale.x, $TheBlob.scale.y + .015)
+		$TheBlob.scale = Vector2($TheBlob.scale.x, $TheBlob.scale.y + .010)
 	elif($TheBlob.scale.y > 1):
 		increasing = false;
-		$TheBlob.scale = Vector2($TheBlob.scale.x, $TheBlob.scale.y - .015);
+		$TheBlob.scale = Vector2($TheBlob.scale.x, $TheBlob.scale.y - .010);
 	else:
 		increasing = true;
 		nextScale = rand_range(1.2, 1.3);
