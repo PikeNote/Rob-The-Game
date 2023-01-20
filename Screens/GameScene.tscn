@@ -209,50 +209,67 @@ script = ExtResource( 14 )
 
 [node name="PauseMenuNode" type="Node2D" parent="."]
 pause_mode = 2
-position = Vector2( -15, -23 )
+position = Vector2( 513.467, 312.725 )
 scale = Vector2( 1, 1 )
 z_index = 100
+z_as_relative = false
 
 [node name="PauseMenu" type="PopupDialog" parent="PauseMenuNode"]
 visible = true
-margin_right = 1065.0
-margin_bottom = 666.0
-rect_min_size = Vector2( 1029, 611 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -502.24
+margin_top = -308.082
+margin_right = 497.76
+margin_bottom = 291.918
+rect_min_size = Vector2( 1000, 600 )
+rect_pivot_offset = Vector2( 600, 400 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_styles/panel = SubResource( 13 )
 popup_exclusive = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenuNode/PauseMenu"]
-margin_left = 405.421
-margin_top = 358.02
-margin_right = 641.421
-margin_bottom = 578.02
-custom_constants/separation = 50
+margin_left = 363.0
+margin_top = 318.0
+margin_right = 613.0
+margin_bottom = 518.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 40
 
 [node name="Resume" type="Button" parent="PauseMenuNode/PauseMenu/VBoxContainer"]
-margin_right = 236.0
+margin_right = 250.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
+rect_min_size = Vector2( 250, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Resume"
 script = ExtResource( 18 )
 
 [node name="Settings" type="Button" parent="PauseMenuNode/PauseMenu/VBoxContainer"]
-margin_top = 90.0
-margin_right = 236.0
-margin_bottom = 130.0
+margin_top = 80.0
+margin_right = 250.0
+margin_bottom = 120.0
 rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Settings"
 
 [node name="Quit" type="Button" parent="PauseMenuNode/PauseMenu/VBoxContainer"]
-margin_top = 180.0
-margin_right = 236.0
-margin_bottom = 220.0
+margin_top = 160.0
+margin_right = 250.0
+margin_bottom = 200.0
 rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Quit"
 script = ExtResource( 17 )
 
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2( 14, 135 )
-scale = Vector2( 1, 1 )
 z_index = -1
 
 [node name="Pause" type="Button" parent="Node2D2"]
