@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/UwUFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/DEiWpgGXgAQVP4j.jpg" type="Texture" id=2]
+[ext_resource path="res://Screens/Button.gd" type="Script" id=3]
+[ext_resource path="res://ItemList.gd" type="Script" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 922.0
+margin_bottom = 1200.0
+texture = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 515.0
+margin_top = 141.0
+margin_right = 1436.0
+margin_bottom = 249.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = "There is no leaderboard!"
+
+[node name="BackButton" type="Button" parent="."]
+margin_right = 221.0
+margin_bottom = 48.0
+script = ExtResource( 3 )
+
+[node name="ItemList" type="ItemList" parent="."]
+margin_left = 928.0
+margin_right = 1910.0
+margin_bottom = 1126.0
+script = ExtResource( 4 )
+
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
