@@ -10,9 +10,9 @@ func set_is_paused(value):
 
 func _on_Pause_pressed():
 	print("The pause button is being pressed.")
+	
 	self.is_paused = !is_paused
 	_tpm.popup()
-
 
 func _on_Resume_pressed():
 	print("The resume button is being pressed.")
