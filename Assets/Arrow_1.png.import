@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Hard_Level.PNG-bff1e0359e8000f5aee3f711f371abbd.stex"
+path="res://.import/Arrow_1.png-2e46214db29e5fa790cfb6dbc48aebac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hard_Level.PNG"
-dest_files=[ "res://.import/Hard_Level.PNG-bff1e0359e8000f5aee3f711f371abbd.stex" ]
+source_file="res://Assets/Arrow_1.png"
+dest_files=[ "res://.import/Arrow_1.png-2e46214db29e5fa790cfb6dbc48aebac.stex" ]
 
 [params]
 

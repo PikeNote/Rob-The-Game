@@ -14,5 +14,5 @@ func _ready():
 	pass # Replace with function body.
 	
 func _on_Area2D_body_entered(body):
-	if(planet._getCurrentPlace() != index):
+	if(body.name != "Planet2" && planet._getCurrentPlace() != index):
 		planet._doneMoving(index);

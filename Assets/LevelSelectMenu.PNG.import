@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Hard_Level.PNG-bff1e0359e8000f5aee3f711f371abbd.stex"
+path="res://.import/LevelSelectMenu.PNG-4425b27cd22f66d8cadf2dc237c0c89d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hard_Level.PNG"
-dest_files=[ "res://.import/Hard_Level.PNG-bff1e0359e8000f5aee3f711f371abbd.stex" ]
+source_file="res://Assets/LevelSelectMenu.PNG"
+dest_files=[ "res://.import/LevelSelectMenu.PNG-4425b27cd22f66d8cadf2dc237c0c89d.stex" ]
 
 [params]
 
