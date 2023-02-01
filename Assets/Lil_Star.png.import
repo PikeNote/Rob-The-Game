@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Hard_Level.png-d5cef153f9fc8d9ca7a2e7db1f7794e1.stex"
+path="res://.import/Lil_Star.png-18d9dccbd8443a2928fdce9e800da780.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Hard_Level.png"
-dest_files=[ "res://.import/Hard_Level.png-d5cef153f9fc8d9ca7a2e7db1f7794e1.stex" ]
+source_file="res://Assets/Lil_Star.png"
+dest_files=[ "res://.import/Lil_Star.png-18d9dccbd8443a2928fdce9e800da780.stex" ]
 
 [params]
 

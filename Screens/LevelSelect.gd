@@ -8,6 +8,8 @@ export var index = 1;
 
 var planet;
 # Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	planet = $"../../Planet";
 	self.connect("body_entered", self, "_on_Area2D_body_entered")

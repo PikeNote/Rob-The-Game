@@ -18,5 +18,5 @@ func _ready():
 
 
 func _on_Button2_pressed():
-	$"../../Planet"._moveNextLocation();
+	$"../../../../../Planet"._moveNextLocation();
 	pass # Replace with function body.
