@@ -12,23 +12,22 @@ var moving = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	yValue = $"../KinematicBody2D".position.y;
+	$"../AnimationPlayer".stop();
+	$"../AnimationPlayer".get_animation("JumpingRob").loop = false;
 	_doneMoving(0);
 	pass # Replace with function body.
 	
 func _physics_process(delta):
-	velocity += Vector2.DOWN * 14.0 * delta;
-	
 	if(moving):
-		if($"../KinematicBody2D".position.y>=yValue):
-			velocity = Vector2.UP * 7.0;
 		$"../Planet-transformed".rotation_degrees += 0.5;
 		$"../LevelSelect".visible = false;
 	else:
 		$"../LevelSelect".visible = true;
-	$"../KinematicBody2D".move_and_collide(velocity);
 	#$"../LevelSelect".visible = true;
-		
+
+func _pauseLoop():
+		$"../AnimationPlayer".get_animation("JumpingRob").loop = false;
+
 var levelDescription = [
 	{
 		"Name":"Farm",
@@ -56,21 +55,30 @@ func _getCurrentPlace():
 
 func _moveNextLocation():
 	moving = true;
+	$"../AnimationPlayer".get_animation("JumpingRob").loop = true;
+	$"../AnimationPlayer".play("JumpingRob")
 
 func _doneMoving(index):
 	$"../LevelSelect/Title".bbcode_text = "[center]" + levelDescription[index].Name + "[/center]";
 	$"../LevelSelect/Description".text = levelDescription[index].Description;
-	var starsCount = 0;
-	for stars in $"../LevelSelect/CenterStars".get_children():
+	var starsCount = 1;
+	for stars in $"../LevelSelect/CenterStars/Stars".get_children():
+		print(stars.name)
+		print(starsCount)
 		if(starsCount<=levelDescription[index].Difficulty):
 			starsCount+=1;
 			stars.modulate = Color(249, 255, 1);
 		else:
 			stars.modulate = Color(0, 0, 0);
-	print(index)
 	moving = false;
 	currentPlace = index;
 	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_SelectLevel_button_down():
+	get_tree().change_scene_to(load(levelDescription[currentPlace].LevelName))
+	pass # Replace with function body.

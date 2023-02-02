@@ -6,6 +6,8 @@ extends Area2D
 # var b = "text"
 export var index = 1;
 
+var contactOnce= false;
+
 var planet;
 # Called when the node enters the scene tree for the first time.
 
@@ -17,4 +19,9 @@ func _ready():
 	
 func _on_Area2D_body_entered(body):
 	if(body.name != "Planet2" && planet._getCurrentPlace() != index):
-		planet._doneMoving(index);
+		if(!contactOnce):
+			contactOnce = true;
+			planet._pauseLoop();
+		else:
+			contactOnce = false;
+			planet._doneMoving(index);

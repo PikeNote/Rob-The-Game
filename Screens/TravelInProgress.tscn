@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/TravelInProgress/Level_One_Select_Place.png" type="Texture" id=1]
+[ext_resource path="res://Screens/LevelOneSelectPlace.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Rob's_Side_Profile.PNG" type="Texture" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 68.9535, 198.452, -68.9535, -198.452, 1722, 1067, 107.753, 78.4442, -107.753, -78.4442, 1438, 682, 162.398, -3.14529, -162.398, 3.14529, 963, 533 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "JumpingRob"
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:v_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 150, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:v_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LevelOneSelectPlace" type="Sprite" parent="."]
+position = Vector2( 960, 539 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( -20, 3 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 1722, 1067 )
+rotation = -1.9127
+lookahead = 15.0
+
+[node name="Rob\'sSideProfile" type="Sprite" parent="Path2D/PathFollow2D"]
+rotation = 3.11192
+scale = Vector2( 0.239, 0.212418 )
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+physics_interpolation_mode = 1
+root_node = NodePath("../Path2D/PathFollow2D")
+autoplay = "JumpingRob"
+playback_speed = 0.8
+anims/JumpingRob = SubResource( 2 )
+anims/RESET = SubResource( 3 )
