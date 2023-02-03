@@ -22,8 +22,7 @@ func _physics_process(delta):
 		$".".rotation_degrees -= 90
 	
 func _input(event: InputEvent) -> void:
-	print(get_tree().root.get_child(3).name)
-	if (event is InputEventMouseButton && get_tree().root.get_child(4).get_node("InventorySlots")._invCount()<20 && !overUI):
+	if (event is InputEventMouseButton && get_tree().root.get_child(5).get_node("InventorySlots")._invCount()<20 && !overUI):
 		if event.pressed:
 			$Chain.shoot(event.position)
 		else:
