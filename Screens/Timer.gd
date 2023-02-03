@@ -12,7 +12,6 @@ func _ready():
 	$".".start();
 	pass # Replace with function body.
 
-
 func _spawn_letter():
 	var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	var rng = RandomNumberGenerator.new()
@@ -21,9 +20,9 @@ func _spawn_letter():
 	
 	match(num):
 		1,2,3,4:
-			letters="AEIOULNSTRDG"
+			letters="AEIOU"
 		5,6,7:
-			letters="BCMPFHVWY"
+			letters="LNSTRDGBCMPFHVWY"
 		8,9:
 			letters="KJX"
 		_:
