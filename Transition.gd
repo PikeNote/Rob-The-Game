@@ -11,6 +11,7 @@ signal transition_out_done
  
 onready var animation_player = $Transition/TransitionAnimationPlayer
 
+
  
 func transition_in():
 	$Transition/TransitionAnimationPlayer.play("transition_in")

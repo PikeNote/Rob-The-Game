@@ -45,6 +45,7 @@ _data = {
 [node name="Node2D" type="Node2D"]
 
 [node name="Transition" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [node name="LevelOneSelectPlace" type="Sprite" parent="."]
 position = Vector2( 960, 539 )
@@ -55,12 +56,13 @@ __meta__ = {
 }
 
 [node name="EnterPath" type="Path2D" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -20, 3 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="EnterPath"]
 position = Vector2( 1722, 1067 )
-rotation = -1.9127
+rotation = -1.91269
 lookahead = 15.0
 
 [node name="Rob\'sSideProfile" type="Sprite" parent="EnterPath/PathFollow2D"]
@@ -77,6 +79,7 @@ anims/JumpingRob = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 
 [node name="ExitPath" type="Path2D" parent="."]
+self_modulate = Color( 0.501961, 0.6, 1, 0 )
 curve = SubResource( 4 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="ExitPath"]

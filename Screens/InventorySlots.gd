@@ -20,10 +20,8 @@ func _invCount():
 	return inv.size();
 
 func _invRemove(word):
-	for i in inv:
-		if(word == i):
-			inv.remove(i);
-			break;
+	for i in word:
+		inv.remove(i);
 	
 func _on_mouse_entered() -> void:
 	$"../AnimatedGridContainer"._changeOverUI(true);

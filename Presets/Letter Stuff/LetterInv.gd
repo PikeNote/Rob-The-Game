@@ -30,10 +30,10 @@ func _on_Press():
 			word+=invSlot._getLetter();
 		word = reverse_string(word.to_lower());
 		var checkWd = Words._checkWord(word);
-		print(checkWd[0])
-		print(checkWd[1])
+
 		if(checkWd[0]):
 			GarbageCollector._clearSpell($"../../../AnimatedGridContainer");
+			$"../../../InventorySlots"._invRemove(word);
 			$"../../../Points"._addPoints(checkWd[1]);
 			pass;
 	else:

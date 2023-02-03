@@ -26,6 +26,7 @@ onready var transition = $"../Transition"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	transition.visible = true;
 	transition.transition_out();
 	$".".texture=load(assets[GlobalVars.currentScene]);
 	$"../EnterPath".visible = false;
