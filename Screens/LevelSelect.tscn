@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Assets/Planet.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Newer_World.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Assets/Arrow_1.png" type="Texture" id=14]
 [ext_resource path="res://Fonts/SunnyspellsRegular-MV9ze.otf" type="DynamicFontData" id=15]
 [ext_resource path="res://Assets/Lil_Star.png" type="Texture" id=16]
+[ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.70282, 277.022 )
@@ -40,65 +41,68 @@ font_data = ExtResource( 15 )
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 18, 292 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=11]
 resource_name = "JumpingRob"
 tracks/0/type = "bezier"
-tracks/0/path = NodePath("Rob\'sSideProfile:position:x")
+tracks/0/path = NodePath("Rob\'sSideProfile:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 995, -0.25, 0, 0.25, 0, 995, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.5 )
+"points": PoolRealArray( 280, -0.25, 0, 0.25, 0, 161, -0.25, 0, 0.25, 0, 280, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
 }
 tracks/1/type = "bezier"
-tracks/1/path = NodePath("Rob\'sSideProfile:position:y")
+tracks/1/path = NodePath("Rob\'sSideProfile:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 302, -0.25, 0, 0.25, 0, 198, -0.25, 0, 0.25, 0, 302, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 982, -0.25, 0, 0.25, 0, 982, -0.25, 0, 0.25, 0, 982, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5, 1 )
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=12]
 length = 0.001
 tracks/0/type = "bezier"
-tracks/0/path = NodePath("Rob\'sSideProfile:position:x")
+tracks/0/path = NodePath("Rob\'sSideProfile:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 995, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 280, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/1/type = "bezier"
-tracks/1/path = NodePath("Rob\'sSideProfile:position:y")
+tracks/1/path = NodePath("Rob\'sSideProfile:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 198, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 982, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Transition" parent="." instance=ExtResource( 17 )]
+visible = false
+
 [node name="Planet" type="Sprite" parent="."]
 visible = false
 position = Vector2( 990, 1849 )
-scale = Vector2( 6.60938, 7.24512 )
+scale = Vector2( 6.6, 6.6 )
 texture = ExtResource( 1 )
 script = ExtResource( 3 )
 
 [node name="Planet-transformed" type="Sprite" parent="."]
 position = Vector2( 1017, 1701 )
 rotation = -0.748746
-scale = Vector2( 1.47567, 1.52802 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="Planet-transformed"]
@@ -316,7 +320,7 @@ __meta__ = {
 }
 
 [node name="Rob\'sSideProfile" type="Sprite" parent="."]
-position = Vector2( 995, 198 )
+position = Vector2( 982, 280 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 5 )
 
@@ -331,8 +335,9 @@ position = Vector2( -336, 16 )
 shape = SubResource( 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "JumpingRob"
-anims/JumpingRob = SubResource( 8 )
-anims/RESET = SubResource( 9 )
+playback_speed = 1.3
+anims/JumpingRob = SubResource( 11 )
+anims/RESET = SubResource( 12 )
 
+[connection signal="transition_in_done" from="Transition" to="Planet" method="_on_Transition_transition_in_done"]
 [connection signal="button_down" from="LevelSelect/CenterContainer3/VFlowContainer/SelectLevel" to="Planet" method="_on_SelectLevel_button_down"]

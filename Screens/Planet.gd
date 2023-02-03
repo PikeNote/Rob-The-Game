@@ -10,10 +10,16 @@ var yValue = 0;
 var currentPlace = 0;
 var moving = false;
 
+onready var transition = $"../Transition";
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$"../AnimationPlayer".stop();
-	$"../AnimationPlayer".get_animation("JumpingRob").loop = false;
+	transition.visible=true;
+	transition.transition_out();
+
+	$"../AnimationPlayer".play("JumpingRob");
+	#$"../AnimationPlayer".seek(0,true);
+	$"../AnimationPlayer".stop(true);
 	_doneMoving(0);
 	pass # Replace with function body.
 	
@@ -32,20 +38,17 @@ var levelDescription = [
 	{
 		"Name":"Farm",
 		"Difficulty":1,
-		"Description":"Rob's journey begins here",
-		"LevelName":"res://Screens/GameScene.tscn"
+		"Description":"Rob's journey begins here"
 	},
 	{
 		"Name":"Crossroads",
 		"Difficulty":2,
-		"Description":"Passing on the roads",
-		"LevelName":"res://Screens/LevelTwo.tscn"
+		"Description":"Passing on the roads"
 	},
 	{
 		"Name":"Broadway",
 		"Difficulty":3,
-		"Description":"Final destination: Broadway",
-		"LevelName":"res://Screens/LevelThree.tscn"
+		"Description":"Final destination: Broadway"
 	},
 ]
 
@@ -57,6 +60,7 @@ func _moveNextLocation():
 	moving = true;
 	$"../AnimationPlayer".get_animation("JumpingRob").loop = true;
 	$"../AnimationPlayer".play("JumpingRob")
+	
 
 func _doneMoving(index):
 	$"../LevelSelect/Title".bbcode_text = "[center]" + levelDescription[index].Name + "[/center]";
@@ -80,5 +84,13 @@ func _doneMoving(index):
 
 
 func _on_SelectLevel_button_down():
-	get_tree().change_scene_to(load(levelDescription[currentPlace].LevelName))
+	GlobalVars.currentScene = currentPlace;
+	transition.transition_in();
+	pass # Replace with function body.
+
+
+
+
+func _on_Transition_transition_in_done():
+	get_tree().change_scene_to(load("res://Screens/TravelInProgress.tscn"))
 	pass # Replace with function body.

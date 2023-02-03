@@ -42,6 +42,7 @@ AntialiasedLine2DTexture="*res://addons/antialiased_line2d/texture.gd"
 GarbageCollector="*res://Global Stuff/GarbageCollector.gd"
 Words="*res://Global Stuff/words.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
+GlobalVars="*res://Global Stuff/GlobalVars.gd"
 
 [display]
 
