@@ -221,9 +221,27 @@ visible = false
 position = Vector2( -15, -23 )
 z_index = 100
 script = ExtResource( 18 )
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PauseMenuNode"]
 
+=======
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PauseMenuNode"]
+
+>>>>>>> Stashed changes
+=======
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PauseMenuNode"]
+
+>>>>>>> Stashed changes
+=======
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PauseMenuNode"]
+
+>>>>>>> Stashed changes
 [node name="PauseMenu" type="PopupDialog" parent="PauseMenuNode/CanvasLayer"]
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 4.0
@@ -296,12 +314,30 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [connection signal="timeout" from="ClockTimerText/ClockTimer" to="Points" method="_on_ClockTimer_timeout"]
 [connection signal="confirmed" from="ConfirmUsername" to="Points" method="_on_ConfirmUsername_confirmed"]
 [connection signal="text_changed" from="ConfirmUsername/EnterUsername" to="Points" method="_on_EnterUsername_text_changed"]
 [connection signal="pressed" from="PauseMenuNode/PauseMenu/VBoxContainer/Resume" to="PauseMenuNode/PauseMenu/VBoxContainer/Resume" method="_on_Resume_pressed"]
 [connection signal="pressed" from="PauseMenuNode/PauseMenu/VBoxContainer/Quit" to="PauseMenuNode/PauseMenu/VBoxContainer/Quit" method="_on_Quit_pressed"]
 [connection signal="pressed" from="Node2D2/Pause" to="Node2D2/Pause" method="_on_Pause_pressed"]
+=======
+[connection signal="pressed" from="PauseMenuNode/CanvasLayer/PauseMenu/VBoxContainer/Resume" to="PauseMenuNode" method="_on_Resume_pressed"]
+[connection signal="pressed" from="PauseMenuNode/CanvasLayer/PauseMenu/VBoxContainer/Quit" to="PauseMenuNode" method="_on_Quit_pressed"]
+[connection signal="pressed" from="PauseMenuNode/Pause" to="PauseMenuNode" method="_on_Pause_pressed"]
+>>>>>>> Stashed changes
+=======
+[connection signal="pressed" from="PauseMenuNode/CanvasLayer/PauseMenu/VBoxContainer/Resume" to="PauseMenuNode" method="_on_Resume_pressed"]
+[connection signal="pressed" from="PauseMenuNode/CanvasLayer/PauseMenu/VBoxContainer/Quit" to="PauseMenuNode" method="_on_Quit_pressed"]
+[connection signal="pressed" from="PauseMenuNode/Pause" to="PauseMenuNode" method="_on_Pause_pressed"]
+>>>>>>> Stashed changes
+=======
+[connection signal="pressed" from="PauseMenuNode/CanvasLayer/PauseMenu/VBoxContainer/Resume" to="PauseMenuNode" method="_on_Resume_pressed"]
+[connection signal="pressed" from="PauseMenuNode/CanvasLayer/PauseMenu/VBoxContainer/Quit" to="PauseMenuNode" method="_on_Quit_pressed"]
+[connection signal="pressed" from="PauseMenuNode/Pause" to="PauseMenuNode" method="_on_Pause_pressed"]
+>>>>>>> Stashed changes
 =======
 [connection signal="pressed" from="PauseMenuNode/CanvasLayer/PauseMenu/VBoxContainer/Resume" to="PauseMenuNode" method="_on_Resume_pressed"]
 [connection signal="pressed" from="PauseMenuNode/CanvasLayer/PauseMenu/VBoxContainer/Quit" to="PauseMenuNode" method="_on_Quit_pressed"]
