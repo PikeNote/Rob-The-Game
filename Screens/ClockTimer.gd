@@ -19,7 +19,7 @@ func _passTime():
 	var sec = timeInSeconds%60;
 	var minu = (timeInSeconds/60)%60;
 	$"..".text="Remaining time:\n"+"%02d:%02d" % [minu, sec]
-	if $"../ClockTimerText/ClockTimer".returnTime() == 0:
+	if $".".returnTime() == 0:
 		print("There are 0 seconds on the clock");
 		ConfirmUsername.popup();
 
