@@ -26,8 +26,6 @@ onready var transition = $"../Transition"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	transition.visible = true;
-	transition.transition_out();
 	$".".texture=load(assets[GlobalVars.currentScene]);
 	$"../EnterPath".visible = false;
 	$"../ExitPath".visible = false;
@@ -55,10 +53,4 @@ func _physics_process(delta):
 		if(pathFollow.unit_offset>=0.8):
 			$"../AnimationPlayer".get_animation("JumpingRob").loop = false;
 	else:
-		transition.transition_in();
-		
-
-
-func _on_Transition_transition_in_done():
-	get_tree().change_scene_to(load(gameLevels[GlobalVars.currentScene]));
-	pass # Replace with function body.
+		transition.transition_in(gameLevels[GlobalVars.currentScene]);

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Main_Menu.PNG" type="Texture" id=1]
 [ext_resource path="res://Fonts/SunnyspellsRegular-MV9ze.otf" type="DynamicFontData" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Assets/Rob slider grabber.png" type="Texture" id=13]
 [ext_resource path="res://MusicSlider.gd" type="Script" id=14]
 [ext_resource path="res://Screens/Node.gd" type="Script" id=15]
+[ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Theme" id=3]
 
@@ -27,6 +28,10 @@ texture = ExtResource( 10 )
 region_rect = Rect2( 0, 0, 1920, 1080 )
 
 [node name="Node2D2" type="Node2D"]
+
+[node name="Transition" parent="." instance=ExtResource( 16 )]
+visible = false
+position = Vector2( -8, -2 )
 
 [node name="LoadSilentWolf" type="Node" parent="."]
 script = ExtResource( 15 )

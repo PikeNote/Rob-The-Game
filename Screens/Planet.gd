@@ -14,9 +14,6 @@ onready var transition = $"../Transition";
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	transition.visible=true;
-	transition.transition_out();
-
 	$"../AnimationPlayer".play("JumpingRob");
 	#$"../AnimationPlayer".seek(0,true);
 	$"../AnimationPlayer".stop(true);
@@ -85,12 +82,6 @@ func _doneMoving(index):
 
 func _on_SelectLevel_button_down():
 	GlobalVars.currentScene = currentPlace;
-	transition.transition_in();
+	transition.transition_in("res://Screens/TravelInProgress.tscn");
 	pass # Replace with function body.
 
-
-
-
-func _on_Transition_transition_in_done():
-	get_tree().change_scene_to(load("res://Screens/TravelInProgress.tscn"))
-	pass # Replace with function body.

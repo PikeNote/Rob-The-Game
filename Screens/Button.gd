@@ -1,13 +1,15 @@
 extends Control
- 
+
+onready var transition = $"../../../Transition";
+
 func _on_Button_pressed():
-	get_tree().change_scene("res://Screens/GameScene.tscn")
+	transition.transition_in("res://Screens/GameScene.tscn")
 	
 func _on_PlayButton2_pressed():
-	get_tree().change_scene("res://Screens/LevelSelect.tscn")
+	transition.transition_in("res://Screens/LevelSelect.tscn")
 
 func _on_LeaderboardButton_pressed():
-	get_tree().change_scene("res://LeaderboardScene.tscn")
+	transition.transition_in("res://Screens/LeaderboardScene.tscn")
 
 func _on_BackButton_pressed():
-	get_tree().change_scene("res://Screens/MainScene.tscn")
+	transition.transition_in("res://Screens/MainScene.tscn")

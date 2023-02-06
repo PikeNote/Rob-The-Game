@@ -48,3 +48,9 @@ func reverse_string(s):
 	for i in range(s.length()-1, -1, -1):
 		reversedWord += s[i]
 	return reversedWord
+
+func already_pressed():
+	return pressed_before;
+
+func get_letter():
+	return $"Label".text;

@@ -46,6 +46,7 @@ _data = {
 
 [node name="Transition" parent="." instance=ExtResource( 4 )]
 visible = false
+position = Vector2( -7, -1 )
 
 [node name="LevelOneSelectPlace" type="Sprite" parent="."]
 position = Vector2( 960, 539 )
@@ -91,5 +92,3 @@ lookahead = 15.0
 rotation = 3.11192
 scale = Vector2( 0.239, 0.212418 )
 texture = ExtResource( 3 )
-
-[connection signal="transition_in_done" from="Transition" to="LevelOneSelectPlace" method="_on_Transition_transition_in_done"]

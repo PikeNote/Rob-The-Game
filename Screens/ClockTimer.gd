@@ -7,7 +7,7 @@ export(int) var seconds = 2;
 # var b = "text"
 
 var timeInSeconds = 0;
-onready var ConfirmUsername = $"../ConfirmUsername"
+onready var ConfirmUsername = $"../../ConfirmUsername"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

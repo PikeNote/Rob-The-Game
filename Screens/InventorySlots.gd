@@ -31,6 +31,22 @@ func _on_mouse_leave() -> void:
 
 func mouseIn():
 	return mouse_entered;
+
+
+#func _input(e):
+#	var avaliableLetterObjects = [];
+#	var avaliableLetters = [];
+#	
+#	for n in $AnimatedGridContainer.get_children():
+#		if(n.already_pressed()):
+#			avaliableLetterObjects.append(n);
+#			avaliableLetters.append(n.get_letter());
+	
+#	if e is InputEventKey:
+#		print(event.as_text());
+#		if(inv.has(event.as_text())):
+			
+		#code
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
