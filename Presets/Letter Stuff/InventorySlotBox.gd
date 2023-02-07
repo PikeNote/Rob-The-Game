@@ -19,7 +19,10 @@ func _getLetter():
 
 func _setLink(a):
 	linkedInvItem = a;
-	
+
+func _getLinkedItem():
+	return linkedInvItem;
+
 func _freeLinked():
 	linkedInvItem.queue_free();
 # Called every frame. 'delta' is the elapsed time since the previous frame.

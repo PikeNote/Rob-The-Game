@@ -46,9 +46,9 @@ func mouseIn():
 func _input(e):
 	if e is InputEventKey and e.pressed:
 		if(e.scancode == KEY_BACKSPACE):
-			var lastChild:LetterInventory = $AnimatedGridContainer.get_child($AnimatedGridContainer.get_child_count()-1);
-			print("ls:"+lastChild.get_letter())
-			lastChild._on_Press();
+			if($"../AnimatedGridContainer".get_child_count() > 0):
+				var invSpellItem = $"../AnimatedGridContainer".get_child(0);
+				invSpellItem._getLinkedItem()._on_Press();
 		elif(invAvaliable.has(e.as_text())):
 			print("s:"+e.as_text())
 			print(e.as_text());
