@@ -15,19 +15,15 @@ func _addPoints(var p):
 	points += p;
 	$".".text = "Points: " + str(points);
 
+func getPoints(points):
+	return points;
+
 var player_name = "Stupid Idiot"
 
-func _saveScore(player_name, points):
+func saveScores(player_name, points):
 	SilentWolf.Scores.persist_score(player_name, points)
+	var score_id = yield(SilentWolf.Scores.persist_score(player_name, points), "sw_score_posted")
+	print("Score persisted successfully: " + str(score_id));
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-var username;
-
-func _on_EnterUsername_text_changed(new_text):
-	username = new_text
-
-func _on_ConfirmUsername_confirmed():
-	_saveScore(player_name, points)
-
+func _on_ConfirmationDialog_confirmed():
+	saveScores(player_name, points);

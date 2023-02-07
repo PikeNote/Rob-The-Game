@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://addons/silent_wolf/Scores/Leaderboard.gd" type="Script" id=1]
 [ext_resource path="res://addons/silent_wolf/Scores/assets/fonts/Comfortaa-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://addons/silent_wolf/assets/fonts/Comfortaa-Bold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://addons/silent_wolf/common/SWButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Screens/Button.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 76
@@ -85,4 +86,7 @@ margin_left = 582.0
 margin_right = 1281.0
 margin_bottom = 118.0
 text = "Close Leaderboard"
+script = ExtResource( 5 )
+
 [connection signal="pressed" from="Board/CloseButtonContainer/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="Board/CloseButtonContainer/CloseButton" to="Board/CloseButtonContainer/CloseButton" method="_on_CloseButton_pressed"]
