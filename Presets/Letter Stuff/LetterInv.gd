@@ -1,5 +1,6 @@
 extends Button
 
+class_name LetterInventory
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -33,11 +34,11 @@ func _on_Press():
 
 		if(checkWd[0]):
 			GarbageCollector._clearSpell($"../../../AnimatedGridContainer");
-			$"../../../InventorySlots"._invRemove(word);
+			$"../../../InventorySlots"._invRemove();
 			$"../../../Points"._addPoints(checkWd[1]);
-			pass;
 	else:
 		currentLetter.queue_free();
+		$"../../../AnimatedGridContainer".remove_child(currentLetter);
 		currentLetter = null;
 		$"Label".add_color_override("font_color", Color(1,1,1,1));
 		pressed_before = false;
