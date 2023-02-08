@@ -9,6 +9,7 @@ var invInUse = [];
 var mouse_entered = false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalVars.inventoryRef = $"..";
 	pass # Replace with function body.
 
 func _addLetter(l):
@@ -34,10 +35,10 @@ func _invRemove():
 		invInUse.remove(i);
 	
 func _on_mouse_entered() -> void:
-	$"../AnimatedGridContainer"._changeOverUI(true);
+	$"../SpellInventory"._changeOverUI(true);
 	
 func _on_mouse_leave() -> void:
-	$"../AnimatedGridContainer"._changeOverUI(false);
+	$"../SpellInventory"._changeOverUI(false);
 
 func mouseIn():
 	return mouse_entered;
@@ -46,8 +47,8 @@ func mouseIn():
 func _input(e):
 	if e is InputEventKey and e.pressed:
 		if(e.scancode == KEY_BACKSPACE):
-			if($"../AnimatedGridContainer".get_child_count() > 0):
-				var invSpellItem = $"../AnimatedGridContainer".get_child(0);
+			if($"../SpellInventory".get_child_count() > 0):
+				var invSpellItem = $"../SpellInventory".get_child(0);
 				invSpellItem._getLinkedItem()._on_Press();
 		elif(invAvaliable.has(e.as_text())):
 			print("s:"+e.as_text())

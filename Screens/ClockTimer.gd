@@ -7,7 +7,7 @@ export(int) var seconds = 2;
 # var b = "text"
 
 var timeInSeconds = 0;
-onready var checkUsername = $"../../ConfirmationDialog";
+onready var checkUsername = $"../../../ConfirmationDialog";
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +23,7 @@ func _passTime():
 	if $".".returnTime() == 0:
 		print("There are 0 seconds on the clock")
 		$".".stop()
-		checkUsername.show();
+		
 		
 		#and then we make a screen for ending
 

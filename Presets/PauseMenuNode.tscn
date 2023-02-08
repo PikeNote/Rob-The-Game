@@ -93,9 +93,9 @@ custom_constants/separation = 50
 
 [node name="Pause" type="Button" parent="."]
 margin_left = 8.62905
-margin_top = 111.623
+margin_top = 130.623
 margin_right = 144.629
-margin_bottom = 261.623
+margin_bottom = 280.623
 rect_min_size = Vector2( 29, 150 )
 rect_scale = Vector2( 0.744335, 0.705726 )
 focus_mode = 0
