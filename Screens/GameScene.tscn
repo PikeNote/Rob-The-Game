@@ -126,7 +126,13 @@ initial_velocity = 10.0
 scale_amount = 0.05
 
 [node name="AnimatedGridContainer" parent="." instance=ExtResource( 9 )]
+margin_left = 1000.82
+margin_top = 491.211
+margin_right = 1662.82
+margin_bottom = 593.211
 grow_horizontal = 1
+rect_scale = Vector2( -1, 1 )
+horizontal_fill_direction = 1
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -168,7 +174,6 @@ __meta__ = {
 }
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
-visible = true
 margin_left = 377.638
 margin_top = 303.329
 margin_right = 660.638
