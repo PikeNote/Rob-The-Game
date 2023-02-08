@@ -7,6 +7,7 @@ extends Sprite
 var invAvaliable = [];
 var invInUse = [];
 var mouse_entered = false;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalVars.inventoryRef = $"..";
@@ -51,13 +52,33 @@ func _input(e):
 				var invSpellItem = $"../SpellInventory".get_child(0);
 				invSpellItem._getLinkedItem()._on_Press();
 		elif(invAvaliable.has(e.as_text())):
-			print("s:"+e.as_text())
-			print(e.as_text());
 			for n in $AnimatedGridContainer.get_children():
 				var letterInv : LetterInventory = n
 				if(letterInv.get_letter() == (e.as_text()).to_upper() and !letterInv.already_pressed()):
 					n._on_Press();
 					break;
+		elif(e.scancode == KEY_ENTER):
+			var checkWord = checkWordSolve();
+			if(checkWord[0]):
+				for invSlot in $"../SpellInventory".get_children():
+					invSlot._freeLinked();
+					invSlot.queue_free();
+				_invRemove();
+				GlobalVars.pointsBox._addPoints(checkWord[1]);
+			pass;
+func checkWordSolve():
+	var word = "";
+	for invSlot in $"../SpellInventory".get_children():
+		word+=invSlot._getLetter();
+	word = reverse_string(word.to_lower());
+	return Words._checkWord(word);
+
+func reverse_string(s):
+	var reversedWord := "" 
+	for i in range(s.length()-1, -1, -1):
+		reversedWord += s[i]
+	return reversedWord
+	
 		#code
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

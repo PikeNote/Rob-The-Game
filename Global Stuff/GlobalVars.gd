@@ -7,6 +7,7 @@ extends Node
 var currentScene = 0;
 var endGame = false;
 var inventoryRef;
+var pointsBox;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

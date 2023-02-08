@@ -1,5 +1,4 @@
-extends RichTextLabel
-
+extends Sprite
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -8,12 +7,12 @@ var points = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalVars.pointsBox = $".";
 	pass;
 
 func _addPoints(var p):
-	print(str(p) + " added")
 	points += p;
-	$".".text = "Points: " + str(points);
+	$Points.text = "Points: " + str(points);
 
 func getPoints(points):
 	return points;

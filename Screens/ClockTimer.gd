@@ -7,11 +7,9 @@ export(int) var seconds = 2;
 # var b = "text"
 
 var timeInSeconds = 0;
-onready var checkUsername = $"../../../ConfirmationDialog";
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	checkUsername.hide();
 	timeInSeconds = (minutes*60)+seconds;
 	connect("timeout",self,"_passTime")
 
