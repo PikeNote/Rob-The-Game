@@ -8,15 +8,16 @@ extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	connect("button_down",self, "_on_Button2_pressed")
+	connect("mouse_entered", self, "_on_Mouse_Enter")
+	connect("mouse_exited", self, "_on_Mouse_Leave")
 	pass # Replace with function body.
 
+func _on_Mouse_Enter():
+	modulate = Color("e5e5e5")
+
+func _on_Mouse_Leave():
+	modulate = Color("ffffff")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-func _on_Button2_pressed():
-	$"../../../../../Planet"._moveNextLocation();
-	pass # Replace with function body.

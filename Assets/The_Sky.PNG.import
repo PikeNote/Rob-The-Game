@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/EasyTrack.PNG-e954c7a85394c49d9fa21c13b0077070.stex"
+path="res://.import/The_Sky.PNG-457a53c9493b0ae3d84e641fe2e0da36.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/EasyTrack.PNG"
-dest_files=[ "res://.import/EasyTrack.PNG-e954c7a85394c49d9fa21c13b0077070.stex" ]
+source_file="res://Assets/The_Sky.PNG"
+dest_files=[ "res://.import/The_Sky.PNG-457a53c9493b0ae3d84e641fe2e0da36.stex" ]
 
 [params]
 

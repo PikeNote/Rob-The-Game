@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/Pause_Icon_Mask.PNG-93978d13887a9f0441231fccc0a6e1f9.res"
+
+[deps]
+
+source_file="res://Assets/Pause_Icon_Mask.PNG"
+dest_files=[ "res://.import/Pause_Icon_Mask.PNG-93978d13887a9f0441231fccc0a6e1f9.res" ]
+
+[params]
+
+create_from=1
+threshold=0.04

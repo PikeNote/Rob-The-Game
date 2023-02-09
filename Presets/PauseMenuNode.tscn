@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Fonts/PauseFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Screens/Pause.gd" type="Script" id=2]
@@ -7,15 +7,14 @@
 [ext_resource path="res://Assets/Play_Button.PNG" type="Texture" id=5]
 [ext_resource path="res://Assets/Quit_Button.PNG" type="Texture" id=6]
 [ext_resource path="res://Assets/Settings_Button.PNG" type="Texture" id=7]
+[ext_resource path="res://Assets/Pause_Icon_Mask.PNG" type="BitMap" id=8]
+[ext_resource path="res://Presets/HoverButton.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Button_Mask.PNG" type="BitMap" id=10]
 
-[sub_resource type="StyleBoxTexture" id=17]
-texture = ExtResource( 4 )
+[sub_resource type="StyleBoxTexture" id=19]
+texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 1000, 1000 )
 modulate_color = Color( 0.898039, 0.898039, 0.898039, 1 )
-
-[sub_resource type="StyleBoxTexture" id=11]
-texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 1000, 1000 )
 
 [node name="PauseMenuNode" type="Node2D"]
 pause_mode = 2
@@ -25,6 +24,7 @@ script = ExtResource( 2 )
 layer = 4
 
 [node name="PauseMenu" type="PopupDialog" parent="CanvasLayer"]
+visible = true
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 4.0
 margin_top = 4.0
@@ -48,17 +48,16 @@ rect_min_size = Vector2( 1401, 794 )
 texture = ExtResource( 3 )
 expand = true
 
-[node name="Resume" type="Button" parent="CanvasLayer/PauseMenu"]
+[node name="Resume" type="TextureButton" parent="CanvasLayer/PauseMenu"]
 margin_left = 784.0
 margin_top = 556.0
 margin_right = 934.0
 margin_bottom = 706.0
 focus_mode = 0
-custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0
-icon = ExtResource( 5 )
-flat = true
-expand_icon = true
+texture_normal = ExtResource( 5 )
+texture_click_mask = ExtResource( 10 )
+expand = true
 
 [node name="Settings" type="Button" parent="CanvasLayer/PauseMenu"]
 margin_left = 987.0
@@ -67,22 +66,22 @@ margin_right = 1137.0
 margin_bottom = 701.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = SubResource( 19 )
 enabled_focus_mode = 0
 icon = ExtResource( 7 )
 flat = true
 expand_icon = true
 
-[node name="Quit" type="Button" parent="CanvasLayer/PauseMenu"]
+[node name="Quit" type="TextureButton" parent="CanvasLayer/PauseMenu"]
 margin_left = 884.0
 margin_top = 706.0
 margin_right = 1034.0
 margin_bottom = 856.0
 focus_mode = 0
-custom_fonts/font = ExtResource( 1 )
 enabled_focus_mode = 0
-icon = ExtResource( 6 )
-flat = true
-expand_icon = true
+texture_normal = ExtResource( 6 )
+texture_click_mask = ExtResource( 10 )
+expand = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu"]
 margin_left = 1219.0
@@ -91,22 +90,17 @@ margin_right = 1569.0
 margin_bottom = 796.0
 custom_constants/separation = 50
 
-[node name="Pause" type="Button" parent="."]
-margin_left = 8.62905
+[node name="Pause" type="TextureButton" parent="."]
+margin_left = 8.629
 margin_top = 130.623
 margin_right = 144.629
 margin_bottom = 280.623
-rect_min_size = Vector2( 29, 150 )
-rect_scale = Vector2( 0.744335, 0.705726 )
-focus_mode = 0
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 17 )
-custom_styles/focus = SubResource( 17 )
-custom_styles/disabled = SubResource( 17 )
-custom_styles/normal = SubResource( 11 )
-enabled_focus_mode = 0
-icon_align = 1
-expand_icon = true
+rect_scale = Vector2( 0.744, 0.706 )
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+texture_click_mask = ExtResource( 8 )
+expand = true
+script = ExtResource( 9 )
 
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Quit" to="." method="_on_Quit_pressed"]

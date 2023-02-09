@@ -10,6 +10,11 @@ var yValue = 0;
 var currentPlace = 0;
 var moving = false;
 
+var movingLeft = true;
+
+onready var robScale = $"../RobSideProfile".scale.x;
+
+
 onready var transition = $"../Transition";
 
 # Called when the node enters the scene tree for the first time.
@@ -22,7 +27,10 @@ func _ready():
 	
 func _physics_process(delta):
 	if(moving):
-		$"../Planet-transformed".rotation_degrees += 0.5;
+		if($"../RobSideProfile".scale.x > 0):
+			$".".rotation_degrees += 0.5;
+		else:
+			$".".rotation_degrees -= 0.5;
 		$"../LevelSelect".visible = false;
 	else:
 		$"../LevelSelect".visible = true;
@@ -64,8 +72,6 @@ func _doneMoving(index):
 	$"../LevelSelect/Description".text = levelDescription[index].Description;
 	var starsCount = 1;
 	for stars in $"../LevelSelect/CenterStars/Stars".get_children():
-		print(stars.name)
-		print(starsCount)
 		if(starsCount<=levelDescription[index].Difficulty):
 			starsCount+=1;
 			stars.modulate = Color(249, 255, 1);
@@ -79,9 +85,19 @@ func _doneMoving(index):
 #func _process(delta):
 #	pass
 
-
 func _on_SelectLevel_button_down():
 	GlobalVars.currentScene = currentPlace;
 	transition.transition_in("res://Screens/TravelInProgress.tscn");
 	pass # Replace with function body.
 
+
+func _on_LeftButton_pressed():
+	$"../RobSideProfile".scale.x=robScale;
+	_moveNextLocation();
+	pass # Replace with function body.
+
+
+func _on_RightButton_pressed():
+	$"../RobSideProfile".scale.x=robScale*-1;
+	_moveNextLocation();
+	pass # Replace with function body.

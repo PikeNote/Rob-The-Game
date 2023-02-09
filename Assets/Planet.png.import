@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/left-and-right-arrows-svgrepo-com.png-2576a23fc3efdc649129f71c86bd14bb.stex"
+path="res://.import/Planet.png-fc520a348902c485bd8fde20792a893a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/left-and-right-arrows-svgrepo-com.png"
-dest_files=[ "res://.import/left-and-right-arrows-svgrepo-com.png-2576a23fc3efdc649129f71c86bd14bb.stex" ]
+source_file="res://Assets/Planet.png"
+dest_files=[ "res://.import/Planet.png-fc520a348902c485bd8fde20792a893a.stex" ]
 
 [params]
 
