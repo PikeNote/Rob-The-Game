@@ -49,6 +49,7 @@ GarbageCollector="*res://Global Stuff/GarbageCollector.gd"
 Words="*res://Global Stuff/words.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 GlobalVars="*res://Global Stuff/GlobalVars.gd"
+SilentWolfGlobal="*res://Global Stuff/Node.gd"
 
 [display]
 
