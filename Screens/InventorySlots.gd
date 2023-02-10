@@ -65,7 +65,7 @@ func _input(e):
 					invSlot.queue_free();
 				_invRemove();
 				GlobalVars.pointsBox._addPoints(checkWord[1]);
-			pass;
+
 func checkWordSolve():
 	var word = "";
 	for invSlot in $"../SpellInventory".get_children():

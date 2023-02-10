@@ -28,8 +28,3 @@ func _input(event: InputEvent) -> void:
 		else:
 			$Chain.release()
 
-func setLinePointsToBezierCurve(line: Line2D, a: Vector2, postA: Vector2, preB: Vector2, b: Vector2):
-	var curve := Curve2D.new()
-	curve.add_point(a, Vector2.ZERO, postA)
-	curve.add_point(b, preB, Vector2.ZERO)
-	line.points = curve.get_baked_points()
