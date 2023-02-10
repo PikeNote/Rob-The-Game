@@ -1,6 +1,11 @@
 extends Node2D
 
 onready var _tpm = $CanvasLayer/PauseMenu
+onready var tween = $Tween
+export var scaleUpTime:float = 1;
+var queueNextAnim = false;
+var nextVector = Vector2(1,1)
+
 
 var is_paused = false setget set_is_paused
 
@@ -10,9 +15,28 @@ func set_is_paused(value):
 
 func _on_Pause_pressed():
 	self.is_paused = !is_paused
+	$CanvasLayer/ColorRect.visible = true;
 	_tpm.popup_centered()
+	_tweenObject(Vector2(0,0),Vector2(1.4,1.4));
+	
+
+func _tweenObject(from, to):
+	tween.interpolate_property($CanvasLayer/PauseMenu, "rect_scale", from, to, scaleUpTime, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	queueNextAnim =true;
+	nextVector = Vector2(1,1)
+	tween.start();
+	
+func _on_Tween_tween_completed(object, key):
+	if(queueNextAnim):
+		queueNextAnim = false;
+		_tweenObject($CanvasLayer/PauseMenu.rect_scale, nextVector);
+		tween.start();
+		
+		
+	
 
 func _on_Resume_pressed():
+	$CanvasLayer/ColorRect.visible = true;
 	if _tpm == null:
 		print("_tpm is null")
 	else:
@@ -22,3 +46,9 @@ func _on_Resume_pressed():
 func _on_Quit_pressed():
 	get_tree().change_scene("res://Screens/MainScene.tscn")
 	pass # Replace with function body.
+
+func _physics_process(delta):
+	print($CanvasLayer/PauseMenu.rect_scale)
+
+
+
