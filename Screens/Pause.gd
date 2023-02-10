@@ -17,7 +17,7 @@ func _on_Pause_pressed():
 	self.is_paused = !is_paused
 	$CanvasLayer/ColorRect.visible = true;
 	_tpm.popup_centered()
-	_tweenObject(Vector2(0,0),Vector2(1.4,1.4));
+	_tweenObject(Vector2(0,0),Vector2(1.3,1.3));
 	
 
 func _tweenObject(from, to):
@@ -32,11 +32,9 @@ func _on_Tween_tween_completed(object, key):
 		_tweenObject($CanvasLayer/PauseMenu.rect_scale, nextVector);
 		tween.start();
 		
-		
-	
-
 func _on_Resume_pressed():
-	$CanvasLayer/ColorRect.visible = true;
+	$CanvasLayer/ColorRect.visible = false;
+	tween.stop_all();
 	if _tpm == null:
 		print("_tpm is null")
 	else:
@@ -46,9 +44,6 @@ func _on_Resume_pressed():
 func _on_Quit_pressed():
 	get_tree().change_scene("res://Screens/MainScene.tscn")
 	pass # Replace with function body.
-
-func _physics_process(delta):
-	print($CanvasLayer/PauseMenu.rect_scale)
 
 
 

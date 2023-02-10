@@ -18,8 +18,8 @@ extra_spacing_char = 1
 font_data = SubResource( 11 )
 
 [node name="PointsBox" type="Sprite"]
-position = Vector2( 114.672, 67.5048 )
-scale = Vector2( 0.237008, 0.243592 )
+position = Vector2( 179.525, 104.983 )
+scale = Vector2( 0.366584, 0.366069 )
 texture = ExtResource( 3 )
 script = ExtResource( 5 )
 

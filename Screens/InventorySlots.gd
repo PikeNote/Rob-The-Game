@@ -10,7 +10,11 @@ var mouse_entered = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	GlobalVars.inventoryRef = $"..";
+	GlobalVars.pointsEarned = 0;
+	GlobalVars.wordsSpelled = [];
+	
 	pass # Replace with function body.
 
 func _addLetter(l):
@@ -65,13 +69,16 @@ func _input(e):
 					invSlot.queue_free();
 				_invRemove();
 				GlobalVars.pointsBox._addPoints(checkWord[1]);
+				GlobalVars.wordsSpelled.append(checkWord[2]);
+				GlobalVars.pointsEarned+=checkWord[1];
+				
 
 func checkWordSolve():
 	var word = "";
 	for invSlot in $"../SpellInventory".get_children():
 		word+=invSlot._getLetter();
 	word = reverse_string(word.to_lower());
-	return Words._checkWord(word);
+	return Words._checkWord(word).append(word);
 
 func reverse_string(s):
 	var reversedWord := "" 

@@ -13,7 +13,7 @@
 [node name="PauseMenuNode" type="Node2D"]
 pause_mode = 2
 script = ExtResource( 2 )
-scaleUpTime = 0.4
+scaleUpTime = 0.3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 4
