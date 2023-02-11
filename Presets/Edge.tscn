@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 8.69239, 305.356 )
+extents = Vector2( 7.23621, 321.923 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 523.786, 10 )
@@ -13,7 +13,7 @@ position = Vector2( -9.30761, 288.356 )
 shape = SubResource( 5 )
 
 [node name="EdgeRight" type="CollisionShape2D" parent="."]
-position = Vector2( 1033.22, 282.51 )
+position = Vector2( 1031.76, 299.077 )
 shape = SubResource( 5 )
 
 [node name="EdgeTop" type="CollisionShape2D" parent="."]
@@ -21,5 +21,5 @@ position = Vector2( 511.862, -10.7523 )
 shape = SubResource( 6 )
 
 [node name="EdgeBottom" type="CollisionShape2D" parent="."]
-position = Vector2( 512, 584 )
+position = Vector2( 512, 612 )
 shape = SubResource( 6 )

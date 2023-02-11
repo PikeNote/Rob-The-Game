@@ -36,8 +36,7 @@ func _invCount():
 	return invAvaliable.size() + invInUse.size();
 
 func _invRemove():
-	for i in invInUse:
-		invInUse.remove(i);
+	invInUse = []
 	
 func _on_mouse_entered() -> void:
 	$"../SpellInventory"._changeOverUI(true);
@@ -78,7 +77,9 @@ func checkWordSolve():
 	for invSlot in $"../SpellInventory".get_children():
 		word+=invSlot._getLetter();
 	word = reverse_string(word.to_lower());
-	return Words._checkWord(word).append(word);
+	var wordResult = Words._checkWord(word);
+	wordResult.append(word);
+	return wordResult;
 
 func reverse_string(s):
 	var reversedWord := "" 

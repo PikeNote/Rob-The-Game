@@ -19,6 +19,7 @@ func _changeLetter(a):
 	$"Label".text = a;
 func _on_Press():
 	if(!pressed_before):
+		inventorySlots._invSelect($"Label".text);
 		$"Label".add_color_override("font_color", Color(0,1.0,0,1));
 		pressed_before = true;
 		currentLetter = load("res://Presets/Letter Stuff/LetterSpell.tscn").instance()
@@ -28,6 +29,7 @@ func _on_Press():
 		currentLetter._changeLetter($"Label".text)
 		currentLetter._setLink($".");
 	else:
+		inventorySlots._invDeselect($"Label".text);
 		currentLetter.queue_free();
 		inventoryContainer.remove_child(currentLetter);
 		currentLetter = null;

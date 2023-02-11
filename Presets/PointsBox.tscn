@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Screens/ClockTimer.gd" type="Script" id=2]
 [ext_resource path="res://Assets/The_Box.PNG" type="Texture" id=3]
 [ext_resource path="res://Fonts/Catcafe-v5yM.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Presets/PointsBox.gd" type="Script" id=5]
@@ -32,10 +31,6 @@ custom_fonts/normal_font = SubResource( 8 )
 text = "Remaining time:
 00:00"
 
-[node name="ClockTimer" type="Timer" parent="ClockTimerText"]
-autostart = true
-script = ExtResource( 2 )
-
 [node name="Points" type="RichTextLabel" parent="."]
 margin_left = -376.0
 margin_top = 55.0
@@ -43,3 +38,8 @@ margin_right = 159.0
 margin_bottom = 192.0
 custom_fonts/normal_font = SubResource( 9 )
 text = "Points: 0"
+
+[node name="ClockTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ClockTimer" to="." method="_on_ClockTimer_timeout"]

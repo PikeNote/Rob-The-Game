@@ -1,20 +1,28 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Scoreboard_Screen.png" type="Texture" id=1]
 [ext_resource path="res://Presets/EndGameScreen.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Button_Mask.PNG" type="BitMap" id=3]
+[ext_resource path="res://Presets/HoverButton.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Quit_Button.PNG" type="Texture" id=5]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/SunnyspellsRegular-MV9ze.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+font_data = SubResource( 1 )
 
 [node name="EndGameScreen" type="Node2D"]
 z_index = 20
 script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 margin_right = 1920.0
 margin_bottom = 1080.0
 color = Color( 0, 0, 0, 0.552941 )
 
-[node name="Control" type="MarginContainer" parent="."]
-visible = false
+[node name="Control" type="Control" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
 
@@ -23,5 +31,43 @@ margin_right = 1920.0
 margin_bottom = 1080.0
 texture = ExtResource( 1 )
 expand = true
+
+[node name="WordsSpelled" type="RichTextLabel" parent="Control"]
+margin_left = 267.0
+margin_top = 408.0
+margin_right = 1022.0
+margin_bottom = 502.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "Words Spelled: 0"
+
+[node name="PointsEarned" type="RichTextLabel" parent="Control"]
+margin_left = 266.0
+margin_top = 516.0
+margin_right = 1021.0
+margin_bottom = 610.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "Points Earned: 0"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+margin_left = 1040.0
+margin_top = 387.0
+margin_right = 1679.0
+margin_bottom = 609.0
+
+[node name="WordsSpelledContainer" type="VFlowContainer" parent="Control/ScrollContainer"]
+margin_right = 639.0
+margin_bottom = 222.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ExitButton" type="TextureButton" parent="Control"]
+margin_left = 896.0
+margin_top = 651.0
+margin_right = 1070.0
+margin_bottom = 816.0
+texture_normal = ExtResource( 5 )
+texture_click_mask = ExtResource( 3 )
+expand = true
+script = ExtResource( 4 )
 
 [node name="Tween" type="Tween" parent="."]
