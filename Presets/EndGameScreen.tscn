@@ -71,3 +71,5 @@ expand = true
 script = ExtResource( 4 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[connection signal="pressed" from="Control/ExitButton" to="." method="_on_ExitButton_pressed"]

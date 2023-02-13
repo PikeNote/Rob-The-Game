@@ -41,11 +41,14 @@ position = Vector2( -9.58737, 3.57628e-07 )
 scale = Vector2( 0.54, 0.565 )
 
 [node name="EasyTrack" type="Sprite" parent="."]
-position = Vector2( 515.027, 305.602 )
+position = Vector2( 515.027, 305.036 )
 scale = Vector2( 0.53433, 0.565895 )
 z_index = -2
 texture = ExtResource( 4 )
 normal_map = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Line2D" type="Line2D" parent="."]
 visible = false
@@ -109,7 +112,7 @@ position = Vector2( 882.575, 263.715 )
 [node name="PointsBox" parent="." instance=ExtResource( 9 )]
 position = Vector2( 121.862, 70.3343 )
 scale = Vector2( 0.251374, 0.252839 )
-minutes = 0
+seconds = 0
 
 [node name="EndGameScreen" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1.06527, -1.69773 )

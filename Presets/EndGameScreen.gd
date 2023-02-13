@@ -32,3 +32,8 @@ func _endGame():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func _on_ExitButton_pressed():
+	GlobalVars.endGame = true;
+	$"../Transition".transition_in("res://Screens/TravelInProgress.tscn")
+	pass # Replace with function body.

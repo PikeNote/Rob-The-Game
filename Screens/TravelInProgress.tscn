@@ -23,6 +23,16 @@ tracks/0/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 150, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5, 1 )
 }
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("../../ExitPath/PathFollow2D:v_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 150, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.1 )
+}
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -35,6 +45,18 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../ExitPath/PathFollow2D:v_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
 }
 
 [sub_resource type="Curve2D" id=4]
@@ -89,6 +111,6 @@ rotation = 3.05032
 lookahead = 15.0
 
 [node name="Rob\'sSideProfile" type="Sprite" parent="ExitPath/PathFollow2D"]
-rotation = 3.11192
+rotation = 3.24631
 scale = Vector2( 0.239, 0.212418 )
 texture = ExtResource( 3 )

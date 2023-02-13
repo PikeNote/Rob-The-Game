@@ -22,6 +22,8 @@ var gameLevels = [
 var properItem;
 var pathFollow;
 
+var levelSwitching = false;
+
 onready var transition = $"../Transition"
 
 # Called when the node enters the scene tree for the first time.
@@ -38,6 +40,8 @@ func _ready():
 	properItem.visible = true;
 	pathFollow.unit_offset = 0;
 	startingY = properItem.transform.y;
+	$"../AnimationPlayer".get_animation("JumpingRob").loop = true;
+	$"../AnimationPlayer".play("JumpingRob");
 	
 	pass # Replace with function body.
 
@@ -53,4 +57,14 @@ func _physics_process(delta):
 		if(pathFollow.unit_offset>=0.8):
 			$"../AnimationPlayer".get_animation("JumpingRob").loop = false;
 	else:
-		transition.transition_in(gameLevels[GlobalVars.currentScene]);
+		if(!levelSwitching):
+			if(!GlobalVars.endGame):
+				transition.transition_in(gameLevels[GlobalVars.currentScene]);
+			else: 
+				GlobalVars.endGame = false;
+				transition.transition_in("res://Screens/LevelSelect.tscn");
+				levelSwitching=true;
+		
+		
+		
+		
