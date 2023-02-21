@@ -28,8 +28,6 @@ func saveScores(player_name, points):
 	var score_id = yield(SilentWolf.Scores.persist_score(player_name, points), "sw_score_posted")
 	print("Score persisted successfully: " + str(score_id));
 
-func _on_ConfirmationDialog_confirmed():
-	saveScores(player_name, points);
 
 func _endGame():
 	$"../EndGameScreen"._endGame();
@@ -43,6 +41,7 @@ func _on_ClockTimer_timeout():
 	if timeInSeconds == 0:
 		print("There are 0 seconds on the clock")
 		$ClockTimer.stop()
+		saveScores(player_name, points);
 		_endGame()
 		
 	pass # Replace with function body.
