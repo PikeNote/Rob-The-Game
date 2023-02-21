@@ -28,6 +28,7 @@ func _endGame():
 	$Control.visible=true;
 	tween.interpolate_property($Control, "rect_position", $Control.rect_position, Vector2($Control.rect_position.x, normalYPosition), scaleUpTime, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start();
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
