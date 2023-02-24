@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rob.png-2061a28ac522e00950dc4c88ea33e00e.stex"
+path="res://.import/Lobby_Screen.PNG-4c1ce1c4949780cbba44db0b27ed77a2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/rob.png"
-dest_files=[ "res://.import/rob.png-2061a28ac522e00950dc4c88ea33e00e.stex" ]
+source_file="res://Assets/Lobby_Screen.PNG"
+dest_files=[ "res://.import/Lobby_Screen.PNG-4c1ce1c4949780cbba44db0b27ed77a2.stex" ]
 
 [params]
 

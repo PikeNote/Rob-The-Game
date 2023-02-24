@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Main_Menu.PNG" type="Texture" id=1]
+[ext_resource path="res://Presets/HoverButton.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/UwUFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Screens/Button.gd" type="Script" id=4]
 [ext_resource path="res://Music/the-cradle-of-your-soul-15700.mp3" type="AudioStream" id=5]
@@ -15,6 +16,9 @@
 [ext_resource path="res://MusicSlider.gd" type="Script" id=14]
 [ext_resource path="res://Global Stuff/Node.gd" type="Script" id=15]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Button_Mask.PNG" type="BitMap" id=17]
+[ext_resource path="res://Screens/SettingsPopupMenu.gd" type="Script" id=18]
+[ext_resource path="res://Assets/Edit_Name_Button.png" type="Texture" id=19]
 
 [sub_resource type="Theme" id=3]
 
@@ -28,6 +32,13 @@ font_data = SubResource( 11 )
 [sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 10 )
 region_rect = Rect2( 0, 0, 1920, 1080 )
+
+[sub_resource type="DynamicFontData" id=12]
+font_path = "res://Fonts/SunnyspellsRegular-MV9ze.otf"
+
+[sub_resource type="DynamicFont" id=13]
+size = 40
+font_data = SubResource( 12 )
 
 [node name="Node2D2" type="Node2D"]
 
@@ -119,11 +130,13 @@ __meta__ = {
 margin_right = 458.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
+focus_mode = 0
 theme = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0.819608, 0.545098, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.819608, 0.545098, 1 )
 custom_fonts/font = ExtResource( 3 )
+enabled_focus_mode = 0
 text = "Play"
 flat = true
 script = ExtResource( 4 )
@@ -133,11 +146,13 @@ light_mask = 513
 margin_top = 180.0
 margin_right = 458.0
 margin_bottom = 227.0
+focus_mode = 0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0.819608, 0.545098, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.819608, 0.545098, 1 )
 custom_constants/hseparation = 0
 custom_fonts/font = ExtResource( 3 )
+enabled_focus_mode = 0
 text = "Settings"
 flat = true
 script = ExtResource( 7 )
@@ -147,11 +162,13 @@ light_mask = 513
 margin_top = 357.0
 margin_right = 458.0
 margin_bottom = 404.0
+focus_mode = 0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0.819608, 0.545098, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.819608, 0.545098, 1 )
 custom_constants/hseparation = 0
 custom_fonts/font = ExtResource( 3 )
+enabled_focus_mode = 0
 text = "Tutorial"
 flat = true
 script = ExtResource( 4 )
@@ -161,10 +178,12 @@ light_mask = 513
 margin_top = 534.0
 margin_right = 458.0
 margin_bottom = 581.0
+focus_mode = 0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 0.819608, 0.545098, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.819608, 0.545098, 1 )
 custom_fonts/font = ExtResource( 3 )
+enabled_focus_mode = 0
 text = "Leaderboard"
 flat = true
 script = ExtResource( 4 )
@@ -217,6 +236,7 @@ bus = "Music"
 script = ExtResource( 6 )
 
 [node name="SettingsPopupMenu" type="WindowDialog" parent="Control"]
+visible = true
 margin_left = 159.0
 margin_top = 83.0
 margin_right = 1803.0
@@ -229,8 +249,10 @@ custom_fonts/title_font = ExtResource( 3 )
 custom_icons/close_highlight = ExtResource( 8 )
 custom_icons/close = ExtResource( 8 )
 custom_styles/panel = SubResource( 4 )
+script = ExtResource( 18 )
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Control/SettingsPopupMenu"]
+visible = false
 margin_left = 171.0
 margin_top = 269.0
 margin_right = 940.0
@@ -324,6 +346,114 @@ step = 0.5
 script = ExtResource( 14 )
 audio_bus_name = "Effects"
 
+[node name="VBoxContainer4" type="VBoxContainer" parent="Control/SettingsPopupMenu"]
+margin_left = 171.0
+margin_top = 269.0
+margin_right = 940.0
+margin_bottom = 791.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/SettingsPopupMenu/VBoxContainer4"]
+margin_right = 769.0
+margin_bottom = 104.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer"]
+margin_right = 769.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/normal_font = ExtResource( 3 )
+text = "Your name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer"]
+margin_top = 54.0
+margin_right = 769.0
+margin_bottom = 104.0
+
+[node name="NameInput" type="LineEdit" parent="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer/HBoxContainer"]
+margin_right = 400.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 400, 50 )
+size_flags_horizontal = 0
+custom_fonts/font = SubResource( 13 )
+max_length = 20
+editable = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer/HBoxContainer"]
+margin_left = 404.0
+margin_right = 524.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 120, 0 )
+custom_fonts/normal_font = ExtResource( 3 )
+text = "#0000"
+
+[node name="EditNameButton" type="TextureButton" parent="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer/HBoxContainer"]
+margin_left = 528.0
+margin_right = 578.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 0 )
+texture_normal = ExtResource( 19 )
+texture_click_mask = ExtResource( 17 )
+expand = true
+script = ExtResource( 2 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/SettingsPopupMenu/VBoxContainer4"]
+margin_top = 108.0
+margin_right = 769.0
+margin_bottom = 274.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer2"]
+margin_right = 769.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/normal_font = ExtResource( 3 )
+text = "Music Volume"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer2"]
+margin_top = 54.0
+margin_right = 769.0
+margin_bottom = 166.0
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer2/MarginContainer"]
+margin_right = 769.0
+margin_bottom = 112.0
+custom_icons/grabber_highlight = ExtResource( 13 )
+custom_icons/grabber = ExtResource( 13 )
+custom_styles/slider = ExtResource( 11 )
+custom_styles/grabber_area_highlight = ExtResource( 12 )
+custom_styles/grabber_area = ExtResource( 12 )
+max_value = 5.0
+step = 0.5
+script = ExtResource( 14 )
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/SettingsPopupMenu/VBoxContainer4"]
+margin_top = 278.0
+margin_right = 769.0
+margin_bottom = 444.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer3"]
+margin_right = 769.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/normal_font = ExtResource( 3 )
+text = "Sound Effect Volume"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer3"]
+margin_top = 54.0
+margin_right = 769.0
+margin_bottom = 166.0
+
+[node name="EffectsVolumeSlider" type="HSlider" parent="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer3/MarginContainer"]
+margin_right = 769.0
+margin_bottom = 112.0
+custom_icons/grabber_highlight = ExtResource( 13 )
+custom_icons/grabber = ExtResource( 13 )
+custom_styles/slider = ExtResource( 11 )
+custom_styles/grabber_area_highlight = ExtResource( 12 )
+custom_styles/grabber_area = ExtResource( 12 )
+max_value = 5.0
+step = 0.5
+script = ExtResource( 14 )
+audio_bus_name = "Effects"
+
 [connection signal="pressed" from="Control/VBoxContainer/PlayButton2" to="Control/VBoxContainer/PlayButton2" method="_on_PlayButton2_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/SettingsButton" to="Control/VBoxContainer/SettingsButton" method="_on_Button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/TutorialButton" to="Control/VBoxContainer/TutorialButton" method="_on_Button_pressed"]
@@ -331,3 +461,6 @@ audio_bus_name = "Effects"
 [connection signal="value_changed" from="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer/MarginContainer/VolumeSlider" to="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer/MarginContainer/VolumeSlider" method="_on_VolumeSlider_value_changed"]
 [connection signal="value_changed" from="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer2/MarginContainer/MusicVolumeSlider" to="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer2/MarginContainer/MusicVolumeSlider" method="_on_VolumeSlider_value_changed"]
 [connection signal="value_changed" from="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer3/MarginContainer/EffectsVolumeSlider" to="Control/SettingsPopupMenu/VBoxContainer3/VBoxContainer3/MarginContainer/EffectsVolumeSlider" method="_on_VolumeSlider_value_changed"]
+[connection signal="pressed" from="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer/HBoxContainer/EditNameButton" to="Control/SettingsPopupMenu" method="_on_TextureButton_pressed"]
+[connection signal="value_changed" from="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer2/MarginContainer/MusicVolumeSlider" to="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer2/MarginContainer/MusicVolumeSlider" method="_on_VolumeSlider_value_changed"]
+[connection signal="value_changed" from="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer3/MarginContainer/EffectsVolumeSlider" to="Control/SettingsPopupMenu/VBoxContainer4/VBoxContainer3/MarginContainer/EffectsVolumeSlider" method="_on_VolumeSlider_value_changed"]

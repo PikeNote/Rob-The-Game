@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rob.png-2061a28ac522e00950dc4c88ea33e00e.stex"
+path="res://.import/Lil_Box.PNG-6d26343b96ef2406a27958bea087e60e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/rob.png"
-dest_files=[ "res://.import/rob.png-2061a28ac522e00950dc4c88ea33e00e.stex" ]
+source_file="res://Assets/Lil_Box.PNG"
+dest_files=[ "res://.import/Lil_Box.PNG-6d26343b96ef2406a27958bea087e60e.stex" ]
 
 [params]
 
