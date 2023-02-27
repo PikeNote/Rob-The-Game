@@ -9,9 +9,9 @@
 [ext_resource path="res://Screens/LevelSelect.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Colosseum.png" type="Texture" id=8]
 [ext_resource path="res://Assets/LevelSelectMenu.PNG" type="Texture" id=9]
+[ext_resource path="res://Fonts/MainMenu/LevelSelect.tres" type="DynamicFont" id=10]
 [ext_resource path="res://Assets/Arrow.png" type="BitMap" id=13]
 [ext_resource path="res://Assets/Arrow_1.png" type="Texture" id=14]
-[ext_resource path="res://Fonts/SunnyspellsRegular-MV9ze.otf" type="DynamicFontData" id=15]
 [ext_resource path="res://Assets/Lil_Star.png" type="Texture" id=16]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=17]
 
@@ -27,13 +27,12 @@ extents = Vector2( 10.1396, 112.356 )
 [sub_resource type="CircleShape2D" id=5]
 radius = 983.926
 
-[sub_resource type="DynamicFont" id=6]
-size = 100
-font_data = ExtResource( 15 )
+[sub_resource type="DynamicFontData" id=12]
+font_path = "res://Fonts/Robfont-Regular.ttf"
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=13]
 size = 80
-font_data = ExtResource( 15 )
+font_data = SubResource( 12 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 18, 292 )
@@ -61,7 +60,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5, 1 )
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=14]
 length = 0.001
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("RobSideProfile:position:y")
@@ -142,7 +141,7 @@ z_index = 3
 shape = SubResource( 4 )
 
 [node name="Colosseum" type="Sprite" parent="Planet/Area2D3"]
-position = Vector2( -637.527, 619.515 )
+position = Vector2( -632.856, 610.275 )
 rotation = -2.3733
 scale = Vector2( 0.607105, 0.53086 )
 texture = ExtResource( 8 )
@@ -182,7 +181,7 @@ margin_top = -571.0
 margin_right = 308.8
 margin_bottom = -489.0
 rect_min_size = Vector2( 700, 80 )
-custom_fonts/normal_font = SubResource( 6 )
+custom_fonts/normal_font = ExtResource( 10 )
 bbcode_enabled = true
 bbcode_text = "[center]Farm[/center]"
 text = "Farm"
@@ -229,13 +228,13 @@ texture = ExtResource( 16 )
 expand = true
 
 [node name="Description" type="RichTextLabel" parent="LevelSelect"]
-margin_left = -435.0
+margin_left = -455.0
 margin_top = -381.0
-margin_right = 376.0
+margin_right = 383.0
 margin_bottom = -101.0
 rect_min_size = Vector2( 0, 280 )
 rect_pivot_offset = Vector2( -1234.29, 336.111 )
-custom_fonts/normal_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 13 )
 bbcode_enabled = true
 bbcode_text = "[center]Farm[/center]"
 text = "Farm"
@@ -292,6 +291,9 @@ position = Vector2( 968, 537 )
 scale = Vector2( 1.02627, 0.995019 )
 z_index = -2
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="RobSideProfile" type="Sprite" parent="."]
 position = Vector2( 982, 280 )
@@ -311,7 +313,7 @@ shape = SubResource( 10 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.3
 anims/JumpingRob = SubResource( 11 )
-anims/RESET = SubResource( 12 )
+anims/RESET = SubResource( 14 )
 
 [connection signal="button_down" from="LevelSelect/CenterContainer3/VFlowContainer/SelectLevel" to="Planet" method="_on_SelectLevel_button_down"]
 [connection signal="pressed" from="LevelSelect/CenterContainer3/VFlowContainer/HFlowContainer/LeftButton" to="Planet" method="_on_LeftButton_pressed"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Presets/Letter Stuff/InventorySlotBox.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/Catcafe-v5yM.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Fonts/Robfont-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Inventory_Slot_Box.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 60
+size = 100
 font_data = ExtResource( 2 )
 
 [node name="InventorySlotBox" type="Button"]
@@ -21,10 +21,10 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="Label" type="Label" parent="."]
-margin_left = -6.66667
+margin_left = -7.0
 margin_top = -4.0
-margin_right = 82.3333
-margin_bottom = 109.0
+margin_right = 82.0
+margin_bottom = 123.0
 rect_min_size = Vector2( 89, 113 )
 rect_scale = Vector2( -1, 1 )
 rect_pivot_offset = Vector2( 44.5, 56.5 )
