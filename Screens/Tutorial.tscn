@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Transition.gd" type="Script" id=1]
+[ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Screens/Button.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Quit_Button.PNG" type="Texture" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Transition" type="Node2D" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
+scale = Vector2( 0.54, 0.565 )
+z_index = 100
+z_as_relative = false
+script = ExtResource( 1 )
+
+[node name="Container" type="Container" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Container2" type="Container" parent="Container"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TutorialExit" type="TextureButton" parent="Container/Container2"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 4 )
+script = ExtResource( 3 )
+
+[connection signal="pressed" from="Container/Container2/TutorialExit" to="Container/Container2/TutorialExit" method="_on_TutorialExit_pressed"]
