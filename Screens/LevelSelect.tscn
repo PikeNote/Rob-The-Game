@@ -86,7 +86,6 @@ tracks/1/keys = {
 [node name="Node2D" type="Node2D"]
 
 [node name="Transition" parent="." instance=ExtResource( 17 )]
-visible = false
 
 [node name="Planet" type="Sprite" parent="."]
 position = Vector2( 1017, 1701 )

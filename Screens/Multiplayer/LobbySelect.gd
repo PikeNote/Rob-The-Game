@@ -4,7 +4,7 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var transition = $Transition;
+onready var transition = $Transition;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,8 +17,8 @@ func _ready():
 
 func _on_CreateLobby_pressed():
 	MultiplayerWebsocket._createLobby();
-	MultiplayerWebsocket.lobbyMap = ".";
+	MultiplayerWebsocket.lobbySelect = $".";
 	
 func _lobbyCreated():
-	transiton.transition_in("res://Screens/Multiplayer/Lobby.tscn");
+	transition.transition_in("res://Screens/Multiplayer/Lobby.tscn");
 	

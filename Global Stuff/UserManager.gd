@@ -45,6 +45,9 @@ func writeData(user_data, path, data):
 	user_data.store_line(to_json(data))
 	user_data.close();
 	
+func getFullUsername():
+	return username + "#" + identifier;
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

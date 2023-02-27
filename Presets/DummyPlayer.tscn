@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/ropeSmaller (1).png" type="Texture" id=1]
+[ext_resource path="res://Assets/Multiplayer/Lady_Robin_The_Ram.png" type="Texture" id=2]
+[ext_resource path="res://Presets/Multiplayer/DummyPlayer.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Rob_n_n.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Letters/Letter_A.png" type="Texture" id=5]
+[ext_resource path="res://Assets/the_lasso.png" type="Texture" id=6]
+[ext_resource path="res://Presets/Multiplayer/DummyChain.gd" type="Script" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 33.2498
+
+[sub_resource type="CircleShape2D" id=2]
+
+[node name="RobCollider" type="KinematicBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+z_as_relative = false
+shape = SubResource( 1 )
+
+[node name="Rob" type="Sprite" parent="."]
+scale = Vector2( 0.104045, 0.107734 )
+texture = ExtResource( 2 )
+normal_map = ExtResource( 4 )
+script = ExtResource( 3 )
+
+[node name="Chain" type="Node2D" parent="Rob"]
+scale = Vector2( 6.73358, 7.09332 )
+z_index = -1
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="Links" type="Sprite" parent="Rob/Chain"]
+position = Vector2( -4, 3 )
+scale = Vector2( 0.717482, 0.688491 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -8, 14 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 28, 1000 )
+
+[node name="Tip" type="KinematicBody2D" parent="Rob/Chain"]
+collision_layer = 4
+
+[node name="Hook" type="Sprite" parent="Rob/Chain/Tip"]
+position = Vector2( 3, -35 )
+scale = Vector2( 0.07, 0.07 )
+texture = ExtResource( 6 )
+offset = Vector2( 0, 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rob/Chain/Tip"]
+position = Vector2( -1, -38 )
+scale = Vector2( 5.03955, 4.86518 )
+shape = SubResource( 2 )
+
+[node name="Letter" type="Sprite" parent="Rob/Chain/Tip"]
+visible = false
+position = Vector2( -1, -37 )
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 5 )

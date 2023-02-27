@@ -36,7 +36,6 @@ _data = {
 scale = Vector2( 1.87746, 1.76706 )
 
 [node name="Transition" parent="." instance=ExtResource( 17 )]
-visible = false
 scale = Vector2( 0.54, 0.565 )
 
 [node name="EasyTrack" type="Sprite" parent="."]

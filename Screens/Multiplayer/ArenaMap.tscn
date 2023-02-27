@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Presets/InventorySlots.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Presets/Rob.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Screens/Timer.gd" type="Script" id=2]
 [ext_resource path="res://Presets/PointsBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Multiplayer/Multiplayer_Map.PNG" type="Texture" id=4]
+[ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Screens/Multiplayer/MultiplayerMap.gd" type="Script" id=7]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -15,15 +17,36 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -80, 625, -28.5732, 184.139, 28.5732, -184.139, 190, 476, -69.8456, 0, 69.8456, 0, 418, 238, -101.594, -269.858, 101.594, 269.858, 691, 473, -60.3212, 0, 60.3212, 0, 955, 736, -3.1748, 222.236, 3.1748, -222.236, 1221, 476, 0, 0, 0, 0, 1488, 292 )
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Arena" type="Node2D"]
+script = ExtResource( 7 )
 
-[node name="MultiplayerMap" type="Sprite" parent="."]
+[node name="Transition" parent="." instance=ExtResource( 6 )]
+
+[node name="Arena" type="Sprite" parent="."]
 texture = ExtResource( 4 )
 centered = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Inventory" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1652, 469 )
 scale = Vector2( 2, 2 )
+
+[node name="PointsBox" parent="." instance=ExtResource( 3 )]
+position = Vector2( 148, 92 )
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 1.25
+script = ExtResource( 2 )
+pathSpawn = "../TopPath"
+
+[node name="SpawnTimer2" type="Timer" parent="."]
+wait_time = 1.25
+script = ExtResource( 2 )
+pathSpawn = "../BottomPath"
+
+[node name="Player2MousePos" type="Node2D" parent="."]
 
 [node name="TopPath" type="Path2D" parent="."]
 curve = SubResource( 1 )
@@ -31,10 +54,5 @@ curve = SubResource( 1 )
 [node name="BottomPath" type="Path2D" parent="."]
 curve = SubResource( 2 )
 
-[node name="RobCollider" parent="." instance=ExtResource( 2 )]
-position = Vector2( 428, 479 )
-scale = Vector2( 1.5, 1.5 )
-z_index = 5
-
-[node name="PointsBox" parent="." instance=ExtResource( 3 )]
-position = Vector2( 148, 92 )
+[connection signal="child_entered_tree" from="TopPath" to="." method="_on_TopPath_child_entered_tree"]
+[connection signal="child_entered_tree" from="BottomPath" to="." method="_on_BottomPath_child_entered_tree"]

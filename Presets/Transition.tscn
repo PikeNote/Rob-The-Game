@@ -69,6 +69,7 @@ script = ExtResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 10
+visible = false
 
 [node name="Transition" type="ColorRect" parent="CanvasLayer"]
 material = SubResource( 2 )
