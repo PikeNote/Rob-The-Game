@@ -1,0 +1,8 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[sub_resource type="DynamicFontData" id=12]
+font_path = "res://Fonts/Robfont-Regular.ttf"
+
+[resource]
+size = 80
+font_data = SubResource( 12 )
