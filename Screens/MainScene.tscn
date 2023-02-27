@@ -66,7 +66,6 @@ font_data = SubResource( 12 )
 
 [node name="Transition" parent="." instance=ExtResource( 16 )]
 visible = false
-position = Vector2( -8, -2 )
 
 [node name="LoadSilentWolf" type="Node" parent="."]
 script = ExtResource( 15 )
@@ -83,8 +82,10 @@ anchor_left = -0.00389864
 anchor_top = 0.00501672
 anchor_right = -0.00389864
 anchor_bottom = 0.00501672
-margin_right = 1940.0
-margin_bottom = 1098.0
+margin_left = 4.0
+margin_top = -3.0
+margin_right = 1944.0
+margin_bottom = 1095.0
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": true
@@ -138,7 +139,7 @@ color = Color( 0.980392, 0.65098, 0.552941, 1 )
 anchor_left = -0.0282651
 anchor_top = -0.0133779
 anchor_right = 0.0341131
-anchor_bottom = 0.30602
+anchor_bottom = 0.0434783
 margin_left = 221.0
 margin_top = 264.0
 margin_right = 615.0

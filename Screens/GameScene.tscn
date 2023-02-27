@@ -33,12 +33,10 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( -3, 3 )
 scale = Vector2( 1.87746, 1.76706 )
 
 [node name="Transition" parent="." instance=ExtResource( 17 )]
 visible = false
-position = Vector2( -9.58737, 3.57628e-07 )
 scale = Vector2( 0.54, 0.565 )
 
 [node name="EasyTrack" type="Sprite" parent="."]
@@ -93,6 +91,7 @@ scale_amount = 0.05
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="PauseMenuNode" parent="." instance=ExtResource( 16 )]
+z_index = 3
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 520.917, 289.747 )
@@ -116,6 +115,7 @@ scale = Vector2( 0.251374, 0.252839 )
 seconds = 0
 
 [node name="EndGameScreen" parent="." instance=ExtResource( 6 )]
+visible = false
 position = Vector2( 1.06527, -1.69773 )
 scale = Vector2( 0.534, 0.566 )
 

@@ -62,20 +62,24 @@ tracks/0/keys = {
 }
 
 [node name="Transition" type="Node2D"]
-z_index = 50
+pause_mode = 2
+z_index = 100
+z_as_relative = false
 script = ExtResource( 1 )
 
-[node name="Transition" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Transition" type="ColorRect" parent="CanvasLayer"]
 material = SubResource( 2 )
-margin_left = 4.0
-margin_top = -3.0
-margin_right = 1928.0
-margin_bottom = 1086.0
+margin_right = 1924.0
+margin_bottom = 1089.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[node name="TransitionAnimationPlayer" type="AnimationPlayer" parent="Transition"]
+[node name="TransitionAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Transition"]
 anims/RESET = SubResource( 3 )
 anims/transition_in = SubResource( 4 )
 anims/transition_out = SubResource( 5 )
 
-[connection signal="animation_finished" from="Transition/TransitionAnimationPlayer" to="." method="_on_TransitionAnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="CanvasLayer/Transition/TransitionAnimationPlayer" to="." method="_on_TransitionAnimationPlayer_animation_finished"]

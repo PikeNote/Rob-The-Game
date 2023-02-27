@@ -68,7 +68,6 @@ _data = {
 
 [node name="Transition" parent="." instance=ExtResource( 4 )]
 visible = false
-position = Vector2( -7, -1 )
 
 [node name="LevelOneSelectPlace" type="Sprite" parent="."]
 position = Vector2( 960, 539 )

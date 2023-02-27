@@ -7,14 +7,10 @@ var queueNextAnim = false;
 var nextVector = Vector2(1,1)
 
 
-var is_paused = false setget set_is_paused
-
-func set_is_paused(value):
-	is_paused = value
-	get_tree().paused = is_paused
-
+var is_paused = false
 func _on_Pause_pressed():
-	self.is_paused = !is_paused
+	is_paused = !is_paused
+	get_tree().paused = is_paused
 	$CanvasLayer/ColorRect.visible = true;
 	_tpm.popup_centered()
 	_tweenObject(Vector2(0,0),Vector2(1.3,1.3));
@@ -42,7 +38,7 @@ func _on_Resume_pressed():
 		self.is_paused = false
 	
 func _on_Quit_pressed():
-	get_tree().change_scene("res://Screens/MainScene.tscn")
+	$"../Transition".transition_in("res://Screens/MainScene.tscn")
 	pass # Replace with function body.
 
 
