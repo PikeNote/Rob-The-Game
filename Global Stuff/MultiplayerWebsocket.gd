@@ -39,7 +39,7 @@ func _joinLobby(code):
 	_send_data({"type":"joinLobby","payload":{"name":UserManager.getFullUsername(),"match_uuid":str(code)}});
 
 func _letterSpawned(l,i):
-	_gameData("letterSpawned",{"letter":l,"path":str(i)});
+	_gameData("letterSpawned",{"letter":l,"path":i});
 
 func _gameData(type, payload):
 	_send_data({"user":player,"type":"gameData","payload":{"type":type,"payload":payload,"match_uuid":lobbyCode}});
@@ -47,6 +47,9 @@ func _gameData(type, payload):
 func _closed(was_clean = false):
 	print("Closed, clean: ", was_clean)
 	set_process(false)
+
+func _gameStarted():
+	_send_data({"type":"lobbyStarted","payload":{"match_uuid":lobbyCode}});
 
 func _connected(proto = ""):
 	print("Connected with protocol: ", proto)
@@ -61,6 +64,7 @@ func _on_data():
 	match(receivedData.type):
 		"lobbyCreated":
 			lobbyCode = receivedData.payload.game_id; 
+			print(lobbyCode)
 			lobbyCreated();
 			pass;
 		"lobbyJoined":
@@ -76,10 +80,15 @@ func _on_data():
 				playerNames = receivedData.payload.playerNames;
 				player = 2;
 				lobbyCode = receivedData.payload.match_uuid;
+				if(lobbyScreen != null):
+					lobbyScreen._lobbyCreated();
 				pass
 			else:
 				pass
 			pass;
+		"lobbyStarted":
+			if(lobbyScreen != null):
+				lobbyScreen._on_Start_Button_pressed();
 	print("Got data from server: ", _client.get_peer(1).get_packet().get_string_from_utf8())
 
 func _send_data(data):
@@ -103,8 +112,13 @@ func gameData(payload):
 			gameScreen._mouseMoved(Vector2(payload.payload[0],payload.payload[1]))
 			pass;
 		"mouseClicked":
+			gameScreen._dummyShoot(Vector2(payload.payload[0],payload.payload[1]))
+			pass;
+		"mouseReleased":
+			gameScreen._dummyRelease();
 			pass;
 		"letterSpawned":
+			gameScreen._letterSpawned(payload.payload.letter, payload.payload.path)
 			pass;
 		"powerupUsed":
 			pass;

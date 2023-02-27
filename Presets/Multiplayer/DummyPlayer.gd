@@ -20,11 +20,11 @@ func _physics_process(delta):
 	if(not $Chain.visible):
 		$".".look_at($"../../Player2MousePos".position)
 		$".".rotation_degrees -= 90
-	
-func _input(event: InputEvent) -> void:
-	if (event is InputEventMouseButton && GlobalVars.inventoryRef.get_node("InventorySlots")._invCount()<20 && !overUI):
-		if event.pressed:
-			$Chain.shoot(event.position)
-		else:
-			$Chain.release()
+
+func _shoot(pos):
+	$Chain.shoot(pos);
+
+func _release():
+	$Chain.release();
+
 

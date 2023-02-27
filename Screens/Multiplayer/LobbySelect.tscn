@@ -32,3 +32,4 @@ margin_right = 1346.0
 margin_bottom = 977.0
 
 [connection signal="pressed" from="CreateLobby" to="." method="_on_CreateLobby_pressed"]
+[connection signal="pressed" from="JoinLobby" to="." method="_on_JoinLobby_pressed"]

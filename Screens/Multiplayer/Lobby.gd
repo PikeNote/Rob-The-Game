@@ -25,5 +25,6 @@ func _addPlayer(name):
 
 
 func _on_Start_Button_pressed():
+	MultiplayerWebsocket._gameStarted();
 	$Transition.transition_in("res://Screens/Multiplayer/ArenaMap.tscn")
 	pass # Replace with function body.

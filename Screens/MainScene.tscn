@@ -227,7 +227,6 @@ bus = "Music"
 script = ExtResource( 6 )
 
 [node name="SettingsPopupMenu" type="WindowDialog" parent="Control"]
-visible = true
 margin_left = 159.0
 margin_top = 83.0
 margin_right = 1803.0
@@ -498,8 +497,9 @@ margin_bottom = 828.0
 
 [node name="PageChange" type="HFlowContainer" parent="Control/SettingsPopupMenu/CenterContainer"]
 margin_left = 207.0
+margin_top = 25.0
 margin_right = 607.0
-margin_bottom = 150.0
+margin_bottom = 125.0
 rect_min_size = Vector2( 400, 100 )
 custom_constants/hseparation = 100
 script = ExtResource( 28 )
