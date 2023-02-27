@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/glass-clink-57538.mp3-d3e68215ebc2ac19b2a6cde3df589a23.mp3str"
+
+[deps]
+
+source_file="res://Music/glass-clink-57538.mp3"
+dest_files=[ "res://.import/glass-clink-57538.mp3-d3e68215ebc2ac19b2a6cde3df589a23.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
