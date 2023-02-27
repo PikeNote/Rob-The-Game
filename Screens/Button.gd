@@ -9,7 +9,7 @@ func _on_PlayButton2_pressed():
 	transition.transition_in("res://Screens/LevelSelect.tscn")
 
 func _on_LeaderboardButton_pressed():
-	transition.transition_in("res://addons/silent_wolf/Scores/Leaderboard.tscn")
+	transition.transition_in("res://Screens/Multiplayer/LobbySelect.tscn")
 
 func _on_BackButton_pressed():
 	transition.transition_in("res://Screens/MainScene.tscn")

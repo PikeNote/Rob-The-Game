@@ -13,6 +13,9 @@ func _ready():
 	MultiplayerWebsocket.lobbyScreen = $".";
 	if(MultiplayerWebsocket.playerNames==null):
 		_addPlayer(UserManager.username + "#" + UserManager.identifier)
+	else:
+		for n in MultiplayerWebsocket.playerNames:
+			_addPlayer(n);
 	pass # Replace with function body.
 
 func _addPlayer(name):
@@ -27,4 +30,11 @@ func _addPlayer(name):
 func _on_Start_Button_pressed():
 	MultiplayerWebsocket._gameStarted();
 	$Transition.transition_in("res://Screens/Multiplayer/ArenaMap.tscn")
+	pass # Replace with function body.
+
+func _transition_to_arena():
+	$Transition.transition_in("res://Screens/Multiplayer/ArenaMap.tscn");
+
+func _on_LobbyCode_pressed():
+	OS.set_clipboard(MultiplayerWebsocket.lobbyCode);
 	pass # Replace with function body.

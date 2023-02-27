@@ -8,6 +8,7 @@ onready var transition = $Transition;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MultiplayerWebsocket.lobbySelect = $".";
 	pass # Replace with function body.
 
 
@@ -17,7 +18,6 @@ func _ready():
 
 func _on_CreateLobby_pressed():
 	MultiplayerWebsocket._createLobby();
-	MultiplayerWebsocket.lobbySelect = $".";
 	
 func _lobbyCreated():
 	transition.transition_in("res://Screens/Multiplayer/Lobby.tscn");

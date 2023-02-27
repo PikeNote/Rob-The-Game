@@ -196,7 +196,7 @@ custom_colors/font_color_hover = Color( 1, 0.819608, 0.545098, 1 )
 custom_colors/font_color_pressed = Color( 1, 0.819608, 0.545098, 1 )
 custom_fonts/font = ExtResource( 18 )
 enabled_focus_mode = 0
-text = "Leaderboard"
+text = "Multiplayer"
 flat = true
 script = ExtResource( 4 )
 

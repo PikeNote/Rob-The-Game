@@ -80,15 +80,16 @@ func _on_data():
 				playerNames = receivedData.payload.playerNames;
 				player = 2;
 				lobbyCode = receivedData.payload.match_uuid;
-				if(lobbyScreen != null):
-					lobbyScreen._lobbyCreated();
+				print(lobbySelect != null)
+				if(lobbySelect != null):
+					lobbySelect._lobbyCreated();
 				pass
 			else:
 				pass
 			pass;
 		"lobbyStarted":
 			if(lobbyScreen != null):
-				lobbyScreen._on_Start_Button_pressed();
+				lobbyScreen._transition_to_arena();
 	print("Got data from server: ", _client.get_peer(1).get_packet().get_string_from_utf8())
 
 func _send_data(data):
