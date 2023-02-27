@@ -236,7 +236,6 @@ bus = "Music"
 script = ExtResource( 6 )
 
 [node name="SettingsPopupMenu" type="WindowDialog" parent="Control"]
-visible = true
 margin_left = 159.0
 margin_top = 83.0
 margin_right = 1803.0
