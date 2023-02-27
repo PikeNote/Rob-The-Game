@@ -11,5 +11,5 @@ dest_files=[ "res://.import/glass-clink-57538.mp3-d3e68215ebc2ac19b2a6cde3df589a
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

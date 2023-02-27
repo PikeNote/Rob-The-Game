@@ -24,7 +24,6 @@ func shoot(dir: Vector2) -> void:
 		$"../../CollisionShape2D".disabled=true;
 		#direction = dir.normalized()	# Normalize the direction and save it
 		direction = (dir - self.global_position).normalized()
-		$HookedSFX.play()
 		flying = true					# Keep track of our current scan
 		tip = self.global_position		# reset the tip position to the player's position
 
@@ -58,9 +57,10 @@ func _physics_process(_delta: float) -> void:
 		else:
 			collision = $Tip.move_and_collide(direction * SPEED);
 		if collision:
-			if(collision.collider.name=="LetterKin"):
+			if(collision.collider.name=="LetterKin" && flying):
+				$HookedSFX.play()
 				hooked = true	# Got something!
-				flying = false	# Not flying anymore
+				flying = false	
 				currentLetter = collision.collider.get_parent()._getLetter();
 				$Tip/Letter.texture=load("res://Assets//Letters//Letter_"+currentLetter+".png")
 				$Tip/Letter.visible=true;
