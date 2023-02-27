@@ -46,14 +46,6 @@ func _dummyShoot(pos:Vector2):
 func _dummyRelease():
 	dummy._release();
 
-# Send game data to the other client
-func _on_TopPath_child_entered_tree(node):
-	MultiplayerWebsocket._letterSpawned(node._getLetter(),0)
-
-func _on_BottomPath_child_entered_tree(node):
-	MultiplayerWebsocket._letterSpawned(node._getLetter(),1)
-	
-
 func _input(event):
 	if event is InputEventMouseMotion:
 		MultiplayerWebsocket._gameData("mouseMoved",[event.position.x,event.position.y])

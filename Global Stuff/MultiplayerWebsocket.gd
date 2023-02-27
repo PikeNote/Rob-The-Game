@@ -60,7 +60,7 @@ func _connected(proto = ""):
 func _on_data():
 	var packet:PoolByteArray  = _client.get_peer(1).get_packet()
 	var receivedData: Dictionary = JSON.parse(packet.get_string_from_utf8()).result
-	
+	print(receivedData)
 	match(receivedData.type):
 		"lobbyCreated":
 			lobbyCode = receivedData.payload.game_id; 
@@ -71,6 +71,7 @@ func _on_data():
 			lobbyJoined(receivedData.payload.name);
 			pass;
 		"gameData":
+			print(receivedData.payload)
 			gameData(receivedData.payload)
 			pass;
 		"lobbyStatus":
