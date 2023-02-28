@@ -6,7 +6,7 @@ extends Node2D
 # var b = "text"
 var robPosition = [Vector2(428,479),Vector2(964,479)];
 var dummy;
-var tracks = [$TopPath, $BottomPath]
+onready var tracks = [$TopPath, $BottomPath]
 var letter = load("res://Presets/Letter Stuff/Letters.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -46,18 +46,14 @@ func _dummyShoot(pos:Vector2):
 func _dummyRelease():
 	dummy._release();
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		MultiplayerWebsocket._gameData("mouseMoved",[event.position.x,event.position.y])
-	elif Input.is_action_just_pressed("click"):
-		MultiplayerWebsocket._gameData("mouseClicked",[event.position.x,event.position.y])
-	elif Input.is_action_just_released("click"):
-		MultiplayerWebsocket._gameData("mouseReleased",[event.position.x,event.position.y])
-		pass
 
-func _letterSpawned(letter,track_ind):
+func _letterSpawned(letter_string,track_ind):
+	print(track_ind)
 	var lt = letter.instance();
-	get_node(tracks[track_ind]).add_child(lt);
-	lt._changeLetter(letter);
+	tracks[track_ind].add_child(lt);
+	lt._changeLetter(letter_string);
 	lt.modulate=Color(modulate)
 

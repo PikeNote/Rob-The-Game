@@ -24,7 +24,10 @@ func _physics_process(delta):
 func _input(event: InputEvent) -> void:
 	if (event is InputEventMouseButton && GlobalVars.inventoryRef.get_node("InventorySlots")._invCount()<20 && !overUI):
 		if event.pressed:
+			if(MultiplayerWebsocket.lobbyCode):
+				MultiplayerWebsocket._gameData("mouseClicked",[event.position.x,event.position.y]);
 			$Chain.shoot(event.position)
 		else:
+			if(MultiplayerWebsocket.lobbyCode):
+				MultiplayerWebsocket._gameData("mouseReleased",[event.position.x,event.position.y])
 			$Chain.release()
-
