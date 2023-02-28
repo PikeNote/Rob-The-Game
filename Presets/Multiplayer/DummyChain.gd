@@ -57,7 +57,7 @@ func _physics_process(_delta: float) -> void:
 				$Tip/Letter.visible=true;
 				collision.collider.get_parent().queue_free();
 				$"../../CollisionShape2D".disabled=false;
-			elif (collision.collider.name=="RobCollider" && hooked):
+			elif (collision.collider.name=="DummyPlayer" && hooked):
 				hooked = false;
 				$Tip/Letter.visible=false;
 			else:

@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/LevelSelectMenu.PNG" type="Texture" id=9]
 [ext_resource path="res://Fonts/MainMenu/LevelSelect.tres" type="DynamicFont" id=10]
 [ext_resource path="res://Assets/Quit_Button.PNG" type="Texture" id=11]
-[ext_resource path="res://Screens/Button.gd" type="Script" id=12]
+[ext_resource path="res://Screens/SceneButtons.gd" type="Script" id=12]
 [ext_resource path="res://Assets/Arrow.png" type="BitMap" id=13]
 [ext_resource path="res://Assets/Arrow_1.png" type="Texture" id=14]
 [ext_resource path="res://Fonts/MainMenu/MenuButtons.tres" type="DynamicFont" id=15]
@@ -170,25 +170,23 @@ margin_right = 828.0
 margin_bottom = 956.0
 rect_scale = Vector2( 0.744556, 0.72 )
 
-[node name="CenterContainer" type="CenterContainer" parent="LevelSelect"]
+[node name="ExitButton" type="TextureButton" parent="LevelSelect"]
 margin_left = -1036.0
 margin_top = -1262.0
 margin_right = -836.0
 margin_bottom = -1062.0
 rect_min_size = Vector2( 200, 200 )
-
-[node name="LevelSelectExit" type="TextureButton" parent="LevelSelect/CenterContainer"]
-margin_right = 200.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 200, 200 )
 texture_normal = ExtResource( 11 )
 expand = true
 script = ExtResource( 12 )
 
-[node name="LevelSelectMenu" type="Sprite" parent="LevelSelect"]
-position = Vector2( 269.959, -209.722 )
-scale = Vector2( 1.81164, 1.8141 )
+[node name="LevelSelectMenu" type="TextureRect" parent="LevelSelect"]
+margin_left = -601.766
+margin_top = -783.0
+margin_right = 1096.23
+margin_bottom = 350.0
 texture = ExtResource( 9 )
+stretch_mode = 1
 
 [node name="Title" type="RichTextLabel" parent="LevelSelect"]
 anchor_left = 0.1
@@ -331,7 +329,7 @@ playback_speed = 1.3
 anims/JumpingRob = SubResource( 11 )
 anims/RESET = SubResource( 14 )
 
-[connection signal="pressed" from="LevelSelect/CenterContainer/LevelSelectExit" to="LevelSelect/CenterContainer/LevelSelectExit" method="_on_LevelSelectExit_pressed"]
+[connection signal="pressed" from="LevelSelect/ExitButton" to="LevelSelect/ExitButton" method="_on_ExitButton_pressed"]
 [connection signal="button_down" from="LevelSelect/CenterContainer3/VFlowContainer/SelectLevel" to="Planet" method="_on_SelectLevel_button_down"]
 [connection signal="pressed" from="LevelSelect/CenterContainer3/VFlowContainer/HFlowContainer/LeftButton" to="Planet" method="_on_LeftButton_pressed"]
 [connection signal="pressed" from="LevelSelect/CenterContainer3/VFlowContainer/HFlowContainer/RightButton" to="Planet" method="_on_RightButton_pressed"]

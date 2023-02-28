@@ -6,6 +6,7 @@ onready var nameInput = $DisplayContainer/NameInput;
 
 func _ready():
 	nameInput.text = UserManager.username;
+	storedName = nameInput.text;
 	$DisplayContainer/NameIdentifier.text = "#" + UserManager.identifier;
 
 var editMode = false;
@@ -15,12 +16,9 @@ func _on_EditNameButton_pressed():
 	editMode = !editMode;
 	nameInput.editable = !editMode
 	if(editMode):
-		editNameButton.texture_normal=	load("res://Assets/Edit_Name_Button.png");
-		if(nameInput.text.length() > 0):
-			
-			pass
-		else:
+		editNameButton.texture_normal=	load("res://Assets/Settings/ChangeName_Button.PNG");
+		if(!nameInput.text.length() > 0):
 			nameInput.text = storedName;
 	else:
-		editNameButton.texture_normal=	load("res://Assets/Edit_Check_Button.png");
+		editNameButton.texture_normal=	load("res://Assets/Settings/Confirm_Button.PNG");
 	

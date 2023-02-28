@@ -60,7 +60,6 @@ func _connected(proto = ""):
 func _on_data():
 	var packet:PoolByteArray  = _client.get_peer(1).get_packet()
 	var receivedData: Dictionary = JSON.parse(packet.get_string_from_utf8()).result
-	print(receivedData)
 	match(receivedData.type):
 		"lobbyCreated":
 			lobbyCode = receivedData.payload.game_id; 
@@ -91,7 +90,6 @@ func _on_data():
 		"lobbyStarted":
 			if(lobbyScreen != null):
 				lobbyScreen._transition_to_arena();
-	print("Got data from server: ", _client.get_peer(1).get_packet().get_string_from_utf8())
 
 func _send_data(data):
 	var sendData:String = JSON.print(data)
@@ -114,6 +112,7 @@ func gameData(payload):
 			gameScreen._mouseMoved(Vector2(payload.payload[0],payload.payload[1]))
 			pass;
 		"mouseClicked":
+			print("mouseClicked")
 			gameScreen._dummyShoot(Vector2(payload.payload[0],payload.payload[1]))
 			pass;
 		"mouseReleased":
