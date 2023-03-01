@@ -5,7 +5,7 @@ extends Node
 # var a = 2
 # var b = "text"
 
-export var websocket_url = "wss://rob-server.pikenote.repl.co/ws"
+export var websocket_url = "wss://rob-webrtc.pikenote.repl.co/ws"
 
 # Our WebSocketClient instance
 var _client = WebSocketClient.new()
@@ -16,7 +16,9 @@ var lobbyScreen;
 var gameScreen;
 var playerNames;
 
-var player = 1;
+var host = false;
+
+var rtc_peer:WebRTCMultiplayer = WebRTCMultiplayer.new();
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,7 +32,114 @@ func _ready():
 	if err != OK:
 		print("Unable to connect")
 		set_process(false)
+		
+func _connected(proto = ""):
+	print("Connected with protocol: ", proto)
+	print("Connected to client!")
+	_client.get_peer(1).set_write_mode(WebSocketPeer.WRITE_MODE_TEXT)
+	
 
+func _on_data():
+	var packet:PoolByteArray  = _client.get_peer(1).get_packet()
+	var receivedData: Dictionary = JSON.parse(packet.get_string_from_utf8()).result
+	print(receivedData)
+	match(receivedData.type):
+		"lobbyCreated":
+			lobbyCode = receivedData.code; 
+			lobbyCreated();
+			host = true;
+			pass;
+		"lobbyJoined":
+			lobbyJoined(receivedData);
+			pass;
+		"canidate":
+			_candidate_received(receivedData.id,receivedData.canidate[0],receivedData.canidate[1],receivedData.canidate[2])
+			pass;
+		"answer":
+			_answer_received(receivedData.id,receivedData.answer)
+		"joinSucessful":
+			pass;
+func lobbyCreated():
+	pass;
+
+func lobbyJoined(data):
+	print("Intializing WebRTC connection/peer for %s" % data.user )
+	var peer:WebRTCPeerConnection = WebRTCPeerConnection.new();
+	peer.initialize({
+		"iceServers": [{"urls":["stun:stun.l.google.com:19302"]}]
+	})
+	
+	peer.connect("session_description_created",self,"_offer_created",[2])
+	peer.connect("ice_candidate_created",self, "_new_ice_candidate", [2])
+	rtc_peer.add_peer(peer, 2)
+	peer.create_offer()
+	
+	pass
+
+func _send_data(data):
+	var sendData:String = JSON.print(data)
+	_client.get_peer(1).put_packet(sendData.to_utf8())
+
+func _offer_created( type, data, id):
+	if not rtc_peer.has_peer(id):
+		return
+	print("created", type)
+	rtc_peer.get_peer(id).connection.set_local_description(type, data)
+	if type == "offer": send_offer(id, data)
+	else: send_answer(id, data)
+
+func send_offer(id, data):
+	_send_data({
+		"type":"offer",
+		"offer":data,
+		"id":id,
+		"user":UserManager.getFullUsername(),
+		"code":lobbyCode
+	})
+
+func _new_ice_candidate(mid_name, index_name, sdp_name, id):
+	var sendTo = 0;
+	if(host):
+		sendTo = 1;
+	
+	_send_data({
+		"type":"canidate",
+		"canidate":[mid_name,index_name,sdp_name],
+		"sendTo":sendTo,
+		"id":id,
+		"user":UserManager.getFullUsername(),
+		"code":lobbyCode
+	})
+	
+func send_answer(id, data):
+	_send_data({
+		"type":"answer",
+		"answer":data,
+		"id":id,
+		"user":UserManager.getFullUsername(),
+		"code":lobbyCode
+	})
+
+func _answer_received(id, answer):
+	print("Got answer: %d" % id)
+	if rtc_peer.has_peer(id):
+		rtc_peer.get_peer(id).connection.set_remote_description("answer", answer)
+
+
+func _candidate_received(id, mid, index, sdp):
+	print("Got canidate")
+	if rtc_peer.has_peer(id):
+		rtc_peer.get_peer(id).connection.add_ice_candidate(mid, index, sdp)
+
+func _createLobby():
+	_send_data({"type":"createLobby","user":UserManager.getFullUsername()});
+
+func _joinLobby(code):
+	_send_data({"type":"joinLobby","user":UserManager.getFullUsername(),"code":code, "id":2});
+
+func _process(delta):
+	_client.poll()
+"""
 
 func _createLobby():
 	_send_data({"type":"createLobby","payload":{"name":UserManager.getFullUsername()}});
@@ -123,6 +232,5 @@ func gameData(payload):
 			pass;
 		"powerupUsed":
 			pass;
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+"""

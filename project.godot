@@ -69,6 +69,10 @@ version_control_plugin_name="GitAPI"
 
 enabled=PoolStringArray( "res://addons/animated_grid_container_plugin/plugin.cfg", "res://addons/antialiased_line2d/plugin.cfg", "res://addons/silent_wolf/plugin.cfg" )
 
+[gdnative]
+
+singletons=[ "res://webrtc/webrtc.tres" ]
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
