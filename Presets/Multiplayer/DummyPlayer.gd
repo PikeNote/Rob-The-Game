@@ -18,8 +18,10 @@ func _changeOverUI(b):
 #	pass
 func _physics_process(delta):
 	if(not $Chain.visible):
-		$".".look_at($"../../Player2MousePos".position)
-		$".".rotation_degrees -= 90
+		var angle = ($"../../Player2MousePos".position - self.global_position).angle()
+		self.global_rotation = lerp_angle(self.global_rotation, angle-(PI/2), delta)
+		#$".".look_at($"../../Player2MousePos".position)
+		#$".".rotation_degrees -= 90
 
 func _shoot(pos):
 	$Chain.shoot(pos);

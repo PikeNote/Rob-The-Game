@@ -48,7 +48,8 @@ func _dummyRelease():
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		MultiplayerWebsocket._gameData("mouseMoved",[event.position.x,event.position.y])
+		if($MouseTimer.time_left==0):
+			$MouseTimer.start();
 
 func _letterSpawned(letter_string,track_ind):
 	print(track_ind)
@@ -57,3 +58,9 @@ func _letterSpawned(letter_string,track_ind):
 	lt._changeLetter(letter_string);
 	lt.modulate=Color(modulate)
 
+
+
+func _on_MouseTimer_timeout():
+	var globalMousePosition = get_global_mouse_position();
+	MultiplayerWebsocket._gameData("mouseMoved",[globalMousePosition.x,globalMousePosition.y])
+	pass # Replace with function body.

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/MainMenu/PointsBox.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Lil_Box.PNG" type="Texture" id=2]
+[ext_resource path="res://Presets/PointsBox.gd" type="Script" id=3]
+
+[node name="PointsBox" type="Sprite"]
+position = Vector2( 148, 92 )
+scale = Vector2( 0.293767, 0.244951 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+minutes = 5
+seconds = 0
+
+[node name="ClockTimerText" type="RichTextLabel" parent="."]
+margin_left = -454.0
+margin_top = -235.0
+margin_right = 460.0
+margin_bottom = 60.0
+custom_fonts/normal_font = ExtResource( 1 )
+text = "Remaining time:
+00:00"
+
+[node name="Points" type="RichTextLabel" parent="."]
+margin_left = -446.0
+margin_top = 75.0
+margin_right = 453.0
+margin_bottom = 221.0
+custom_fonts/normal_font = ExtResource( 1 )
+text = "Points: 0"
+
+[node name="ClockTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ClockTimer" to="." method="_on_ClockTimer_timeout"]
