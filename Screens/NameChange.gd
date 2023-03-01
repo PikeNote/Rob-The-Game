@@ -1,13 +1,13 @@
-extends VBoxContainer
+extends TextureRect
 
 
-onready var editNameButton = $DisplayContainer/EditNameButton;
-onready var nameInput = $DisplayContainer/NameInput;
+onready var editNameButton = $EditNameButton;
+onready var nameInput = $NameInput;
 
 func _ready():
 	nameInput.text = UserManager.username;
 	storedName = nameInput.text;
-	$DisplayContainer/NameIdentifier.text = "#" + UserManager.identifier;
+	$NameIdentifier.text = "#" + UserManager.identifier;
 
 var editMode = false;
 var storedName = "";

@@ -4,7 +4,7 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-onready var transition = $"../../Transition";
+onready var transition = $"../Transition";
 
 func _ready():
 	pass;
@@ -18,3 +18,5 @@ func _on_SettingsButton_pressed():
 func _on_TutorialButton_pressed():
 	transition.transition_in("res://Screens/Tutorial.tscn");
 
+func _on_MultiplayerButton_pressed():
+	transition.transition_in("res://Screens/Multiplayer/LobbySelect.tscn");
