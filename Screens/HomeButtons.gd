@@ -20,3 +20,7 @@ func _on_TutorialButton_pressed():
 
 func _on_MultiplayerButton_pressed():
 	transition.transition_in("res://Screens/Multiplayer/LobbySelect.tscn");
+
+
+func _on_CreditsButton_pressed():
+	transition.transition_in("res://Screens/Credits.tscn");

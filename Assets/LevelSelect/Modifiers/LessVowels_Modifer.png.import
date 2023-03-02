@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tutorial_Button.PNG-2468d3a0ba0773c779946a8c271416eb.stex"
+path="res://.import/LessVowels_Modifer.png-dabd5fc6a32f4be1e800ae3b2b90dd76.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MainMenu/Tutorial_Button.PNG"
-dest_files=[ "res://.import/Tutorial_Button.PNG-2468d3a0ba0773c779946a8c271416eb.stex" ]
+source_file="res://Assets/LevelSelect/Modifiers/LessVowels_Modifer.png"
+dest_files=[ "res://.import/LessVowels_Modifer.png-dabd5fc6a32f4be1e800ae3b2b90dd76.stex" ]
 
 [params]
 

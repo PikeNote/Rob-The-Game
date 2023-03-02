@@ -1,14 +1,15 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
-[ext_resource path="res://Assets/Main_Menu.PNG" type="Texture" id=1]
+[ext_resource path="res://Assets/MainMenu/Main_Menu.PNG" type="Texture" id=1]
 [ext_resource path="res://Presets/HoverButton.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Settings/ChangeName_Button.PNG" type="Texture" id=3]
-[ext_resource path="res://Assets/MainMenu/Multiplayer_Draft.PNG" type="Texture" id=4]
+[ext_resource path="res://Assets/MainMenu/Buttons/Multiplayer_Draft.PNG" type="Texture" id=4]
 [ext_resource path="res://Music/the-cradle-of-your-soul-15700.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Assets/MainMenu/Name_Input.PNG" type="Texture" id=6]
+[ext_resource path="res://Assets/MainMenu/Buttons/Credits_Button.PNG" type="Texture" id=7]
 [ext_resource path="res://Assets/Exit Button.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Home/HoverButton.gd" type="Script" id=9]
-[ext_resource path="res://Assets/Settings_Menu.png" type="Texture" id=10]
+[ext_resource path="res://Assets/MainMenu/Settings_Menu.png" type="Texture" id=10]
 [ext_resource path="res://Assets/MasterVolume.tres" type="StyleBox" id=11]
 [ext_resource path="res://Assets/Grabber.tres" type="StyleBox" id=12]
 [ext_resource path="res://Assets/Rob slider grabber.png" type="Texture" id=13]
@@ -17,13 +18,13 @@
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Button_Mask.PNG" type="BitMap" id=17]
 [ext_resource path="res://Fonts/MainMenu/MenuButtons.tres" type="DynamicFont" id=18]
-[ext_resource path="res://Assets/MainMenu/Play_Button.PNG" type="Texture" id=19]
+[ext_resource path="res://Assets/MainMenu/Buttons/Play_Button.PNG" type="Texture" id=19]
 [ext_resource path="res://Fonts/MainMenu/SettingsFont.tres" type="DynamicFont" id=20]
 [ext_resource path="res://Screens/ResolutionSetting.gd" type="Script" id=21]
 [ext_resource path="res://Screens/ToggleSettings.gd" type="Script" id=22]
 [ext_resource path="res://Assets/MainMenu/Unchecked-Box.PNG" type="Texture" id=23]
-[ext_resource path="res://Assets/MainMenu/Tutorial_Button.PNG" type="Texture" id=24]
-[ext_resource path="res://Assets/MainMenu/Settings_Button.PNG" type="Texture" id=25]
+[ext_resource path="res://Assets/MainMenu/Buttons/Tutorial_Button.PNG" type="Texture" id=24]
+[ext_resource path="res://Assets/MainMenu/Buttons/Settings_Button.PNG" type="Texture" id=25]
 [ext_resource path="res://Assets/Arrow.png" type="BitMap" id=26]
 [ext_resource path="res://Assets/Arrow_1.png" type="Texture" id=27]
 [ext_resource path="res://Screens/PageChange.gd" type="Script" id=28]
@@ -469,6 +470,16 @@ texture_click_mask = ExtResource( 26 )
 expand = true
 script = ExtResource( 2 )
 
+[node name="CreditsButton" type="TextureButton" parent="."]
+margin_left = 17.0
+margin_top = 8.0
+margin_right = 134.0
+margin_bottom = 139.0
+texture_normal = ExtResource( 7 )
+texture_click_mask = ExtResource( 17 )
+expand = true
+script = ExtResource( 2 )
+
 [connection signal="pressed" from="NameChange/EditNameButton" to="NameChange" method="_on_EditNameButton_pressed"]
 [connection signal="pressed" from="HomeButtons/HBoxContainer/PlayButton" to="HomeButtons" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="HomeButtons/HBoxContainer/SettingsButton" to="HomeButtons" method="_on_SettingsButton_pressed"]
@@ -483,3 +494,4 @@ script = ExtResource( 2 )
 [connection signal="value_changed" from="SettingsPopupMenu/Pages/PageTwo/VBoxContainer3/MarginContainer/EffectsVolumeSlider" to="SettingsPopupMenu/Pages/PageTwo/VBoxContainer3/MarginContainer/EffectsVolumeSlider" method="_on_VolumeSlider_value_changed"]
 [connection signal="pressed" from="SettingsPopupMenu/CenterContainer/PageChange/LeftClick" to="SettingsPopupMenu/CenterContainer/PageChange" method="_on_LeftClick_pressed"]
 [connection signal="pressed" from="SettingsPopupMenu/CenterContainer/PageChange/RightClick" to="SettingsPopupMenu/CenterContainer/PageChange" method="_on_RightClick_pressed"]
+[connection signal="pressed" from="CreditsButton" to="HomeButtons" method="_on_CreditsButton_pressed"]

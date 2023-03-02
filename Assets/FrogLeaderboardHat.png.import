@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Screenshot 2023-01-20 143926.png-707838a2800a63558ab1d11d993fd68d.stex"
+path="res://.import/FrogLeaderboardHat.png-4980a803b7427e25915ffdf4b7eb9c39.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Screenshot 2023-01-20 143926.png"
-dest_files=[ "res://.import/Screenshot 2023-01-20 143926.png-707838a2800a63558ab1d11d993fd68d.stex" ]
+source_file="res://Assets/FrogLeaderboardHat.png"
+dest_files=[ "res://.import/FrogLeaderboardHat.png-4980a803b7427e25915ffdf4b7eb9c39.stex" ]
 
 [params]
 

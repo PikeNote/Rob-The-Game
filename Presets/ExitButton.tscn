@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Screens/SceneButtons.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Quit_Button.PNG" type="Texture" id=2]
+
+[node name="ExitButton" type="TextureButton"]
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 100, 100 )
+texture_normal = ExtResource( 2 )
+expand = true
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="." to="." method="_on_ExitButton_pressed"]

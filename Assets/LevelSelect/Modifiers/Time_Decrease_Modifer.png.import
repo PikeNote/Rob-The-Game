@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Credits_Button.PNG-8d9d2373956ae8abc662c86ffa0e85d6.stex"
+path="res://.import/Time_Decrease_Modifer.png-0c858180ee6d4b56c7781b99ccc44348.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MainMenu/Credits_Button.PNG"
-dest_files=[ "res://.import/Credits_Button.PNG-8d9d2373956ae8abc662c86ffa0e85d6.stex" ]
+source_file="res://Assets/LevelSelect/Modifiers/Time_Decrease_Modifer.png"
+dest_files=[ "res://.import/Time_Decrease_Modifer.png-0c858180ee6d4b56c7781b99ccc44348.stex" ]
 
 [params]
 

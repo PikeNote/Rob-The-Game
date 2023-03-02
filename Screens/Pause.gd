@@ -9,8 +9,7 @@ var nextVector = Vector2(1,1)
 
 var is_paused = false
 func _on_Pause_pressed():
-	is_paused = !is_paused
-	get_tree().paused = is_paused
+	changePause()
 	$CanvasLayer/ColorRect.visible = true;
 	_tpm.popup_centered()
 	_tweenObject(Vector2(0,0),Vector2(1.3,1.3));
@@ -35,11 +34,12 @@ func _on_Resume_pressed():
 		print("_tpm is null")
 	else:
 		_tpm.hide();
-		self.is_paused = false
+		changePause()
 	
 func _on_Quit_pressed():
 	$"../Transition".transition_in("res://Screens/MainScene.tscn")
 	pass # Replace with function body.
 
-
-
+func changePause():
+	is_paused = !is_paused
+	get_tree().paused = is_paused

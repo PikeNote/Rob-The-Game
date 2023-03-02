@@ -114,7 +114,6 @@ scale = Vector2( 0.251374, 0.252839 )
 seconds = 0
 
 [node name="EndGameScreen" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1.06527, -1.69773 )
 scale = Vector2( 0.534, 0.566 )
 
 [node name="GameSceneMusic" type="AudioStreamPlayer2D" parent="."]

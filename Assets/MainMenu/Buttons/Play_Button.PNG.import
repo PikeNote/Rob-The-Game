@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/newerLasso_50_1_50_3_60.png-ce5e95686f8af444e6b6e1465dcb63bd.stex"
+path="res://.import/Play_Button.PNG-555814f572f34f3113c533fd8699ee0c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/newerLasso_50_1_50_3_60.png"
-dest_files=[ "res://.import/newerLasso_50_1_50_3_60.png-ce5e95686f8af444e6b6e1465dcb63bd.stex" ]
+source_file="res://Assets/MainMenu/Buttons/Play_Button.PNG"
+dest_files=[ "res://.import/Play_Button.PNG-555814f572f34f3113c533fd8699ee0c.stex" ]
 
 [params]
 
