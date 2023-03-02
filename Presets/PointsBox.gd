@@ -11,7 +11,7 @@ var points = 0;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timeInSeconds = (minutes*60)+seconds;
-	GlobalVars.pointsBox = $".";
+	GameReferences.pointsBox = $".";
 	pass;
 
 func _addPoints(var p):

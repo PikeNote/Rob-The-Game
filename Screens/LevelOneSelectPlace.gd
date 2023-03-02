@@ -28,10 +28,10 @@ onready var transition = $"../Transition"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$".".texture=load(assets[GlobalVars.currentScene]);
+	$".".texture=load(assets[GameReferences.currentScene]);
 	$"../EnterPath".visible = false;
 	$"../ExitPath".visible = false;
-	if(!GlobalVars.endGame):
+	if(!GameReferences.endGame):
 		properItem = $"../EnterPath";
 		pathFollow = $"../EnterPath/PathFollow2D"
 	else:
@@ -58,10 +58,10 @@ func _physics_process(delta):
 			$"../AnimationPlayer".get_animation("JumpingRob").loop = false;
 	else:
 		if(!levelSwitching):
-			if(!GlobalVars.endGame):
-				transition.transition_in(gameLevels[GlobalVars.currentScene]);
+			if(!GameReferences.endGame):
+				transition.transition_in(gameLevels[GameReferences.currentScene]);
 			else: 
-				GlobalVars.endGame = false;
+				GameReferences.endGame = false;
 				transition.transition_in("res://Screens/LevelSelect.tscn");
 				levelSwitching=true;
 		

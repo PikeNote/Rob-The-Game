@@ -7,9 +7,9 @@ class_name LetterInventory
 # var b = "text"
 var pressed_before = false;
 var currentLetter;
-onready var inventoryContainer = GlobalVars.inventoryRef.get_node("SpellInventory");
-onready var inventorySlots = GlobalVars.inventoryRef.get_node("InventorySlots");
-onready var pointsBox = GlobalVars.pointsBox;
+onready var inventoryContainer = GameReferences.inventoryRef.get_node("SpellInventory");
+onready var inventorySlots = GameReferences.inventoryRef.get_node("InventorySlots");
+onready var pointsBox = GameReferences.pointsBox;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$".".connect("pressed", self, "_on_Press")

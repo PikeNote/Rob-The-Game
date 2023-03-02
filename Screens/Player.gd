@@ -22,7 +22,7 @@ func _physics_process(delta):
 		$".".rotation_degrees -= 90
 	
 func _input(event: InputEvent) -> void:
-	if (event is InputEventMouseButton && GlobalVars.inventoryRef.get_node("InventorySlots")._invCount()<20 && !overUI):
+	if (event is InputEventMouseButton && GameReferences.inventoryRef.get_node("InventorySlots")._invCount()<20 && !overUI):
 		if event.pressed:
 			if(MultiplayerWebsocket.lobbyCode):
 				print("mouseClicked")

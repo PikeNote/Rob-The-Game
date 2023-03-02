@@ -68,10 +68,10 @@ func _moveNextLocation():
 	
 
 func _doneMoving(index):
-	$"../LevelSelect/PanelOne/Title".bbcode_text = "[center]" + levelDescription[index].Name + "[/center]";
-	$"../LevelSelect/PanelOne/Description".text = levelDescription[index].Description;
+	$"../LevelSelect/Panel1/Title".bbcode_text = "[center]" + levelDescription[index].Name + "[/center]";
+	$"../LevelSelect/Panel1/Description".text = levelDescription[index].Description;
 	var starsCount = 1;
-	for stars in $"../LevelSelect/PanelOne/CenterStars/Stars".get_children():
+	for stars in $"../LevelSelect/Panel1/CenterStars/Stars".get_children():
 		if(starsCount<=levelDescription[index].Difficulty):
 			starsCount+=1;
 			stars.modulate = Color(249, 255, 1);
@@ -86,7 +86,7 @@ func _doneMoving(index):
 #	pass
 
 func _on_SelectLevel_button_down():
-	GlobalVars.currentScene = currentPlace;
+	GameReferences.currentScene = currentPlace;
 	transition.transition_in("res://Screens/TravelInProgress.tscn");
 	pass # Replace with function body.
 

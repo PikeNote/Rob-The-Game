@@ -11,9 +11,9 @@ var mouse_entered = false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	GlobalVars.inventoryRef = $"..";
-	GlobalVars.pointsEarned = 0;
-	GlobalVars.wordsSpelled = [];
+	GameReferences.inventoryRef = $"..";
+	GameReferences.pointsEarned = 0;
+	GameReferences.wordsSpelled = [];
 	
 	pass # Replace with function body.
 
@@ -67,9 +67,9 @@ func _input(e):
 					invSlot._freeLinked();
 					invSlot.queue_free();
 				_invRemove();
-				GlobalVars.pointsBox._addPoints(checkWord[1]);
-				GlobalVars.wordsSpelled.append(checkWord[2]);
-				GlobalVars.pointsEarned+=checkWord[1];
+				GameReferences.pointsBox._addPoints(checkWord[1]);
+				GameReferences.wordsSpelled.append(checkWord[2]);
+				GameReferences.pointsEarned+=checkWord[1];
 				
 
 func checkWordSolve():

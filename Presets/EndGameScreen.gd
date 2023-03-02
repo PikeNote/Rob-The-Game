@@ -18,12 +18,12 @@ func _ready():
 	pass # Replace with function body.
 
 func _endGame():
-	for n in GlobalVars.wordsSpelled:
+	for n in GameReferences.wordsSpelled:
 		var wordSpelled = statWord.instance();
 		wordSpelled.text = n;
 		$Control/ScrollContainer/WordsSpelledContainer.add_child(wordSpelled);
-	$Control/WordsSpelled.text="Words Spelled: " + str(GlobalVars.wordsSpelled.size());
-	$Control/PointsEarned.text="Points Spelled: " + str(GlobalVars.pointsEarned);
+	$Control/WordsSpelled.text="Words Spelled: " + str(GameReferences.wordsSpelled.size());
+	$Control/PointsEarned.text="Points Spelled: " + str(GameReferences.pointsEarned);
 	$ColorRect.visible=true;
 	$Control.visible=true;
 	tween.interpolate_property($Control, "rect_position", $Control.rect_position, Vector2($Control.rect_position.x, normalYPosition), scaleUpTime, Tween.TRANS_LINEAR, Tween.EASE_IN)
@@ -35,6 +35,6 @@ func _endGame():
 #	pass
 
 func _on_ExitButton_pressed():
-	GlobalVars.endGame = true;
+	GameReferences.endGame = true;
 	$"../Transition".transition_in("res://Screens/TravelInProgress.tscn")
 	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Assets/The_Sky.PNG" type="Texture" id=1]
 [ext_resource path="res://Assets/Newer_World.png" type="Texture" id=2]
@@ -11,12 +11,20 @@
 [ext_resource path="res://Assets/LevelSelect/LevelSelectMenu.PNG" type="Texture" id=9]
 [ext_resource path="res://Fonts/MainMenu/LevelSelect.tres" type="DynamicFont" id=10]
 [ext_resource path="res://Presets/ExitButton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Button_Mask.PNG" type="BitMap" id=12]
 [ext_resource path="res://Assets/Arrow.png" type="BitMap" id=13]
 [ext_resource path="res://Assets/Arrow_1.png" type="Texture" id=14]
 [ext_resource path="res://Assets/LevelSelect/Rectangle_Play_Button.PNG" type="Texture" id=15]
 [ext_resource path="res://Assets/Lil_Star.png" type="Texture" id=16]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Presets/HoverButton.gd" type="Script" id=18]
+[ext_resource path="res://Assets/LevelSelect/Modifiers/LessVowels_Modifer.png" type="Texture" id=19]
+[ext_resource path="res://Assets/LevelSelect/Modifiers/SelectedBorder.png" type="Texture" id=20]
+[ext_resource path="res://Assets/LevelSelect/Modifiers/Letter_SpeedUp_Modifer.png" type="Texture" id=21]
+[ext_resource path="res://Assets/LevelSelect/Modifiers/Time_Decrease_Modifer.png" type="Texture" id=22]
+[ext_resource path="res://Screens/LevelSelect/Modifiers.gd" type="Script" id=23]
+[ext_resource path="res://Fonts/LevelSelect/ModifierTitle.tres" type="DynamicFont" id=24]
+[ext_resource path="res://Scripts/LevelSelect/ModifierButtonHover.gd" type="Script" id=25]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.70282, 277.022 )
@@ -43,6 +51,21 @@ font_path = "res://Fonts/Robfont-Regular.ttf"
 [sub_resource type="DynamicFont" id=16]
 size = 80
 font_data = SubResource( 12 )
+
+[sub_resource type="DynamicFontData" id=17]
+font_path = "res://Fonts/Robfont-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=18]
+size = 49
+font_data = SubResource( 17 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 40
+font_data = SubResource( 17 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 40
+font_data = SubResource( 17 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 18, 292 )
@@ -191,12 +214,12 @@ margin_bottom = 339.944
 texture = ExtResource( 9 )
 stretch_mode = 1
 
-[node name="PanelOne" type="Control" parent="LevelSelect"]
+[node name="Panel1" type="Control" parent="LevelSelect"]
 margin_left = -37.6067
 margin_right = 2.39331
 margin_bottom = 40.0
 
-[node name="Title" type="RichTextLabel" parent="LevelSelect/PanelOne"]
+[node name="Title" type="RichTextLabel" parent="LevelSelect/Panel1"]
 margin_left = -560.458
 margin_top = -593.222
 margin_right = 139.542
@@ -208,20 +231,20 @@ bbcode_text = "[center]Farm[/center]"
 text = "Farm"
 fit_content_height = true
 
-[node name="CenterStars" type="CenterContainer" parent="LevelSelect/PanelOne"]
+[node name="CenterStars" type="CenterContainer" parent="LevelSelect/Panel1"]
 margin_left = -403.131
 margin_top = -507.222
 margin_right = -24.1309
 margin_bottom = -407.222
 rect_min_size = Vector2( 379, 71 )
 
-[node name="Stars" type="HFlowContainer" parent="LevelSelect/PanelOne/CenterStars"]
+[node name="Stars" type="HFlowContainer" parent="LevelSelect/Panel1/CenterStars"]
 margin_left = 35.0
 margin_right = 343.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 308, 0 )
 
-[node name="Star1" type="TextureRect" parent="LevelSelect/PanelOne/CenterStars/Stars"]
+[node name="Star1" type="TextureRect" parent="LevelSelect/Panel1/CenterStars/Stars"]
 modulate = Color( 0.976471, 1, 0.00392157, 1 )
 margin_right = 100.0
 margin_bottom = 100.0
@@ -229,7 +252,7 @@ rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 16 )
 expand = true
 
-[node name="Star2" type="TextureRect" parent="LevelSelect/PanelOne/CenterStars/Stars"]
+[node name="Star2" type="TextureRect" parent="LevelSelect/Panel1/CenterStars/Stars"]
 modulate = Color( 0.976471, 1, 0.00392157, 1 )
 margin_left = 104.0
 margin_right = 204.0
@@ -238,7 +261,7 @@ rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 16 )
 expand = true
 
-[node name="Star3" type="TextureRect" parent="LevelSelect/PanelOne/CenterStars/Stars"]
+[node name="Star3" type="TextureRect" parent="LevelSelect/Panel1/CenterStars/Stars"]
 modulate = Color( 0.976471, 1, 0.00392157, 1 )
 margin_left = 208.0
 margin_right = 308.0
@@ -247,7 +270,7 @@ rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 16 )
 expand = true
 
-[node name="Description" type="RichTextLabel" parent="LevelSelect/PanelOne"]
+[node name="Description" type="RichTextLabel" parent="LevelSelect/Panel1"]
 margin_left = -612.0
 margin_top = -412.0
 margin_right = 168.0
@@ -259,23 +282,23 @@ bbcode_text = "[center]Farm[/center]"
 text = "Farm"
 fit_content_height = true
 
-[node name="ButtonContainer" type="CenterContainer" parent="LevelSelect/PanelOne"]
+[node name="ButtonContainer" type="CenterContainer" parent="LevelSelect/Panel1"]
 margin_left = -633.934
 margin_top = -104.167
 margin_right = 191.066
 margin_bottom = 175.833
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect/PanelOne/ButtonContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect/Panel1/ButtonContainer"]
 margin_left = 210.0
 margin_right = 614.0
 margin_bottom = 280.0
 custom_constants/separation = -40
 
-[node name="CenterContainer" type="CenterContainer" parent="LevelSelect/PanelOne/ButtonContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="LevelSelect/Panel1/ButtonContainer/VBoxContainer"]
 margin_right = 404.0
 margin_bottom = 120.0
 
-[node name="SelectLevel" type="TextureButton" parent="LevelSelect/PanelOne/ButtonContainer/VBoxContainer/CenterContainer"]
+[node name="SelectLevel" type="TextureButton" parent="LevelSelect/Panel1/ButtonContainer/VBoxContainer/CenterContainer"]
 margin_left = 77.0
 margin_right = 327.0
 margin_bottom = 120.0
@@ -284,7 +307,7 @@ texture_normal = ExtResource( 15 )
 expand = true
 script = ExtResource( 18 )
 
-[node name="HFlowContainer" type="HFlowContainer" parent="LevelSelect/PanelOne/ButtonContainer/VBoxContainer"]
+[node name="HFlowContainer" type="HFlowContainer" parent="LevelSelect/Panel1/ButtonContainer/VBoxContainer"]
 margin_top = 80.0
 margin_right = 404.0
 margin_bottom = 280.0
@@ -292,7 +315,7 @@ rect_min_size = Vector2( 404, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LeftButton" type="TextureButton" parent="LevelSelect/PanelOne/ButtonContainer/VBoxContainer/HFlowContainer"]
+[node name="LeftButton" type="TextureButton" parent="LevelSelect/Panel1/ButtonContainer/VBoxContainer/HFlowContainer"]
 margin_right = 200.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 200, 200 )
@@ -303,7 +326,7 @@ expand = true
 flip_h = true
 script = ExtResource( 18 )
 
-[node name="RightButton" type="TextureButton" parent="LevelSelect/PanelOne/ButtonContainer/VBoxContainer/HFlowContainer"]
+[node name="RightButton" type="TextureButton" parent="LevelSelect/Panel1/ButtonContainer/VBoxContainer/HFlowContainer"]
 margin_left = 204.0
 margin_right = 404.0
 margin_bottom = 200.0
@@ -329,18 +352,174 @@ text = "Leaderboard"
 fit_content_height = true
 
 [node name="Panel3" type="Control" parent="LevelSelect"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 769.586
+margin_top = -584.722
+margin_right = 809.586
+margin_bottom = -544.722
 
-[node name="Title2" type="RichTextLabel" parent="LevelSelect/Panel3"]
-margin_left = 776.0
-margin_top = -593.0
-margin_right = 1157.0
-margin_bottom = -515.0
+[node name="Title" type="RichTextLabel" parent="LevelSelect/Panel3"]
+margin_right = 381.0
+margin_bottom = 78.0
 custom_fonts/normal_font = SubResource( 16 )
 bbcode_enabled = true
 text = "Modifiers"
 fit_content_height = true
+
+[node name="Modifiers" type="VBoxContainer" parent="LevelSelect/Panel3"]
+margin_left = 4.02917
+margin_top = 74.9998
+margin_right = 134.029
+margin_bottom = 205.0
+script = ExtResource( 23 )
+
+[node name="VowelDecrease" type="HBoxContainer" parent="LevelSelect/Panel3/Modifiers"]
+margin_right = 439.0
+margin_bottom = 120.0
+
+[node name="Button" type="TextureButton" parent="LevelSelect/Panel3/Modifiers/VowelDecrease"]
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+texture_normal = ExtResource( 19 )
+texture_click_mask = ExtResource( 12 )
+expand = true
+script = ExtResource( 25 )
+
+[node name="Border" type="TextureRect" parent="LevelSelect/Panel3/Modifiers/VowelDecrease/Button"]
+visible = false
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+texture = ExtResource( 20 )
+expand = true
+
+[node name="Title" type="RichTextLabel" parent="LevelSelect/Panel3/Modifiers/VowelDecrease"]
+margin_left = 124.0
+margin_top = 33.0
+margin_right = 439.0
+margin_bottom = 87.0
+rect_min_size = Vector2( 315, 54 )
+size_flags_vertical = 4
+custom_fonts/normal_font = ExtResource( 24 )
+text = "Vowl Decrease"
+scroll_active = false
+
+[node name="LetterSpeedup" type="HBoxContainer" parent="LevelSelect/Panel3/Modifiers"]
+margin_top = 124.0
+margin_right = 439.0
+margin_bottom = 244.0
+
+[node name="Button" type="TextureButton" parent="LevelSelect/Panel3/Modifiers/LetterSpeedup"]
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+texture_normal = ExtResource( 21 )
+texture_click_mask = ExtResource( 12 )
+expand = true
+script = ExtResource( 25 )
+
+[node name="Border" type="TextureRect" parent="LevelSelect/Panel3/Modifiers/LetterSpeedup/Button"]
+visible = false
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+texture = ExtResource( 20 )
+expand = true
+
+[node name="Title" type="RichTextLabel" parent="LevelSelect/Panel3/Modifiers/LetterSpeedup"]
+margin_left = 124.0
+margin_top = 33.0
+margin_right = 439.0
+margin_bottom = 87.0
+rect_min_size = Vector2( 315, 54 )
+size_flags_vertical = 4
+custom_fonts/normal_font = ExtResource( 24 )
+text = "Letter Speedup"
+scroll_active = false
+
+[node name="TimeDecrease" type="HBoxContainer" parent="LevelSelect/Panel3/Modifiers"]
+margin_top = 248.0
+margin_right = 439.0
+margin_bottom = 368.0
+
+[node name="Button" type="TextureButton" parent="LevelSelect/Panel3/Modifiers/TimeDecrease"]
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+texture_normal = ExtResource( 22 )
+texture_click_mask = ExtResource( 12 )
+expand = true
+script = ExtResource( 25 )
+
+[node name="Border" type="TextureRect" parent="LevelSelect/Panel3/Modifiers/TimeDecrease/Button"]
+visible = false
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+texture = ExtResource( 20 )
+expand = true
+
+[node name="Title" type="RichTextLabel" parent="LevelSelect/Panel3/Modifiers/TimeDecrease"]
+margin_left = 124.0
+margin_top = 33.0
+margin_right = 439.0
+margin_bottom = 87.0
+rect_min_size = Vector2( 315, 54 )
+size_flags_vertical = 4
+custom_fonts/normal_font = ExtResource( 24 )
+text = "Time Decrease"
+scroll_active = false
+
+[node name="Description" type="VBoxContainer" parent="LevelSelect/Panel3"]
+margin_left = -7.0
+margin_top = 450.0
+margin_right = 443.0
+margin_bottom = 707.0
+
+[node name="DescTitle" type="RichTextLabel" parent="LevelSelect/Panel3/Description"]
+margin_right = 450.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+custom_fonts/normal_font = SubResource( 18 )
+text = "About modifiers:
+"
+scroll_active = false
+
+[node name="Description" type="RichTextLabel" parent="LevelSelect/Panel3/Description"]
+margin_top = 44.0
+margin_right = 450.0
+margin_bottom = 214.0
+rect_min_size = Vector2( 0, 170 )
+size_flags_horizontal = 3
+custom_fonts/normal_font = SubResource( 19 )
+text = "Description Here"
+scroll_active = false
+
+[node name="Multiplier" type="HFlowContainer" parent="LevelSelect/Panel3/Description"]
+margin_top = 218.0
+margin_right = 450.0
+margin_bottom = 258.0
+
+[node name="MultiTitle" type="RichTextLabel" parent="LevelSelect/Panel3/Description/Multiplier"]
+margin_right = 346.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+custom_fonts/normal_font = SubResource( 18 )
+text = "Points Multiplier:"
+scroll_active = false
+
+[node name="PointsMultiplier" type="RichTextLabel" parent="LevelSelect/Panel3/Description/Multiplier"]
+margin_left = 350.0
+margin_top = 5.0
+margin_right = 450.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 100, 30 )
+size_flags_vertical = 4
+custom_fonts/normal_font = SubResource( 20 )
+text = "1x"
+scroll_active = false
 
 [node name="RandomSky" type="Sprite" parent="."]
 position = Vector2( 968, 528 )
@@ -368,6 +547,6 @@ playback_speed = 1.3
 anims/JumpingRob = SubResource( 11 )
 anims/RESET = SubResource( 14 )
 
-[connection signal="button_down" from="LevelSelect/PanelOne/ButtonContainer/VBoxContainer/CenterContainer/SelectLevel" to="Planet" method="_on_SelectLevel_button_down"]
-[connection signal="pressed" from="LevelSelect/PanelOne/ButtonContainer/VBoxContainer/HFlowContainer/LeftButton" to="Planet" method="_on_LeftButton_pressed"]
-[connection signal="pressed" from="LevelSelect/PanelOne/ButtonContainer/VBoxContainer/HFlowContainer/RightButton" to="Planet" method="_on_RightButton_pressed"]
+[connection signal="button_down" from="LevelSelect/Panel1/ButtonContainer/VBoxContainer/CenterContainer/SelectLevel" to="Planet" method="_on_SelectLevel_button_down"]
+[connection signal="pressed" from="LevelSelect/Panel1/ButtonContainer/VBoxContainer/HFlowContainer/LeftButton" to="Planet" method="_on_LeftButton_pressed"]
+[connection signal="pressed" from="LevelSelect/Panel1/ButtonContainer/VBoxContainer/HFlowContainer/RightButton" to="Planet" method="_on_RightButton_pressed"]

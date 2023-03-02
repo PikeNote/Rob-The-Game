@@ -41,7 +41,7 @@ func _ready():
 	add_child(http_request)
 	http_request.connect("request_completed", self, "_http_request_completed")
 	var error = http_request.request("http://www.mieliestronk.com/corncob_lowercase.txt")
-	print("List loaded!")
+	print("Word list loaded!")
 	
 
 func _http_request_completed(result, response_code, headers, body):
@@ -50,27 +50,22 @@ func _http_request_completed(result, response_code, headers, body):
 		words[i] = words[i].strip_edges(true, true)
 	print(words.size())
 	print("Loading done!")
-	#for key in words: # Remove all words that are less than 1 letter long
-	#	if(key.length() == 1):
-	#		words.erase(key)
 
 func _checkWord(wd):
-	if(wd.length() != 1):
-		wd = wd.to_lower();
-		var pnt = 0;
-		var hasWord = words.has(wd);
-		print(words[0])
-		print(wd)
-		if(hasWord):
-			wd = wd.to_upper();
-			for i in wd.length():
-				pnt += wordValueTable[wd[i]];
-				print(pnt)
-				
+	# Do not accept words that are 1 character long
+	if(wd.length() == 1):
+		return [false,0];
+
+	wd = wd.to_lower();
+	var pnt = 0;
+	var hasWord = words.has(wd);
+	if(hasWord):
+		wd = wd.to_upper();
+		for i in wd.length():
+			pnt += wordValueTable[wd[i]];
+			
 		return [hasWord,pnt];
 	else:
 		return [false,0];
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+

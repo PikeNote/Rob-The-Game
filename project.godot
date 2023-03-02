@@ -45,13 +45,13 @@ config/icon="res://Assets/icon.png"
 [autoload]
 
 AntialiasedLine2DTexture="*res://addons/antialiased_line2d/texture.gd"
-GarbageCollector="*res://Global Stuff/GarbageCollector.gd"
-Words="*res://Global Stuff/words.gd"
+Words="*res://Global Stuff/WordManager.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
-GlobalVars="*res://Global Stuff/GlobalVars.gd"
-SilentWolfGlobal="*res://Global Stuff/Node.gd"
+GameReferences="*res://Global Stuff/GameReferences.gd"
+SilentWolfGlobal="*res://Global Stuff/SilentWolf.gd"
 MultiplayerWebsocket="*res://Global Stuff/MultiplayerWebsocket.gd"
 UserManager="*res://Global Stuff/UserManager.gd"
+GameParameters="*res://Global Stuff/GameParameters.gd"
 
 [display]
 
