@@ -5,7 +5,7 @@ extends Node
 # var a = 2
 # var b = "text"
 
-export var websocket_url = "wss://rob-webrtc.pikenote.repl.co/ws"
+export var websocket_url = "wss://rob-server.pikenote.repl.co/ws"
 
 # Our WebSocketClient instance
 var _client = WebSocketClient.new()
@@ -16,9 +16,7 @@ var lobbyScreen;
 var gameScreen;
 var playerNames;
 
-var host = false;
-
-var rtc_peer:WebRTCMultiplayer = WebRTCMultiplayer.new();
+var player = 1;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,102 +31,6 @@ func _ready():
 		print("Unable to connect")
 		set_process(false)
 		
-func _connected(proto = ""):
-	print("Connected with protocol: ", proto)
-	print("Connected to client!")
-	_client.get_peer(1).set_write_mode(WebSocketPeer.WRITE_MODE_TEXT)
-	
-
-func _createLobby():
-	_send_data({"type":"createLobby","payload":{"name":UserManager.getFullUsername()}});
-
-func _joinLobby(code):
-	_send_data({"type":"joinLobby","payload":{"name":UserManager.getFullUsername(),"match_uuid":str(code)}});
-
-func _letterSpawned(l,i):
-	_gameData("letterSpawned",{"letter":l,"path":i});
-
-func _gameData(type, payload):
-	_send_data({"user":player,"type":"gameData","payload":{"type":type,"payload":payload,"match_uuid":lobbyCode}});
-
-func _closed(was_clean = false):
-	print("Closed, clean: ", was_clean)
-	set_process(false)
-
-func _gameStarted():
-	_send_data({"type":"lobbyStarted","payload":{"match_uuid":lobbyCode}});
-	
-func _on_data():
-	var packet:PoolByteArray  = _client.get_peer(1).get_packet()
-	var receivedData: Dictionary = JSON.parse(packet.get_string_from_utf8()).result
-	match(receivedData.type):
-		"lobbyCreated":
-			lobbyCode = receivedData.payload.game_id; 
-			print(lobbyCode)
-			lobbyCreated();
-			pass;
-		"lobbyJoined":
-			lobbyJoined(receivedData.payload.name);
-			pass;
-		"gameData":
-			print(receivedData.payload)
-			gameData(receivedData.payload)
-			pass;
-		"lobbyStatus":
-			# status = 1 is success
-			# status = 0 is fail
-			if(receivedData.payload.status == 1):
-				playerNames = receivedData.payload.playerNames;
-				player = 2;
-				lobbyCode = receivedData.payload.match_uuid;
-				print(lobbySelect != null)
-				if(lobbySelect != null):
-					lobbySelect._lobbyCreated();
-				pass
-			else:
-				pass
-			pass;
-		"lobbyStarted":
-			if(lobbyScreen != null):
-				lobbyScreen._transition_to_arena();
-
-func _send_data(data):
-	var sendData:String = JSON.print(data)
-	_client.get_peer(1).put_packet(sendData.to_utf8())
-
-func _process(delta):
-	_client.poll()
-	
-func lobbyCreated():
-	if(lobbySelect!=null):
-		lobbySelect._lobbyCreated();
-
-func lobbyJoined(n):
-	if(lobbyScreen!=null):
-		lobbyScreen._addPlayer(n);
-		
-func gameData(payload):
-	match(payload.type):
-		"mouseMoved":
-			gameScreen._mouseMoved(Vector2(payload.payload[0],payload.payload[1]))
-			pass;
-		"mouseClicked":
-			print("mouseClicked")
-			gameScreen._dummyShoot(Vector2(payload.payload[0],payload.payload[1]))
-			pass;
-		"mouseReleased":
-			gameScreen._dummyRelease();
-			pass;
-		"letterSpawned":
-			gameScreen._letterSpawned(payload.payload.letter, payload.payload.path)
-			pass;
-		"powerupUsed":
-			pass;
-
-func _process(delta):
-	_client.poll()
-"""
-
 func _createLobby():
 	_send_data({"type":"createLobby","payload":{"name":UserManager.getFullUsername()}});
 
@@ -220,5 +122,3 @@ func gameData(payload):
 			pass;
 		"powerupUsed":
 			pass;
-
-"""
