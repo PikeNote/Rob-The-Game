@@ -1,22 +1,23 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/The_Sky.PNG" type="Texture" id=1]
 [ext_resource path="res://Assets/Newer_World.png" type="Texture" id=2]
 [ext_resource path="res://Screens/Planet.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Barn.PNG" type="Texture" id=4]
+[ext_resource path="res://Assets/LevelSelect/Barn.PNG" type="Texture" id=4]
 [ext_resource path="res://Assets/Rob's_Side_Profile.PNG" type="Texture" id=5]
-[ext_resource path="res://Assets/Sign_Post.png" type="Texture" id=6]
+[ext_resource path="res://Assets/LevelSelect/Sign_Post.png" type="Texture" id=6]
 [ext_resource path="res://Screens/LevelSelect.gd" type="Script" id=7]
-[ext_resource path="res://Assets/Colosseum.png" type="Texture" id=8]
-[ext_resource path="res://Assets/LevelSelectMenu.PNG" type="Texture" id=9]
+[ext_resource path="res://Assets/LevelSelect/Colosseum.png" type="Texture" id=8]
+[ext_resource path="res://Assets/LevelSelect/LevelSelectMenu.PNG" type="Texture" id=9]
 [ext_resource path="res://Fonts/MainMenu/LevelSelect.tres" type="DynamicFont" id=10]
 [ext_resource path="res://Assets/Quit_Button.PNG" type="Texture" id=11]
 [ext_resource path="res://Screens/SceneButtons.gd" type="Script" id=12]
 [ext_resource path="res://Assets/Arrow.png" type="BitMap" id=13]
 [ext_resource path="res://Assets/Arrow_1.png" type="Texture" id=14]
-[ext_resource path="res://Fonts/MainMenu/MenuButtons.tres" type="DynamicFont" id=15]
+[ext_resource path="res://Assets/LevelSelect/Rectangle_Play_Button.PNG" type="Texture" id=15]
 [ext_resource path="res://Assets/Lil_Star.png" type="Texture" id=16]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Presets/HoverButton.gd" type="Script" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.70282, 277.022 )
@@ -30,10 +31,17 @@ extents = Vector2( 10.1396, 112.356 )
 [sub_resource type="CircleShape2D" id=5]
 radius = 983.926
 
-[sub_resource type="DynamicFontData" id=12]
+[sub_resource type="DynamicFontData" id=15]
 font_path = "res://Fonts/Robfont-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=13]
+size = 80
+font_data = SubResource( 15 )
+
+[sub_resource type="DynamicFontData" id=12]
+font_path = "res://Fonts/Robfont-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=16]
 size = 80
 font_data = SubResource( 12 )
 
@@ -171,9 +179,9 @@ margin_bottom = 956.0
 rect_scale = Vector2( 0.744556, 0.72 )
 
 [node name="ExitButton" type="TextureButton" parent="LevelSelect"]
-margin_left = -1036.0
+margin_left = -1073.61
 margin_top = -1262.0
-margin_right = -836.0
+margin_right = -873.607
 margin_bottom = -1062.0
 rect_min_size = Vector2( 200, 200 )
 texture_normal = ExtResource( 11 )
@@ -181,20 +189,23 @@ expand = true
 script = ExtResource( 12 )
 
 [node name="LevelSelectMenu" type="TextureRect" parent="LevelSelect"]
-margin_left = -601.766
-margin_top = -783.0
-margin_right = 1096.23
-margin_bottom = 350.0
+margin_left = -805.85
+margin_top = -793.056
+margin_right = 1409.15
+margin_bottom = 339.944
 texture = ExtResource( 9 )
 stretch_mode = 1
 
-[node name="Title" type="RichTextLabel" parent="LevelSelect"]
-anchor_left = 0.1
-anchor_right = 0.1
-margin_left = -391.2
-margin_top = -571.0
-margin_right = 308.8
-margin_bottom = -489.0
+[node name="PanelOne" type="Control" parent="LevelSelect"]
+margin_left = -37.6067
+margin_right = 2.39331
+margin_bottom = 40.0
+
+[node name="Title" type="RichTextLabel" parent="LevelSelect/PanelOne"]
+margin_left = -560.458
+margin_top = -593.222
+margin_right = 139.542
+margin_bottom = -468.222
 rect_min_size = Vector2( 700, 80 )
 custom_fonts/normal_font = ExtResource( 10 )
 bbcode_enabled = true
@@ -202,21 +213,20 @@ bbcode_text = "[center]Farm[/center]"
 text = "Farm"
 fit_content_height = true
 
-[node name="CenterStars" type="CenterContainer" parent="LevelSelect"]
-margin_left = -477.0
-margin_top = -485.0
-margin_right = 405.0
-margin_bottom = -374.0
+[node name="CenterStars" type="CenterContainer" parent="LevelSelect/PanelOne"]
+margin_left = -403.131
+margin_top = -507.222
+margin_right = -24.1309
+margin_bottom = -407.222
 rect_min_size = Vector2( 379, 71 )
 
-[node name="Stars" type="HFlowContainer" parent="LevelSelect/CenterStars"]
-margin_left = 287.0
-margin_top = 5.0
-margin_right = 595.0
-margin_bottom = 105.0
+[node name="Stars" type="HFlowContainer" parent="LevelSelect/PanelOne/CenterStars"]
+margin_left = 35.0
+margin_right = 343.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 308, 0 )
 
-[node name="Star1" type="TextureRect" parent="LevelSelect/CenterStars/Stars"]
+[node name="Star1" type="TextureRect" parent="LevelSelect/PanelOne/CenterStars/Stars"]
 modulate = Color( 0.976471, 1, 0.00392157, 1 )
 margin_right = 100.0
 margin_bottom = 100.0
@@ -224,7 +234,7 @@ rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 16 )
 expand = true
 
-[node name="Star2" type="TextureRect" parent="LevelSelect/CenterStars/Stars"]
+[node name="Star2" type="TextureRect" parent="LevelSelect/PanelOne/CenterStars/Stars"]
 modulate = Color( 0.976471, 1, 0.00392157, 1 )
 margin_left = 104.0
 margin_right = 204.0
@@ -233,7 +243,7 @@ rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 16 )
 expand = true
 
-[node name="Star3" type="TextureRect" parent="LevelSelect/CenterStars/Stars"]
+[node name="Star3" type="TextureRect" parent="LevelSelect/PanelOne/CenterStars/Stars"]
 modulate = Color( 0.976471, 1, 0.00392157, 1 )
 margin_left = 208.0
 margin_right = 308.0
@@ -242,49 +252,52 @@ rect_min_size = Vector2( 100, 100 )
 texture = ExtResource( 16 )
 expand = true
 
-[node name="Description" type="RichTextLabel" parent="LevelSelect"]
-margin_left = -455.0
-margin_top = -381.0
-margin_right = 383.0
-margin_bottom = -101.0
+[node name="Description" type="RichTextLabel" parent="LevelSelect/PanelOne"]
+margin_left = -612.0
+margin_top = -412.0
+margin_right = 168.0
+margin_bottom = -112.0
 rect_min_size = Vector2( 0, 280 )
-rect_pivot_offset = Vector2( -1234.29, 336.111 )
 custom_fonts/normal_font = SubResource( 13 )
 bbcode_enabled = true
 bbcode_text = "[center]Farm[/center]"
 text = "Farm"
 fit_content_height = true
 
-[node name="CenterContainer3" type="CenterContainer" parent="LevelSelect"]
-margin_left = -478.0
-margin_top = -76.0
-margin_right = 395.0
-margin_bottom = 183.0
+[node name="ButtonContainer" type="CenterContainer" parent="LevelSelect/PanelOne"]
+margin_left = -633.934
+margin_top = -104.167
+margin_right = 191.066
+margin_bottom = 175.833
 
-[node name="VFlowContainer" type="VFlowContainer" parent="LevelSelect/CenterContainer3"]
-margin_left = 234.0
-margin_right = 638.0
-margin_bottom = 259.0
-rect_min_size = Vector2( 400, 259 )
-rect_clip_content = true
-custom_constants/vseparation = -30
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect/PanelOne/ButtonContainer"]
+margin_left = 210.0
+margin_right = 614.0
+margin_bottom = 280.0
+custom_constants/separation = -40
 
-[node name="SelectLevel" type="Button" parent="LevelSelect/CenterContainer3/VFlowContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="LevelSelect/PanelOne/ButtonContainer/VBoxContainer"]
 margin_right = 404.0
-margin_bottom = 89.0
-rect_min_size = Vector2( 334, 89 )
-custom_fonts/font = ExtResource( 15 )
-text = "Play"
+margin_bottom = 120.0
 
-[node name="HFlowContainer" type="HFlowContainer" parent="LevelSelect/CenterContainer3/VFlowContainer"]
-margin_top = 59.0
+[node name="SelectLevel" type="TextureButton" parent="LevelSelect/PanelOne/ButtonContainer/VBoxContainer/CenterContainer"]
+margin_left = 77.0
+margin_right = 327.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 250, 120 )
+texture_normal = ExtResource( 15 )
+expand = true
+script = ExtResource( 18 )
+
+[node name="HFlowContainer" type="HFlowContainer" parent="LevelSelect/PanelOne/ButtonContainer/VBoxContainer"]
+margin_top = 80.0
 margin_right = 404.0
-margin_bottom = 259.0
+margin_bottom = 280.0
 rect_min_size = Vector2( 404, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LeftButton" type="TextureButton" parent="LevelSelect/CenterContainer3/VFlowContainer/HFlowContainer"]
+[node name="LeftButton" type="TextureButton" parent="LevelSelect/PanelOne/ButtonContainer/VBoxContainer/HFlowContainer"]
 margin_right = 200.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 200, 200 )
@@ -293,8 +306,9 @@ texture_normal = ExtResource( 14 )
 texture_click_mask = ExtResource( 13 )
 expand = true
 flip_h = true
+script = ExtResource( 18 )
 
-[node name="RightButton" type="TextureButton" parent="LevelSelect/CenterContainer3/VFlowContainer/HFlowContainer"]
+[node name="RightButton" type="TextureButton" parent="LevelSelect/PanelOne/ButtonContainer/VBoxContainer/HFlowContainer"]
 margin_left = 204.0
 margin_right = 404.0
 margin_bottom = 200.0
@@ -302,6 +316,36 @@ rect_min_size = Vector2( 200, 200 )
 texture_normal = ExtResource( 14 )
 texture_click_mask = ExtResource( 13 )
 expand = true
+script = ExtResource( 18 )
+
+[node name="Panel2" type="Control" parent="LevelSelect"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Title" type="RichTextLabel" parent="LevelSelect/Panel2"]
+margin_left = 235.0
+margin_top = -587.0
+margin_right = 690.0
+margin_bottom = -509.0
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]Leaderboard[/center]"
+text = "Leaderboard"
+fit_content_height = true
+
+[node name="Panel3" type="Control" parent="LevelSelect"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Title2" type="RichTextLabel" parent="LevelSelect/Panel3"]
+margin_left = 776.0
+margin_top = -593.0
+margin_right = 1157.0
+margin_bottom = -515.0
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+text = "Modifiers"
+fit_content_height = true
 
 [node name="RandomSky" type="Sprite" parent="."]
 position = Vector2( 968, 528 )
@@ -330,6 +374,6 @@ anims/JumpingRob = SubResource( 11 )
 anims/RESET = SubResource( 14 )
 
 [connection signal="pressed" from="LevelSelect/ExitButton" to="LevelSelect/ExitButton" method="_on_ExitButton_pressed"]
-[connection signal="button_down" from="LevelSelect/CenterContainer3/VFlowContainer/SelectLevel" to="Planet" method="_on_SelectLevel_button_down"]
-[connection signal="pressed" from="LevelSelect/CenterContainer3/VFlowContainer/HFlowContainer/LeftButton" to="Planet" method="_on_LeftButton_pressed"]
-[connection signal="pressed" from="LevelSelect/CenterContainer3/VFlowContainer/HFlowContainer/RightButton" to="Planet" method="_on_RightButton_pressed"]
+[connection signal="button_down" from="LevelSelect/PanelOne/ButtonContainer/VBoxContainer/CenterContainer/SelectLevel" to="Planet" method="_on_SelectLevel_button_down"]
+[connection signal="pressed" from="LevelSelect/PanelOne/ButtonContainer/VBoxContainer/HFlowContainer/LeftButton" to="Planet" method="_on_LeftButton_pressed"]
+[connection signal="pressed" from="LevelSelect/PanelOne/ButtonContainer/VBoxContainer/HFlowContainer/RightButton" to="Planet" method="_on_RightButton_pressed"]

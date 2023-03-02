@@ -68,10 +68,10 @@ func _moveNextLocation():
 	
 
 func _doneMoving(index):
-	$"../LevelSelect/Title".bbcode_text = "[center]" + levelDescription[index].Name + "[/center]";
-	$"../LevelSelect/Description".text = levelDescription[index].Description;
+	$"../LevelSelect/PanelOne/Title".bbcode_text = "[center]" + levelDescription[index].Name + "[/center]";
+	$"../LevelSelect/PanelOne/Description".text = levelDescription[index].Description;
 	var starsCount = 1;
-	for stars in $"../LevelSelect/CenterStars/Stars".get_children():
+	for stars in $"../LevelSelect/PanelOne/CenterStars/Stars".get_children():
 		if(starsCount<=levelDescription[index].Difficulty):
 			starsCount+=1;
 			stars.modulate = Color(249, 255, 1);

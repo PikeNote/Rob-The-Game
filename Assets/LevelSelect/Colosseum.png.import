@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Planet-transformed.png-f2d12649cc770e7444dae64e5b6ef2b0.stex"
+path="res://.import/Colosseum.png-231e10356719dc3a48b23ff7a73f5987.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Planet-transformed.png"
-dest_files=[ "res://.import/Planet-transformed.png-f2d12649cc770e7444dae64e5b6ef2b0.stex" ]
+source_file="res://Assets/LevelSelect/Colosseum.png"
+dest_files=[ "res://.import/Colosseum.png-231e10356719dc3a48b23ff7a73f5987.stex" ]
 
 [params]
 

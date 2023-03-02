@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Colosseum.png-4f80de55142ece9c543665a03422b684.stex"
+path="res://.import/Rectangle_Play_Button.PNG-29827e3df54aa116a368cd71dc4eb2ea.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Colosseum.png"
-dest_files=[ "res://.import/Colosseum.png-4f80de55142ece9c543665a03422b684.stex" ]
+source_file="res://Assets/LevelSelect/Rectangle_Play_Button.PNG"
+dest_files=[ "res://.import/Rectangle_Play_Button.PNG-29827e3df54aa116a368cd71dc4eb2ea.stex" ]
 
 [params]
 

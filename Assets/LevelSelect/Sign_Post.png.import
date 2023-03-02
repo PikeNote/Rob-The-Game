@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Barn.PNG-ed84f7ce203db9547927d313b77579f5.stex"
+path="res://.import/Sign_Post.png-841fe8c26ad469b78299bbd2a2246ae5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Barn.PNG"
-dest_files=[ "res://.import/Barn.PNG-ed84f7ce203db9547927d313b77579f5.stex" ]
+source_file="res://Assets/LevelSelect/Sign_Post.png"
+dest_files=[ "res://.import/Sign_Post.png-841fe8c26ad469b78299bbd2a2246ae5.stex" ]
 
 [params]
 

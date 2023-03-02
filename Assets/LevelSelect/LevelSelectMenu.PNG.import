@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/x_icon.png-1436f9ab97ea478fb90a11f6df47dbbf.stex"
+path="res://.import/LevelSelectMenu.PNG-a8808ca217fa561289b661f7898ee284.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/x_icon.png"
-dest_files=[ "res://.import/x_icon.png-1436f9ab97ea478fb90a11f6df47dbbf.stex" ]
+source_file="res://Assets/LevelSelect/LevelSelectMenu.PNG"
+dest_files=[ "res://.import/LevelSelectMenu.PNG-a8808ca217fa561289b661f7898ee284.stex" ]
 
 [params]
 
