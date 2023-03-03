@@ -36,3 +36,9 @@ custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 2 )
 text = "Connecting to server..."
 scroll_active = false
+
+[node name="RetryTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="transition_out_done" from="Transition" to="." method="_on_Transition_transition_out_done"]
+[connection signal="timeout" from="RetryTimer" to="." method="_on_RetryTimer_timeout"]

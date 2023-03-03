@@ -19,7 +19,7 @@ func _on_TutorialButton_pressed():
 	transition.transition_in("res://Screens/Tutorial.tscn");
 
 func _on_MultiplayerButton_pressed():
-	transition.transition_in("res://Screens/Multiplayer/LobbySelect.tscn");
+	transition.transition_in("res://Screens/Multiplayer/ConnectingServer.tscn");
 
 
 func _on_CreditsButton_pressed():

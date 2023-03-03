@@ -22,6 +22,7 @@ func _input(event):
 		if(typing):
 			$TypingTimer.stop();
 			frameList[currentFrame].text = text;
+			typing = false;
 		else:
 			if(currentFrame < frameList.size()-1):
 				currentFrame += 1;

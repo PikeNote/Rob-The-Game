@@ -1,10 +1,5 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 export var websocket_url = "wss://rob-server.pikenote.repl.co/ws"
 
 # Our WebSocketClient instance
@@ -18,7 +13,8 @@ var playerNames;
 
 var player = 1;
 
-# Called when the node enters the scene tree for the first time.
+var socketOpened = false;
+
 func _ready():
 	_client.connect("connection_closed", self, "_closed")
 	_client.connect("connection_error", self, "_closed")
@@ -32,8 +28,11 @@ func _connectToServer():
 	if err != OK:
 		print("Unable to connect")
 		set_process(false)
+		return false
 	else:
+		socketOpened = true;
 		set_process(true)
+		return true
 
 func _createLobby():
 	_send_data({"type":"createLobby","payload":{"name":UserManager.getFullUsername()}});
@@ -48,6 +47,7 @@ func _gameData(type, payload):
 	_send_data({"user":player,"type":"gameData","payload":{"type":type,"payload":payload,"match_uuid":lobbyCode}});
 
 func _closed(was_clean = false):
+	socketOpened = false;
 	print("Closed, clean: ", was_clean)
 	set_process(false)
 

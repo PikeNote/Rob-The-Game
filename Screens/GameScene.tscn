@@ -10,7 +10,7 @@
 [ext_resource path="res://Assets/Leaf.PNG" type="Texture" id=8]
 [ext_resource path="res://Presets/PointsBox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Kevin MacLeod - Monkeys Spinning Monkeys.mp3" type="AudioStream" id=10]
-[ext_resource path="res://Screens/ModifierSetup.gd" type="Script" id=11]
+[ext_resource path="res://Presets/GameManager.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Presets/PauseMenuNode.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Presets/Edge.tscn" type="PackedScene" id=18]
@@ -36,8 +36,7 @@ _data = {
 [node name="Node2D" type="Node2D"]
 scale = Vector2( 1.87746, 1.76706 )
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource( 11 )
+[node name="GameManager" parent="." instance=ExtResource( 11 )]
 
 [node name="Transition" parent="." instance=ExtResource( 17 )]
 scale = Vector2( 0.54, 0.565 )
@@ -115,7 +114,6 @@ position = Vector2( 882.575, 263.715 )
 [node name="PointsBox" parent="." instance=ExtResource( 9 )]
 position = Vector2( 121.862, 70.3343 )
 scale = Vector2( 0.251374, 0.252839 )
-seconds = 0
 
 [node name="EndGameScreen" parent="." instance=ExtResource( 6 )]
 visible = false
