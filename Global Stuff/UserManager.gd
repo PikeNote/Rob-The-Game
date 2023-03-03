@@ -20,7 +20,8 @@ class Settings:
 	var graphics = {
 		"resolution":"1920x1080",
 		"FXAA":false,
-		"VSync":true
+		"VSync":true,
+		"Fullscreen":false
 	}
 	var volume = {
 		"master": 50,

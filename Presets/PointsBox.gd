@@ -1,16 +1,12 @@
 extends Sprite
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-export(int) var minutes = 1;
-export(int) var seconds = 2; 
 var timeInSeconds = 0;
 var points = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timeInSeconds = (minutes*60)+seconds;
+	timeInSeconds = int($".".owner.get_node("GameManager").get("timeTotal"))
+	print(timeInSeconds)
 	GameReferences.pointsBox = $".";
 	pass;
 

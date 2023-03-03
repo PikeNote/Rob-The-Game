@@ -15,6 +15,7 @@ var Resolutions: Dictionary = {"3840x2160":Vector2(3840,2160),
 								"1024x600":Vector2(1024,600),
 								"800x600": Vector2(800,600)}
 								
+var ResolutionArr:Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,11 +25,14 @@ func _ready():
 	
 	for r in Resolutions:
 		$HFlowContainer/Resolutions.add_item(r, index)
-		
+		ResolutionArr.append(r);
 		if Resolutions[r] == CurrentResolution:
 			$HFlowContainer/Resolutions._select_int(index)
 		index += 1
-	pass # Replace with function body.
+	
+	var settingResolution = UserManager.settings.graphics.resolution;
+	if($HFlowContainer/Resolutions.get_item_text($HFlowContainer/Resolutions.selected) != settingResolution):
+		_on_Resolutions_item_selected(ResolutionArr.find(settingResolution))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,4 +44,5 @@ func _on_Resolutions_item_selected(index):
 	var size = Resolutions.get($HFlowContainer/Resolutions.get_item_text(index))
 	OS.set_window_size(size)
 	OS.center_window()	
-	pass # Replace with function body.
+	UserManager.settings.graphics.resolution = $HFlowContainer/Resolutions.get_item_text(index);
+	UserManager.updateFile();

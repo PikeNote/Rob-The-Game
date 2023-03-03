@@ -7,6 +7,9 @@ func _ready():
 		var modifier = m.name;
 		modifierBtn.connect("pressed", self, '_modifier_button_pressed', [modifierBtn, modifier ] )
 	$"../Description".visible = false;
+	for s in UserManager.settings.modifiers:
+		if(UserManager.settings.modifiers[s]):
+			$".".get_node(s).get_node("Button").get_node("Border").visible = true;
 
 func _modifier_button_pressed(modifierBtn, modifier):
 	var border:TextureRect = modifierBtn.get_node("Border");

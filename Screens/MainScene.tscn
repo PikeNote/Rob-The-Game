@@ -224,6 +224,7 @@ autoplay = true
 bus = "Music"
 
 [node name="SettingsPopupMenu" type="WindowDialog" parent="."]
+visible = true
 margin_left = 159.0
 margin_top = 83.0
 margin_right = 1803.0
@@ -336,6 +337,28 @@ rect_min_size = Vector2( 50, 50 )
 texture_normal = ExtResource( 23 )
 expand = true
 
+[node name="SaveLeaderboard" type="HFlowContainer" parent="SettingsPopupMenu/Pages/PageOne"]
+margin_top = 274.0
+margin_right = 769.0
+margin_bottom = 324.0
+
+[node name="Title" type="RichTextLabel" parent="SettingsPopupMenu/Pages/PageOne/SaveLeaderboard"]
+margin_right = 480.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 480, 50 )
+custom_fonts/normal_font = ExtResource( 20 )
+text = "Save Leaderboard Scores
+"
+scroll_active = false
+
+[node name="Toggle" type="TextureButton" parent="SettingsPopupMenu/Pages/PageOne/SaveLeaderboard"]
+margin_left = 484.0
+margin_right = 534.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture_normal = ExtResource( 23 )
+expand = true
+
 [node name="PageTwo" type="VBoxContainer" parent="SettingsPopupMenu/Pages"]
 visible = false
 margin_left = 171.0
@@ -443,9 +466,8 @@ margin_bottom = 828.0
 
 [node name="PageChange" type="HFlowContainer" parent="SettingsPopupMenu/CenterContainer"]
 margin_left = 207.0
-margin_top = 25.0
 margin_right = 607.0
-margin_bottom = 125.0
+margin_bottom = 150.0
 rect_min_size = Vector2( 400, 100 )
 custom_constants/hseparation = 100
 script = ExtResource( 28 )

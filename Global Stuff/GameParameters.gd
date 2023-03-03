@@ -7,19 +7,19 @@ var modifiers = {
 		# Chances are out of 10
 		"modifier_amount":[
 			{
-				"chance":2,
+				"chance":[1,2],
 				"letters":"AEIOU"
 			},
 			{
-				"chance":5,
+				"chance":[3,4,5,6,7],
 				"letters":"LNSTRDGBCMPFHVWY"
 			},
 			{
-				"chance":2,
+				"chance":[8,9],
 				"letters":"KJX"
 			},
 			{
-				"chance":1,
+				"chance":[10],
 				"letters":"QZ"
 			}
 		],

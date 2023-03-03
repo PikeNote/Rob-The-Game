@@ -482,8 +482,7 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 size_flags_horizontal = 3
 custom_fonts/normal_font = SubResource( 18 )
-text = "About modifiers:
-"
+text = "Description: "
 scroll_active = false
 
 [node name="Description" type="RichTextLabel" parent="LevelSelect/Panel3/Description"]

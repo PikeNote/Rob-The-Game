@@ -1,15 +1,11 @@
 extends PathFollow2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var speed = 200;
 var letter;
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func change_speed(spd):
+	speed = spd;
 
 func _changeLetter(a):
 	$LetterKin/Letter.texture = load("res://Assets//Letters//Letter_"+a+".png")

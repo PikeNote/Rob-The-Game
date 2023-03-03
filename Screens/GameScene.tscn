@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Presets/InventorySlots.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/light.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/Leaf.PNG" type="Texture" id=8]
 [ext_resource path="res://Presets/PointsBox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Kevin MacLeod - Monkeys Spinning Monkeys.mp3" type="AudioStream" id=10]
+[ext_resource path="res://Screens/ModifierSetup.gd" type="Script" id=11]
 [ext_resource path="res://Presets/PauseMenuNode.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Presets/Edge.tscn" type="PackedScene" id=18]
@@ -34,6 +35,9 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 scale = Vector2( 1.87746, 1.76706 )
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource( 11 )
 
 [node name="Transition" parent="." instance=ExtResource( 17 )]
 scale = Vector2( 0.54, 0.565 )
@@ -114,6 +118,7 @@ scale = Vector2( 0.251374, 0.252839 )
 seconds = 0
 
 [node name="EndGameScreen" parent="." instance=ExtResource( 6 )]
+visible = false
 scale = Vector2( 0.534, 0.566 )
 
 [node name="GameSceneMusic" type="AudioStreamPlayer2D" parent="."]
