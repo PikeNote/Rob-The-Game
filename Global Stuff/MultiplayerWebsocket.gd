@@ -25,12 +25,16 @@ func _ready():
 	_client.connect("connection_established", self, "_connected")
 	_client.connect("data_received", self, "_on_data")
 
+func _connectToServer():
 	var err = _client.connect_to_url(websocket_url)
 	print(err);
+	return err;
 	if err != OK:
 		print("Unable to connect")
 		set_process(false)
-		
+	else:
+		set_process(true)
+
 func _createLobby():
 	_send_data({"type":"createLobby","payload":{"name":UserManager.getFullUsername()}});
 
@@ -85,6 +89,8 @@ func _on_data():
 				pass
 			else:
 				pass
+			pass;
+		"gameEnded":
 			pass;
 		"lobbyStarted":
 			if(lobbyScreen != null):

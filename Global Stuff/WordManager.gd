@@ -40,7 +40,7 @@ func _ready():
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.connect("request_completed", self, "_http_request_completed")
-	var error = http_request.request("http://www.mieliestronk.com/corncob_lowercase.txt")
+	var error = http_request.request("https://raw.githubusercontent.com/jeremy-rifkin/Wordlist/master/res/d.txt")
 	print("Word list loaded!")
 	
 

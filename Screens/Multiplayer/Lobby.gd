@@ -12,7 +12,7 @@ func _ready():
 	$LobbyCode.text = MultiplayerWebsocket.lobbyCode;
 	MultiplayerWebsocket.lobbyScreen = $".";
 	if(MultiplayerWebsocket.playerNames==null):
-		_addPlayer(UserManager.username + "#" + UserManager.identifier)
+		_addPlayer(UserManager.getFullUsername())
 	else:
 		for n in MultiplayerWebsocket.playerNames:
 			_addPlayer(n);
