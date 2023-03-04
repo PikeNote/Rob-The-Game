@@ -68,18 +68,21 @@ func _doneMoving(index):
 #	pass
 
 func _on_SelectLevel_button_down():
+	$"../ButtonClickSFX".play();
 	GameReferences.currentScene = currentPlace;
 	transition.transition_in("res://Screens/TravelInProgress.tscn");
 	pass # Replace with function body.
 
 
 func _on_LeftButton_pressed():
+	$"../ButtonClickSFX".play();
 	$"../RobSideProfile".scale.x=robScale;
 	_moveNextLocation();
 	pass # Replace with function body.
 
 
 func _on_RightButton_pressed():
+	$"../ButtonClickSFX".play();
 	$"../RobSideProfile".scale.x=robScale*-1;
 	_moveNextLocation();
 	pass # Replace with function body.

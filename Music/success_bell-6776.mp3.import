@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/success_bell-6776.mp3-f8d1c192a60da94863e13918d4d74969.mp3str"
+
+[deps]
+
+source_file="res://Music/success_bell-6776.mp3"
+dest_files=[ "res://.import/success_bell-6776.mp3-f8d1c192a60da94863e13918d4d74969.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

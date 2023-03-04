@@ -34,6 +34,7 @@ func _ready():
 
 # Toggle fullscreen selection
 func _on_FullscreenToggle_pressed():
+	#$"../../../../ButtonClickSFX".play();
 	fullscreenToggle = !fullscreenToggle;
 	OS.set_window_fullscreen(fullscreenToggle)
 	_toggle(fullscreenToggle,0);
@@ -41,6 +42,7 @@ func _on_FullscreenToggle_pressed():
 	UserManager.updateFile();
 
 func _on_VSync_Toggle_pressed():
+	#$"../../../../ButtonClickSFX".play();
 	vsyncToggle = !vsyncToggle;
 	OS.set_use_vsync(vsyncToggle);
 	_toggle(vsyncToggle,1);
@@ -48,6 +50,7 @@ func _on_VSync_Toggle_pressed():
 	UserManager.updateFile();
 
 func _on_FXAA_Toggle_pressed():
+	#$"../../../../ButtonClickSFX".play();
 	fxaaToggle = !fxaaToggle;
 	get_viewport().set_use_fxaa(fxaaToggle)
 	_toggle(fxaaToggle,2);

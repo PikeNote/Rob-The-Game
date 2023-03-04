@@ -28,6 +28,7 @@ func _on_Tween_tween_completed(object, key):
 		tween.start();
 		
 func _on_Resume_pressed():
+	
 	$CanvasLayer/ColorRect.visible = false;
 	tween.stop_all();
 	if _tpm == null:

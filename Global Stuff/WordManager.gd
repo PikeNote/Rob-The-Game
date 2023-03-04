@@ -61,10 +61,11 @@ func _checkWord(wd):
 	var hasWord = words.has(wd);
 	if(hasWord):
 		wd = wd.to_upper();
+		
 		for i in wd.length():
 			pnt += wordValueTable[wd[i]];
 			
-		wordValueTable *= GameReferences.multiplier;
+		pnt *= GameReferences.multiplier;
 		return [hasWord,pnt];
 	else:
 		return [false,0];

@@ -1,31 +1,274 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Transition.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/CutsceneText.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Screens/Button.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Quit_Button.PNG" type="Texture" id=4]
+[ext_resource path="res://Fonts/LevelSelect/ModifierTitle.tres" type="DynamicFont" id=5]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Transition" type="Node2D" parent="." instance=ExtResource( 2 )]
-pause_mode = 2
+[node name="Transition" parent="." instance=ExtResource( 2 )]
 scale = Vector2( 0.54, 0.565 )
-z_index = 100
-z_as_relative = false
-script = ExtResource( 1 )
 
-[node name="Container" type="Container" parent="."]
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_right = 1928.0
+margin_bottom = 1080.0
+custom_fonts/font = ExtResource( 1 )
+
+[node name="How To Play" type="VBoxContainer" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 90.0
+margin_right = -4.0
+margin_bottom = -4.0
+custom_constants/separation = 10
+
+[node name="GoalHBox" type="HBoxContainer" parent="TabContainer/How To Play"]
+margin_right = 1920.0
+margin_bottom = 200.0
+
+[node name="Goal" type="RichTextLabel" parent="TabContainer/How To Play/GoalHBox"]
+margin_right = 1300.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 1300, 200 )
+custom_fonts/normal_font = ExtResource( 5 )
+text = "Your goal is to collect letters when they appear using your lasso, then using those letters to spell enough words and earn enough points to pass the level. Each level will display the requirements during the level select screen."
+
+[node name="Level Requirements" type="TextureRect" parent="TabContainer/How To Play/GoalHBox"]
+margin_left = 1304.0
+margin_right = 1304.0
+margin_bottom = 200.0
+
+[node name="CollectHBox" type="HBoxContainer" parent="TabContainer/How To Play"]
+margin_top = 210.0
+margin_right = 1920.0
+margin_bottom = 410.0
+
+[node name="Collect Letters" type="RichTextLabel" parent="TabContainer/How To Play/CollectHBox"]
+margin_right = 1300.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 1300, 200 )
+custom_fonts/normal_font = ExtResource( 5 )
+text = "To collect letters, drag your mouse in the direction that a letter appears and left click. Your lasso will shoot out to grab the letter."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TabContainer/How To Play/CollectHBox"]
+root_node = NodePath("../../SpellHBox/Spell")
+
+[node name="InventoryHBox" type="HBoxContainer" parent="TabContainer/How To Play"]
+margin_top = 420.0
+margin_right = 1920.0
+margin_bottom = 540.0
+rect_min_size = Vector2( 1920, 120 )
+
+[node name="Inventory" type="RichTextLabel" parent="TabContainer/How To Play/InventoryHBox"]
+margin_right = 1300.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 1300, 120 )
+custom_fonts/normal_font = ExtResource( 5 )
+text = "Once you collect the letter, it will appear in your inventory on the right."
+
+[node name="SpellHBox" type="HBoxContainer" parent="TabContainer/How To Play"]
+margin_top = 550.0
+margin_right = 1920.0
+margin_bottom = 750.0
+
+[node name="Spell" type="RichTextLabel" parent="TabContainer/How To Play/SpellHBox"]
+margin_right = 1300.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 1300, 200 )
+custom_fonts/normal_font = ExtResource( 5 )
+text = "When you collect enough letters to spell a word, you can type the word on your keyboard or click on each letter in order of the word you want to spell. Selected letters will turn green."
+
+[node name="DeselectionHBox" type="HBoxContainer" parent="TabContainer/How To Play"]
+margin_top = 760.0
+margin_right = 1920.0
+margin_bottom = 960.0
+
+[node name="Deselection" type="RichTextLabel" parent="TabContainer/How To Play/DeselectionHBox"]
+margin_right = 1300.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 1300, 200 )
+custom_fonts/normal_font = ExtResource( 5 )
+text = "If you make a mistake in spelling, you can deselect letters by clicking on them. They should turn from green back to their original white."
+
+[node name="Points" type="VBoxContainer" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 90.0
+margin_right = 4.0
+margin_bottom = 10.0
+custom_constants/separation = 30
+
+[node name="Points" type="HBoxContainer" parent="TabContainer/Points"]
+margin_right = 1932.0
+margin_bottom = 50.0
+
+[node name="Goal" type="RichTextLabel" parent="TabContainer/Points/Points"]
+margin_right = 1300.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 1300, 50 )
+custom_fonts/normal_font = ExtResource( 5 )
+text = "For every word you spell, you will earn points!"
+
+[node name="Level Requirements" type="TextureRect" parent="TabContainer/Points/Points"]
+margin_left = 1304.0
+margin_right = 1304.0
+margin_bottom = 50.0
+
+[node name="PointSum" type="HBoxContainer" parent="TabContainer/Points"]
+margin_top = 80.0
+margin_right = 1932.0
+margin_bottom = 330.0
+
+[node name="NumberPoints" type="RichTextLabel" parent="TabContainer/Points/PointSum"]
+margin_right = 1300.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 1300, 250 )
+custom_fonts/normal_font = ExtResource( 5 )
+text = "The number of points you earn for each word is equal to the sum of the point worth of all the letters used in that word.
+
+As you earn points, your score will appear in the Points Box in the top left corner of your screen."
+
+[node name="PointWorth" type="HBoxContainer" parent="TabContainer/Points"]
+margin_top = 360.0
+margin_right = 1932.0
+margin_bottom = 410.0
+rect_min_size = Vector2( 1920, 50 )
+
+[node name="Explanation" type="RichTextLabel" parent="TabContainer/Points/PointWorth"]
+margin_right = 1920.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 1920, 50 )
+custom_fonts/normal_font = ExtResource( 5 )
+text = "Different letters are worth different numbers of points and also have different spawn rates"
+
+[node name="PointWorths" type="HBoxContainer" parent="TabContainer/Points"]
+margin_top = 440.0
+margin_right = 1932.0
+margin_bottom = 890.0
+
+[node name="PointWorths" type="RichTextLabel" parent="TabContainer/Points/PointWorths"]
+margin_right = 960.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 960, 450 )
+custom_fonts/normal_font = ExtResource( 5 )
+text = "Letter Values
+1-point letters: AEINORSTU
+2-point letters: DG
+3-point letters: BCMP
+4-point letters: FHVWY
+5-point letters: K
+8-point letters: JX
+10-point letters: QXZ"
+
+[node name="SpawnRates" type="RichTextLabel" parent="TabContainer/Points/PointWorths"]
+margin_left = 964.0
+margin_right = 1924.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 960, 450 )
+custom_fonts/normal_font = ExtResource( 5 )
+text = "Spawn Rates
+
+40% - AEIOU
+30% LNSTRDGBCMPFHVWY
+20% - KJX
+10% - QZ"
+
+[node name="Modifiers" type="VBoxContainer" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 90.0
+margin_right = 4.0
+margin_bottom = 10.0
+
+[node name="ModifiersCount" type="HBoxContainer" parent="TabContainer/Modifiers"]
+margin_right = 1928.0
+margin_bottom = 200.0
+
+[node name="ModifiersCountText" type="RichTextLabel" parent="TabContainer/Modifiers/ModifiersCount"]
+margin_right = 1300.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 1300, 200 )
+custom_fonts/normal_font = ExtResource( 5 )
+text = "There are three modifiers that you can use to make the game more difficult and earn more points. They are available to select during the level select screen."
+
+[node name="LevelSelectScreen" type="TextureRect" parent="TabContainer/Modifiers/ModifiersCount"]
+margin_left = 1304.0
+margin_right = 1304.0
+margin_bottom = 200.0
+
+[node name="ScoreMultipliers" type="HBoxContainer" parent="TabContainer/Modifiers"]
+margin_top = 204.0
+margin_right = 1928.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 1920, 120 )
+
+[node name="ScoreMultipliers" type="RichTextLabel" parent="TabContainer/Modifiers/ScoreMultipliers"]
+margin_right = 1300.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 1300, 120 )
+custom_fonts/normal_font = ExtResource( 5 )
+text = "The score multipliers will multiply your points for every word you spell"
+
+[node name="MultipleModifiers" type="HBoxContainer" parent="TabContainer/Modifiers"]
+margin_top = 328.0
+margin_right = 1928.0
+margin_bottom = 528.0
+
+[node name="MultipleModifiers" type="RichTextLabel" parent="TabContainer/Modifiers/MultipleModifiers"]
+margin_right = 1300.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 1300, 200 )
+custom_fonts/normal_font = ExtResource( 5 )
+text = "You can use more than one modifier at the same time!
+
+Using more than one modifier will multiply together their score multipliers"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TabContainer/Modifiers/MultipleModifiers"]
+root_node = NodePath("../../SpellHBox/Spell")
+
+[node name="SpellHBox" type="HBoxContainer" parent="TabContainer/Modifiers"]
+margin_top = 532.0
+margin_right = 1928.0
+margin_bottom = 1032.0
+
+[node name="Spell" type="RichTextLabel" parent="TabContainer/Modifiers/SpellHBox"]
+margin_right = 1300.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 1300, 500 )
+custom_fonts/normal_font = ExtResource( 5 )
+text = "Less Vowels - The number of vowels will decrease by 50% - 1.3 multiplier
+
+Letter Speed Up - Speed that letters move at will increase by 1.5x - 1.1 multiplier
+
+Time Decrease - The default amount of time you receive is 5 minutes. Time decrease reduces that time by 30%. - 1.2 multiplier"
+
+[node name="Multiplayer" type="VBoxContainer" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = 4.0
+margin_bottom = -48.0
+
+[node name="Exit Tutorial" type="CenterContainer" parent="TabContainer"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Container2" type="Container" parent="Container"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="TutorialExit" type="TextureButton" parent="Container/Container2"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="TutorialExit" type="TextureButton" parent="TabContainer/Exit Tutorial"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
 texture_normal = ExtResource( 4 )
+expand = true
 script = ExtResource( 3 )
 
-[connection signal="pressed" from="Container/Container2/TutorialExit" to="Container/Container2/TutorialExit" method="_on_TutorialExit_pressed"]
+[connection signal="pressed" from="TabContainer/Exit Tutorial/TutorialExit" to="TabContainer/Exit Tutorial/TutorialExit" method="_on_TutorialExit_pressed"]

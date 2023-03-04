@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Screens/Timer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Track.PNG" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Presets/PointsBox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Presets/EndGameScreen.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Presets/GameManager.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Curve2D" id=3]
 _data = {
@@ -32,6 +33,9 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Transition" parent="." instance=ExtResource( 12 )]
+scale = Vector2( 0.54, 0.565 )
 
 [node name="GameManager" parent="." instance=ExtResource( 10 )]
 
