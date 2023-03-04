@@ -3,7 +3,7 @@ extends Node
 export var offsetSpeed:int = 200;
 export var timeInMinutes:int = 5;
 export var timeInSeconds:int = 0;
-var timeTotal = (timeInMinutes*60)+timeInSeconds;
+var timeTotal;
 
 var vowelDecrease = true;
 
@@ -14,9 +14,12 @@ var letterSpawns = ["AEIOU","LNSTRDGBCMPFHVWY","KJX","QZ"];
 var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var rng = RandomNumberGenerator.new()
 
+var multipliers = [];
 func _ready():
+	timeTotal = (timeInMinutes*60)+timeInSeconds;
 	for n in UserManager.settings.modifiers:
 		if(UserManager.settings.modifiers[n]):
+			multipliers.append(GameParameters.modifiers[n].points_multiplier);
 			match(n):
 				"VowelDecrease":
 					vowelDecrease = true;
@@ -26,13 +29,14 @@ func _ready():
 							letterRates.append(i);
 						letterSpawns.append(r.letters);
 						i+=1;
-					pass
-					print("Vowel spawnrate decreased")
 				"LetterSpeedup":
 					offsetSpeed = 200 * GameParameters.modifiers[n].modifier_amount;
 					pass
 				"TimeDecrease":
 					timeTotal = ceil(timeTotal * GameParameters.modifiers[n].modifier_amount);
 					pass
-
+	var multiplier = 1;
+	for n in multipliers:
+		multiplier *= n;
+		
 

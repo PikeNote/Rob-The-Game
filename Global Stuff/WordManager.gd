@@ -42,7 +42,7 @@ func _ready():
 	http_request.connect("request_completed", self, "_http_request_completed")
 	var error = http_request.request("https://raw.githubusercontent.com/jeremy-rifkin/Wordlist/master/res/d.txt")
 	print("Word list loaded!")
-	
+
 
 func _http_request_completed(result, response_code, headers, body):
 	words = body.get_string_from_utf8().split("\n");
@@ -64,6 +64,7 @@ func _checkWord(wd):
 		for i in wd.length():
 			pnt += wordValueTable[wd[i]];
 			
+		wordValueTable *= GameReferences.multiplier;
 		return [hasWord,pnt];
 	else:
 		return [false,0];

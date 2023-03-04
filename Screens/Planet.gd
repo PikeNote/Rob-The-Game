@@ -39,25 +39,6 @@ func _physics_process(delta):
 func _pauseLoop():
 		$"../AnimationPlayer".get_animation("JumpingRob").loop = false;
 
-var levelDescription = [
-	{
-		"Name":"Farm",
-		"Difficulty":1,
-		"Description":"Rob's journey begins here"
-	},
-	{
-		"Name":"Crossroads",
-		"Difficulty":2,
-		"Description":"Passing on the roads"
-	},
-	{
-		"Name":"Broadway",
-		"Difficulty":3,
-		"Description":"Final destination: Broadway"
-	},
-]
-
-
 func _getCurrentPlace():
 	return currentPlace;
 
@@ -68,15 +49,16 @@ func _moveNextLocation():
 	
 
 func _doneMoving(index):
-	$"../LevelSelect/Panel1/Title".bbcode_text = "[center]" + levelDescription[index].Name + "[/center]";
-	$"../LevelSelect/Panel1/Description".text = levelDescription[index].Description;
+	$"../LevelSelect/Panel1/Title".bbcode_text = "[center]" + GameParameters.levelDescription[index].Name + "[/center]";
+	$"../LevelSelect/Panel1/Description".text = GameParameters.levelDescription[index].Description;
 	var starsCount = 1;
 	for stars in $"../LevelSelect/Panel1/CenterStars/Stars".get_children():
-		if(starsCount<=levelDescription[index].Difficulty):
+		if(starsCount<=GameParameters.levelDescription[index].Difficulty):
 			starsCount+=1;
 			stars.modulate = Color(249, 255, 1);
 		else:
 			stars.modulate = Color(0, 0, 0);
+	$"../LevelSelect/Panel2/Leaderboard"._loadData(GameParameters.levelDescription[index].Name);
 	moving = false;
 	currentPlace = index;
 	

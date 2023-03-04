@@ -37,3 +37,22 @@ var modifiers = {
 		"description":"Decreases the time time avalible by 30%. Hurry! Rob's about to be late!!!"
 	}
 }
+
+
+var levelDescription = [
+	{
+		"Name":"Farm",
+		"Difficulty":1,
+		"Description":"Rob's journey begins here"
+	},
+	{
+		"Name":"Crossroads",
+		"Difficulty":2,
+		"Description":"Passing on the roads"
+	},
+	{
+		"Name":"Broadway",
+		"Difficulty":3,
+		"Description":"Final destination: Broadway"
+	},
+]

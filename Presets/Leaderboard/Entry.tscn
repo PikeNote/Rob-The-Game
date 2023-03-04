@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/LevelSelect/ModifierTitle.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/LevelSelect/Modifiers/Letter_SpeedUp_Modifer.png" type="Texture" id=2]
+[ext_resource path="res://Assets/LevelSelect/Modifiers/LessVowels_Modifer.png" type="Texture" id=3]
+[ext_resource path="res://Assets/LevelSelect/Modifiers/Time_Decrease_Modifer.png" type="Texture" id=4]
+[ext_resource path="res://Presets/Leaderboard/Entry.gd" type="Script" id=5]
+
+[node name="Entry" type="VBoxContainer"]
+margin_right = 454.0
+margin_bottom = 93.0
+custom_constants/separation = -7
+script = ExtResource( 5 )
+
+[node name="NamePlace" type="HBoxContainer" parent="."]
+margin_right = 454.0
+margin_bottom = 50.0
+
+[node name="Position" type="RichTextLabel" parent="NamePlace"]
+margin_right = 70.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 70, 50 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = "#1"
+
+[node name="Name" type="RichTextLabel" parent="NamePlace"]
+margin_left = 74.0
+margin_right = 454.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 380, 50 )
+custom_fonts/normal_font = ExtResource( 1 )
+text = "PlayerName#0000"
+
+[node name="ModifiersScore" type="HBoxContainer" parent="."]
+margin_top = 43.0
+margin_right = 454.0
+margin_bottom = 93.0
+
+[node name="Modifiers" type="HBoxContainer" parent="ModifiersScore"]
+margin_right = 260.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 260, 50 )
+
+[node name="VowelDecrease" type="TextureRect" parent="ModifiersScore/Modifiers"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="LetterSpeedup" type="TextureRect" parent="ModifiersScore/Modifiers"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 2 )
+expand = true
+
+[node name="TimeDecrease" type="TextureRect" parent="ModifiersScore/Modifiers"]
+margin_left = 108.0
+margin_right = 158.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="Score" type="RichTextLabel" parent="ModifiersScore"]
+margin_left = 264.0
+margin_right = 442.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 178, 50 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[right]100[/right]"

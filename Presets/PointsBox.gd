@@ -17,10 +17,13 @@ func _addPoints(var p):
 func getPoints(points):
 	return points;
 
-var player_name = "Stupid Idiot"
+var player_name = UserManager.getFullUsername();
 
-func saveScores(player_name, points):
-	SilentWolf.Scores.persist_score(player_name, points)
+func saveScores(points):
+	var metadata = {
+		"modifiers": UserManager.settings.modifiers
+	}
+	SilentWolf.Scores.persist_score(player_name, points, GameParameters.levelDescription[GameReferences.currentScene].Name,metadata)
 	var score_id = yield(SilentWolf.Scores.persist_score(player_name, points), "sw_score_posted")
 	print("Score persisted successfully: " + str(score_id));
 
@@ -37,7 +40,7 @@ func _on_ClockTimer_timeout():
 	if timeInSeconds == 0:
 		print("There are 0 seconds on the clock")
 		$ClockTimer.stop()
-		saveScores(player_name, points);
+		saveScores(points);
 		_endGame()
 		
 	pass # Replace with function body.

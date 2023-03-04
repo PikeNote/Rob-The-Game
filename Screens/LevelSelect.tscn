@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Assets/The_Sky.PNG" type="Texture" id=1]
 [ext_resource path="res://Assets/Newer_World.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Screens/LevelSelect/Modifiers.gd" type="Script" id=23]
 [ext_resource path="res://Fonts/LevelSelect/ModifierTitle.tres" type="DynamicFont" id=24]
 [ext_resource path="res://Scripts/LevelSelect/ModifierButtonHover.gd" type="Script" id=25]
+[ext_resource path="res://Presets/Leaderboard/Leaderboard.tscn" type="PackedScene" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.70282, 277.022 )
@@ -181,9 +182,6 @@ texture = ExtResource( 8 )
 [node name="Planet2" type="StaticBody2D" parent="."]
 visible = false
 position = Vector2( 14, 178 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="PlanetCollision" type="CollisionShape2D" parent="Planet2"]
 position = Vector2( 991, 1486 )
@@ -337,19 +335,26 @@ expand = true
 script = ExtResource( 18 )
 
 [node name="Panel2" type="Control" parent="LevelSelect"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 239.069
+margin_top = -580.556
+margin_right = 279.069
+margin_bottom = -540.556
 
 [node name="Title" type="RichTextLabel" parent="LevelSelect/Panel2"]
-margin_left = 235.0
-margin_top = -587.0
-margin_right = 690.0
-margin_bottom = -509.0
+margin_left = -4.02893
+margin_right = 450.971
+margin_bottom = 78.0
 custom_fonts/normal_font = SubResource( 16 )
 bbcode_enabled = true
 bbcode_text = "[center]Leaderboard[/center]"
 text = "Leaderboard"
 fit_content_height = true
+
+[node name="Leaderboard" parent="LevelSelect/Panel2" instance=ExtResource( 26 )]
+margin_left = -2.68604
+margin_top = 75.0
+margin_right = 451.314
+margin_bottom = 687.0
 
 [node name="Panel3" type="Control" parent="LevelSelect"]
 margin_left = 769.586

@@ -12,3 +12,5 @@ var endGameScreen;
 # Game Data References
 var wordsSpelled=[];
 var pointsEarned=0;
+
+var multiplier = 1;
