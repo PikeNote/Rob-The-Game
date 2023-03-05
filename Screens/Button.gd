@@ -21,5 +21,6 @@ func _on_LevelSelectExit_pressed():
 	transition.transition_in("res://Screens/MainScene.tscn")
 
 func _on_TutorialExit_pressed():
+	$"../../../ButtonClickSFX".play();
 	transition.transition_in("res://Screens/MainScene.tscn")
 
