@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/Tutorial Images/MultiplayerMainSscreen.png" type="Texture" id=1]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=2]
@@ -10,17 +10,19 @@
 [ext_resource path="res://Screens/VideoPlayer.gd" type="Script" id=8]
 [ext_resource path="res://Assets/Tutorial Images/SpellWordsVideo_Trim.ogv" type="VideoStream" id=9]
 [ext_resource path="res://Assets/Tutorial Images/PointsBoxScreenshot.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Tutorial Images/ModifierSelection.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Tutorial Images/Modifiers1.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Actual_Tab.png" type="Texture" id=12]
 [ext_resource path="res://Fonts/MainMenu/LevelSelect.tres" type="DynamicFont" id=13]
 [ext_resource path="res://Music/lclick-13694.mp3" type="AudioStream" id=14]
 [ext_resource path="res://Screens/TabContainer.gd" type="Script" id=15]
 [ext_resource path="res://Music/Kevin MacLeod - Carefree.mp3" type="AudioStream" id=16]
-[ext_resource path="res://Assets/Tutorial Images/Tutorial Background Colour.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Tutorial_Screen.png" type="Texture" id=17]
 [ext_resource path="res://Fonts/TutorialText.tres" type="DynamicFont" id=18]
 [ext_resource path="res://Assets/LevelSelect/Modifiers/LessVowels_Modifer.png" type="Texture" id=19]
 [ext_resource path="res://Assets/LevelSelect/Modifiers/Letter_SpeedUp_Modifer.png" type="Texture" id=20]
 [ext_resource path="res://Assets/LevelSelect/Modifiers/Time_Decrease_Modifer.png" type="Texture" id=21]
-[ext_resource path="res://TutorialImages/Modifiers1.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Tutorial Images/ModifierSelection.png" type="Texture" id=22]
+[ext_resource path="res://Assets/TabSelected.png" type="Texture" id=23]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Fonts/Robfont-Regular.ttf"
@@ -29,25 +31,21 @@ font_path = "res://Fonts/Robfont-Regular.ttf"
 size = 72
 font_data = SubResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.968627, 0.52549, 0.435294, 1 )
-border_width_left = 20
-border_width_right = 20
-border_color = Color( 0.8, 0.8, 0.8, 0 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 23 )
+region_rect = Rect2( 0, -20, 0, 0 )
+margin_left = 60.0
+margin_right = 60.0
+expand_margin_top = 20.0
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.980392, 0.698039, 0.639216, 1 )
-border_width_left = 20
-border_width_right = 20
-border_color = Color( 0.8, 0.8, 0.8, 0 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, -20, 0, 0 )
+margin_left = 60.0
+margin_right = 60.0
+expand_margin_top = 20.0
 
 [sub_resource type="StyleBoxTexture" id=2]
-texture = ExtResource( 17 )
-region_rect = Rect2( 0, 0, 1000, 1000 )
 
 [node name="Node2D3" type="Node2D"]
 
@@ -58,18 +56,26 @@ scale = Vector2( 0.54, 0.565 )
 margin_left = -5.0
 margin_right = 1928.0
 margin_bottom = 1086.0
-color = Color( 1, 0.839216, 0.807843, 1 )
+color = Color( 1, 0.866667, 0.666667, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_top = 47.0
+margin_right = 1920.0
+margin_bottom = 1127.0
+rect_min_size = Vector2( 1920, 1080 )
+texture = ExtResource( 17 )
 
 [node name="TabContainer" type="TabContainer" parent="."]
-margin_top = 107.0
-margin_right = 1930.0
-margin_bottom = 1107.0
+margin_left = 113.0
+margin_top = 115.0
+margin_right = 1806.0
+margin_bottom = 983.0
 custom_colors/font_color_bg = Color( 1, 0.905882, 0.905882, 1 )
 custom_colors/font_color_fg = Color( 1, 1, 1, 1 )
 custom_constants/hseparation = 0
 custom_fonts/font = SubResource( 4 )
-custom_styles/tab_fg = SubResource( 5 )
-custom_styles/tab_bg = SubResource( 3 )
+custom_styles/tab_fg = SubResource( 7 )
+custom_styles/tab_bg = SubResource( 6 )
 custom_styles/panel = SubResource( 2 )
 script = ExtResource( 15 )
 
@@ -77,24 +83,28 @@ script = ExtResource( 15 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 82.0
+margin_top = 79.0
 custom_constants/hseparation = 0
 
 [node name="CenterContainer" type="CenterContainer" parent="TabContainer/How To Play"]
-margin_right = 1916.0
-margin_bottom = 893.0
+margin_left = -4.0
+margin_top = 18.0
+margin_right = 1687.0
+margin_bottom = 841.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/How To Play/CenterContainer"]
-margin_left = 206.0
-margin_top = 42.0
-margin_right = 1710.0
-margin_bottom = 850.0
+margin_left = 15.0
+margin_top = 7.0
+margin_right = 1675.0
+margin_bottom = 815.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="GoalHBox" type="HBoxContainer" parent="TabContainer/How To Play/CenterContainer/VBoxContainer"]
-margin_right = 1504.0
+margin_right = 1660.0
 margin_bottom = 200.0
+rect_min_size = Vector2( 1600, 0 )
+custom_constants/separation = 160
 
 [node name="Goal" type="RichTextLabel" parent="TabContainer/How To Play/CenterContainer/VBoxContainer/GoalHBox"]
 margin_right = 1000.0
@@ -104,8 +114,8 @@ custom_fonts/normal_font = ExtResource( 18 )
 text = "Your goal is to collect letters when they appear using your lasso, then using those letters to spell enough words and earn enough points to pass the level. Each level will display the requirements during the level select screen."
 
 [node name="Level Requirements" type="TextureRect" parent="TabContainer/How To Play/CenterContainer/VBoxContainer/GoalHBox"]
-margin_left = 1004.0
-margin_right = 1254.0
+margin_left = 1160.0
+margin_right = 1410.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 250, 200 )
 texture = ExtResource( 6 )
@@ -113,8 +123,10 @@ expand = true
 
 [node name="CollectHBox" type="HBoxContainer" parent="TabContainer/How To Play/CenterContainer/VBoxContainer"]
 margin_top = 204.0
-margin_right = 1504.0
+margin_right = 1660.0
 margin_bottom = 504.0
+rect_min_size = Vector2( 1600, 0 )
+custom_constants/separation = 160
 
 [node name="Collect Letters" type="RichTextLabel" parent="TabContainer/How To Play/CenterContainer/VBoxContainer/CollectHBox"]
 margin_right = 1000.0
@@ -126,8 +138,8 @@ text = "To collect letters, drag your mouse in the direction that a letter appea
 Once you collect the letter, it will appear in your inventory on the right."
 
 [node name="VideoPlayer" type="VideoPlayer" parent="TabContainer/How To Play/CenterContainer/VBoxContainer/CollectHBox"]
-margin_left = 1004.0
-margin_right = 1504.0
+margin_left = 1160.0
+margin_right = 1660.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 500, 300 )
 stream = ExtResource( 7 )
@@ -137,8 +149,10 @@ script = ExtResource( 8 )
 
 [node name="SpellHBox" type="HBoxContainer" parent="TabContainer/How To Play/CenterContainer/VBoxContainer"]
 margin_top = 508.0
-margin_right = 1504.0
+margin_right = 1660.0
 margin_bottom = 808.0
+rect_min_size = Vector2( 1600, 0 )
+custom_constants/separation = 160
 
 [node name="Spell" type="RichTextLabel" parent="TabContainer/How To Play/CenterContainer/VBoxContainer/SpellHBox"]
 margin_right = 1000.0
@@ -150,8 +164,8 @@ text = "To spell a word, you can type the word on your keyboard or click on each
 You can deselect letters by clicking on them. They should turn from green back to their original white."
 
 [node name="VideoPlayer2" type="VideoPlayer" parent="TabContainer/How To Play/CenterContainer/VBoxContainer/SpellHBox"]
-margin_left = 1004.0
-margin_right = 1504.0
+margin_left = 1160.0
+margin_right = 1660.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 500, 300 )
 stream = ExtResource( 9 )
@@ -163,55 +177,48 @@ script = ExtResource( 8 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 82.0
+margin_top = 79.0
 
-[node name="Points" type="HBoxContainer" parent="TabContainer/Points"]
+[node name="Goal" type="RichTextLabel" parent="TabContainer/Points"]
 margin_left = 30.0
 margin_top = 18.0
-margin_right = 1962.0
+margin_right = 930.0
 margin_bottom = 68.0
-
-[node name="Goal" type="RichTextLabel" parent="TabContainer/Points/Points"]
-margin_right = 1300.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 1300, 50 )
+rect_min_size = Vector2( 900, 0 )
 custom_fonts/normal_font = ExtResource( 18 )
 text = "For every word you spell, you will earn points!"
+fit_content_height = true
 
 [node name="PointSum" type="HBoxContainer" parent="TabContainer/Points"]
 margin_left = 30.0
-margin_top = 98.0
-margin_right = 1962.0
-margin_bottom = 348.0
+margin_top = 73.0
+margin_right = 1670.0
+margin_bottom = 323.0
+custom_constants/separation = 140
 
 [node name="NumberPoints" type="RichTextLabel" parent="TabContainer/Points/PointSum"]
-margin_right = 1300.0
+margin_right = 1000.0
 margin_bottom = 250.0
-rect_min_size = Vector2( 1300, 250 )
+rect_min_size = Vector2( 1000, 0 )
 custom_fonts/normal_font = ExtResource( 18 )
 text = "The number of points you earn for each word is equal to the sum of the point worth of all the letters used in that word.
 
 As you earn points, your score will appear in the Points Box in the top left corner of your screen."
 
 [node name="PointsBox" type="TextureRect" parent="TabContainer/Points/PointSum"]
-margin_left = 1304.0
-margin_right = 1804.0
+margin_left = 1140.0
+margin_right = 1640.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 500, 250 )
 texture = ExtResource( 10 )
 expand = true
 
-[node name="PointWorth" type="HBoxContainer" parent="TabContainer/Points"]
+[node name="Explanation" type="RichTextLabel" parent="TabContainer/Points"]
 margin_left = 30.0
-margin_top = 378.0
-margin_right = 1962.0
-margin_bottom = 428.0
-rect_min_size = Vector2( 1920, 50 )
-
-[node name="Explanation" type="RichTextLabel" parent="TabContainer/Points/PointWorth"]
-margin_right = 1920.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 1920, 50 )
+margin_top = 350.0
+margin_right = 1023.0
+margin_bottom = 443.0
+rect_min_size = Vector2( 0, 50 )
 custom_fonts/normal_font = ExtResource( 18 )
 text = "Different letters are worth different numbers of points and also have different spawn rates"
 
@@ -222,9 +229,9 @@ margin_right = 1962.0
 margin_bottom = 908.0
 
 [node name="PointWorths" type="RichTextLabel" parent="TabContainer/Points/PointWorths"]
-margin_right = 960.0
+margin_right = 600.0
 margin_bottom = 450.0
-rect_min_size = Vector2( 960, 450 )
+rect_min_size = Vector2( 600, 350 )
 custom_fonts/normal_font = ExtResource( 18 )
 text = "Letter Values
 1-point letters: AEINORSTU
@@ -236,10 +243,10 @@ text = "Letter Values
 10-point letters: QXZ"
 
 [node name="SpawnRates" type="RichTextLabel" parent="TabContainer/Points/PointWorths"]
-margin_left = 964.0
-margin_right = 1924.0
+margin_left = 604.0
+margin_right = 1074.0
 margin_bottom = 450.0
-rect_min_size = Vector2( 960, 450 )
+rect_min_size = Vector2( 470, 350 )
 custom_fonts/normal_font = ExtResource( 18 )
 text = "Spawn Rates
 
@@ -252,18 +259,18 @@ text = "Spawn Rates
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 82.0
+margin_top = 79.0
 
 [node name="ModifiersCount" type="HBoxContainer" parent="TabContainer/Modifiers"]
 margin_left = 30.0
-margin_top = 25.0
+margin_top = 21.0
 margin_right = 1958.0
-margin_bottom = 875.0
-custom_constants/separation = 50
+margin_bottom = 871.0
+custom_constants/separation = 39
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Modifiers/ModifiersCount"]
 margin_right = 1100.0
-margin_bottom = 874.0
+margin_bottom = 850.0
 custom_constants/separation = 80
 
 [node name="ModifiersCountText2" type="RichTextLabel" parent="TabContainer/Modifiers/ModifiersCount/VBoxContainer"]
@@ -346,28 +353,28 @@ text = "Time Decrease - Time decrease reduces that time by 30%. - 1.2x score mul
 fit_content_height = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/Modifiers/ModifiersCount"]
-margin_left = 1150.0
-margin_right = 1750.0
-margin_bottom = 874.0
+margin_left = 1139.0
+margin_right = 1639.0
+margin_bottom = 850.0
 custom_constants/separation = 24
 
 [node name="ModifierSelection" type="TextureRect" parent="TabContainer/Modifiers/ModifiersCount/VBoxContainer2"]
-margin_right = 600.0
-margin_bottom = 350.0
-rect_min_size = Vector2( 600, 350 )
+margin_right = 500.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 500, 300 )
 size_flags_vertical = 4
-texture = ExtResource( 22 )
+texture = ExtResource( 11 )
 expand = true
 
 [node name="ModifierSelection2" type="TextureRect" parent="TabContainer/Modifiers/ModifiersCount/VBoxContainer2"]
-margin_left = 125.0
-margin_top = 374.0
-margin_right = 475.0
-margin_bottom = 874.0
+margin_left = 75.0
+margin_top = 324.0
+margin_right = 425.0
+margin_bottom = 824.0
 rect_min_size = Vector2( 350, 500 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource( 11 )
+texture = ExtResource( 22 )
 expand = true
 
 [node name="Multiplayer" type="Tabs" parent="TabContainer"]
@@ -376,23 +383,24 @@ anchor_bottom = 1.0
 margin_top = 79.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Multiplayer"]
-margin_left = 144.0
-margin_top = 38.0
-margin_right = 1748.0
-margin_bottom = 158.0
+margin_left = 1.0
+margin_top = 17.0
+margin_right = 1621.0
+margin_bottom = 137.0
+custom_constants/separation = 120
 
 [node name="MultiplayerMode2" type="RichTextLabel" parent="TabContainer/Multiplayer/HBoxContainer"]
 margin_top = 10.0
-margin_right = 1200.0
+margin_right = 1100.0
 margin_bottom = 110.0
-rect_min_size = Vector2( 1200, 100 )
+rect_min_size = Vector2( 1100, 100 )
 size_flags_vertical = 4
 custom_fonts/normal_font = ExtResource( 18 )
 text = "You are able to play with a friend in the multiplayer mode! Simply head hover to the home screen and press the multiplayer button!"
 
 [node name="TextureButton" type="TextureRect" parent="TabContainer/Multiplayer/HBoxContainer"]
-margin_left = 1204.0
-margin_right = 1604.0
+margin_left = 1220.0
+margin_right = 1620.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 400, 120 )
 size_flags_vertical = 4
@@ -400,24 +408,16 @@ texture = ExtResource( 1 )
 expand = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Multiplayer"]
-margin_left = 112.0
-margin_top = 171.0
-margin_right = 1797.0
-margin_bottom = 451.0
-
-[node name="TextureButton" type="TextureRect" parent="TabContainer/Multiplayer/HBoxContainer2"]
-margin_right = 481.0
-margin_bottom = 280.0
-rect_min_size = Vector2( 481, 280 )
-size_flags_vertical = 4
-texture = ExtResource( 5 )
-expand = true
+margin_left = 6.0
+margin_top = 148.0
+margin_right = 1691.0
+margin_bottom = 428.0
+custom_constants/separation = 70
 
 [node name="MultiplayerMode2" type="RichTextLabel" parent="TabContainer/Multiplayer/HBoxContainer2"]
-margin_left = 485.0
-margin_right = 1685.0
+margin_right = 1100.0
 margin_bottom = 280.0
-rect_min_size = Vector2( 1200, 280 )
+rect_min_size = Vector2( 1100, 280 )
 size_flags_vertical = 4
 custom_fonts/normal_font = ExtResource( 18 )
 text = "Once you are on the multiplayer screen, you have two options.
@@ -427,16 +427,26 @@ Join Lobby - Join a lobby that already exists
 
 Every lobby will have a code that the other user has to enter on the lobby select screen to join. "
 
+[node name="TextureButton" type="TextureRect" parent="TabContainer/Multiplayer/HBoxContainer2"]
+margin_left = 1170.0
+margin_right = 1651.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 481, 280 )
+size_flags_vertical = 4
+texture = ExtResource( 5 )
+expand = true
+
 [node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Multiplayer"]
-margin_left = 112.0
-margin_top = 476.0
-margin_right = 1836.0
-margin_bottom = 876.0
+margin_left = 6.0
+margin_top = 451.0
+margin_right = 1730.0
+margin_bottom = 851.0
+custom_constants/separation = 53
 
 [node name="MultiplayerMode2" type="RichTextLabel" parent="TabContainer/Multiplayer/HBoxContainer3"]
-margin_right = 1200.0
+margin_right = 1100.0
 margin_bottom = 400.0
-rect_min_size = Vector2( 1200, 400 )
+rect_min_size = Vector2( 1100, 400 )
 size_flags_vertical = 4
 custom_fonts/normal_font = ExtResource( 18 )
 text = "The lobby code is provided at the top of the screen. Once another player joins, their name will appear on the player list. 
@@ -446,9 +456,9 @@ You need 2 players to start. Currently the only multiplayer map is arena and it 
 Once the play button is pressed by the host, the game will start. The first player in the lobby spawns as Rob while the second player spawns as Lady Rob (one with the bowtie). Whoever gets the most points by the end wins!"
 
 [node name="TextureButton" type="TextureRect" parent="TabContainer/Multiplayer/HBoxContainer3"]
-margin_left = 1204.0
+margin_left = 1153.0
 margin_top = 50.0
-margin_right = 1724.0
+margin_right = 1673.0
 margin_bottom = 350.0
 rect_min_size = Vector2( 520, 300 )
 size_flags_vertical = 4
@@ -480,9 +490,9 @@ bbcode_text = "[center]Tutorial"
 text = "Tutorial"
 
 [node name="ExitButton" parent="." instance=ExtResource( 3 )]
-margin_left = 33.0
-margin_top = 43.0
-margin_right = 148.0
-margin_bottom = 155.0
+margin_left = 5.0
+margin_top = -1.0
+margin_right = 105.0
+margin_bottom = 99.0
 
 [connection signal="tab_selected" from="TabContainer" to="TabContainer" method="_on_TabContainer_tab_selected"]
