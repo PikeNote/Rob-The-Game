@@ -41,8 +41,8 @@ func _endGame():
 		$Control/LevelStatus.text = "Level Passed!"
 		$Control/LevelStatus.set("custom_colors/default_color", Color(32,255,0));
 		
-		if(levelName in UserManager.levelsCompleted):
-			UserManager.levelsCompleted.append(levelName);
+		if(levelName in UserManager.settings.levelsCompleted):
+			UserManager.settings.levelsCompleted.append(levelName);
 			UserManager.updateFile();
 			
 			# Only add scores to the leaderboard if they passed the level
