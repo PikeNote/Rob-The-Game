@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Easy_Track_n.png" type="Texture" id=1]
 [ext_resource path="res://Assets/light.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Presets/InventorySlots.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Leaf.PNG" type="Texture" id=12]
 [ext_resource path="res://Assets/Kevin MacLeod - Monkeys Spinning Monkeys.mp3" type="AudioStream" id=13]
+[ext_resource path="res://Screens/Timer.gd" type="Script" id=14]
 [ext_resource path="res://Music/forest-wind-and-birds-6881.mp3" type="AudioStream" id=15]
 
 [sub_resource type="Image" id=4]
@@ -33,7 +34,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -37.817, 591.944, 0, 0, 0, 0, 323.309, 374.068, 0, 0, 0, 0, 308.928, 301.631, 0, 0, 0, 0, 315.852, 253.528, 0, 0, 0, 0, 329.701, 215.612, 0, 0, 0, 0, 353.137, 174.867, 0, 0, 0, 0, 382.964, 144.873, 0, 0, 0, 0, 417.585, 120.539, 0, 0, 0, 0, 458.066, 105.26, 0, 0, 0, 0, 488.426, 96.7709, 0, 0, 0, 0, 524.645, 94.5073, 0, 0, 0, 0, 555.538, 100.166, 0, 0, 0, 0, 594.953, 109.221, 0, 0, 0, 0, 633.302, 129.594, 0, 0, 0, 0, 666.326, 157.889, 0, 0, 0, 0, 686.566, 183.921, 0, 0, 0, 0, 706.806, 221.271, 0, 0, 0, 0, 716.393, 255.226, 0, 0, 0, 0, 721.72, 297.104, 0, 0, 0, 0, 715.328, 348.036, 0, 0, 0, 0, 706.806, 380.859, 0, 0, 0, 0, 689.762, 412.55, 0, 0, 0, 0, 678.044, 426.132, 0, 0, 0, 0, 652.477, 452.163, 0, 0, 0, 0, 621.584, 473.668, 0, 0, 0, 0, 582.169, 488.382, 0, 0, 0, 0, 537.428, 499.7, 0, 0, 0, 0, 499.079, 497.436, 0, 0, 0, 0, 453.272, 494.041, 0, 0, 0, 0, 421.314, 479.327, 0, 0, 0, 0, 391.486, 463.482, 0, 0, 0, 0, 302.004, 681.358 )
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource( 8 )]
 
@@ -73,7 +74,7 @@ scale = Vector2( 1.8, 1.8 )
 color = Color( 0.627451, 0.678431, 0.635294, 1 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
-script = ExtResource( 3 )
+script = ExtResource( 14 )
 
 [node name="Path2D" type="Path2D" parent="SpawnTimer"]
 self_modulate = Color( 1, 1, 1, 0 )
