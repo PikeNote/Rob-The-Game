@@ -41,13 +41,13 @@ func _endGame():
 		$Control/LevelStatus.text = "Level Passed!"
 		$Control/LevelStatus.set("custom_colors/default_color", Color(32,255,0));
 		
-		if(levelName in UserManager.settings.levelsCompleted):
+		if(!(levelName in UserManager.settings.levelsCompleted)):
 			UserManager.settings.levelsCompleted.append(levelName);
 			UserManager.updateFile();
 			
-			# Only add scores to the leaderboard if they passed the level
-			if(UserManager.settings.saveScores):
-				saveScores();
+		# Only add scores to the leaderboard if they passed the level
+		if(UserManager.settings.saveScores):
+			saveScores();
 	else:
 		$Control/LevelStatus.text = "Level Failed!"
 		$Control/LevelStatus.set("custom_colors/default_color", Color(225,44,39));
@@ -71,3 +71,8 @@ func _on_ExitButton_pressed():
 	GameReferences.endGame = true;
 	$"../Transition".transition_in("res://Screens/TravelInProgress.tscn")
 	pass # Replace with function body.
+
+
+func _on_RestartButton_pressed():
+	GameReferences.endGame = false;
+	$"../Transition".transition_in("res://Screens/TravelInProgress.tscn");

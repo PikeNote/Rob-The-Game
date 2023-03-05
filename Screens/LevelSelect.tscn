@@ -339,7 +339,6 @@ text = "Leaderboard"
 fit_content_height = true
 
 [node name="Leaderboard" parent="LevelSelect/LeaderboardPanel" instance=ExtResource( 26 )]
-visible = false
 margin_left = -2.68604
 margin_top = 75.0
 margin_right = 451.314
