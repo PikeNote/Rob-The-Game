@@ -31,8 +31,7 @@ __meta__ = {
 }
 
 [node name="Inventory" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1652, 469 )
-scale = Vector2( 2, 2 )
+position = Vector2( 1381, 16 )
 
 [node name="PointsBox" parent="." instance=ExtResource( 5 )]
 

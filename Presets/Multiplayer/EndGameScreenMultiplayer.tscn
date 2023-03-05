@@ -14,6 +14,7 @@ size = 100
 font_data = SubResource( 1 )
 
 [node name="EndGameScreen" type="Node2D"]
+visible = false
 z_index = 20
 script = ExtResource( 4 )
 
