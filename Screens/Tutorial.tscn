@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Fonts/CutsceneText.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=2]
@@ -16,6 +16,21 @@
 [ext_resource path="res://Music/lclick-13694.mp3" type="AudioStream" id=14]
 [ext_resource path="res://Screens/TabContainer.gd" type="Script" id=15]
 [ext_resource path="res://Music/Kevin MacLeod - Carefree.mp3" type="AudioStream" id=16]
+[ext_resource path="res://Assets/Tutorial Images/Tutorial Background Colour.png" type="Texture" id=17]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.968627, 0.52549, 0.435294, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.980392, 0.698039, 0.639216, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 17 )
+region_rect = Rect2( 0, 0, 1000, 1000 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -25,26 +40,33 @@ scale = Vector2( 0.54, 0.565 )
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1928.0
 margin_bottom = 1086.0
-color = Color( 1, 0.775391, 0.640625, 1 )
+color = Color( 1, 0.839216, 0.807843, 1 )
 
 [node name="TabContainer" type="TabContainer" parent="."]
-margin_top = -4.0
-margin_right = 1928.0
-margin_bottom = 1093.0
+margin_left = 2.0
+margin_top = 107.0
+margin_right = 1930.0
+margin_bottom = 1107.0
+custom_colors/font_color_bg = Color( 1, 0.905882, 0.905882, 1 )
+custom_colors/font_color_fg = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 1 )
+custom_styles/tab_fg = SubResource( 1 )
+custom_styles/tab_bg = SubResource( 3 )
+custom_styles/panel = SubResource( 2 )
 script = ExtResource( 15 )
 
 [node name="How To Play" type="VBoxContainer" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 90.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 30.0
+margin_top = 120.0
+margin_right = 30.0
+margin_bottom = 38.0
 custom_constants/separation = 40
 
 [node name="GoalHBox" type="HBoxContainer" parent="TabContainer/How To Play"]
-margin_right = 1920.0
+margin_right = 1928.0
 margin_bottom = 200.0
 
 [node name="Goal" type="RichTextLabel" parent="TabContainer/How To Play/GoalHBox"]
@@ -64,7 +86,7 @@ expand = true
 
 [node name="CollectHBox" type="HBoxContainer" parent="TabContainer/How To Play"]
 margin_top = 240.0
-margin_right = 1920.0
+margin_right = 1928.0
 margin_bottom = 540.0
 
 [node name="Collect Letters" type="RichTextLabel" parent="TabContainer/How To Play/CollectHBox"]
@@ -88,7 +110,7 @@ script = ExtResource( 8 )
 
 [node name="SpellHBox" type="HBoxContainer" parent="TabContainer/How To Play"]
 margin_top = 580.0
-margin_right = 1920.0
+margin_right = 1928.0
 margin_bottom = 880.0
 
 [node name="Spell" type="RichTextLabel" parent="TabContainer/How To Play/SpellHBox"]
@@ -115,7 +137,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 30.0
 margin_top = 100.0
-margin_right = 22.0
+margin_right = 26.0
 margin_bottom = 20.0
 custom_constants/separation = 30
 
@@ -204,17 +226,18 @@ anchor_bottom = 1.0
 margin_left = 30.0
 margin_top = 100.0
 margin_right = 30.0
-margin_bottom = 20.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 0, 900 )
 custom_constants/separation = -6
 
 [node name="ModifiersCount" type="HBoxContainer" parent="TabContainer/Modifiers"]
 margin_right = 1928.0
-margin_bottom = 950.0
+margin_bottom = 850.0
 
 [node name="ModifiersCountText" type="RichTextLabel" parent="TabContainer/Modifiers/ModifiersCount"]
 margin_right = 1300.0
-margin_bottom = 950.0
-rect_min_size = Vector2( 1300, 950 )
+margin_bottom = 850.0
+rect_min_size = Vector2( 1300, 850 )
 custom_fonts/normal_font = ExtResource( 5 )
 text = "There are three modifiers that you can use to make the game more difficult and earn more points. They are available to select during the level select screen.
 
@@ -231,7 +254,7 @@ Time Decrease - The default amount of time you receive is 5 minutes. Time decrea
 [node name="ModifierSelection" type="TextureRect" parent="TabContainer/Modifiers/ModifiersCount"]
 margin_left = 1304.0
 margin_right = 1854.0
-margin_bottom = 950.0
+margin_bottom = 850.0
 rect_min_size = Vector2( 550, 800 )
 texture = ExtResource( 11 )
 expand = true
@@ -241,9 +264,9 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 30.0
-margin_top = 100.0
+margin_top = 120.0
 margin_right = 30.0
-margin_bottom = 20.0
+margin_bottom = -22.0
 
 [node name="MultiplayerMode" type="HBoxContainer" parent="TabContainer/Multiplayer"]
 margin_right = 1928.0
@@ -294,13 +317,6 @@ margin_right = 1900.0
 margin_bottom = 1000.0
 rect_min_size = Vector2( 1870, 900 )
 
-[node name="ReadyToPlay" type="RichTextLabel" parent="TabContainer/Exit Tutorial"]
-margin_right = 1870.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 800, 200 )
-custom_fonts/normal_font = ExtResource( 13 )
-text = "Ready to play? Return to the main screen and click the play button!"
-
 [node name="TutorialExit" type="TextureButton" parent="TabContainer/Exit Tutorial"]
 margin_right = 1870.0
 margin_bottom = 500.0
@@ -310,6 +326,14 @@ expand = true
 stretch_mode = 5
 script = ExtResource( 3 )
 
+[node name="ReadyToPlay" type="RichTextLabel" parent="TabContainer/Exit Tutorial"]
+margin_top = 504.0
+margin_right = 1870.0
+margin_bottom = 704.0
+rect_min_size = Vector2( 800, 200 )
+custom_fonts/normal_font = ExtResource( 13 )
+text = "Ready to play? Return to the main screen and click the play button!"
+
 [node name="ButtonClickSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
 
@@ -318,6 +342,15 @@ stream = ExtResource( 16 )
 volume_db = -13.983
 autoplay = true
 bus = "Music"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 783.0
+margin_top = 18.0
+margin_right = 1250.0
+margin_bottom = 101.0
+custom_colors/default_color = Color( 0.968627, 0.52549, 0.435294, 1 )
+custom_fonts/normal_font = ExtResource( 13 )
+text = "Tutorial"
 
 [connection signal="tab_selected" from="TabContainer" to="TabContainer" method="_on_TabContainer_tab_selected"]
 [connection signal="pressed" from="TabContainer/Exit Tutorial/TutorialExit" to="TabContainer/Exit Tutorial/TutorialExit" method="_on_TutorialExit_pressed"]
