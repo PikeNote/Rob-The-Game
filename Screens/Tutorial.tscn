@@ -1,8 +1,7 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Fonts/CutsceneText.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Screens/Button.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Quit_Button.PNG" type="Texture" id=4]
 [ext_resource path="res://Fonts/LevelSelect/ModifierTitle.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Assets/Tutorial Images/LevelRequirement Screenshot.png" type="Texture" id=6]
@@ -32,18 +31,19 @@ corner_radius_top_right = 20
 texture = ExtResource( 17 )
 region_rect = Rect2( 0, 0, 1000, 1000 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D3" type="Node2D"]
 
 [node name="Transition" parent="." instance=ExtResource( 2 )]
 scale = Vector2( 0.54, 0.565 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -5.0
 margin_right = 1928.0
 margin_bottom = 1086.0
 color = Color( 1, 0.839216, 0.807843, 1 )
 
 [node name="TabContainer" type="TabContainer" parent="."]
-margin_left = 2.0
+margin_left = -6.0
 margin_top = 107.0
 margin_right = 1930.0
 margin_bottom = 1107.0
@@ -56,17 +56,13 @@ custom_styles/panel = SubResource( 2 )
 script = ExtResource( 15 )
 
 [node name="How To Play" type="VBoxContainer" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 30.0
-margin_top = 120.0
-margin_right = 30.0
-margin_bottom = 38.0
+margin_top = 82.0
 custom_constants/separation = 40
 
 [node name="GoalHBox" type="HBoxContainer" parent="TabContainer/How To Play"]
-margin_right = 1928.0
+margin_right = 1936.0
 margin_bottom = 200.0
 
 [node name="Goal" type="RichTextLabel" parent="TabContainer/How To Play/GoalHBox"]
@@ -86,7 +82,7 @@ expand = true
 
 [node name="CollectHBox" type="HBoxContainer" parent="TabContainer/How To Play"]
 margin_top = 240.0
-margin_right = 1928.0
+margin_right = 1936.0
 margin_bottom = 540.0
 
 [node name="Collect Letters" type="RichTextLabel" parent="TabContainer/How To Play/CollectHBox"]
@@ -110,7 +106,7 @@ script = ExtResource( 8 )
 
 [node name="SpellHBox" type="HBoxContainer" parent="TabContainer/How To Play"]
 margin_top = 580.0
-margin_right = 1928.0
+margin_right = 1936.0
 margin_bottom = 880.0
 
 [node name="Spell" type="RichTextLabel" parent="TabContainer/How To Play/SpellHBox"]
@@ -324,7 +320,6 @@ rect_min_size = Vector2( 500, 500 )
 texture_normal = ExtResource( 4 )
 expand = true
 stretch_mode = 5
-script = ExtResource( 3 )
 
 [node name="ReadyToPlay" type="RichTextLabel" parent="TabContainer/Exit Tutorial"]
 margin_top = 504.0
