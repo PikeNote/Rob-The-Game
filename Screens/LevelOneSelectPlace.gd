@@ -70,10 +70,11 @@ func _physics_process(delta):
 			else: 
 				GameReferences.endGame = false;
 				levelSwitching=true;
-				if(UserManager.settings.watched <= actsAfter[GameReferences.currentScene]):
-					UserManager.settings.watched;
+				var levelName = GameParameters.levelDescription[GameReferences.currentScene].name
+				if(!(levelName in UserManager.settings.levelsWatched) && levelName in UserManager.settings.levelsCompleted):
+					UserManager.settings.levelsWatched.append(levelName); 
 					UserManager.updateFile();
-					transition.transition_in("res://Screens/LevelSelect.tscn");
+					transition.transition_in(actsAfter[GameReferences.currentScene]);
 				else:
 					transition.transition_in("res://Screens/LevelSelect.tscn");
 		

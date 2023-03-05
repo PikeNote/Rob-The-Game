@@ -44,15 +44,13 @@ func _endGame():
 		if(levelName in UserManager.levelsCompleted):
 			UserManager.levelsCompleted.append(levelName);
 			UserManager.updateFile();
+			
+			# Only add scores to the leaderboard if they passed the level
+			if(UserManager.settings.saveScores):
+				saveScores();
 	else:
 		$Control/LevelStatus.text = "Level Failed!"
 		$Control/LevelStatus.set("custom_colors/default_color", Color(225,44,39));
-
-
-	
-
-	if(UserManager.settings.saveScores):
-		saveScores();
 	
 	$".".visible = true;
 	tween.interpolate_property($Control, "rect_position", $Control.rect_position, Vector2($Control.rect_position.x, normalYPosition), scaleUpTime, Tween.TRANS_LINEAR, Tween.EASE_IN)

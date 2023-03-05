@@ -84,7 +84,7 @@ margin_right = 1679.0
 margin_bottom = 799.0
 custom_styles/bg = SubResource( 5 )
 
-[node name="WordsSpelledContainer" type="VFlowContainer" parent="Control/ScrollContainer"]
+[node name="WordsSpelledContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
 margin_left = 2.0
 margin_top = 4.0
 margin_right = 589.0
