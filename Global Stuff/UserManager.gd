@@ -73,10 +73,10 @@ func _ready():
 	var user_data =  File.new()
 	if not user_data.file_exists(path):
 		randomize()
-		var generatedUsername = "SomeDefaultName";
-		var generatedIdentifier = str((randi()%9999+1)).pad_zeros(4)
+		settings.username = "SomeDefaultName";
+		settings.identifier = str((randi()%9999+1)).pad_zeros(4)
 		
-		writeData(settings.deseralizeData())
+		updateFile();
 
 	else:
 		user_data.open(path, File.READ);

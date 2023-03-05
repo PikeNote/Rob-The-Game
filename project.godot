@@ -20,9 +20,10 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Game Fbla"
+config/name="Rob"
 run/main_scene="res://Screens/MainScene.tscn"
-config/icon="res://Assets/icon.png"
+boot_splash/show_image=false
+config/icon="res://Assets/Game_Logo.PNG"
 
 [autoload]
 

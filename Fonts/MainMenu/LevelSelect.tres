@@ -4,5 +4,5 @@
 font_path = "res://Fonts/Robfont-Regular.ttf"
 
 [resource]
-size = 130
+size = 80
 font_data = SubResource( 12 )

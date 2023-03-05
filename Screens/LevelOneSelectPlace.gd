@@ -19,6 +19,12 @@ var gameLevels = [
 	"res://Screens/LevelThree.tscn"
 ]
 
+var actsAfter = [
+	"res://Screens/CutsceneStory/ActTwo.tscn",
+	"res://Screens/CutsceneStory/ActThree.tscn",
+	"res://Screens/CutsceneStory/ActFour.tscn"
+]
+
 var properItem;
 var pathFollow;
 
@@ -62,8 +68,13 @@ func _physics_process(delta):
 				transition.transition_in(gameLevels[GameReferences.currentScene]);
 			else: 
 				GameReferences.endGame = false;
-				transition.transition_in("res://Screens/LevelSelect.tscn");
 				levelSwitching=true;
+				if(UserManager.settings.watched <= actsAfter[GameReferences.currentScene]):
+					UserManager.settings.watched;
+					UserManager.updateFile();
+					transition.transition_in("res://Screens/LevelSelect.tscn");
+				else:
+					transition.transition_in("res://Screens/LevelSelect.tscn");
 		
 		
 		
