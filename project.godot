@@ -51,6 +51,10 @@ version_control_plugin_name="GitAPI"
 
 enabled=PoolStringArray( "res://addons/animated_grid_container_plugin/plugin.cfg", "res://addons/silent_wolf/plugin.cfg" )
 
+[gdnative]
+
+singletons=[  ]
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

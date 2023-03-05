@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Assets/The_Sky.PNG" type="Texture" id=1]
 [ext_resource path="res://Assets/Newer_World.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Assets/LevelSelect/Barn.PNG" type="Texture" id=4]
 [ext_resource path="res://Assets/Rob's_Side_Profile.PNG" type="Texture" id=5]
 [ext_resource path="res://Assets/LevelSelect/Sign_Post.png" type="Texture" id=6]
-[ext_resource path="res://Music/Kevin MacLeod - Crossing the Divide.mp3" type="AudioStream" id=7]
 [ext_resource path="res://Assets/LevelSelect/Colosseum.png" type="Texture" id=8]
 [ext_resource path="res://Assets/LevelSelect/LevelSelectMenu.PNG" type="Texture" id=9]
 [ext_resource path="res://Fonts/MainMenu/LevelSelect.tres" type="DynamicFont" id=10]
@@ -340,6 +339,7 @@ text = "Leaderboard"
 fit_content_height = true
 
 [node name="Leaderboard" parent="LevelSelect/LeaderboardPanel" instance=ExtResource( 26 )]
+visible = false
 margin_left = -2.68604
 margin_top = 75.0
 margin_right = 451.314
@@ -360,10 +360,10 @@ text = "Modifiers"
 fit_content_height = true
 
 [node name="Modifiers" type="VBoxContainer" parent="LevelSelect/ModifiersPanel"]
-margin_left = 4.02917
+margin_left = 2.68603
 margin_top = 74.9998
-margin_right = 134.029
-margin_bottom = 205.0
+margin_right = 441.686
+margin_bottom = 443.0
 script = ExtResource( 23 )
 
 [node name="VowelDecrease" type="HBoxContainer" parent="LevelSelect/ModifiersPanel/Modifiers"]
@@ -532,11 +532,6 @@ anims/RESET = SubResource( 14 )
 
 [node name="ButtonClickSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 27 )
-
-[node name="LevelSelectMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-autoplay = true
-bus = "Music"
 
 [connection signal="button_down" from="LevelSelect/LevelPanel/ButtonContainer/VBoxContainer/CenterContainer/SelectLevel" to="Planet" method="_on_SelectLevel_button_down"]
 [connection signal="pressed" from="LevelSelect/LevelPanel/ButtonContainer/VBoxContainer/MapSelectButtons/LeftButton" to="Planet" method="_on_LeftButton_pressed"]

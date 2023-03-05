@@ -90,7 +90,8 @@ func evaluate_row_remaining_space(size, max_min:Dictionary, row_expanded:Array, 
 
 # Overrides:
 func _enter_tree():
-	set_mouse_filter(MOUSE_FILTER_PASS)
+	#set_mouse_filter(MOUSE_FILTER_IGNORE)
+	pass
 
 func _notification(what):
 	if what == NOTIFICATION_SORT_CHILDREN:

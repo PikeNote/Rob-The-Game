@@ -17,20 +17,57 @@ func _ready():
 	pass # Replace with function body.
 
 func _endGame():
+	var wordsSpelled = 0;
+	var pointsEarned = GameReferences.pointsEarned;
 	for n in GameReferences.wordsSpelled:
 		var wordSpelled = statWord.instance();
 		wordSpelled.text = n;
 		$Control/ScrollContainer/WordsSpelledContainer.add_child(wordSpelled);
-	$Control/WordsSpelled.text="Words Spelled: " + str(GameReferences.wordsSpelled.size());
-	$Control/PointsEarned.text="Points Spelled: " + str(GameReferences.pointsEarned);
+		wordsSpelled+=1;
+	
+	
+	
+	$Control/WordsSpelled.text="Words Spelled: " + str(wordsSpelled);
+	$Control/PointsEarned.text="Points Spelled: " + str(pointsEarned);
+	
+	var currentScene = GameReferences.currentScene;
+	
+	var requiredWordSpelled = GameParameters.levelDescription[currentScene].Requirements.spelled;
+	var requiredPointsGained = GameParameters.levelDescription[currentScene].Requirements.points;
+	var levelName = GameParameters.levelDescription[GameReferences.currentScene].Name;
+	
+	# Check if the requirees for the level are met before passing/failing
+	if(wordsSpelled >= requiredWordSpelled && pointsEarned >= requiredPointsGained):
+		$Control/LevelStatus.text = "Level Passed!"
+		$Control/LevelStatus.set("custom_colors/default_color", Color(32,255,0));
+		
+		if(levelName in UserManager.levelsCompleted):
+			UserManager.levelsCompleted.append(levelName);
+			UserManager.updateFile();
+	else:
+		$Control/LevelStatus.text = "Level Failed!"
+		$Control/LevelStatus.set("custom_colors/default_color", Color(225,44,39));
+
+
+	
+
+	if(UserManager.settings.saveScores):
+		saveScores();
+	
 	$".".visible = true;
 	tween.interpolate_property($Control, "rect_position", $Control.rect_position, Vector2($Control.rect_position.x, normalYPosition), scaleUpTime, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start();
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func saveScores():
+	var pointsEarned = GameReferences.pointsEarned
+	var username = UserManager.getFullUsername();
+	var levelName = GameParameters.levelDescription[GameReferences.currentScene].Name;
+	
+	var metadata = {
+		"modifiers": UserManager.settings.modifiers
+	}
+	SilentWolf.Scores.persist_score(username, pointsEarned, levelName, metadata);
 
 func _on_ExitButton_pressed():
 	GameReferences.endGame = true;
