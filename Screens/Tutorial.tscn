@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Assets/Tutorial Images/MultiplayerMainSscreen.png" type="Texture" id=1]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Screens/SceneButtons.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Quit_Button.PNG" type="Texture" id=4]
+[ext_resource path="res://Presets/ExitButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Tutorial Images/LobbyScreen.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Tutorial Images/MultiplayerLobbySelect.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Tutorial Images/LevelRequirement Screenshot.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Tutorial Images/CollectLetterVideo.ogv" type="VideoStream" id=7]
@@ -376,9 +376,9 @@ anchor_bottom = 1.0
 margin_top = 79.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Multiplayer"]
-margin_left = 177.0
+margin_left = 144.0
 margin_top = 38.0
-margin_right = 1781.0
+margin_right = 1748.0
 margin_bottom = 158.0
 
 [node name="MultiplayerMode2" type="RichTextLabel" parent="TabContainer/Multiplayer/HBoxContainer"]
@@ -399,66 +399,65 @@ size_flags_vertical = 4
 texture = ExtResource( 1 )
 expand = true
 
-[node name="MultiplayerMode3" type="RichTextLabel" parent="TabContainer/Multiplayer"]
-margin_left = 631.0
-margin_top = 184.0
-margin_right = 1782.0
-margin_bottom = 424.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Multiplayer"]
+margin_left = 112.0
+margin_top = 171.0
+margin_right = 1797.0
+margin_bottom = 451.0
+
+[node name="TextureButton" type="TextureRect" parent="TabContainer/Multiplayer/HBoxContainer2"]
+margin_right = 481.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 481, 280 )
+size_flags_vertical = 4
+texture = ExtResource( 5 )
+expand = true
+
+[node name="MultiplayerMode2" type="RichTextLabel" parent="TabContainer/Multiplayer/HBoxContainer2"]
+margin_left = 485.0
+margin_right = 1685.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 1200, 280 )
+size_flags_vertical = 4
 custom_fonts/normal_font = ExtResource( 18 )
 text = "Once you are on the multiplayer screen, you have two options.
 
 Create Lobby - Creates a lobby that other players can join
-
 Join Lobby - Join a lobby that already exists
-"
-fit_content_height = true
 
-[node name="MultiplayerPlayers2" type="RichTextLabel" parent="TabContainer/Multiplayer"]
-margin_left = 43.0
-margin_top = 644.0
-margin_right = 1106.0
-margin_bottom = 844.0
+Every lobby will have a code that the other user has to enter on the lobby select screen to join. "
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TabContainer/Multiplayer"]
+margin_left = 112.0
+margin_top = 476.0
+margin_right = 1836.0
+margin_bottom = 876.0
+
+[node name="MultiplayerMode2" type="RichTextLabel" parent="TabContainer/Multiplayer/HBoxContainer3"]
+margin_right = 1200.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 1200, 400 )
+size_flags_vertical = 4
 custom_fonts/normal_font = ExtResource( 18 )
-text = "Player One (the host) will appear on the screen as original Rob (the one with horns) and the Player Two will appear on the screen as Lady Robin (the one with the bow).
+text = "The lobby code is provided at the top of the screen. Once another player joins, their name will appear on the player list. 
 
-Whoever has the most points when the timer runs out wins!"
-fit_content_height = true
+You need 2 players to start. Currently the only multiplayer map is arena and it is a maximum of 2 players.
 
-[node name="TextureButton2" type="TextureRect" parent="TabContainer/Multiplayer"]
-margin_left = 132.0
-margin_top = 160.0
-margin_right = 613.0
-margin_bottom = 440.0
-texture = ExtResource( 5 )
+Once the play button is pressed by the host, the game will start. The first player in the lobby spawns as Rob while the second player spawns as Lady Rob (one with the bowtie). Whoever gets the most points by the end wins!"
+
+[node name="TextureButton" type="TextureRect" parent="TabContainer/Multiplayer/HBoxContainer3"]
+margin_left = 1204.0
+margin_top = 50.0
+margin_right = 1724.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 520, 300 )
+size_flags_vertical = 4
+texture = ExtResource( 4 )
 expand = true
 
 [node name="CenterContainer" type="CenterContainer" parent="TabContainer/Multiplayer"]
 margin_right = 40.0
 margin_bottom = 40.0
-
-[node name="Exit Tutorial" type="VBoxContainer" parent="TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 82.0
-rect_min_size = Vector2( 1870, 900 )
-
-[node name="TutorialExit" type="TextureButton" parent="TabContainer/Exit Tutorial"]
-margin_right = 1930.0
-margin_bottom = 500.0
-rect_min_size = Vector2( 500, 500 )
-texture_normal = ExtResource( 4 )
-expand = true
-stretch_mode = 5
-script = ExtResource( 3 )
-
-[node name="ReadyToPlay" type="RichTextLabel" parent="TabContainer/Exit Tutorial"]
-margin_top = 504.0
-margin_right = 1930.0
-margin_bottom = 704.0
-rect_min_size = Vector2( 800, 200 )
-custom_fonts/normal_font = ExtResource( 13 )
-text = "Ready to play? Return to the main screen and click the play button!"
 
 [node name="ButtonClickSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
@@ -470,13 +469,20 @@ autoplay = true
 bus = "Music"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 783.0
-margin_top = 18.0
-margin_right = 1250.0
-margin_bottom = 101.0
+margin_left = 743.0
+margin_top = 16.0
+margin_right = 1210.0
+margin_bottom = 99.0
 custom_colors/default_color = Color( 0.968627, 0.52549, 0.435294, 1 )
 custom_fonts/normal_font = ExtResource( 13 )
+bbcode_enabled = true
+bbcode_text = "[center]Tutorial"
 text = "Tutorial"
 
+[node name="ExitButton" parent="." instance=ExtResource( 3 )]
+margin_left = 33.0
+margin_top = 43.0
+margin_right = 148.0
+margin_bottom = 155.0
+
 [connection signal="tab_selected" from="TabContainer" to="TabContainer" method="_on_TabContainer_tab_selected"]
-[connection signal="pressed" from="TabContainer/Exit Tutorial/TutorialExit" to="TabContainer/Exit Tutorial/TutorialExit" method="_on_TutorialExit_pressed"]
