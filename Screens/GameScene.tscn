@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Presets/InventorySlots.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/light.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Presets/PointsBox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Kevin MacLeod - Monkeys Spinning Monkeys.mp3" type="AudioStream" id=10]
 [ext_resource path="res://Presets/GameManager.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Music/forest-wind-and-birds-6881.mp3" type="AudioStream" id=12]
 [ext_resource path="res://Presets/PauseMenuNode.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Presets/Edge.tscn" type="PackedScene" id=18]
@@ -120,6 +121,12 @@ scale = Vector2( 0.534, 0.566 )
 
 [node name="GameSceneMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
+volume_db = -5.0
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -5.0
 autoplay = true
 
 [connection signal="visibility_changed" from="EndGameScreen" to="PointsBox" method="_on_EndGameScreen_visibility_changed"]

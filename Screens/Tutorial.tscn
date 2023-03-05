@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Fonts/CutsceneText.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Fonts/MainMenu/LevelSelect.tres" type="DynamicFont" id=13]
 [ext_resource path="res://Music/lclick-13694.mp3" type="AudioStream" id=14]
 [ext_resource path="res://Screens/TabContainer.gd" type="Script" id=15]
+[ext_resource path="res://Music/Kevin MacLeod - Carefree.mp3" type="AudioStream" id=16]
 
 [node name="Node2D" type="Node2D"]
 
@@ -36,10 +37,10 @@ script = ExtResource( 15 )
 [node name="How To Play" type="VBoxContainer" parent="TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 30.0
-margin_top = 100.0
-margin_right = 22.0
-margin_bottom = 6.0
+margin_left = 4.0
+margin_top = 90.0
+margin_right = -4.0
+margin_bottom = -4.0
 custom_constants/separation = 40
 
 [node name="GoalHBox" type="HBoxContainer" parent="TabContainer/How To Play"]
@@ -311,6 +312,12 @@ script = ExtResource( 3 )
 
 [node name="ButtonClickSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
+
+[node name="TutorialMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -13.983
+autoplay = true
+bus = "Music"
 
 [connection signal="tab_selected" from="TabContainer" to="TabContainer" method="_on_TabContainer_tab_selected"]
 [connection signal="pressed" from="TabContainer/Exit Tutorial/TutorialExit" to="TabContainer/Exit Tutorial/TutorialExit" method="_on_TutorialExit_pressed"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Kevin MacLeod - Master of the Feast.mp3-299849b4c8e31bdb69de93b4c19fc580.mp3str"
+
+[deps]
+
+source_file="res://Music/Kevin MacLeod - Master of the Feast.mp3"
+dest_files=[ "res://.import/Kevin MacLeod - Master of the Feast.mp3-299849b4c8e31bdb69de93b4c19fc580.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

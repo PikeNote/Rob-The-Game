@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/crowd-talking-2.mp3-925749756d3bdb94ddf7acfa190e64ae.mp3str"
+
+[deps]
+
+source_file="res://Music/crowd-talking-2.mp3"
+dest_files=[ "res://.import/crowd-talking-2.mp3-925749756d3bdb94ddf7acfa190e64ae.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
