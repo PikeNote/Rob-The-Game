@@ -225,7 +225,6 @@ autoplay = true
 bus = "Music"
 
 [node name="SettingsPopupMenu" type="WindowDialog" parent="."]
-visible = true
 margin_left = 159.0
 margin_top = 83.0
 margin_right = 1803.0

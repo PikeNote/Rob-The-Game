@@ -15,7 +15,7 @@ var storedName = "";
 func _on_EditNameButton_pressed():
 	$"../ButtonClickSFX".play();
 	editMode = !editMode;
-	nameInput.editable = !editMode
+	nameInput.editable = editMode
 	if(editMode):
 		editNameButton.texture_normal=	load("res://Assets/Settings/ChangeName_Button.PNG");
 		if(!nameInput.text.length() > 0):
