@@ -29,6 +29,7 @@ class Settings:
 		"specialfx": 50
 	}
 	var levelsCompleted = [];
+	var levelsWatched = [];
 	var saveScores = true;
 	
 	# Get every property of the class and put that information into an dictionary
