@@ -9,8 +9,6 @@ position = Vector2( 148, 92 )
 scale = Vector2( 0.293767, 0.244951 )
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
-minutes = 5
-seconds = 0
 
 [node name="ClockTimerText" type="RichTextLabel" parent="."]
 margin_left = -454.0

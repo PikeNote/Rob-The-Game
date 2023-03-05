@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Screens/Timer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Track.PNG" type="Texture" id=2]
@@ -10,7 +10,9 @@
 [ext_resource path="res://Presets/PointsBox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Presets/EndGameScreen.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Presets/GameManager.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Music/Kevin MacLeod - Master of the Feast.mp3" type="AudioStream" id=11]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Music/highway-14475.mp3" type="AudioStream" id=13]
 
 [sub_resource type="Curve2D" id=3]
 _data = {
@@ -100,3 +102,15 @@ position = Vector2( -9, 74 )
 
 [node name="EndGameScreen" parent="." instance=ExtResource( 9 )]
 position = Vector2( 0, 2 )
+
+[node name="LevelTwoMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -10.0
+autoplay = true
+bus = "Music"
+
+[node name="CarsSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -10.0
+autoplay = true
+bus = "Music"

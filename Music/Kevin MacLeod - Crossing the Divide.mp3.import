@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Kevin MacLeod - Crossing the Divide.mp3-2ec33e835536f7328ec06ff0e40d24f8.mp3str"
+
+[deps]
+
+source_file="res://Music/Kevin MacLeod - Crossing the Divide.mp3"
+dest_files=[ "res://.import/Kevin MacLeod - Crossing the Divide.mp3-2ec33e835536f7328ec06ff0e40d24f8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -48,6 +48,7 @@ func _ready():
 	startingY = properItem.transform.y;
 	$"../AnimationPlayer".get_animation("JumpingRob").loop = true;
 	$"../AnimationPlayer".play("JumpingRob");
+	$"../BoingSFX".play();
 	
 	pass # Replace with function body.
 

@@ -50,4 +50,4 @@ bus = "Effects"
 
 [node name="HookedSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = -6.118
+volume_db = -20.101

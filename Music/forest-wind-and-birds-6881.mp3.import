@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/forest-wind-and-birds-6881.mp3-8d2c421a333060ee798cab4b20b76b42.mp3str"
+
+[deps]
+
+source_file="res://Music/forest-wind-and-birds-6881.mp3"
+dest_files=[ "res://.import/forest-wind-and-birds-6881.mp3-8d2c421a333060ee798cab4b20b76b42.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

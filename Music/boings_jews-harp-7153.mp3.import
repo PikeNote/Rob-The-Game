@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/boings_jews-harp-7153.mp3-beb60b0a481b64796d00518b4412e871.mp3str"
+
+[deps]
+
+source_file="res://Music/boings_jews-harp-7153.mp3"
+dest_files=[ "res://.import/boings_jews-harp-7153.mp3-beb60b0a481b64796d00518b4412e871.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

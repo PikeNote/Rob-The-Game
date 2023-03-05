@@ -57,10 +57,9 @@ func _physics_process(_delta: float) -> void:
 			collision = $Tip.move_and_collide(direction * SPEED);
 		if collision:
 			if(collision.collider.name=="LetterKin" && flying):
-				#$HookedSFX.play()
+				$HookedSFX.play()
 				hooked = true	# Got something!
 				flying = false	
-				#$HookedSFX.stop()
 				currentLetter = collision.collider.get_parent()._getLetter();
 				$Tip/Letter.texture=load("res://Assets//Letters//Letter_"+currentLetter+".png")
 				$Tip/Letter.visible=true;
@@ -69,9 +68,7 @@ func _physics_process(_delta: float) -> void:
 			elif (collision.collider.name=="RobCollider" && hooked):
 				GameReferences.inventoryRef.get_node("InventorySlots")._addLetter(currentLetter);
 				hooked = false;
-				#$HookedSFX.stop()
 				$Tip/Letter.visible=false;
 			else:
-				#$HookedSFX.stop()
 				release()
 	tip = $Tip.global_position	# set `tip` as starting position for next frame
