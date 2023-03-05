@@ -6,7 +6,6 @@
 [ext_resource path="res://Assets/LevelSelect/Barn.PNG" type="Texture" id=4]
 [ext_resource path="res://Assets/Rob's_Side_Profile.PNG" type="Texture" id=5]
 [ext_resource path="res://Assets/LevelSelect/Sign_Post.png" type="Texture" id=6]
-[ext_resource path="res://Screens/LevelSelect.gd" type="Script" id=7]
 [ext_resource path="res://Assets/LevelSelect/Colosseum.png" type="Texture" id=8]
 [ext_resource path="res://Assets/LevelSelect/LevelSelectMenu.PNG" type="Texture" id=9]
 [ext_resource path="res://Fonts/MainMenu/LevelSelect.tres" type="DynamicFont" id=10]
@@ -28,23 +27,22 @@
 [ext_resource path="res://Presets/Leaderboard/Leaderboard.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Music/lclick-13694.mp3" type="AudioStream" id=27]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 4.70282, 277.022 )
+[sub_resource type="DynamicFontData" id=21]
+font_path = "res://Fonts/Robfont-Regular.ttf"
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 6.09143, 146.902 )
+[sub_resource type="DynamicFont" id=22]
+size = 46
+font_data = SubResource( 21 )
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 10.1396, 112.356 )
-
-[sub_resource type="CircleShape2D" id=5]
-radius = 983.926
+[sub_resource type="DynamicFont" id=23]
+size = 40
+font_data = SubResource( 21 )
 
 [sub_resource type="DynamicFontData" id=15]
 font_path = "res://Fonts/Robfont-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=13]
-size = 80
+size = 50
 font_data = SubResource( 15 )
 
 [sub_resource type="DynamicFontData" id=12]
@@ -69,30 +67,19 @@ font_data = SubResource( 17 )
 size = 40
 font_data = SubResource( 17 )
 
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 18, 292 )
-
 [sub_resource type="Animation" id=11]
 resource_name = "JumpingRob"
-tracks/0/type = "bezier"
-tracks/0/path = NodePath("RobSideProfile:position:y")
-tracks/0/interp = 1
+tracks/0/type = "value"
+tracks/0/path = NodePath("RobSideProfile:position")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 280, -0.25, 0, 0.25, 0, 161, -0.25, 0, 0.25, 0, 280, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.5, 1 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath("RobSideProfile:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 982, -0.25, 0, 0.25, 0, 982, -0.25, 0, 0.25, 0, 982, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.5, 1 )
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 982, 315 ), Vector2( 982, 161 ), Vector2( 982, 315 ) ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -117,6 +104,18 @@ tracks/1/keys = {
 "points": PoolRealArray( 982, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("RobSideProfile:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 982, 315 ) ]
+}
 
 [node name="Node2D" type="Node2D"]
 
@@ -129,68 +128,24 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
 
-[node name="Area2D" type="Area2D" parent="Planet"]
-position = Vector2( -51.8824, -2.98145 )
-rotation = -0.106033
-script = ExtResource( 7 )
-
-[node name="SignPost" type="Sprite" parent="Planet/Area2D"]
-position = Vector2( -862.226, -449.008 )
-rotation = -1.15779
+[node name="SignPost" type="Sprite" parent="Planet"]
+position = Vector2( -956.786, -358.215 )
+rotation = -1.26382
 scale = Vector2( 0.591786, 0.616099 )
 texture = ExtResource( 6 )
 
-[node name="SignPostCollider" type="CollisionShape2D" parent="Planet/Area2D"]
-position = Vector2( -926.707, -486.545 )
-rotation = -1.15902
-scale = Vector2( 0.655687, 0.676453 )
-shape = SubResource( 1 )
-
-[node name="Area2D2" type="Area2D" parent="Planet"]
-position = Vector2( 670.025, -731.328 )
+[node name="Barn" type="Sprite" parent="Planet"]
+position = Vector2( 665.788, -724.454 )
 rotation = 0.73896
-script = ExtResource( 7 )
-index = 0
-
-[node name="Barn" type="Sprite" parent="Planet/Area2D2"]
-position = Vector2( 1.49797, 7.93461 )
 scale = Vector2( 1.15148, 1.14344 )
 z_index = -1
 texture = ExtResource( 4 )
 
-[node name="BarnCollider" type="CollisionShape2D" parent="Planet/Area2D2"]
-rotation = -0.0108781
-shape = SubResource( 2 )
-
-[node name="Area2D3" type="Area2D" parent="Planet"]
-position = Vector2( 121.087, 37.5275 )
-rotation = -1.34629
-script = ExtResource( 7 )
-index = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Planet/Area2D3"]
-position = Vector2( -612.787, 634.131 )
-rotation = 0.719813
-z_index = 3
-shape = SubResource( 4 )
-
-[node name="Colosseum" type="Sprite" parent="Planet/Area2D3"]
-position = Vector2( -632.856, 610.275 )
-rotation = -2.3733
+[node name="Colosseum" type="Sprite" parent="Planet"]
+position = Vector2( 575.157, 790.364 )
+rotation = 2.5636
 scale = Vector2( 0.607105, 0.53086 )
 texture = ExtResource( 8 )
-
-[node name="Planet2" type="StaticBody2D" parent="."]
-visible = false
-position = Vector2( 14, 178 )
-
-[node name="PlanetCollision" type="CollisionShape2D" parent="Planet2"]
-position = Vector2( 991, 1486 )
-scale = Vector2( 1.3, 1.3 )
-shape = SubResource( 5 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="LevelSelect" type="Control" parent="."]
 margin_left = 788.0
@@ -213,91 +168,123 @@ margin_bottom = 339.944
 texture = ExtResource( 9 )
 stretch_mode = 1
 
-[node name="Panel1" type="Control" parent="LevelSelect"]
+[node name="LevelPanel" type="Control" parent="LevelSelect"]
 margin_left = -37.6067
 margin_right = 2.39331
 margin_bottom = 40.0
 
-[node name="Title" type="RichTextLabel" parent="LevelSelect/Panel1"]
-margin_left = -560.458
-margin_top = -593.222
-margin_right = 139.542
-margin_bottom = -468.222
-rect_min_size = Vector2( 700, 80 )
+[node name="Headers" type="VBoxContainer" parent="LevelSelect/LevelPanel"]
+margin_left = -627.0
+margin_top = -578.0
+margin_right = 189.0
+margin_bottom = -96.0
+custom_constants/separation = -11
+
+[node name="Title" type="RichTextLabel" parent="LevelSelect/LevelPanel/Headers"]
+margin_right = 816.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 700, 70 )
+rect_clip_content = false
 custom_fonts/normal_font = ExtResource( 10 )
 bbcode_enabled = true
 bbcode_text = "[center]Farm[/center]"
 text = "Farm"
+scroll_active = false
+
+[node name="Stars" type="HBoxContainer" parent="LevelSelect/LevelPanel/Headers"]
+margin_left = 299.0
+margin_top = 59.0
+margin_right = 517.0
+margin_bottom = 129.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Star1" type="TextureRect" parent="LevelSelect/LevelPanel/Headers/Stars"]
+modulate = Color( 0.976471, 1, 0.00392157, 1 )
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 16 )
+expand = true
+
+[node name="Star2" type="TextureRect" parent="LevelSelect/LevelPanel/Headers/Stars"]
+modulate = Color( 0.976471, 1, 0.00392157, 1 )
+margin_left = 74.0
+margin_right = 144.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 16 )
+expand = true
+
+[node name="Star3" type="TextureRect" parent="LevelSelect/LevelPanel/Headers/Stars"]
+modulate = Color( 0.976471, 1, 0.00392157, 1 )
+margin_left = 148.0
+margin_right = 218.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+texture = ExtResource( 16 )
+expand = true
+
+[node name="LevelRequirements" type="VBoxContainer" parent="LevelSelect/LevelPanel/Headers"]
+margin_top = 118.0
+margin_right = 816.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="Title" type="RichTextLabel" parent="LevelSelect/LevelPanel/Headers/LevelRequirements"]
+margin_right = 816.0
+margin_bottom = 45.0
+size_flags_horizontal = 7
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+bbcode_text = "[center]Requirements[/center]"
+text = "Requirements"
 fit_content_height = true
+scroll_active = false
 
-[node name="CenterStars" type="CenterContainer" parent="LevelSelect/Panel1"]
-margin_left = -403.131
-margin_top = -507.222
-margin_right = -24.1309
-margin_bottom = -407.222
-rect_min_size = Vector2( 379, 71 )
+[node name="Requirements" type="RichTextLabel" parent="LevelSelect/LevelPanel/Headers/LevelRequirements"]
+margin_top = 49.0
+margin_right = 816.0
+margin_bottom = 89.0
+size_flags_horizontal = 7
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_enabled = true
+bbcode_text = "[center] Spell 10 words - Get 75 points[/center]"
+text = " Spell 10 words - Get 75 points"
+fit_content_height = true
+scroll_active = false
 
-[node name="Stars" type="HFlowContainer" parent="LevelSelect/Panel1/CenterStars"]
-margin_left = 35.0
-margin_right = 343.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 308, 0 )
-
-[node name="Star1" type="TextureRect" parent="LevelSelect/Panel1/CenterStars/Stars"]
-modulate = Color( 0.976471, 1, 0.00392157, 1 )
-margin_right = 100.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture = ExtResource( 16 )
-expand = true
-
-[node name="Star2" type="TextureRect" parent="LevelSelect/Panel1/CenterStars/Stars"]
-modulate = Color( 0.976471, 1, 0.00392157, 1 )
-margin_left = 104.0
-margin_right = 204.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture = ExtResource( 16 )
-expand = true
-
-[node name="Star3" type="TextureRect" parent="LevelSelect/Panel1/CenterStars/Stars"]
-modulate = Color( 0.976471, 1, 0.00392157, 1 )
-margin_left = 208.0
-margin_right = 308.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 100, 100 )
-texture = ExtResource( 16 )
-expand = true
-
-[node name="Description" type="RichTextLabel" parent="LevelSelect/Panel1"]
+[node name="Description" type="RichTextLabel" parent="LevelSelect/LevelPanel"]
 margin_left = -612.0
-margin_top = -412.0
+margin_top = -355.167
 margin_right = 168.0
-margin_bottom = -112.0
-rect_min_size = Vector2( 0, 280 )
+margin_bottom = -105.167
+rect_min_size = Vector2( 780, 250 )
 custom_fonts/normal_font = SubResource( 13 )
 bbcode_enabled = true
 bbcode_text = "[center]Farm[/center]"
 text = "Farm"
 fit_content_height = true
 
-[node name="ButtonContainer" type="CenterContainer" parent="LevelSelect/Panel1"]
+[node name="ButtonContainer" type="CenterContainer" parent="LevelSelect/LevelPanel"]
 margin_left = -633.934
 margin_top = -104.167
 margin_right = 191.066
 margin_bottom = 175.833
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect/Panel1/ButtonContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect/LevelPanel/ButtonContainer"]
 margin_left = 210.0
 margin_right = 614.0
 margin_bottom = 280.0
 custom_constants/separation = -40
 
-[node name="CenterContainer" type="CenterContainer" parent="LevelSelect/Panel1/ButtonContainer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="LevelSelect/LevelPanel/ButtonContainer/VBoxContainer"]
 margin_right = 404.0
 margin_bottom = 120.0
 
-[node name="SelectLevel" type="TextureButton" parent="LevelSelect/Panel1/ButtonContainer/VBoxContainer/CenterContainer"]
+[node name="SelectLevel" type="TextureButton" parent="LevelSelect/LevelPanel/ButtonContainer/VBoxContainer/CenterContainer"]
 margin_left = 77.0
 margin_right = 327.0
 margin_bottom = 120.0
@@ -306,15 +293,15 @@ texture_normal = ExtResource( 15 )
 expand = true
 script = ExtResource( 18 )
 
-[node name="HFlowContainer" type="HFlowContainer" parent="LevelSelect/Panel1/ButtonContainer/VBoxContainer"]
+[node name="MapSelectButtons" type="Control" parent="LevelSelect/LevelPanel/ButtonContainer/VBoxContainer"]
 margin_top = 80.0
 margin_right = 404.0
 margin_bottom = 280.0
-rect_min_size = Vector2( 404, 0 )
+rect_min_size = Vector2( 404, 200 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LeftButton" type="TextureButton" parent="LevelSelect/Panel1/ButtonContainer/VBoxContainer/HFlowContainer"]
+[node name="LeftButton" type="TextureButton" parent="LevelSelect/LevelPanel/ButtonContainer/VBoxContainer/MapSelectButtons"]
 margin_right = 200.0
 margin_bottom = 200.0
 rect_min_size = Vector2( 200, 200 )
@@ -325,7 +312,7 @@ expand = true
 flip_h = true
 script = ExtResource( 18 )
 
-[node name="RightButton" type="TextureButton" parent="LevelSelect/Panel1/ButtonContainer/VBoxContainer/HFlowContainer"]
+[node name="RightButton" type="TextureButton" parent="LevelSelect/LevelPanel/ButtonContainer/VBoxContainer/MapSelectButtons"]
 margin_left = 204.0
 margin_right = 404.0
 margin_bottom = 200.0
@@ -335,13 +322,13 @@ texture_click_mask = ExtResource( 13 )
 expand = true
 script = ExtResource( 18 )
 
-[node name="Panel2" type="Control" parent="LevelSelect"]
+[node name="LeaderboardPanel" type="Control" parent="LevelSelect"]
 margin_left = 239.069
 margin_top = -580.556
 margin_right = 279.069
 margin_bottom = -540.556
 
-[node name="Title" type="RichTextLabel" parent="LevelSelect/Panel2"]
+[node name="Title" type="RichTextLabel" parent="LevelSelect/LeaderboardPanel"]
 margin_left = -4.02893
 margin_right = 450.971
 margin_bottom = 78.0
@@ -351,19 +338,19 @@ bbcode_text = "[center]Leaderboard[/center]"
 text = "Leaderboard"
 fit_content_height = true
 
-[node name="Leaderboard" parent="LevelSelect/Panel2" instance=ExtResource( 26 )]
+[node name="Leaderboard" parent="LevelSelect/LeaderboardPanel" instance=ExtResource( 26 )]
 margin_left = -2.68604
 margin_top = 75.0
 margin_right = 451.314
 margin_bottom = 687.0
 
-[node name="Panel3" type="Control" parent="LevelSelect"]
+[node name="ModifiersPanel" type="Control" parent="LevelSelect"]
 margin_left = 769.586
 margin_top = -584.722
 margin_right = 809.586
 margin_bottom = -544.722
 
-[node name="Title" type="RichTextLabel" parent="LevelSelect/Panel3"]
+[node name="Title" type="RichTextLabel" parent="LevelSelect/ModifiersPanel"]
 margin_right = 381.0
 margin_bottom = 78.0
 custom_fonts/normal_font = SubResource( 16 )
@@ -371,18 +358,18 @@ bbcode_enabled = true
 text = "Modifiers"
 fit_content_height = true
 
-[node name="Modifiers" type="VBoxContainer" parent="LevelSelect/Panel3"]
+[node name="Modifiers" type="VBoxContainer" parent="LevelSelect/ModifiersPanel"]
 margin_left = 4.02917
 margin_top = 74.9998
 margin_right = 134.029
 margin_bottom = 205.0
 script = ExtResource( 23 )
 
-[node name="VowelDecrease" type="HBoxContainer" parent="LevelSelect/Panel3/Modifiers"]
+[node name="VowelDecrease" type="HBoxContainer" parent="LevelSelect/ModifiersPanel/Modifiers"]
 margin_right = 439.0
 margin_bottom = 120.0
 
-[node name="Button" type="TextureButton" parent="LevelSelect/Panel3/Modifiers/VowelDecrease"]
+[node name="Button" type="TextureButton" parent="LevelSelect/ModifiersPanel/Modifiers/VowelDecrease"]
 margin_right = 120.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 120, 120 )
@@ -391,7 +378,7 @@ texture_click_mask = ExtResource( 12 )
 expand = true
 script = ExtResource( 25 )
 
-[node name="Border" type="TextureRect" parent="LevelSelect/Panel3/Modifiers/VowelDecrease/Button"]
+[node name="Border" type="TextureRect" parent="LevelSelect/ModifiersPanel/Modifiers/VowelDecrease/Button"]
 visible = false
 margin_right = 120.0
 margin_bottom = 120.0
@@ -399,7 +386,7 @@ rect_min_size = Vector2( 120, 120 )
 texture = ExtResource( 20 )
 expand = true
 
-[node name="Title" type="RichTextLabel" parent="LevelSelect/Panel3/Modifiers/VowelDecrease"]
+[node name="Title" type="RichTextLabel" parent="LevelSelect/ModifiersPanel/Modifiers/VowelDecrease"]
 margin_left = 124.0
 margin_top = 33.0
 margin_right = 439.0
@@ -410,12 +397,12 @@ custom_fonts/normal_font = ExtResource( 24 )
 text = "Vowl Decrease"
 scroll_active = false
 
-[node name="LetterSpeedup" type="HBoxContainer" parent="LevelSelect/Panel3/Modifiers"]
+[node name="LetterSpeedup" type="HBoxContainer" parent="LevelSelect/ModifiersPanel/Modifiers"]
 margin_top = 124.0
 margin_right = 439.0
 margin_bottom = 244.0
 
-[node name="Button" type="TextureButton" parent="LevelSelect/Panel3/Modifiers/LetterSpeedup"]
+[node name="Button" type="TextureButton" parent="LevelSelect/ModifiersPanel/Modifiers/LetterSpeedup"]
 margin_right = 120.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 120, 120 )
@@ -424,7 +411,7 @@ texture_click_mask = ExtResource( 12 )
 expand = true
 script = ExtResource( 25 )
 
-[node name="Border" type="TextureRect" parent="LevelSelect/Panel3/Modifiers/LetterSpeedup/Button"]
+[node name="Border" type="TextureRect" parent="LevelSelect/ModifiersPanel/Modifiers/LetterSpeedup/Button"]
 visible = false
 margin_right = 120.0
 margin_bottom = 120.0
@@ -432,7 +419,7 @@ rect_min_size = Vector2( 120, 120 )
 texture = ExtResource( 20 )
 expand = true
 
-[node name="Title" type="RichTextLabel" parent="LevelSelect/Panel3/Modifiers/LetterSpeedup"]
+[node name="Title" type="RichTextLabel" parent="LevelSelect/ModifiersPanel/Modifiers/LetterSpeedup"]
 margin_left = 124.0
 margin_top = 33.0
 margin_right = 439.0
@@ -443,12 +430,12 @@ custom_fonts/normal_font = ExtResource( 24 )
 text = "Letter Speedup"
 scroll_active = false
 
-[node name="TimeDecrease" type="HBoxContainer" parent="LevelSelect/Panel3/Modifiers"]
+[node name="TimeDecrease" type="HBoxContainer" parent="LevelSelect/ModifiersPanel/Modifiers"]
 margin_top = 248.0
 margin_right = 439.0
 margin_bottom = 368.0
 
-[node name="Button" type="TextureButton" parent="LevelSelect/Panel3/Modifiers/TimeDecrease"]
+[node name="Button" type="TextureButton" parent="LevelSelect/ModifiersPanel/Modifiers/TimeDecrease"]
 margin_right = 120.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 120, 120 )
@@ -457,7 +444,7 @@ texture_click_mask = ExtResource( 12 )
 expand = true
 script = ExtResource( 25 )
 
-[node name="Border" type="TextureRect" parent="LevelSelect/Panel3/Modifiers/TimeDecrease/Button"]
+[node name="Border" type="TextureRect" parent="LevelSelect/ModifiersPanel/Modifiers/TimeDecrease/Button"]
 visible = false
 margin_right = 120.0
 margin_bottom = 120.0
@@ -465,7 +452,7 @@ rect_min_size = Vector2( 120, 120 )
 texture = ExtResource( 20 )
 expand = true
 
-[node name="Title" type="RichTextLabel" parent="LevelSelect/Panel3/Modifiers/TimeDecrease"]
+[node name="Title" type="RichTextLabel" parent="LevelSelect/ModifiersPanel/Modifiers/TimeDecrease"]
 margin_left = 124.0
 margin_top = 33.0
 margin_right = 439.0
@@ -476,13 +463,13 @@ custom_fonts/normal_font = ExtResource( 24 )
 text = "Time Decrease"
 scroll_active = false
 
-[node name="Description" type="VBoxContainer" parent="LevelSelect/Panel3"]
+[node name="Description" type="VBoxContainer" parent="LevelSelect/ModifiersPanel"]
 margin_left = -7.0
 margin_top = 450.0
 margin_right = 443.0
 margin_bottom = 707.0
 
-[node name="DescTitle" type="RichTextLabel" parent="LevelSelect/Panel3/Description"]
+[node name="DescTitle" type="RichTextLabel" parent="LevelSelect/ModifiersPanel/Description"]
 margin_right = 450.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
@@ -491,7 +478,7 @@ custom_fonts/normal_font = SubResource( 18 )
 text = "Description: "
 scroll_active = false
 
-[node name="Description" type="RichTextLabel" parent="LevelSelect/Panel3/Description"]
+[node name="Description" type="RichTextLabel" parent="LevelSelect/ModifiersPanel/Description"]
 margin_top = 44.0
 margin_right = 450.0
 margin_bottom = 214.0
@@ -501,12 +488,12 @@ custom_fonts/normal_font = SubResource( 19 )
 text = "Description Here"
 scroll_active = false
 
-[node name="Multiplier" type="HFlowContainer" parent="LevelSelect/Panel3/Description"]
+[node name="Multiplier" type="HFlowContainer" parent="LevelSelect/ModifiersPanel/Description"]
 margin_top = 218.0
 margin_right = 450.0
 margin_bottom = 258.0
 
-[node name="MultiTitle" type="RichTextLabel" parent="LevelSelect/Panel3/Description/Multiplier"]
+[node name="MultiTitle" type="RichTextLabel" parent="LevelSelect/ModifiersPanel/Description/Multiplier"]
 margin_right = 346.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
@@ -515,7 +502,7 @@ custom_fonts/normal_font = SubResource( 18 )
 text = "Points Multiplier:"
 scroll_active = false
 
-[node name="PointsMultiplier" type="RichTextLabel" parent="LevelSelect/Panel3/Description/Multiplier"]
+[node name="PointsMultiplier" type="RichTextLabel" parent="LevelSelect/ModifiersPanel/Description/Multiplier"]
 margin_left = 350.0
 margin_top = 5.0
 margin_right = 450.0
@@ -537,16 +524,6 @@ position = Vector2( 982, 280 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 5 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="RobSideProfile"]
-
-[node name="stopMovement" type="CollisionShape2D" parent="RobSideProfile/KinematicBody2D"]
-position = Vector2( -792, 24 )
-shape = SubResource( 10 )
-
-[node name="arrivedMovement" type="CollisionShape2D" parent="RobSideProfile/KinematicBody2D"]
-position = Vector2( -336, 16 )
-shape = SubResource( 10 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.3
 anims/JumpingRob = SubResource( 11 )
@@ -555,6 +532,7 @@ anims/RESET = SubResource( 14 )
 [node name="ButtonClickSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 27 )
 
-[connection signal="button_down" from="LevelSelect/Panel1/ButtonContainer/VBoxContainer/CenterContainer/SelectLevel" to="Planet" method="_on_SelectLevel_button_down"]
-[connection signal="pressed" from="LevelSelect/Panel1/ButtonContainer/VBoxContainer/HFlowContainer/LeftButton" to="Planet" method="_on_LeftButton_pressed"]
-[connection signal="pressed" from="LevelSelect/Panel1/ButtonContainer/VBoxContainer/HFlowContainer/RightButton" to="Planet" method="_on_RightButton_pressed"]
+[connection signal="button_down" from="LevelSelect/LevelPanel/ButtonContainer/VBoxContainer/CenterContainer/SelectLevel" to="Planet" method="_on_SelectLevel_button_down"]
+[connection signal="pressed" from="LevelSelect/LevelPanel/ButtonContainer/VBoxContainer/MapSelectButtons/LeftButton" to="Planet" method="_on_LeftButton_pressed"]
+[connection signal="pressed" from="LevelSelect/LevelPanel/ButtonContainer/VBoxContainer/MapSelectButtons/RightButton" to="Planet" method="_on_RightButton_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Planet" method="_on_AnimationPlayer_animation_finished"]

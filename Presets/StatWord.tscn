@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://Fonts/SunnyspellsRegular-MV9ze.otf"
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Fonts/Robfont-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 size = 100
-font_data = SubResource( 1 )
+font_data = SubResource( 3 )
 
 [node name="StatWord" type="RichTextLabel"]
 margin_right = 600.0

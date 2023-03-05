@@ -43,16 +43,28 @@ var levelDescription = [
 	{
 		"Name":"Farm",
 		"Difficulty":1,
-		"Description":"Rob's journey begins here"
+		"Description":"Rob’s soon-to-be-former home. A beautiful ranch with a wonderful assortment of flowers.",
+		"Requirements": {
+			"spelled": 10,
+			"points": 75
+		}
 	},
 	{
 		"Name":"Crossroads",
 		"Difficulty":2,
-		"Description":"Passing on the roads"
+		"Description":"The path to broadway. The crossroads among travelers that Rob must venture through to reach his destination.",
+		"Requirements": {
+			"spelled": 10,
+			"points": 75
+		}
 	},
 	{
 		"Name":"Broadway",
 		"Difficulty":3,
-		"Description":"Final destination: Broadway"
+		"Description":"The destination you’ve been waiting for. Illustrious and divine, it's the colosseum of broadway.",
+		"Requirements": {
+			"spelled": 10,
+			"points": 75
+		}
 	},
 ]

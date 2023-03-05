@@ -1,7 +1,7 @@
 extends Control
 
 onready var scenes = $Scenes
-export var transitionNext = "";
+var transitionNext = "res://Screens/LevelSelect.tscn";
 
 var text = "";
 var frameList = [];
