@@ -1,12 +1,9 @@
 extends HFlowContainer
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var fullscreenToggle = false;
 var vsyncToggle = false;
 var fxaaToggle = false;
+var saveScoresToggle = true;
 
 onready var toggle = [$Toggle, $"../VSyncSetting/Toggle", $"../FXAASetting/Toggle"]
 # Called when the node enters the scene tree for the first time.
@@ -64,3 +61,8 @@ func _toggle(tg,ind):
 	else:
 		toggle[ind].texture_normal=load("res://Assets/MainMenu/Unchecked-Box.PNG")
 
+
+func _on_SaveScores_Toggle_pressed():
+	saveScoresToggle = !saveScoresToggle;
+	UserManager.settings.saveScores = saveScoresToggle;
+	UserManager.updateFile();

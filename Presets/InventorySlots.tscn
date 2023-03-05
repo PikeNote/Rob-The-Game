@@ -6,33 +6,35 @@
 
 [node name="Inventory" type="Node2D"]
 
-[node name="InventorySlots" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
-z_index = 5
+[node name="InventorySlots" type="TextureRect" parent="."]
+margin_right = 509.0
+margin_bottom = 904.0
+mouse_filter = 2
 texture = ExtResource( 1 )
+expand = true
 script = ExtResource( 2 )
 
 [node name="AnimatedGridContainer" type="Container" parent="InventorySlots"]
-margin_left = -207.935
-margin_top = -234.264
-margin_right = 214.065
-margin_bottom = 404.736
+margin_left = 62.0
+margin_top = 237.0
+margin_right = 454.0
+margin_bottom = 829.0
 mouse_filter = 1
 script = ExtResource( 3 )
 rows = 4
-horizontal_separation = 4.5
+horizontal_separation = 11.0
 vertical_separation = 14.0
 update_time = 0.5
 update_ease = 1
 
 [node name="SpellInventory" type="Container" parent="."]
-margin_left = 117.0
-margin_top = 221.0
-margin_right = 779.003
-margin_bottom = 323.0
+margin_left = 466.0
+margin_top = 857.0
+margin_right = 1718.0
+margin_bottom = 978.0
 grow_horizontal = 0
 rect_scale = Vector2( -1, 1 )
-mouse_filter = 1
+mouse_filter = 2
 script = ExtResource( 3 )
 rows = 10
 horizontal_separation = 8.0

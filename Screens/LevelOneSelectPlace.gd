@@ -14,9 +14,9 @@ var assets = [
 ]
 
 var gameLevels = [
-	"res://Screens/GameScene.tscn",
-	"res://Screens/LevelTwo.tscn",
-	"res://Screens/LevelThree.tscn"
+	"res://Screens/Levels/LevelOne.tscn",
+	"res://Screens/Levels/LevelTwo.tscn",
+	"res://Screens/Levels/LevelThree.tscn"
 ]
 
 var actsAfter = [

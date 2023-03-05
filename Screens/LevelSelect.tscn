@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Assets/The_Sky.PNG" type="Texture" id=1]
 [ext_resource path="res://Assets/Newer_World.png" type="Texture" id=2]
@@ -339,6 +339,7 @@ text = "Leaderboard"
 fit_content_height = true
 
 [node name="Leaderboard" parent="LevelSelect/LeaderboardPanel" instance=ExtResource( 26 )]
+visible = false
 margin_left = -2.68604
 margin_top = 75.0
 margin_right = 451.314
@@ -359,10 +360,10 @@ text = "Modifiers"
 fit_content_height = true
 
 [node name="Modifiers" type="VBoxContainer" parent="LevelSelect/ModifiersPanel"]
-margin_left = 4.02917
+margin_left = 2.68603
 margin_top = 74.9998
-margin_right = 134.029
-margin_bottom = 205.0
+margin_right = 441.686
+margin_bottom = 443.0
 script = ExtResource( 23 )
 
 [node name="VowelDecrease" type="HBoxContainer" parent="LevelSelect/ModifiersPanel/Modifiers"]

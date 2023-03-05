@@ -4,22 +4,26 @@
 extents = Vector2( 7.23621, 321.923 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 523.786, 10 )
+extents = Vector2( 952.138, 10 )
 
 [node name="Edge" type="KinematicBody2D"]
 
 [node name="EdgeLeft" type="CollisionShape2D" parent="."]
-position = Vector2( -9.30761, 288.356 )
+position = Vector2( -9.30761, 522.356 )
+scale = Vector2( 1, 1.68 )
 shape = SubResource( 5 )
 
 [node name="EdgeRight" type="CollisionShape2D" parent="."]
-position = Vector2( 1031.76, 299.077 )
+position = Vector2( 1927, 546 )
+scale = Vector2( 1, 1.68 )
 shape = SubResource( 5 )
 
 [node name="EdgeTop" type="CollisionShape2D" parent="."]
-position = Vector2( 511.862, -10.7523 )
+position = Vector2( 933.862, -10.7523 )
+scale = Vector2( 1.04, 1 )
 shape = SubResource( 6 )
 
 [node name="EdgeBottom" type="CollisionShape2D" parent="."]
-position = Vector2( 512, 612 )
+position = Vector2( 937, 1082 )
+scale = Vector2( 1.04, 1 )
 shape = SubResource( 6 )

@@ -1,21 +1,16 @@
-extends Sprite
+extends TextureRect
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var invAvaliable = [];
 var invInUse = [];
 var mouse_entered = false;
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	GameReferences.inventoryRef = $"..";
 	GameReferences.pointsEarned = 0;
 	GameReferences.wordsSpelled = [];
-	
-	pass # Replace with function body.
+
 
 func _addLetter(l):
 	var letter = load("res://Presets/Letter Stuff/LetterInv.tscn").instance()
@@ -67,9 +62,9 @@ func _input(e):
 					invSlot._freeLinked();
 					invSlot.queue_free();
 				_invRemove();
-				GameReferences.pointsBox._addPoints(checkWord[1]);
-				GameReferences.wordsSpelled.append(checkWord[2]);
 				GameReferences.pointsEarned+=checkWord[1];
+				GameReferences.wordsSpelled.append(checkWord[2]);
+				GameReferences.pointsBox._updatePoints();
 				
 
 func checkWordSolve():

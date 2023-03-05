@@ -21,6 +21,7 @@ border_width_right = 2
 border_width_bottom = 2
 
 [node name="EndGameScreen" type="Node2D"]
+visible = false
 z_index = 20
 script = ExtResource( 2 )
 
@@ -53,7 +54,7 @@ margin_left = 249.0
 margin_top = 385.0
 margin_right = 1004.0
 margin_bottom = 479.0
-custom_colors/default_color = Color( 0.12549, 1, 0, 1 )
+custom_colors/default_color = Color( 0.882353, 0.172549, 0.152941, 1 )
 custom_fonts/normal_font = SubResource( 2 )
 text = "Level Passed!"
 scroll_active = false

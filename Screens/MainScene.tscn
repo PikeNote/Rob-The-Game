@@ -225,6 +225,7 @@ autoplay = true
 bus = "Music"
 
 [node name="SettingsPopupMenu" type="WindowDialog" parent="."]
+visible = true
 margin_left = 159.0
 margin_top = 83.0
 margin_right = 1803.0
@@ -466,9 +467,8 @@ margin_bottom = 828.0
 
 [node name="PageChange" type="HFlowContainer" parent="SettingsPopupMenu/CenterContainer"]
 margin_left = 207.0
-margin_top = 25.0
 margin_right = 607.0
-margin_bottom = 125.0
+margin_bottom = 150.0
 rect_min_size = Vector2( 400, 100 )
 custom_constants/hseparation = 100
 script = ExtResource( 28 )
@@ -515,6 +515,7 @@ stream = ExtResource( 31 )
 [connection signal="pressed" from="SettingsPopupMenu/Pages/PageOne/FullscreenSetting/Toggle" to="SettingsPopupMenu/Pages/PageOne/FullscreenSetting" method="_on_FullscreenToggle_pressed"]
 [connection signal="pressed" from="SettingsPopupMenu/Pages/PageOne/VSyncSetting/Toggle" to="SettingsPopupMenu/Pages/PageOne/FullscreenSetting" method="_on_VSync_Toggle_pressed"]
 [connection signal="pressed" from="SettingsPopupMenu/Pages/PageOne/FXAASetting/Toggle" to="SettingsPopupMenu/Pages/PageOne/FullscreenSetting" method="_on_FXAA_Toggle_pressed"]
+[connection signal="pressed" from="SettingsPopupMenu/Pages/PageOne/SaveLeaderboard/Toggle" to="SettingsPopupMenu/Pages/PageOne/FullscreenSetting" method="_on_SaveScores_Toggle_pressed"]
 [connection signal="value_changed" from="SettingsPopupMenu/Pages/PageTwo/VBoxContainer/MarginContainer/VolumeSlider" to="SettingsPopupMenu/Pages/PageTwo/VBoxContainer/MarginContainer/VolumeSlider" method="_on_VolumeSlider_value_changed"]
 [connection signal="value_changed" from="SettingsPopupMenu/Pages/PageTwo/VBoxContainer2/MarginContainer/MusicVolumeSlider" to="SettingsPopupMenu/Pages/PageTwo/VBoxContainer2/MarginContainer/MusicVolumeSlider" method="_on_VolumeSlider_value_changed"]
 [connection signal="value_changed" from="SettingsPopupMenu/Pages/PageTwo/VBoxContainer3/MarginContainer/EffectsVolumeSlider" to="SettingsPopupMenu/Pages/PageTwo/VBoxContainer3/MarginContainer/EffectsVolumeSlider" method="_on_VolumeSlider_value_changed"]

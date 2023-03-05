@@ -28,8 +28,8 @@ class Settings:
 		"music": 50,
 		"specialfx": 50
 	}
-	var watched = 0;
-	var completedLevels = 0;
+	var levelsCompleted = [];
+	var saveScores = true;
 	
 	# Get every property of the class and put that information into an dictionary
 	func deseralizeData():

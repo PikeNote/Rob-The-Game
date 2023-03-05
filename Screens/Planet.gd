@@ -1,13 +1,8 @@
 extends Sprite
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var velocity: Vector2
 var yValue = 0;
 
-var currentPlace = 0;
 var moveTo;
 
 var moving = false;
@@ -26,8 +21,8 @@ func _ready():
 	$"../AnimationPlayer".play("JumpingRob");
 	$"../AnimationPlayer".seek(0,true);
 	$"../AnimationPlayer".stop(true);
-	_doneMoving(0);
-	pass # Replace with function body.
+	_doneMoving(GameReferences.currentScene);
+	$".".rotation_degrees = rotationalCheckpoints[GameReferences.currentScene]
 	
 func _physics_process(delta):
 	if(moving):
@@ -51,8 +46,7 @@ func _physics_process(delta):
 func _pauseLoop():
 		$"../AnimationPlayer".get_animation("JumpingRob").loop = false;
 
-func _getCurrentPlace():
-	return currentPlace;
+
 
 func _moveNextLocation(movingBackwards:bool=false):
 	$"../LevelSelect".visible = false;
@@ -60,9 +54,9 @@ func _moveNextLocation(movingBackwards:bool=false):
 	$"../AnimationPlayer".get_animation("JumpingRob").loop = true;
 	$"../AnimationPlayer".play("JumpingRob")
 	if(!movingBackwards):
-		moveTo = currentPlace + 1;
+		moveTo = GameReferences.currentScene + 1;
 	else:
-		moveTo = currentPlace - 1;
+		moveTo = GameReferences.currentScene - 1;
 	
 
 func _doneMoving(index):	
@@ -83,44 +77,36 @@ func _doneMoving(index):
 	$"../LevelSelect/LevelPanel/Headers/LevelRequirements/Requirements".bbcode_text = "[center] Spell %s words - Get %s points[/center]" % [requirements.spelled,requirements.points];
 	
 	moving = false;
-	currentPlace = index;
+	GameReferences.currentScene = index;
+	
+	rightButton.visible = true;
+	leftButton.visible = true;
 	
 	# Disable buttons as needed if there is no next/previous level
-	if(currentPlace <= 0):
+	if(GameReferences.currentScene <= 0):
 		rightButton.visible = false;
-	else:
-		rightButton.visible = true;
-	if(currentPlace >=rotationalCheckpoints.size()-1):
+	
+	if(GameReferences.currentScene >=rotationalCheckpoints.size()-1):
 		leftButton.visible = false;
-	else:
-		leftButton.visible
-		
+	
+	# Enable the level info menu once again
 	$"../LevelSelect".visible = true;
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _on_SelectLevel_button_down():
 	$"../ButtonClickSFX".play();
-	GameReferences.currentScene = currentPlace;
 	transition.transition_in("res://Screens/TravelInProgress.tscn");
-	pass # Replace with function body.
-
 
 func _on_LeftButton_pressed():
-	$"../ButtonClickSFX".play();
-	$"../RobSideProfile".scale.x=robScale;
-	_moveNextLocation();
-	pass # Replace with function body.
-
+	# Check if the user has compelted the current level
+	if(GameParameters.levelDescription[GameReferences.currentScene].Name in UserManager.settings.levelsCompleted):
+		$"../ButtonClickSFX".play();
+		$"../RobSideProfile".scale.x=robScale;
+		_moveNextLocation();
 
 func _on_RightButton_pressed():
 	$"../ButtonClickSFX".play();
 	$"../RobSideProfile".scale.x=robScale*-1;
 	_moveNextLocation(true);
-	pass # Replace with function body.
-
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if !moving:

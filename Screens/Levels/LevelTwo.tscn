@@ -1,0 +1,102 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Screens/Timer.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Track.PNG" type="Texture" id=2]
+[ext_resource path="res://Assets/Og_road.PNG" type="Texture" id=3]
+[ext_resource path="res://Screens/Car.gd" type="Script" id=4]
+[ext_resource path="res://Presets/Rob.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Presets/InventorySlots.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Presets/PauseMenuNode.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Presets/PointsBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Presets/EndGameScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Presets/GameManager.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=12]
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 76.379, 42.1402, -76.379, -42.1402, 250, 784, -97.4491, 115.885, 97.4491, -115.885, 279, 326, -147.491, 21.0701, 147.491, -21.0701, 681, 102, -173.828, -47.4077, 173.828, 47.4077, 974, 123, 26.3376, -21.0701, -26.3376, 21.0701, 1287, 397 )
+}
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( -44.7739, 36.8726, 44.7739, -36.8726, 1121, 1240, -15.8026, 7.90128, 15.8026, -7.90128, 897, 766, 42.1402, 163.293, -42.1402, -163.293, 1027, 460, 121.153, -5.26752, -121.153, 5.26752, 734, 266, -15.8026, -173.828, 15.8026, 173.828, 479, 568, -31.6051, -7.90128, 31.6051, 7.90128, 639, 777, -23.7038, -7.90128, 23.7038, 7.90128, 716, 803, 5.26752, -7.90128, -5.26752, 7.90128, 742, 1103, 0, 0, 0, 0, 745, 1214 )
+}
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1330, -115, 0, 0, 0, 0, 1320, 33, 0, 0, 0, 0, 1302, 85, 0, 0, 0, 0, 1266, 167, 0, 0, 0, 0, 1212, 231, 0, 0, 0, 0, 1166, 289, 0, 0, 0, 0, 1104, 339, 0, 0, 0, 0, 1042, 373, 0, 0, 0, 0, 960, 415, 0, 0, 0, 0, 894, 431, 0, 0, 0, 0, 839, 396, 0, 0, 0, 0, 784, 384, 0, 0, 0, 0, 742, 387, 0, 0, 0, 0, 700, 399, 0, 0, 0, 0, 664, 415, 0, 0, 0, 0, 626, 443, 0, 0, 0, 0, 613, 476, 0, 0, 0, 0, 604, 502, 0, 0, 0, 0, 546, 523, 0, 0, 0, 0, 483, 552, 0, 0, 0, 0, 392, 587, 0, 0, 0, 0, 298, 644, 0, 0, 0, 0, 241, 693, 0, 0, 0, 0, 183, 743, 0, 0, 0, 0, 125, 808, 0, 0, 0, 0, 86, 851, 0, 0, 0, 0, 48, 912, 0, 0, 0, 0, 2, 1005, 0, 0, 0, 0, -78, 1170 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 67, 1197, 0, 0, 0, 0, 88, 1082, 0, 0, 0, 0, 101, 1022, 0, 0, 0, 0, 117, 983, 0, 0, 0, 0, 152, 924, 0, 0, 0, 0, 196, 870, 0, 0, 0, 0, 250, 812, 0, 0, 0, 0, 301, 765, 0, 0, 0, 0, 339, 740, 0, 0, 0, 0, 374, 714, 0, 0, 0, 0, 414, 690, 0, 0, 0, 0, 453, 667, 0, 0, 0, 0, 493, 643, 0, 0, 0, 0, 530, 629, 0, 0, 0, 0, 559, 622, 0, 0, 0, 0, 577, 617, 0, 0, 0, 0, 599, 616, 0, 0, 0, 0, 610, 623, 0, 0, 0, 0, 627, 637, 0, 0, 0, 0, 642, 648, 0, 0, 0, 0, 660, 666, 0, 0, 0, 0, 681, 680, 0, 0, 0, 0, 705, 690, 0, 0, 0, 0, 739, 691, 0, 0, 0, 0, 778, 687, 0, 0, 0, 0, 812, 673, 0, 0, 0, 0, 836, 662, 0, 0, 0, 0, 856, 637, 0, 0, 0, 0, 876, 611, 0, 0, 0, 0, 895, 582, 0, 0, 0, 0, 908, 554, 0, 0, 0, 0, 935, 529, 0, 0, 0, 0, 963, 512, 0, 0, 0, 0, 1024, 496, 0, 0, 0, 0, 1077, 472, 0, 0, 0, 0, 1139, 436, 0, 0, 0, 0, 1195, 388, 0, 0, 0, 0, 1250, 336, 0, 0, 0, 0, 1298, 279, 0, 0, 0, 0, 1339, 213, 0, 0, 0, 0, 1365, 172, 0, 0, 0, 0, 1392, 125, 0, 0, 0, 0, 1406, 80, 0, 0, 0, 0, 1416, 24, 0, 0, 0, 0, 1423, -35, 0, 0, 0, 0, 1426, -104 )
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Transition" parent="." instance=ExtResource( 12 )]
+scale = Vector2( 0.54, 0.565 )
+
+[node name="GameManager" parent="." instance=ExtResource( 10 )]
+
+[node name="MediumTrack" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Track" type="Sprite" parent="."]
+z_index = 3
+texture = ExtResource( 2 )
+centered = false
+
+[node name="OuterPath" type="Path2D" parent="."]
+self_modulate = Color( 0.501961, 0.6, 1, 0 )
+z_index = 7
+curve = SubResource( 3 )
+
+[node name="InnerPath" type="Path2D" parent="."]
+self_modulate = Color( 0.501961, 0.6, 1, 0 )
+z_index = 4
+curve = SubResource( 4 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Car1" type="Path2D" parent="Node2D"]
+self_modulate = Color( 1, 1, 1, 0 )
+curve = SubResource( 1 )
+
+[node name="Car2" type="Path2D" parent="Node2D"]
+self_modulate = Color( 0.501961, 0.6, 1, 0 )
+curve = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+script = ExtResource( 4 )
+
+[node name="RobCollider" parent="." instance=ExtResource( 5 )]
+position = Vector2( 757, 524 )
+rotation = -6.28319
+scale = Vector2( 1.25, 1.25 )
+z_index = 4
+
+[node name="SpawnTimer" type="Timer" parent="."]
+script = ExtResource( 1 )
+pathSpawn = "../OuterPath"
+
+[node name="SpawnTimer2" type="Timer" parent="."]
+wait_time = 2.0
+script = ExtResource( 1 )
+pathSpawn = "../InnerPath"
+
+[node name="Inventory" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1411, 3 )
+
+[node name="PointsBox" parent="." instance=ExtResource( 8 )]
+position = Vector2( 185.583, 117.524 )
+scale = Vector2( 0.376665, 0.380122 )
+
+[node name="PauseMenuNode" parent="." instance=ExtResource( 7 )]
+position = Vector2( -9, 74 )
+
+[node name="EndGameScreen" parent="." instance=ExtResource( 9 )]
+position = Vector2( 0, 2 )
