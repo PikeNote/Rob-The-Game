@@ -70,11 +70,9 @@ func _physics_process(delta):
 			else: 
 				GameReferences.endGame = false;
 				levelSwitching=true;
-<<<<<<< HEAD
+
 				var levelName = GameParameters.levelDescription[GameReferences.currentScene].Name
-=======
-				var levelName = GameParameters.levelDescription[GameReferences.currentScene].Name;
->>>>>>> 1e320e284b854dadac4f5ad857ba3d4fb3cb9196
+
 				if(!(levelName in UserManager.settings.levelsWatched) && levelName in UserManager.settings.levelsCompleted):
 					UserManager.settings.levelsWatched.append(levelName); 
 					UserManager.updateFile();
