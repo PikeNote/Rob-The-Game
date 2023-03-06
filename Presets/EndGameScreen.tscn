@@ -22,26 +22,30 @@ border_width_right = 2
 border_width_bottom = 2
 
 [node name="EndGameScreen" type="Node2D"]
-visible = false
 z_index = 20
 script = ExtResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Tween" type="Tween" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 margin_right = 1920.0
 margin_bottom = 1080.0
 color = Color( 0, 0, 0, 0.552941 )
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="CanvasLayer"]
 margin_right = 1920.0
 margin_bottom = 1080.0
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
 margin_right = 1920.0
 margin_bottom = 1080.0
 texture = ExtResource( 1 )
 expand = true
 
-[node name="WordsSpelled" type="RichTextLabel" parent="Control"]
+[node name="WordsSpelled" type="RichTextLabel" parent="CanvasLayer/Control"]
 margin_left = 249.0
 margin_top = 486.0
 margin_right = 1004.0
@@ -50,7 +54,7 @@ custom_fonts/normal_font = SubResource( 2 )
 text = "Words Spelled: 0"
 scroll_active = false
 
-[node name="LevelStatus" type="RichTextLabel" parent="Control"]
+[node name="LevelStatus" type="RichTextLabel" parent="CanvasLayer/Control"]
 margin_left = 249.0
 margin_top = 385.0
 margin_right = 1004.0
@@ -60,7 +64,7 @@ custom_fonts/normal_font = SubResource( 2 )
 text = "Level Passed!"
 scroll_active = false
 
-[node name="PointsEarned" type="RichTextLabel" parent="Control"]
+[node name="PointsEarned" type="RichTextLabel" parent="CanvasLayer/Control"]
 margin_left = 248.0
 margin_top = 594.0
 margin_right = 1003.0
@@ -69,7 +73,7 @@ custom_fonts/normal_font = SubResource( 2 )
 text = "Points Earned: 0"
 scroll_active = false
 
-[node name="WordsSpelledTitle" type="RichTextLabel" parent="Control"]
+[node name="WordsSpelledTitle" type="RichTextLabel" parent="CanvasLayer/Control"]
 margin_left = 1088.0
 margin_top = 361.0
 margin_right = 1693.0
@@ -78,7 +82,7 @@ custom_fonts/normal_font = SubResource( 2 )
 text = "Words Spelled"
 scroll_active = false
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control"]
 margin_left = 1088.0
 margin_top = 445.0
 margin_right = 1679.0
@@ -86,7 +90,7 @@ margin_bottom = 799.0
 mouse_filter = 2
 custom_styles/bg = SubResource( 5 )
 
-[node name="WordsSpelledContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
+[node name="WordsSpelledContainer" type="VBoxContainer" parent="CanvasLayer/Control/ScrollContainer"]
 margin_left = 2.0
 margin_top = 4.0
 margin_right = 589.0
@@ -95,7 +99,7 @@ rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ExitButton" type="TextureButton" parent="Control"]
+[node name="ExitButton" type="TextureButton" parent="CanvasLayer/Control"]
 margin_left = 254.0
 margin_top = 672.0
 margin_right = 404.0
@@ -106,7 +110,7 @@ texture_click_mask = ExtResource( 3 )
 expand = true
 script = ExtResource( 4 )
 
-[node name="RestartButton" type="TextureButton" parent="Control"]
+[node name="RestartButton" type="TextureButton" parent="CanvasLayer/Control"]
 margin_left = 421.0
 margin_top = 672.0
 margin_right = 571.0
@@ -117,13 +121,11 @@ texture_click_mask = ExtResource( 3 )
 expand = true
 script = ExtResource( 4 )
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
 margin_left = 1051.0
 margin_top = 451.0
 margin_right = 1691.0
 margin_bottom = 810.0
 
-[node name="Tween" type="Tween" parent="."]
-
-[connection signal="pressed" from="Control/ExitButton" to="." method="_on_ExitButton_pressed"]
-[connection signal="pressed" from="Control/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/RestartButton" to="." method="_on_RestartButton_pressed"]
