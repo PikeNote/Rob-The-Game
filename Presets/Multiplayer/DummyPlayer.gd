@@ -17,16 +17,17 @@ func _changeOverUI(b):
 #func _process(delta):
 #	pass
 func _physics_process(delta):
-	if(not $Chain.visible):
-		var angle = ($"../../Player2MousePos".position - self.global_position).angle()
-		self.global_rotation = lerp_angle(self.global_rotation, angle-(PI/2), delta)
+	if(not $Lasso.visible):
+		self.look_at($"../../Player2MousePos".position)
+		#var angle = ($"../../Player2MousePos".position - self.global_position).angle()
+		#self.global_rotation = lerp_angle(self.global_rotation, angle-(PI/2), delta)
 		#$".".look_at($"../../Player2MousePos".position)
 		#$".".rotation_degrees -= 90
 
 func _shoot(pos):
-	$Chain.shoot(pos);
+	$Lasso.shoot(pos);
 
 func _release():
-	$Chain.release();
+	$Lasso.release();
 
 

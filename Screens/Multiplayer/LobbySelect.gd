@@ -23,5 +23,4 @@ func _lobbyCreated():
 	transition.transition_in("res://Screens/Multiplayer/Lobby.tscn");
 
 func _on_JoinLobby_pressed():
-	MultiplayerWebsocket._joinLobby($TextEdit.text)
-	pass # Replace with function body.
+	MultiplayerWebsocket._joinLobby($VBoxContainer/LobbyCode/TextEdit.text)

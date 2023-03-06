@@ -17,24 +17,25 @@ var rng = RandomNumberGenerator.new()
 var multipliers = [];
 func _ready():
 	timeTotal = (timeInMinutes*60)+timeInSeconds;
-	for n in UserManager.settings.modifiers:
-		if(UserManager.settings.modifiers[n]):
-			multipliers.append(GameParameters.modifiers[n].points_multiplier);
-			match(n):
-				"VowelDecrease":
-					vowelDecrease = true;
-					var i = 0;
-					for r in GameParameters.modifiers[n].modifier_amount:
-						for chance in r.chance:
-							letterRates.append(i);
-						letterSpawns.append(r.letters);
-						i+=1;
-				"LetterSpeedup":
-					offsetSpeed = 200 * GameParameters.modifiers[n].modifier_amount;
-					pass
-				"TimeDecrease":
-					timeTotal = ceil(timeTotal * GameParameters.modifiers[n].modifier_amount);
-					pass
+	if (MultiplayerWebsocket.lobbyCode != ""):
+		for n in UserManager.settings.modifiers:
+			if(UserManager.settings.modifiers[n]):
+				multipliers.append(GameParameters.modifiers[n].points_multiplier);
+				match(n):
+					"VowelDecrease":
+						vowelDecrease = true;
+						var i = 0;
+						for r in GameParameters.modifiers[n].modifier_amount:
+							for chance in r.chance:
+								letterRates.append(i);
+							letterSpawns.append(r.letters);
+							i+=1;
+					"LetterSpeedup":
+						offsetSpeed = 200 * GameParameters.modifiers[n].modifier_amount;
+						pass
+					"TimeDecrease":
+						timeTotal = ceil(timeTotal * GameParameters.modifiers[n].modifier_amount);
+						pass
 	var multiplier = 1;
 	for n in multipliers:
 		multiplier *= n;

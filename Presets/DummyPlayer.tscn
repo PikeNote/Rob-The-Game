@@ -27,7 +27,7 @@ texture = ExtResource( 2 )
 normal_map = ExtResource( 4 )
 script = ExtResource( 3 )
 
-[node name="Chain" type="Node2D" parent="Rob"]
+[node name="Lasso" type="Node2D" parent="Rob"]
 scale = Vector2( 6.73358, 7.09332 )
 z_index = -1
 script = ExtResource( 7 )
@@ -35,7 +35,7 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 
-[node name="Links" type="Sprite" parent="Rob/Chain"]
+[node name="Links" type="Sprite" parent="Rob/Lasso"]
 position = Vector2( -4, 3 )
 scale = Vector2( 0.717482, 0.688491 )
 texture = ExtResource( 1 )
@@ -44,21 +44,21 @@ offset = Vector2( -8, 14 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 28, 1000 )
 
-[node name="Tip" type="KinematicBody2D" parent="Rob/Chain"]
+[node name="Tip" type="KinematicBody2D" parent="Rob/Lasso"]
 collision_layer = 4
 
-[node name="Hook" type="Sprite" parent="Rob/Chain/Tip"]
+[node name="Hook" type="Sprite" parent="Rob/Lasso/Tip"]
 position = Vector2( 3, -35 )
 scale = Vector2( 0.07, 0.07 )
 texture = ExtResource( 6 )
 offset = Vector2( 0, 8 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rob/Chain/Tip"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rob/Lasso/Tip"]
 position = Vector2( -1, -38 )
 scale = Vector2( 5.03955, 4.86518 )
 shape = SubResource( 2 )
 
-[node name="Letter" type="Sprite" parent="Rob/Chain/Tip"]
+[node name="Letter" type="Sprite" parent="Rob/Lasso/Tip"]
 visible = false
 position = Vector2( -1, -37 )
 scale = Vector2( 0.04, 0.04 )

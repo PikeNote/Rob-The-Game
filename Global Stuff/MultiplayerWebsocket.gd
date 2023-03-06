@@ -48,6 +48,7 @@ func _gameData(type, payload):
 
 func _closed(was_clean = false):
 	socketOpened = false;
+	lobbyCode = "";
 	print("Closed, clean: ", was_clean)
 	set_process(false)
 
