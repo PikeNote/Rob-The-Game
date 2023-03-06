@@ -22,6 +22,7 @@ _global_script_class_icons={
 
 config/name="Rob"
 run/main_scene="res://Screens/MainScene.tscn"
+boot_splash/show_image=false
 boot_splash/image="res://Assets/Splash_Screen.png"
 config/icon="res://Assets/Game_Logo.PNG"
 config/windows_native_icon="res://Assets/icon.ico"
