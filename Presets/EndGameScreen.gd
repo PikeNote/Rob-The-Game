@@ -27,6 +27,7 @@ func _endGame():
 	$CanvasLayer/Control/PointsEarned.text="Points Spelled: " + str(pointsEarned);
 	
 	var currentScene = GameReferences.currentScene;
+
 	
 	var requiredWordSpelled = GameParameters.levelDescription[currentScene].Requirements.spelled;
 	var requiredPointsGained = GameParameters.levelDescription[currentScene].Requirements.points;
@@ -35,7 +36,7 @@ func _endGame():
 	# Check if the requirees for the level are met before passing/failing
 	if(wordsSpelled >= requiredWordSpelled && pointsEarned >= requiredPointsGained):
 		$CanvasLayer/Control/LevelStatus.text = "Level Passed!"
-		$CanvasLayer/Control/LevelStatus.set("theme_override_colors/custom_colors/default_color", Color(32,255,0));
+		$CanvasLayer/Control/LevelStatus.set("custom_colors/default_color", Color("#20FF00"));
 		
 		if(!(levelName in UserManager.settings.levelsCompleted)):
 			UserManager.settings.levelsCompleted.append(levelName);
@@ -46,7 +47,7 @@ func _endGame():
 			saveScores();
 	else:
 		$CanvasLayer/Control/LevelStatus.text = "Level Failed!"
-		$CanvasLayer/Control/LevelStatus.set("theme_override_colors/custom_colors/default_color", Color(225,44,39));
+		$CanvasLayer/Control/LevelStatus.set("custom_colors/default_color", Color("#E12C27"));
 
 	$CanvasLayer.visible = true;
 	tween.interpolate_property($CanvasLayer/Control, "rect_position", $CanvasLayer/Control.rect_position, Vector2($CanvasLayer/Control.rect_position.x, normalYPosition), scaleUpTime, Tween.TRANS_LINEAR, Tween.EASE_IN)
