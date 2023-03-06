@@ -19,6 +19,7 @@ func _changeOverUI(b):
 func _physics_process(delta):
 	if(not $Lasso.visible):
 		self.look_at($"../../Player2MousePos".position)
+		self.rotation_degrees -= 90
 		#var angle = ($"../../Player2MousePos".position - self.global_position).angle()
 		#self.global_rotation = lerp_angle(self.global_rotation, angle-(PI/2), delta)
 		#$".".look_at($"../../Player2MousePos".position)
