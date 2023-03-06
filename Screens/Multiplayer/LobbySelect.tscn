@@ -106,11 +106,10 @@ custom_fonts/font = SubResource( 4 )
 max_length = 8
 
 [node name="ExitButton" parent="." instance=ExtResource( 6 )]
-margin_left = 22.0
-margin_top = 21.0
-margin_right = 222.0
-margin_bottom = 221.0
-rect_scale = Vector2( 0.75, 0.75 )
+margin_left = 12.0
+margin_top = 14.0
+margin_right = 157.0
+margin_bottom = 159.0
 
 [connection signal="pressed" from="VBoxContainer/CreateLobby/CreateLobbyButton" to="." method="_on_CreateLobby_pressed"]
 [connection signal="pressed" from="VBoxContainer/JoinLobby/JonLobbyButton" to="." method="_on_JoinLobby_pressed"]

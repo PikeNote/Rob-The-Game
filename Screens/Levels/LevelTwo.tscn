@@ -75,7 +75,7 @@ wait_time = 2.0
 autostart = true
 script = ExtResource( 4 )
 
-[node name="RobCollider" parent="." instance=ExtResource( 5 )]
+[node name="Rob" parent="." instance=ExtResource( 5 )]
 position = Vector2( 757, 524 )
 rotation = -6.28319
 scale = Vector2( 1.25, 1.25 )

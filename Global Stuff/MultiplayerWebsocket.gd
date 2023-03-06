@@ -38,10 +38,20 @@ func _connectToServer():
 # Example received data template
 """
 {
-	
+	"type":"lobbyCreated",
+	"payload": {
+		"game_id":"0123516"
+	}
 }
 """
-
+"""
+{
+	"type":"lobbyJoined",
+	"payload": {
+		"name":"nameOfUserJoining"
+	}
+}
+"""
 func _on_data():
 	var packet:PoolByteArray  = _client.get_peer(1).get_packet()
 	var receivedData: Dictionary = JSON.parse(packet.get_string_from_utf8()).result
@@ -53,15 +63,12 @@ func _on_data():
 			lobbyJoined(receivedData.payload.name);
 		"gameData":
 			gameData(receivedData.payload)
-			pass;
 		"lobbyStatus":
 			lobbyJoin(receivedData.payload)
 		"gameEnded":
-			pass;
+			gameEnded();
 		"lobbyStarted":
-			if(lobbyScreen != null):
-				lobbyScreen._transition_to_arena();
-
+			lobbyStarted();
 # On connection to the server
 func _connected(proto = ""):
 	print("Connected websocket to server!")
@@ -76,6 +83,10 @@ func _send_data(data):
 func lobbyCreated():
 	if(lobbySelect!=null):
 		lobbySelect._lobbyCreated();
+
+# Fnuctions relating to ending the game
+func gameEnded():
+	pass;
 
 func lobbyJoined(n):
 	if(lobbyScreen!=null):
@@ -92,6 +103,9 @@ func lobbyJoin(payload):
 			lobbySelect._lobbyCreated();
 		pass
 
+func lobbyStarted():
+	if(lobbyScreen != null):
+		lobbyScreen._transition_to_arena();
 
 func _closed(was_clean = false):
 	socketOpened = false;
@@ -118,7 +132,10 @@ func _letterSpawned(l,i):
 # Packets to start the game
 func _gameStarted():
 	_send_data({"type":"lobbyStarted","payload":{"match_uuid":lobbyCode}});
-
+	
+# Packets to leave the lobby
+func _leaveLobby():
+	_send_data({"type":"lobbyLeave","payload":{"match_uuid":lobbyCode}});
 # Switch case statement to process the game data according
 # This includes: mouse movement data, mouse clicking data, mouse release date, letter spawning data
 func gameData(payload):

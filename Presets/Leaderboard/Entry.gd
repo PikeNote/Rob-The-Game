@@ -5,7 +5,7 @@ func _setName(n):
 	$NamePlace/Name.text = n;
 
 func _setPosition(p):
-	$NamePlace/Position.text = str(p);
+	$NamePlace/Position.text = "#" + str(p);
 
 """
 "VowelDecrease":false,

@@ -33,10 +33,15 @@ margin_top = 44.0
 margin_right = 454.0
 margin_bottom = 44.0
 
-[node name="Entries" type="VBoxContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 margin_top = 48.0
 margin_right = 454.0
-margin_bottom = 612.0
+margin_bottom = 608.0
+rect_min_size = Vector2( 454, 560 )
+
+[node name="Entries" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 454.0
+margin_bottom = 560.0
 size_flags_vertical = 3
 
-[node name="Entry" parent="Entries" instance=ExtResource( 2 )]
+[node name="Entry" parent="ScrollContainer/Entries" instance=ExtResource( 2 )]

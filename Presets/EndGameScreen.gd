@@ -1,9 +1,5 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var normalYPosition;
 export var scaleUpTime:int = 1;
 onready var tween = $Tween;

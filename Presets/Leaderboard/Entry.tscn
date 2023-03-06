@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fonts/LevelSelect/ModifierTitle.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/LevelSelect/Modifiers/Letter_SpeedUp_Modifer.png" type="Texture" id=2]
 [ext_resource path="res://Assets/LevelSelect/Modifiers/LessVowels_Modifer.png" type="Texture" id=3]
 [ext_resource path="res://Assets/LevelSelect/Modifiers/Time_Decrease_Modifer.png" type="Texture" id=4]
 [ext_resource path="res://Presets/Leaderboard/Entry.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFontData" id=17]
+font_path = "res://Fonts/Robfont-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=18]
+size = 35
+font_data = SubResource( 17 )
 
 [node name="Entry" type="VBoxContainer"]
 margin_right = 454.0
@@ -25,11 +32,14 @@ text = "#1"
 
 [node name="Name" type="RichTextLabel" parent="NamePlace"]
 margin_left = 74.0
+margin_top = 10.0
 margin_right = 454.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 380, 50 )
-custom_fonts/normal_font = ExtResource( 1 )
+margin_bottom = 40.0
+rect_min_size = Vector2( 380, 30 )
+size_flags_vertical = 4
+custom_fonts/normal_font = SubResource( 18 )
 text = "PlayerName#0000"
+scroll_active = false
 
 [node name="ModifiersScore" type="HBoxContainer" parent="."]
 margin_top = 43.0
@@ -72,3 +82,4 @@ rect_min_size = Vector2( 178, 50 )
 custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[right]100[/right]"
+text = "100"

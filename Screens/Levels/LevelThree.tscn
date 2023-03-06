@@ -36,7 +36,7 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 284, 1077, -15.1036, 16.2778, 15.1036, -16.2778, 459, 789, -26.8669, 158.402, 26.8669, -158.402, 367, 583, 4.31716, -4.30188, -4.31716, 4.30188, 572, 417, -56.0411, -108.424, 56.0411, 108.424, 754, 517, 0, 0, 0, 0, 764, 699, 85.292, -15.7288, -85.292, 15.7288, 628, 814, 3.57165, -90.8787, -3.57165, 90.8787, 535, 880, 0, 0, 0, 0, 499, 1151 )
 }
 
-[node name="Node2D2" type="Node2D"]
+[node name="LevelThree" type="Node2D"]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -202,7 +202,7 @@ script = ExtResource( 6 )
 pathSpawn = "../Paths/OuterPath"
 modulate = "a3a3a3"
 
-[node name="RobCollider" parent="." instance=ExtResource( 5 )]
+[node name="Rob" parent="." instance=ExtResource( 5 )]
 position = Vector2( 563, 621 )
 
 [node name="Light2D2" type="Light2D" parent="."]

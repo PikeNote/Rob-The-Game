@@ -13,7 +13,7 @@ func _loadData(leaderboardName):
 	for score in SilentWolf.Scores.scores:
 		print(score)
 		var entry = leaderboardEntry.instance();
-		$Entries.add_child(entry);
+		$ScrollContainer/Entries.add_child(entry);
 		
 		entry._setName(str(score.player_name))
 		entry._setScore(score.score)
@@ -24,5 +24,5 @@ func _loadData(leaderboardName):
 	$CenterContainer.visible = false;
 
 func _clearLeaderboard():
-	for entry in $Entries.get_children():
+	for entry in $ScrollContainer/Entries.get_children():
 		entry.free();
