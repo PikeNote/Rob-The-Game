@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/Tutorial Images/MultiplayerMainSscreen.png" type="Texture" id=1]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://Assets/Tutorial Images/Modifiers1.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Actual_Tab.png" type="Texture" id=12]
 [ext_resource path="res://Fonts/MainMenu/LevelSelect.tres" type="DynamicFont" id=13]
-[ext_resource path="res://Music/lclick-13694.mp3" type="AudioStream" id=14]
 [ext_resource path="res://Screens/TabContainer.gd" type="Script" id=15]
 [ext_resource path="res://Music/Kevin MacLeod - Carefree.mp3" type="AudioStream" id=16]
 [ext_resource path="res://Assets/Tutorial_Screen.png" type="Texture" id=17]
@@ -80,7 +79,6 @@ custom_styles/panel = SubResource( 2 )
 script = ExtResource( 15 )
 
 [node name="How To Play" type="Tabs" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 79.0
@@ -378,6 +376,7 @@ texture = ExtResource( 22 )
 expand = true
 
 [node name="Multiplayer" type="Tabs" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 79.0
@@ -468,9 +467,6 @@ expand = true
 [node name="CenterContainer" type="CenterContainer" parent="TabContainer/Multiplayer"]
 margin_right = 40.0
 margin_bottom = 40.0
-
-[node name="ButtonClickSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
 
 [node name="TutorialMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )

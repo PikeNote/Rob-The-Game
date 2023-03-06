@@ -11,8 +11,11 @@ export var buttonName:String;
 func _ready():
 	connect("mouse_entered", self, "_on_Mouse_Enter")
 	connect("mouse_exited", self, "_on_Mouse_Leave")
-
+	connect("pressed", self, "_on_Mouse_Pressed")
 	buttonLabel.visible = false;
+
+func _on_Mouse_Pressed():
+	AudioController._playClick();
 
 func _on_Mouse_Enter():
 	modulate = Color("e5e5e5")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Assets/MainMenu/Main_Menu.PNG" type="Texture" id=1]
 [ext_resource path="res://Presets/HoverButton.gd" type="Script" id=2]
@@ -30,7 +30,6 @@
 [ext_resource path="res://Screens/PageChange.gd" type="Script" id=28]
 [ext_resource path="res://Screens/NameChange.gd" type="Script" id=29]
 [ext_resource path="res://Screens/HomeButtons.gd" type="Script" id=30]
-[ext_resource path="res://Music/lclick-13694.mp3" type="AudioStream" id=31]
 
 [sub_resource type="DynamicFontData" id=12]
 font_path = "res://Fonts/Robfont-Regular.ttf"
@@ -225,6 +224,7 @@ autoplay = true
 bus = "Music"
 
 [node name="SettingsPopupMenu" type="WindowDialog" parent="."]
+visible = true
 margin_left = 159.0
 margin_top = 83.0
 margin_right = 1803.0
@@ -294,6 +294,7 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 texture_normal = ExtResource( 23 )
 expand = true
+script = ExtResource( 2 )
 
 [node name="VSyncSetting" type="HFlowContainer" parent="SettingsPopupMenu/Pages/PageOne"]
 margin_top = 166.0
@@ -315,6 +316,7 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 texture_normal = ExtResource( 23 )
 expand = true
+script = ExtResource( 2 )
 
 [node name="FXAASetting" type="HFlowContainer" parent="SettingsPopupMenu/Pages/PageOne"]
 margin_top = 220.0
@@ -336,6 +338,7 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 texture_normal = ExtResource( 23 )
 expand = true
+script = ExtResource( 2 )
 
 [node name="SaveLeaderboard" type="HFlowContainer" parent="SettingsPopupMenu/Pages/PageOne"]
 margin_top = 274.0
@@ -358,6 +361,7 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 texture_normal = ExtResource( 23 )
 expand = true
+script = ExtResource( 2 )
 
 [node name="PageTwo" type="VBoxContainer" parent="SettingsPopupMenu/Pages"]
 visible = false
@@ -466,9 +470,8 @@ margin_bottom = 828.0
 
 [node name="PageChange" type="HFlowContainer" parent="SettingsPopupMenu/CenterContainer"]
 margin_left = 207.0
-margin_top = 25.0
 margin_right = 607.0
-margin_bottom = 125.0
+margin_bottom = 150.0
 rect_min_size = Vector2( 400, 100 )
 custom_constants/hseparation = 100
 script = ExtResource( 28 )
@@ -502,9 +505,6 @@ texture_normal = ExtResource( 7 )
 texture_click_mask = ExtResource( 17 )
 expand = true
 script = ExtResource( 2 )
-
-[node name="ButtonClickSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 31 )
 
 [connection signal="pressed" from="NameChange/EditNameButton" to="NameChange" method="_on_EditNameButton_pressed"]
 [connection signal="pressed" from="HomeButtons/HBoxContainer/PlayButton" to="HomeButtons" method="_on_PlayButton_pressed"]

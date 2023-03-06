@@ -116,18 +116,15 @@ func _doneMoving(index):
 	$"../LevelSelect".visible = true;
 
 func _on_SelectLevel_button_down():
-	$"../ButtonClickSFX".play();
 	transition.transition_in("res://Screens/TravelInProgress.tscn");
 
 func _on_LeftButton_pressed():
 	# Check if the user has compelted the current level
 	if(GameParameters.levelDescription[GameReferences.currentScene].Name in UserManager.settings.levelsCompleted):
-		$"../ButtonClickSFX".play();
 		$"../RobSideProfile".scale.x=robScale;
 		_moveNextLocation();
 
 func _on_RightButton_pressed():
-	$"../ButtonClickSFX".play();
 	$"../RobSideProfile".scale.x=robScale*-1;
 	_moveNextLocation(true);
 

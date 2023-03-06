@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Music/lclick-13694.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Screens/Pause.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Pause_Menu.PNG" type="Texture" id=3]
 [ext_resource path="res://Assets/Pause_Icon.PNG" type="Texture" id=4]
@@ -100,9 +99,6 @@ expand = true
 script = ExtResource( 9 )
 
 [node name="Tween" type="Tween" parent="."]
-
-[node name="ButtonClickSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 1 )
 
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/Quit" to="." method="_on_Quit_pressed"]

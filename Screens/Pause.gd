@@ -9,7 +9,6 @@ var nextVector = Vector2(1,1)
 
 var is_paused = false
 func _on_Pause_pressed():
-	$ButtonClickSFX.play();
 	changePause()
 	$CanvasLayer/ColorRect.visible = true;
 	_tpm.popup_centered()
@@ -29,7 +28,6 @@ func _on_Tween_tween_completed(object, key):
 		tween.start();
 		
 func _on_Resume_pressed():
-	$ButtonClickSFX.play();
 	$CanvasLayer/ColorRect.visible = false;
 	tween.stop_all();
 	if _tpm == null:
@@ -39,7 +37,6 @@ func _on_Resume_pressed():
 		changePause()
 	
 func _on_Quit_pressed():
-	$ButtonClickSFX.play();
 	$"../Transition".transition_in("res://Screens/MainScene.tscn")
 	pass # Replace with function body.
 

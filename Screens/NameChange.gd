@@ -13,7 +13,6 @@ var editMode = false;
 var storedName = "";
 
 func _on_EditNameButton_pressed():
-	$"../ButtonClickSFX".play();
 	editMode = !editMode;
 	nameInput.editable = editMode
 	if(editMode):
