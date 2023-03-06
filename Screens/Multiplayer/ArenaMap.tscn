@@ -26,6 +26,8 @@ script = ExtResource( 7 )
 
 [node name="Transition" parent="." instance=ExtResource( 6 )]
 
+[node name="EndGameScreen" parent="." instance=ExtResource( 3 )]
+
 [node name="Arena" type="Sprite" parent="."]
 texture = ExtResource( 4 )
 centered = false
@@ -59,7 +61,5 @@ curve = SubResource( 2 )
 
 [node name="MouseTimer" type="Timer" parent="."]
 wait_time = 0.05
-
-[node name="EndGameScreen" parent="." instance=ExtResource( 3 )]
 
 [connection signal="timeout" from="MouseTimer" to="." method="_on_MouseTimer_timeout"]
