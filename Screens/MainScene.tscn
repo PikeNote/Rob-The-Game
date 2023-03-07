@@ -13,7 +13,7 @@
 [ext_resource path="res://Assets/MasterVolume.tres" type="StyleBox" id=11]
 [ext_resource path="res://Assets/Grabber.tres" type="StyleBox" id=12]
 [ext_resource path="res://Assets/Rob slider grabber.png" type="Texture" id=13]
-[ext_resource path="res://MusicSlider.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/MusicSlider.gd" type="Script" id=14]
 [ext_resource path="res://Presets/Transition.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Button_Mask.PNG" type="BitMap" id=17]
 [ext_resource path="res://Fonts/MainMenu/MenuButtons.tres" type="DynamicFont" id=18]

@@ -26,6 +26,10 @@ boot_splash/image="res://Assets/Splash_Screen.png"
 config/icon="res://Assets/Game_Logo.PNG"
 config/windows_native_icon="res://Assets/icon.ico"
 
+[audio]
+
+default_bus_layout="res://Audio/default_bus_layout.tres"
+
 [autoload]
 
 Words="*res://Global Stuff/WordManager.gd"
