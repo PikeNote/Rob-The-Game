@@ -3,7 +3,7 @@ Follow Rob on his journey through an avalanche of letters on his journey on Broa
 
 ## Installation
 
-You can down the game executable from our [releases](https://github.com/PikeNote/fbla-babey/releases/) page or in the [export](https://github.com/PikeNote/fbla-babey/tree/master/export) folder! Simply place the game anywhere on your system and double click it to run.
+You can down the game executable from our [releases](https://github.com/PikeNote/fbla-babey/releases/) page! Simply place the game anywhere on your system and double click it to run.
 
 ## Built with
 [GoDot](https://github.com/godotengine/godot) - Game Engine powering the game. The main scripting language is GDScript used throughout the code.
