@@ -35,40 +35,6 @@ func _connectToServer():
 		set_process(true)
 		return true
 
-# Example received data template
-"""
-{
-	"type":"lobbyCreated",
-	"payload": {
-		"game_id":"0123516"
-	}
-}
-"""
-"""
-{
-	"type":"lobbyJoined",
-	"payload": {
-		"name":"nameOfUserJoining"
-	}
-}
-"""
-func _on_data():
-	var packet:PoolByteArray  = _client.get_peer(1).get_packet()
-	var receivedData: Dictionary = JSON.parse(packet.get_string_from_utf8()).result
-	match(receivedData.type):
-		"lobbyCreated":
-			lobbyCode = receivedData.payload.game_id; 
-			lobbyCreated();
-		"lobbyJoined":
-			lobbyJoined(receivedData.payload.name);
-		"gameData":
-			gameData(receivedData.payload)
-		"lobbyStatus":
-			lobbyJoin(receivedData.payload)
-		"gameEnded":
-			gameEnded();
-		"lobbyStarted":
-			lobbyStarted();
 # On connection to the server
 func _connected(proto = ""):
 	print("Connected websocket to server!")
@@ -78,16 +44,81 @@ func _connected(proto = ""):
 func _send_data(data):
 	var sendData:String = JSON.print(data)
 	_client.get_peer(1).put_packet(sendData.to_utf8())
+# Example received data template
+
+
+func _on_data():
+	var packet:PoolByteArray  = _client.get_peer(1).get_packet()
+	var receivedData: Dictionary = JSON.parse(packet.get_string_from_utf8()).result
+	
+	match(receivedData.type):
+		"lobbyCreated":
+			# Lobby creation successful with a returned lobby code
+			lobbyCode = receivedData.payload.game_id; 
+			lobbyCreated();
+			"""
+			{
+				"type":"lobbyCreated",
+				"payload": {
+					"game_id":"0123516"
+				}
+			}
+			"""
+		"lobbyJoined":
+			# User joined a lobby; emitted to all other players in the lobby
+			"""
+			{
+				"type":"lobbyJoined",
+				"payload": {
+					"name":"nameOfUserJoining"
+				}
+			}
+			"""
+			lobbyJoined(receivedData.payload.name);
+		"gameData":
+			# Game data reuqests vary on what is being receive/tpeo of reuqest
+			# Refer to switch statemnt below for more clarification
+			"""
+			{
+				"type":"gameData",
+				"payload": {
+					"type":"mouseMoved",
+					"payload": [124,124]
+				}
+			}
+			"""
+			gameData(receivedData.payload)
+			
+		"lobbyStatus":
+			# Lobby sucessfully joined; sends back a list of players to be processed and the match ID
+			"""
+			{
+				"type":"lobbyStatus",
+				"payload":{
+					"status":1,
+					"playerNames":['Player1#2012','Player2#1222'],
+					"match_uuid":"416123"
+				}
+			}
+			"""
+			lobbyJoin(receivedData.payload)
+		"gameEnded":
+			gameEnded();
+		"lobbyStarted":
+			# Simple request to start the game on both clients
+			#{"type":"lobbyStarted"}
+			lobbyStarted();
+
+
 	
 # Functions related to joining/creating a lobby and calling the proper functions
+# Transiiton to the lobby screen; pass and execute functions on external scenes
 func lobbyCreated():
 	if(lobbySelect!=null):
 		lobbySelect._lobbyCreated();
 
-# Fnuctions relating to ending the game
-func gameEnded():
-	pass;
-
+# Add player label based on the data redeived onto the lobby screen
+# Check references of the lobby selection screen being properly referenced
 func lobbyJoined(n):
 	if(lobbyScreen!=null):
 		lobbyScreen._addPlayer(n);
@@ -106,6 +137,11 @@ func lobbyJoin(payload):
 func lobbyStarted():
 	if(lobbyScreen != null):
 		lobbyScreen._transition_to_arena();
+
+
+# Fnuctions relating to ending the game
+func gameEnded():
+	pass;
 
 func _closed(was_clean = false):
 	socketOpened = false;

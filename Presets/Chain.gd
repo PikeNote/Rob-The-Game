@@ -56,16 +56,17 @@ func _physics_process(_delta: float) -> void:
 		else:
 			collision = $Tip.move_and_collide(direction * SPEED);
 		if collision:
+			print(collision.collider.name)
 			if(collision.collider.name=="LetterKin" && flying):
 				$HookedSFX.play()
-				hooked = true	# Got something!
+				hooked = true
 				flying = false	
 				currentLetter = collision.collider.get_parent()._getLetter();
 				$Tip/Letter.texture=load("res://Assets//Letters//Letter_"+currentLetter+".png")
 				$Tip/Letter.visible=true;
 				collision.collider.get_parent().queue_free();
 				$"../../CollisionShape2D".disabled=false;
-			elif (collision.collider.name=="Rob" && hooked):
+			elif (collision.collider.name==$"../..".name && hooked):
 				GameReferences.inventoryRef.get_node("InventorySlots")._addLetter(currentLetter);
 				hooked = false;
 				$Tip/Letter.visible=false;
