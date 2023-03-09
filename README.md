@@ -1,10 +1,12 @@
 <p align="center">
-  <img width="460" height="460" src="https://user-images.githubusercontent.com/56088716/224114284-4077b265-e733-4733-801b-f4145e896735.png">
+  <img width="260" height="260" src="https://user-images.githubusercontent.com/56088716/224114284-4077b265-e733-4733-801b-f4145e896735.png">
 </p>
 
 
-# Rob The Game
+<h1 align="center">Rob the Game</h1>
+<p align="center">
 Follow Rob on his journey through an avalanche of letters on his journey on Broadway! Fight hoards of letters as they come down the track, while you have to think quick on your feet to spell as many words as possible. What to challenge yourself? Enable some of the modifiers to make it harder!
+</p>
 
 ## Installation
 
