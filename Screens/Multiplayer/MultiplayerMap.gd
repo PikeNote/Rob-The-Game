@@ -7,23 +7,24 @@ extends Node2D
 var robPosition = [Vector2(428,479),Vector2(964,479)];
 var dummy;
 onready var tracks = [$TopPath, $BottomPath]
-var letter = load("res://Presets/Letter Stuff/Letters.tscn")
+var letter = ResourceLoader.load("res://Presets/Letter Stuff/Letters.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MultiplayerWebsocket.gameScreen = $"."
 	
-	var plr = load("res://Presets/Rob.tscn").instance();
-	dummy = load("res://Presets/DummyPlayer.tscn").instance();
+	var plr = ResourceLoader.load("res://Presets/Rob.tscn").instance();
+	dummy = ResourceLoader.load("res://Presets/DummyPlayer.tscn").instance();
 	add_child(plr)
 	add_child(dummy)
 	plr.scale = Vector2(1.25,1.25);
 	dummy.scale = Vector2(1.25,1.25);
+	print("Multiplayer player: " + str(MultiplayerWebsocket.player));
 	if(MultiplayerWebsocket.player == 1):
 		plr.position = robPosition[0];
 		dummy.position = robPosition[1];
-		plr.get_node("Rob").texture = load("res://Assets/rob.png");
-		dummy.get_node("Rob").texture = load("res://Assets/Multiplayer/Lady_Robin_The_Ram.png");
+		plr.get_node("Rob").texture = ResourceLoader.load("res://Assets/RobMain.png");
+		dummy.get_node("Rob").texture = ResourceLoader.load("res://Assets/Multiplayer/Lady_Robin_The_Ram.png");
 	else:
 		# Remove both timers as player 2's spawns are dictated by player 1
 		$SpawnTimer.queue_free();
@@ -31,8 +32,8 @@ func _ready():
 		
 		plr.position = robPosition[1];
 		dummy.position = robPosition[0];
-		plr.get_node("Rob").texture = load("res://Assets/Multiplayer/Lady_Robin_The_Ram.png");
-		dummy.get_node("Rob").texture = load("res://Assets/rob.png");
+		plr.get_node("Rob").texture = ResourceLoader.load("res://Assets/Multiplayer/Lady_Robin_The_Ram.png");
+		dummy.get_node("Rob").texture = ResourceLoader.load("res://Assets/RobMain.png");
 	dummy = dummy.get_node("Rob");
 	
 	pass # Replace with function body.

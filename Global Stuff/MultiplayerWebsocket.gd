@@ -1,6 +1,6 @@
 extends Node
 
-export var websocket_url = "wss://rob-server.pikenote.repl.co/ws"
+export var websocket_url = "wss://rob-server.replit.app/ws"
 
 # Our WebSocketClient instance
 var _client = WebSocketClient.new()
@@ -25,7 +25,6 @@ func _ready():
 func _connectToServer():
 	var err = _client.connect_to_url(websocket_url)
 	print(err);
-	return err;
 	if err != OK:
 		print("Unable to connect")
 		set_process(false)
