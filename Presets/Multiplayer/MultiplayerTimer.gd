@@ -13,7 +13,7 @@ func _ready():
 	$".".start();
 	pass # Replace with function body.
 
-func _spawn_letter():
+func generateRandomLetter():
 	var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
@@ -28,12 +28,14 @@ func _spawn_letter():
 			letters="KJX"
 		_:
 			letters="QZ"
-	
-	var letter = load("res://Presets/Letter Stuff/Letters.tscn").instance()
-	get_node(pathSpawn).add_child(letter);
-	letter._changeLetter(letters[randi()% len(letters)]);
-	letter.modulate=Color(modulate)
-	MultiplayerWebsocket._letterSpawned(letter._getLetter(),timer_ind);
+	return letters[randi()% len(letters)];
+
+func _spawn_letter():
+	var letterList = [];
+	for i in range(2):
+		letterList.append(generateRandomLetter());
+	print("Sent")
+	MultiplayerWebsocket._letterSpawned(letterList);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

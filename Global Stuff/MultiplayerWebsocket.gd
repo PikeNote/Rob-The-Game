@@ -161,9 +161,9 @@ func _gameData(type, payload):
 	_send_data({"user":player,"type":"gameData","payload":{"type":type,"payload":payload,"match_uuid":lobbyCode}});
 
 # Send packets regarding newly spawned letters
-func _letterSpawned(l,i):
-	_gameData("letterSpawned",{"letter":l,"path":i});
-
+func _letterSpawned(l):
+	_gameData("letterSpawned",{"letter":l,"unix":OS.get_unix_time()});
+	gameScreen._letterSpawned(l,OS.get_unix_time());
 # Packets to start the game
 func _gameStarted():
 	_send_data({"type":"lobbyStarted","payload":{"match_uuid":lobbyCode}});
@@ -182,7 +182,9 @@ func gameData(payload):
 		"mouseReleased":
 			gameScreen._dummyRelease();
 		"letterSpawned":
-			gameScreen._letterSpawned(payload.payload.letter, payload.payload.path)
+			print("Received")
+			print(payload.payload.letter);
+			gameScreen._letterSpawned(payload.payload.letter, payload.payload.unix)
 
 
 # Poll for updates from the server

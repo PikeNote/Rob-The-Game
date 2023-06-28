@@ -28,7 +28,6 @@ func _ready():
 	else:
 		# Remove both timers as player 2's spawns are dictated by player 1
 		$SpawnTimer.queue_free();
-		$SpawnTimer2.queue_free();
 		
 		plr.position = robPosition[1];
 		dummy.position = robPosition[0];
@@ -52,14 +51,16 @@ func _input(event: InputEvent) -> void:
 		if($MouseTimer.time_left==0):
 			$MouseTimer.start();
 
-func _letterSpawned(letter_string,track_ind):
-	print(track_ind)
-	var lt = letter.instance();
-	tracks[track_ind].add_child(lt);
-	lt._changeLetter(letter_string);
-	lt.modulate=Color(modulate)
-
-
+func _letterSpawned(letterList:Array, unix):
+	for i in range(letterList.size()):
+		var lt: PathFollow2D = letter.instance();
+		tracks[i].add_child(lt);
+		lt._changeLetter(letterList[i]);
+		lt.modulate=Color(modulate)
+		
+		var timeUpdateBetween = (OS.get_unix_time() - unix)/0.017;
+		print(timeUpdateBetween);
+		lt.offset = timeUpdateBetween * (0.017*lt.get_speed());
 
 func _on_MouseTimer_timeout():
 	var globalMousePosition = get_global_mouse_position();

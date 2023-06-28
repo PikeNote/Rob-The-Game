@@ -17,3 +17,10 @@ shape = SubResource( 1 )
 [node name="Letter" type="Sprite" parent="LetterKin"]
 scale = Vector2( 0.04, 0.04 )
 texture = ExtResource( 2 )
+
+[node name="OffsetTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.017
+autostart = true
+
+[connection signal="timeout" from="OffsetTimer" to="." method="_on_OffsetTimer_timeout"]
