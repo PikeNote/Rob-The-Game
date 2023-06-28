@@ -8,6 +8,8 @@ var robPosition = [Vector2(428,479),Vector2(964,479)];
 var dummy;
 onready var tracks = [$TopPath, $BottomPath]
 var letter = ResourceLoader.load("res://Presets/Letter Stuff/Letters.tscn")
+var letterCounter = 0;
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,6 +48,9 @@ func _dummyShoot(pos:Vector2):
 func _dummyRelease():
 	dummy._release();
 
+func _dummyChange(s):
+	dummy.emulateLasso(s);
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if($MouseTimer.time_left==0):
@@ -53,14 +58,23 @@ func _input(event: InputEvent) -> void:
 
 func _letterSpawned(letterList:Array, unix):
 	for i in range(letterList.size()):
+		letterCounter+=1;
 		var lt: PathFollow2D = letter.instance();
 		tracks[i].add_child(lt);
 		lt._changeLetter(letterList[i]);
 		lt.modulate=Color(modulate)
+		lt.setCounter(letterCounter);
 		
 		var timeUpdateBetween = (OS.get_unix_time() - unix)/0.017;
 		print(timeUpdateBetween);
 		lt.offset = timeUpdateBetween * (0.017*lt.get_speed());
+
+func removeLetter(c):
+	for letter in ($TopPath.get_children() + $BottomPath.get_children()):
+		if(letter.getCounter() == c):
+			var letter_text = letter._getLetter();
+			letter.queue_free();
+			return letter_text;
 
 func _on_MouseTimer_timeout():
 	var globalMousePosition = get_global_mouse_position();

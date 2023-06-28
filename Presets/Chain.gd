@@ -62,10 +62,11 @@ func _physics_process(_delta: float) -> void:
 				hooked = true
 				flying = false	
 				currentLetter = collision.collider.get_parent()._getLetter();
-				$Tip/Letter.texture=load("res://Assets//Letters//Letter_"+currentLetter+".png")
-				$Tip/Letter.visible=true;
+				changeLasso(currentLetter);
 				collision.collider.get_parent().queue_free();
 				$"../../CollisionShape2D".disabled=false;
+				if(MultiplayerWebsocket.gameScreen != null):
+					MultiplayerWebsocket.letterGrabbed(collision.collider.get_parent().getCounter());
 			elif (collision.collider.name==$"../..".name && hooked):
 				GameReferences.inventoryRef.get_node("InventorySlots")._addLetter(currentLetter);
 				hooked = false;
@@ -73,3 +74,7 @@ func _physics_process(_delta: float) -> void:
 			else:
 				release()
 	tip = $Tip.global_position	# set `tip` as starting position for next frame
+
+func changeLasso(s):
+	$Tip/Letter.texture=load("res://Assets//Letters//Letter_"+s+".png")
+	$Tip/Letter.visible=true;

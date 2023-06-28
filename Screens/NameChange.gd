@@ -17,10 +17,11 @@ func _on_EditNameButton_pressed():
 	nameInput.editable = editMode
 	if(editMode):
 		editNameButton.texture_normal=	load("res://Assets/Settings/Confirm_Button.PNG");
-		if(!nameInput.text.length() > 0):
-			nameInput.text = storedName;
-		UserManager.settings.username = nameInput.text;
-		UserManager.updateFile();
 	else:
 		editNameButton.texture_normal=	load("res://Assets/Settings/ChangeName_Button.PNG");
+		if(!nameInput.text.length() > 0):
+			nameInput.text = storedName;
+		else:
+			UserManager.settings.username = nameInput.text;
+			UserManager.updateFile();
 	

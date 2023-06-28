@@ -164,6 +164,11 @@ func _gameData(type, payload):
 func _letterSpawned(l):
 	_gameData("letterSpawned",{"letter":l,"unix":OS.get_unix_time()});
 	gameScreen._letterSpawned(l,OS.get_unix_time());
+
+# Packets to notify that a specific letter is grabbed
+func letterGrabbed(id):
+	_gameData("letterGrabbed", {"letter":id})
+
 # Packets to start the game
 func _gameStarted():
 	_send_data({"type":"lobbyStarted","payload":{"match_uuid":lobbyCode}});
@@ -182,9 +187,10 @@ func gameData(payload):
 		"mouseReleased":
 			gameScreen._dummyRelease();
 		"letterSpawned":
-			print("Received")
-			print(payload.payload.letter);
 			gameScreen._letterSpawned(payload.payload.letter, payload.payload.unix)
+		"letterGrabbed":
+			var lt = gameScreen.removeLetter(payload.payload.letter);
+			gameScreen._dummyChange(lt);
 
 
 # Poll for updates from the server

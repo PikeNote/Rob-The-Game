@@ -3,12 +3,19 @@ extends PathFollow2D
 
 var speed = 200;
 var letter;
+var counter = 0;
 
 func change_speed(spd):
 	speed = spd;
 
 func get_speed():
 	return speed;
+
+func setCounter(s):
+	counter = s;
+
+func getCounter():
+	return counter;
 
 func _changeLetter(a):
 	$LetterKin/Letter.texture = load("res://Assets//Letters//Letter_"+a+".png")

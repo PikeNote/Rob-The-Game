@@ -25,6 +25,10 @@ func _physics_process(delta):
 		#$".".look_at($"../../Player2MousePos".position)
 		#$".".rotation_degrees -= 90
 
+func emulateLasso(s):
+	$Lasso.changeLasso(s);
+	pass;
+
 func _shoot(pos):
 	$Lasso.shoot(pos);
 

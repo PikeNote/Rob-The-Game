@@ -50,16 +50,25 @@ func _physics_process(_delta: float) -> void:
 			collision = $Tip.move_and_collide(direction * SPEED);
 		if collision:
 			if(collision.collider.name=="LetterKin"):
-				hooked = true	# Got something!
-				flying = false	# Not flying anymore
-				currentLetter = collision.collider.get_parent()._getLetter();
-				$Tip/Letter.texture=load("res://Assets//Letters//Letter_"+currentLetter+".png")
-				$Tip/Letter.visible=true;
-				collision.collider.get_parent().queue_free();
-				$"../../CollisionShape2D".disabled=false;
+				#hooked = true	# Got something!
+				#flying = false	# Not flying anymore
+				#currentLetter = collision.collider.get_parent()._getLetter();
+				#changeLasso(currentLetter);
+				#collision.collider.get_parent().queue_free();
+				#$"../../CollisionShape2D".disabled=false;
+				pass
 			elif (collision.collider.name=="DummyPlayer" && hooked):
 				hooked = false;
 				$Tip/Letter.visible=false;
 			else:
 				release()
 	tip = $Tip.global_position	# set `tip` as starting position for next frame
+	
+func changeLasso(s):
+	if(s==null):
+		s="A"
+	hooked = true	# Got something!
+	flying = false	# Not flying anymore
+	$Tip/Letter.texture=load("res://Assets//Letters//Letter_"+s+".png")
+	$Tip/Letter.visible=true;
+	$"../../CollisionShape2D".disabled=false;
