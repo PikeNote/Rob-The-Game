@@ -59,4 +59,5 @@ one_shot = true
 [node name="Inventory" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1381, 16 )
 
+[connection signal="transition_out_done" from="Transition" to="." method="_on_Transition_transition_out_done"]
 [connection signal="timeout" from="MouseTimer" to="." method="_on_MouseTimer_timeout"]

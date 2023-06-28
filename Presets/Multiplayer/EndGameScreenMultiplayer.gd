@@ -27,29 +27,28 @@ func _endGame():
 	$CanvasLayer/Control/WordsSpelled.text="Words Spelled: " + str(wordsSpelled);
 	$CanvasLayer/Control/PointsEarned.text="Points Spelled: " + str(pointsEarned);
 	
-	var currentScene = GameReferences.currentScene;
+	
+	MultiplayerWebsocket._endGame(pointsEarned);
 
-	
-	var requiredWordSpelled = GameParameters.levelDescription[currentScene].Requirements.spelled;
-	var requiredPointsGained = GameParameters.levelDescription[currentScene].Requirements.points;
-	var levelName = GameParameters.levelDescription[GameReferences.currentScene].Name;
-	
-	# Check if the requirees for the level are met before passing/failing
-	if(wordsSpelled >= requiredWordSpelled && pointsEarned >= requiredPointsGained):
-		$CanvasLayer/Control/LevelStatus.text = "Level Passed!"
+func multiplayerReults(p):
+	var opPlayer = 1;
+	if(MultiplayerWebsocket.player == 1):
+		opPlayer = 0;
+	$CanvasLayer/Control/EnemyPoints.text="Enemy Points: " + str(p["scores"][opPlayer]);
+	print("Winner: " + str(p["winner"]))
+	if(p["winner"] == MultiplayerWebsocket.player):
+		$CanvasLayer/Control/LevelStatus.text = "You won!";
 		$CanvasLayer/Control/LevelStatus.set("custom_colors/default_color", Color("#20FF00"));
-		
-		if(!(levelName in UserManager.settings.levelsCompleted)):
-			UserManager.settings.levelsCompleted.append(levelName);
-			UserManager.updateFile();
-			
-		# Only add scores to the leaderboard if they passed the level
-		if(UserManager.settings.saveScores):
-			saveScores();
+	elif(p["winner"] == -1):
+		$CanvasLayer/Control/LevelStatus.text = "You drew!";
+		$CanvasLayer/Control/LevelStatus.set("custom_colors/default_color", Color("#FFEA00"));
 	else:
-		$CanvasLayer/Control/LevelStatus.text = "Level Failed!"
+		$CanvasLayer/Control/LevelStatus.text = "You lost!";
 		$CanvasLayer/Control/LevelStatus.set("custom_colors/default_color", Color("#E12C27"));
+	
+	showScreen();
 
+func showScreen():
 	$CanvasLayer.visible = true;
 	tween.interpolate_property($CanvasLayer/Control, "rect_position", $CanvasLayer/Control.rect_position, Vector2($CanvasLayer/Control.rect_position.x, normalYPosition), scaleUpTime, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start();
@@ -67,10 +66,5 @@ func saveScores():
 
 func _on_ExitButton_pressed():
 	GameReferences.endGame = true;
-	$"../Transition".transition_in("res://Screens/TravelInProgress.tscn")
+	$"../Transition".transition_in("res://Screens/MainScene.tscn")
 	pass # Replace with function body.
-
-
-func _on_RestartButton_pressed():
-	GameReferences.endGame = false;
-	$"../Transition".transition_in("res://Screens/TravelInProgress.tscn");

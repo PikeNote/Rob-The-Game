@@ -1,6 +1,6 @@
 extends Node
 
-export var websocket_url = "wss://rob-server.replit.app/ws"
+export var websocket_url = "wss://rob-server.pikenote.repl.co/ws"
 
 # Our WebSocketClient instance
 var _client = WebSocketClient.new()
@@ -11,7 +11,7 @@ var lobbyScreen;
 var gameScreen;
 var playerNames;
 
-var player = 1;
+var player = 0;
 
 var socketOpened = false;
 
@@ -41,15 +41,16 @@ func _connected(proto = ""):
 
 # Send JSON data packets to the server
 func _send_data(data):
-	var sendData:String = JSON.print(data)
-	_client.get_peer(1).put_packet(sendData.to_utf8())
+	if(socketOpened):
+		var sendData:String = JSON.print(data)
+		_client.get_peer(1).put_packet(sendData.to_utf8())
 # Example received data template
 
 
 func _on_data():
 	var packet:PoolByteArray  = _client.get_peer(1).get_packet()
 	var receivedData: Dictionary = JSON.parse(packet.get_string_from_utf8()).result
-	
+	print(receivedData.type)
 	match(receivedData.type):
 		"lobbyCreated":
 			# Lobby creation successful with a returned lobby code
@@ -102,11 +103,24 @@ func _on_data():
 			"""
 			lobbyJoin(receivedData.payload)
 		"gameEnded":
-			gameEnded();
+			# Game has ended- server has received both scores
+			"""
+			{
+				"type":"gameEnded",
+				"payload":{
+					"scores":[100,200],
+					"winner":1
+				}
+			}
+			"""
+			gameEnded(receivedData.payload);
 		"lobbyStarted":
 			# Simple request to start the game on both clients
 			#{"type":"lobbyStarted"}
 			lobbyStarted();
+		"startSpawn":
+			# Start spawning of letters
+			gameScreen._startSpawn();
 
 
 	
@@ -127,7 +141,7 @@ func lobbyJoin(payload):
 	# status = 0 is fail
 	if(payload.status == 1):
 		playerNames = payload.playerNames;
-		player = 2;
+		player = 1;
 		lobbyCode = payload.match_uuid;
 		if(lobbySelect != null):
 			lobbySelect._lobbyCreated();
@@ -139,7 +153,8 @@ func lobbyStarted():
 
 
 # Fnuctions relating to ending the game
-func gameEnded():
+func gameEnded(payload):
+	gameScreen._endGame(payload)
 	pass;
 
 func _closed(was_clean = false):
@@ -176,6 +191,14 @@ func _gameStarted():
 # Packets to leave the lobby
 func _leaveLobby():
 	_send_data({"type":"lobbyLeave","payload":{"match_uuid":lobbyCode}});
+
+func _endGame(p):	
+	_send_data({"type":"gameEnded","user":player,"payload":{"points":p,"match_uuid":lobbyCode}});
+
+func _gameReady():
+	print("Game ready sent!")
+	_send_data({"type":"readyGame"});
+
 # Switch case statement to process the game data according
 # This includes: mouse movement data, mouse clicking data, mouse release date, letter spawning data
 func gameData(payload):
@@ -191,6 +214,8 @@ func gameData(payload):
 		"letterGrabbed":
 			var lt = gameScreen.removeLetter(payload.payload.letter);
 			gameScreen._dummyChange(lt);
+
+
 
 
 # Poll for updates from the server

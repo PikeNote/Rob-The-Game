@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lobby_Screen.PNG-4c1ce1c4949780cbba44db0b27ed77a2.stex"
+path="res://.import/Lobby_Screen.png-b5503abae224fb4d05c50fce9e2d2e24.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Lobby_Screen.PNG"
-dest_files=[ "res://.import/Lobby_Screen.PNG-4c1ce1c4949780cbba44db0b27ed77a2.stex" ]
+source_file="res://Assets/Multiplayer/Lobby_Screen.png"
+dest_files=[ "res://.import/Lobby_Screen.png-b5503abae224fb4d05c50fce9e2d2e24.stex" ]
 
 [params]
 

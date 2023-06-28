@@ -13,6 +13,7 @@ var letterCounter = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$SpawnTimer.stop();
 	MultiplayerWebsocket.gameScreen = $"."
 	
 	var plr = ResourceLoader.load("res://Presets/Rob.tscn").instance();
@@ -22,7 +23,7 @@ func _ready():
 	plr.scale = Vector2(1.25,1.25);
 	dummy.scale = Vector2(1.25,1.25);
 	print("Multiplayer player: " + str(MultiplayerWebsocket.player));
-	if(MultiplayerWebsocket.player == 1):
+	if(MultiplayerWebsocket.player == 0):
 		plr.position = robPosition[0];
 		dummy.position = robPosition[1];
 		plr.get_node("Rob").texture = ResourceLoader.load("res://Assets/RobMain.png");
@@ -51,6 +52,9 @@ func _dummyRelease():
 func _dummyChange(s):
 	dummy.emulateLasso(s);
 
+func _startSpawn():
+	$SpawnTimer.start();
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if($MouseTimer.time_left==0):
@@ -76,7 +80,16 @@ func removeLetter(c):
 			letter.queue_free();
 			return letter_text;
 
+func _endGame(p):
+	$SpawnTimer.queue_free();
+	$EndGameScreen.multiplayerReults(p);
+
 func _on_MouseTimer_timeout():
 	var globalMousePosition = get_global_mouse_position();
 	MultiplayerWebsocket._gameData("mouseMoved",[globalMousePosition.x,globalMousePosition.y])
+	pass # Replace with function body.
+
+
+func _on_Transition_transition_out_done():
+	MultiplayerWebsocket._gameReady();
 	pass # Replace with function body.
