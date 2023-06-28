@@ -162,6 +162,9 @@ func _closed(was_clean = false):
 	lobbyCode = "";
 	print("Closed, clean: ", was_clean)
 	set_process(false)
+	if(lobbyScreen != null):
+		lobbyScreen.get_node("Transition").transition_in("res://Screens/MainScene.tscn");
+		
 
 
 #  Functions to send packets to the server regarding lobby creation, joining lobbies, and game related data

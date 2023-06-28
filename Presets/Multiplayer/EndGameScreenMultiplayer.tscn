@@ -27,6 +27,7 @@ script = ExtResource( 4 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 margin_right = 1920.0

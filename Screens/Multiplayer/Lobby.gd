@@ -11,6 +11,9 @@ func _ready():
 	else:
 		for n in MultiplayerWebsocket.playerNames:
 			_addPlayer(n);
+	
+	if(MultiplayerWebsocket.player == 0):
+		$StartGame.visible = true;
 	pass # Replace with function body.
 
 func _addPlayer(name):
